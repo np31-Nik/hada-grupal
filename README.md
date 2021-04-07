@@ -7,7 +7,7 @@ Robert Kazaryan
 
 Serhii Vidernikov
 
-Nikita Polyanskiy
+Nikita Polyanskiy (Coordinador)
 
 
 ● Descripción: 
@@ -37,23 +37,21 @@ El usuario que no esté registrado podrá acceder a:
 
 ● Listado EN Pública: 
 
-ENPropiedad
+ENArticulo: Se obtiene la informacion y fotos sobre el articulo.
 
-ENCoche
+ENComentario: Se almacenan y se obtienen los comentarios del articulo.
 
-ENComentario
+ENHipoteca: Se obtiene la informacion y opciones de la hipoteca para el articulo.
 
-ENHipoteca
+ENUsuario: Se comprueba si el usuario esta registrado o si es admin.
 
-ENInvitado
+ENServicioPremium: Se obtienen los articulos premium y sus fotos.
 
-ENServicioPremium
+ENBusqueda: Se obtienen los articulos segun los criterios de busqueda.
 
-ENBusqueda
+ENSimilares: Se obtienen varios articulos similares al actual.
 
-ENBusquedaDias
-
-ENSimilares
+ENIniciarSesion: Se almacena al nuevo usuario registrado o se comprueba si intenta iniciar sesion.
 
 ● Parte privada: 
 El usuario registrado, además de tener las mismas funcionalidades que el usuario sin registrar, podrá:
@@ -71,8 +69,7 @@ El usuario registrado, además de tener las mismas funcionalidades que el usuari
 Además, habrá otro tipo de usuarios, los administradores, que podrán dirigir la aplicación web para su mejor rendimiento como por ejemplo, tener la potestad de poder dar de baja algún usuario malicioso, además de poder añadir más bancos para hipoteca, dar de baja cierto banco en la BD, etc. 
 
 ● Listado EN Privada: 
-ENRegistrado
-ENAdmin
+ENPublicar: Se almacena el articulo en la BD.
 
 
 
