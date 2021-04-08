@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace library.EN
+namespace library
 {
     /*Datos a introducir:
         Tipo de articulo: Coche o vivienda
@@ -19,9 +19,10 @@ namespace library.EN
     class ENPublicar
     {
         private float _precio;
-        private string _descripcion, _tipo, _subTipo, _marca = null, _direccion, _localidad;
+        private string _descripcion, _tipo, _subTipo, _marca = null, _direccion, _localidad,_titulo;
         private int _cp;
         private int _superficie,_banyos, _habitaciones;
+        private int id = 0; //clave primaria
 
         public float precio{
             get{ return _precio; }
@@ -77,7 +78,12 @@ namespace library.EN
             get { return _localidad; }
             set { _localidad = value; }
         }
-        
+        public string titulo
+        {
+            get { return _titulo; }
+            set { _titulo = value; }
+        }
+
         public ENPublicar() //vacio
         {
             precio = 0;
@@ -91,10 +97,11 @@ namespace library.EN
             habitacion = 0;
             banyos = 0;
             localidad = "";
+            titulo = "";
         }
 
         public ENPublicar(float price, int metros, int cdoPostal, int rooms, int bathrooms,
-            string type, string subType, string dir, string description,string city) { //Constructor para vivienda
+            string type, string subType, string dir, string description,string city, string title) { //Constructor para vivienda
 
             precio = price;
             superficie = metros;
@@ -106,17 +113,36 @@ namespace library.EN
             habitacion = rooms;
             banyos = bathrooms;
             localidad = city;
+            titulo = title;
+            marca = null;
         }
 
         //Constructor para vehiculo
-        public ENPublicar(float price,string type, String subType, string dir, string description, string city)
+        public ENPublicar(float price,string type, String subType, int cdoPostal,string dir,
+            string description, string city, string marcaParam, string title)
         {
             precio = price;
             descripcion = description;
+            cp = cdoPostal;
             tipo = type;
             subTipo = subType;
             direccion = dir;
             localidad = city;
+            marca = marcaParam;
+            titulo = title;
+            habitacion = -1;
+            banyos = -1;
+            superficie = -1;
+        }
+
+        public bool crearAnuncio() {
+            CADPublicar anuncio = new CADPublicar();
+            if (anuncio.crearAnuncio(this,id))
+            {
+                id++;
+                return true;
+            }
+            return false;
         }
     }
 }
