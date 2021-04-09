@@ -1,13 +1,13 @@
 		
-Juan Carlos Sánchez González
+Juan Carlos Sánchez González 77953880A
 
-Juan Ramón Morales Gómez
+Juan Ramón Morales Gómez 48732239T
 
-Robert Kazaryan
+Robert Kazaryan Y4256793J
 
-Serhii Vidernikov
+Serhii Vidernikov Y4459773H
 
-Nikita Polyanskiy (Coordinador)
+Nikita Polyanskiy P550048833 (Coordinador)
 
 
 ● Descripción: 
