@@ -34,24 +34,16 @@ El usuario que no esté registrado podrá acceder a:
 	
 	---Artículos similares.
 	
+	---Comentarios de otros usuarios.
+	
 
 ● Listado EN Pública: 
-
-ENArticulo: Se obtiene la informacion y fotos sobre el articulo.
-
-ENComentario: Se almacenan y se obtienen los comentarios del articulo.
-
-ENHipoteca: Se obtiene la informacion y opciones de la hipoteca para el articulo.
-
-ENUsuario: Se comprueba si el usuario esta registrado o si es admin.
-
-ENServicioPremium: Se obtienen los articulos premium y sus fotos.
-
-ENBusqueda: Se obtienen los articulos segun los criterios de busqueda.
-
-ENSimilares: Se obtienen varios articulos similares al actual.
-
-ENIniciarSesion: Se almacena al nuevo usuario registrado o se comprueba si intenta iniciar sesion.
+ENAnuncio (?): Se almacena la informacion sobre el anuncio + la informacion sobre el coche/propiedad.
+ENCoche (Serhii): Se almacena la informacion sobre el coche.
+ENPropiedad (Serhii): Se almacena informacion sobre la propiedad.
+ENComentario (Nikita): Se almacena y se recogen los comentarios de los anuncios.
+ENUsuario (Robert): Se registran los usuarios y se verifican al iniciar sesion, tambien se verifica si es admin.
+ENHipoteca (Juan Carlos): Se almacena la informacion sobre la solicitud de hipoteca.
 
 ● Parte privada: 
 El usuario registrado, además de tener las mismas funcionalidades que el usuario sin registrar, podrá:
@@ -69,7 +61,13 @@ El usuario registrado, además de tener las mismas funcionalidades que el usuari
 Además, habrá otro tipo de usuarios, los administradores, que podrán dirigir la aplicación web para su mejor rendimiento como por ejemplo, tener la potestad de poder dar de baja algún usuario malicioso, además de poder añadir más bancos para hipoteca, dar de baja cierto banco en la BD, etc. 
 
 ● Listado EN Privada: 
-ENPublicar: Se almacena el articulo en la BD.
+
+ENFoto (?): Se almacenan las fotos.
+ENBanco (Juan Carlos): Se almacena la informacion sobre los bancos.
+ENTipoAnuncio (Robert): Se almacenan los tipos de anuncio (venta/alquiler...).
+ENTipoPropiedad (Nikita): Se almacenan los tipos de propiedad (piso/chalet/adosado...).
+ENMarcaCoche (Juan Ramon): Se almacenan las marcas de los coches.
+ENTipoCoche (Juan Ramon): Se almacena el tipo de coche (familiar/furgoneta...).
 
 
 
