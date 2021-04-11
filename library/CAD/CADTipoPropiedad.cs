@@ -7,65 +7,51 @@ using System.Configuration;
 
 namespace library
 {
-    public class CADComentario
+    public class CADTipoPropiedad
     {
         private string constring;
 
-        public CADComentario()
+        public CADTipoPropiedad()
         {
-            constring = constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
-        public int getId()
-        {
-            int id = 0;
-
-            return id;
-        }
-
-        public bool readComentario(ENComentario c)
+        public bool createTipoPropiedad(ENTipoPropiedad en)
         {
             bool success = false;
 
             return success;
         }
 
-        public bool createComentario(ENComentario c)
+        public bool readTipoPropiedad(ENTipoPropiedad en)
         {
             bool success = false;
 
             return success;
         }
 
-        public bool deleteComentario(ENComentario c)
+        public bool deleteTipoPropiedad(ENTipoPropiedad en)
         {
             bool success = false;
 
             return success;
         }
 
-        public bool editComentario(ENComentario c)
+        public bool editTipoPropiedad(ENTipoPropiedad en, string T)
         {
             bool success = false;
 
             return success;
         }
 
-        public bool readNextComentario(ENComentario c)
+        public bool readNextTipoPropiedad(ENTipoPropiedad en)
         {
             bool success = false;
 
             return success;
         }
 
-        public bool readFirstComentario(ENComentario c)
-        {
-            bool success = false;
-
-            return success;
-        }
-
-        public bool readLastComentario(ENComentario c)
+        public bool readFirstTipoPropiedad(ENTipoPropiedad en)
         {
             bool success = false;
 

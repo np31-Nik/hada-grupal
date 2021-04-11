@@ -114,5 +114,19 @@ namespace library
             }
             return success;
         }
+
+        public bool readFirstComentario()
+        {
+            CADComentario cad = new CADComentario();
+            bool success = cad.readFirstComentario(this);
+            return success;
+        }
+
+        public bool readLastComentario()
+        {
+            CADComentario cad = new CADComentario();
+            bool success = cad.readLastComentario(this);
+            return success;
+        }
     }
 }
