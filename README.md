@@ -38,6 +38,7 @@ El usuario que no esté registrado podrá acceder a:
 	
 
 ● Listado EN Pública: 
+
 ENAnuncio (?): Se almacena la informacion sobre el anuncio + la informacion sobre el coche/propiedad.
 
 ENCoche (Serhii): Se almacena la informacion sobre el coche.
@@ -52,6 +53,7 @@ ENHipoteca (Juan Carlos): Se almacena la informacion sobre la solicitud de hipot
 
 
 ● Parte privada: 
+
 El usuario registrado, además de tener las mismas funcionalidades que el usuario sin registrar, podrá:
 
 --Publicar sus propios artículos desde la página principal, introduciendo una descripción, algunos detalles (tipo de artículo , tipo de propiedad, precio, tipo de operación, nº de dormitorios y baños…etc)
