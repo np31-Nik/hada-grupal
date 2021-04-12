@@ -113,7 +113,7 @@ namespace library
         public bool crearPropiedad()
         {
             CADPropiedad anuncio = new CADPropiedad();
-            if (anuncio.crearAnuncio(this, id))
+            if (anuncio.crearPropiedad(this, id))
             {
                 id++;
                 return true;
