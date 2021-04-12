@@ -8,9 +8,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libraries", "libraries\libraries.csproj", "{12E51B86-064E-4637-9588-E0B48260FE10}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12E51B86-064E-4637-9588-E0B48260FE10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E51B86-064E-4637-9588-E0B48260FE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E51B86-064E-4637-9588-E0B48260FE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E51B86-064E-4637-9588-E0B48260FE10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{12E51B86-064E-4637-9588-E0B48260FE10} = {4556B8ED-1623-4557-8DA4-A0EF61CDDB29}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3EE95870-11BD-4A90-BA9B-97DF55776F6E}
