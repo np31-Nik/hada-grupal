@@ -8,21 +8,10 @@ namespace library
 {
     class ENCoche
     {
-        private float _precio;
-        private string _descripcion, _tipo, _subTipo, _marca = null, _direccion, _localidad, _titulo;
-        private int _cp,_anyo;
-        private int id = 0; //clave primaria
+        
+        private string  _tipo, _subTipo, _marca = null, _direccion;
+        private int _anyo;
 
-        public float precio
-        {
-            get { return _precio; }
-            set { _precio = value; }
-        }
-        public string descripcion
-        {
-            get { return _descripcion; }
-            set { _descripcion = value; }
-        }
         public string tipo
         {
             get { return _tipo; }
@@ -34,50 +23,26 @@ namespace library
             get { return _marca; }
             set { _marca = value; }
         }
-        public string direccion
-        {
-            get { return _direccion; }
-            set { _direccion = value; }
-        }
-        public int cp
-        {
-            get { return _cp; }
-            set { _cp = value; }
-        }
+
 
         public int anyo
         {
             get { return _anyo; }
             set { _anyo = value; }
         }
-        public string localidad
+        
+        
+        public ENCoche(int year, string type, string subType, string marcaParam)
         {
-            get { return _localidad; }
-            set { _localidad = value; }
-        }
-        public string titulo
-        {
-            get { return _titulo; }
-            set { _titulo = value; }
-        }
-        public ENCoche(int year, float price, string type, String subType, int cdoPostal, string dir,
-            string description, string city, string marcaParam, string title)
-        {
-            precio = price;
-            descripcion = description;
-            cp = cdoPostal;
             tipo = type;
-            direccion = dir;
-            localidad = city;
             marca = marcaParam;
-            titulo = title;
             anyo = year;
 
         }
-        public bool crearCoche()
+        public bool crearCoche(ENAnuncio anuncio,ref int id)
         {
-            CADCoche anuncio = new CADCoche();
-            if (anuncio.crearCoche(this, id))
+            CADCoche coche= new CADCoche();
+            if (coche.crearCoche(this, anuncio.id))
             {
                 id++;
                 return true;
