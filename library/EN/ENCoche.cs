@@ -8,8 +8,8 @@ namespace library
 {
     class ENCoche
     {
-        
-        private string  _tipo, _subTipo, _marca = null, _direccion;
+
+        private string _tipo, _subTipo, _marca = null, _direccion;
         private int _anyo;
 
         public string tipo
@@ -30,8 +30,15 @@ namespace library
             get { return _anyo; }
             set { _anyo = value; }
         }
-        
-        
+
+
+        public ENCoche()
+        {
+            tipo = "";
+            marca = "";
+            anyo = 0;
+
+        }
         public ENCoche(int year, string type, string subType, string marcaParam)
         {
             tipo = type;
@@ -39,15 +46,31 @@ namespace library
             anyo = year;
 
         }
-        public bool crearCoche(ENAnuncio anuncio,ref int id)
+        public bool createCoche(uint id)
         {
-            CADCoche coche= new CADCoche();
-            if (coche.crearCoche(this, anuncio.id))
+            CADCoche coche = new CADCoche();
+            if (coche.createCoche(this, id))
             {
-                id++;
                 return true;
             }
             return false;
+        }
+        public bool readCoche()
+        {
+            CADCoche coche = new CADCoche();
+            return coche.readCoche(this);
+        }
+        public bool deletCoche()
+        {
+            CADCoche coche = new CADCoche();
+            return coche.deleteCoche(this);
+        }
+        public bool updateCoche()
+        {
+            CADCoche coche = new CADCoche();
+            return coche.updateCoche(this);
+
+
         }
     }
 }

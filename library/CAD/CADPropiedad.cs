@@ -16,12 +16,13 @@ namespace library
         {
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString(); ;//Conexion
         }
-        public bool crearPropiedad(ENPropiedad en, int id)
+        public bool createPropiedad(ENPropiedad en,uint id)
         {
             bool creado = false;
             //Falta anyadir mas atibutos a la BD
-            string comando = "";//= "Insert INTO [dbo].[Propiedades] (id, titulo, precio,localidad,cp,descripcion,) ";//+
-                //"VALUES ('" + id + "', '" + en.titulo + "', " + en.precio + en.localidad + en.cp + en.descripcion + ")";
+            string comando = "Insert INTO [dbo].[Propiedad] (id,numCatastral, superficie, habitaciones, banyos)" +
+                "VALUES ('"+id + "', '" + en.numCatastral +"', '"  + en.superficie+ "', " 
+                + en.habitaciones+ "', " +en.banyos + ")";
 
             try
             {
@@ -43,6 +44,25 @@ namespace library
 
             }
             return creado;
+        }
+
+        public bool readPropiedad(ENPropiedad en, uint id)
+        {
+            bool read = false;
+
+            return read;
+        }
+        public bool updatePropiedad(ENPropiedad en,uint id)
+        {
+            bool update = false;
+
+            return update;
+        }
+        public bool deletePropiedad(ENPropiedad en,uint id)
+        {
+            bool deleted = false;
+
+            return deleted;
         }
     }
 }

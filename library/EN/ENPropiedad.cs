@@ -6,35 +6,14 @@ using System.Threading.Tasks;
 
 namespace library
 {
-    /*Datos a introducir:
-        Tipo de articulo: Coche o vivienda
-        Subtipo: piso, chalet, camioneta
-        Si coche: marca
-        Si casa: superficie
-        Precio
-        Direccion
-        Codigo Postal
-        Descripcion
-     */
     class ENPropiedad
     {
-        private float _precio;
-        private string _descripcion, _tipo, _direccion, _localidad, _titulo;
-        private int _cp;
+        private string _tipo, _direccion;
         private int _superficie, _banyos, _habitaciones;
-        private int id = 0, //clave primaria
-            numCatastral = -1; 
+        private int _numCatastral = -1;
 
-        public float precio
-        {
-            get { return _precio; }
-            set { _precio = value; }
-        }
-        public string descripcion
-        {
-            get { return _descripcion; }
-            set { _descripcion = value; }
-        }
+
+
         public string tipo
         {
             get { return _tipo; }
@@ -45,11 +24,7 @@ namespace library
             get { return _direccion; }
             set { _direccion = value; }
         }
-        public int cp
-        {
-            get { return _cp; }
-            set { _cp = value; }
-        }
+
         public int superficie
         {
             get { return _superficie; }
@@ -65,62 +40,64 @@ namespace library
             get { return _habitaciones; }
             set { _habitaciones = value; }
         }
-        public string localidad
+
+        public int numCatastral
         {
-            get { return _localidad; }
-            set { _localidad = value; }
-        }
-        public string titulo
-        {
-            get { return _titulo; }
-            set { _titulo = value; }
+            get { return _numCatastral; }
+            set { _numCatastral = value; }
         }
 
         public ENPropiedad() //vacio
         {
             numCatastral = -1;
-            precio = 0;
             superficie = 0;
-            cp = 0;
-            descripcion = "";
             tipo = "";
             direccion = "";
             habitaciones = 0;
             banyos = 0;
-            localidad = "";
-            titulo = "";
         }
 
-        public ENPropiedad(int catastral,float price, int metros, int cdoPostal, int rooms, int bathrooms,
-            string type, string subType, string dir, string description, string city, string title)
+        public ENPropiedad(int catastral, int metros, int rooms, int bathrooms,
+            string type, string subType, string dir)
         { //Constructor para vivienda
             numCatastral = catastral;
-            precio = price;
             superficie = metros;
-            cp = cdoPostal;
-            descripcion = description;
             tipo = type;
             direccion = dir;
             habitaciones = rooms;
             banyos = bathrooms;
-            localidad = city;
-            titulo = title;
         }
 
         //Constructor para vehiculo
-        
 
-        public bool crearPropiedad()
+
+        public bool createPropiedad(uint id)
         {
-            CADPropiedad anuncio = new CADPropiedad();
-            if (anuncio.crearPropiedad(this, id))
+            CADPropiedad prop = new CADPropiedad();
+            if (prop.createPropiedad(this, id))
             {
-                id++;
                 return true;
             }
             return false;
         }
 
-        //public bool eliminarPropiedad
+        public bool eliminarPropiedad(uint id)
+        {
+            CADPropiedad prop = new CADPropiedad();
+            return prop.deletePropiedad(this, id);
+        }
+
+        public bool updatePropiedad(uint id)
+        {
+            CADPropiedad prop = new CADPropiedad();
+            return prop.updatePropiedad(this, id);
+        }
+
+        public bool readPropiedad(uint id)
+        {
+            CADPropiedad prop = new CADPropiedad();
+            return prop.readPropiedad(this, id);
+
+        }
     }
 }

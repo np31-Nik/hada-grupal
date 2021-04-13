@@ -15,12 +15,12 @@ namespace library
         {
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString(); ;//Conexion
         }
-        public bool crearCoche(ENCoche en, int id)
+        public bool createCoche(ENCoche en,uint id)
         {
             bool creado = false;
             //Falta anyadir mas atibutos a la BD
-            string comando = "";//= "Insert INTO [dbo].[Coches] (id, titulo, precio,localidad,cp,descripcion,) ";//+
-                                //"VALUES ('" + id + "', '" + en.titulo + "', " + en.precio + en.localidad + en.cp + en.descripcion + ")";
+            string comando ="Insert INTO [dbo].[Coche] (id,anyo) "+
+                "VALUES ('" + id + "', '" + en.anyo + ")";
 
             try
             {
@@ -43,5 +43,25 @@ namespace library
             }
             return creado;
         }
+
+        public bool readCoche(ENCoche en)
+        {
+            bool read = false;
+
+            return read;
+        }
+        public bool updateCoche(ENCoche en)
+        {
+            bool update = false;
+
+            return update;
+        }
+        public bool deleteCoche(ENCoche en)
+        {
+            bool deleted = false;
+
+            return deleted;
+        }
+
     }
 }

@@ -8,7 +8,7 @@ namespace library
 {
     class ENAnuncio
     {
-        public int id = 0; //clave primaria
+        public uint id = 0; //clave primaria
         private string _titulo, _localidad, _descripcion;
         private float _precio;
         private int _cp;
@@ -57,11 +57,36 @@ namespace library
             cp = codPostal;
         }
 
-        public bool crearAnuncio() {
+        public bool createAnuncio() {
+            CADAnuncio anuncio = new CADAnuncio();
             bool creado = false;
-
-
+            if (coche)
+            {
+                ENCoche coche = new ENCoche();
+                if (coche.createCoche(id))
+                    if (anuncio.createAnuncio())
+                    {
+                        creado = true;
+                        id++;
+                    }
+            }
+            else
+            {
+                ENPropiedad prop = new ENPropiedad();
+                if (prop.createPropiedad(id))
+                    if (anuncio.createAnuncio())
+                    {
+                        creado = true;
+                        id++;
+                    }
+            }
             return creado;
+        }
+
+        public bool deleteAnuncio() {
+            bool deleted = false;
+
+            return deleted;
         }
     }
 }
