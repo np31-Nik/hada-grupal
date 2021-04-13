@@ -15,28 +15,28 @@ namespace library
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString(); ;//Conexion
         }
 
-        public bool createAnuncio()
+        public bool createAnuncio(ENAnuncio en, uint id)
         {
             bool creado = false;
 
 
             return creado;
         }
-        public bool deletAnuncio()
+        public bool deleteAnuncio(ENAnuncio en, uint id)
         {
             bool deleted = false;
 
 
             return deleted;
         }
-        public bool readAnuncio()
+        public bool readAnuncio(ENAnuncio en, uint id)
         {
             bool read = false;
 
 
             return read;
         }
-        public bool updateAnuncio()
+        public bool updateAnuncio(ENAnuncio en, uint id)
         {
             bool updated = false;
 

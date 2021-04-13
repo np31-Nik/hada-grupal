@@ -64,7 +64,7 @@ namespace library
             {
                 ENCoche coche = new ENCoche();
                 if (coche.createCoche(id))
-                    if (anuncio.createAnuncio())
+                    if (anuncio.createAnuncio(this,id))
                     {
                         creado = true;
                         id++;
@@ -74,7 +74,7 @@ namespace library
             {
                 ENPropiedad prop = new ENPropiedad();
                 if (prop.createPropiedad(id))
-                    if (anuncio.createAnuncio())
+                    if (anuncio.createAnuncio(this,id))
                     {
                         creado = true;
                         id++;
@@ -84,7 +84,27 @@ namespace library
         }
 
         public bool deleteAnuncio() {
+            CADAnuncio anuncio = new CADAnuncio();
             bool deleted = false;
+            if (anuncio.deleteAnuncio(this, id))
+                deleted = true;
+            return deleted;
+        }
+        public bool updateAnuncio()
+        {
+            CADAnuncio anuncio = new CADAnuncio();
+            bool deleted = false;
+            if (anuncio.updateAnuncio(this, id))
+                deleted = true;
+
+            return deleted;
+        }
+        public bool readAnuncio()
+        {
+            CADAnuncio anuncio = new CADAnuncio();
+            bool deleted = false;
+            if (anuncio.readAnuncio(this, id))
+                deleted = true;
 
             return deleted;
         }

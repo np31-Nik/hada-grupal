@@ -44,19 +44,19 @@ namespace library
             return creado;
         }
 
-        public bool readCoche(ENCoche en)
+        public bool readCoche(ENCoche en,uint id)
         {
             bool read = false;
 
             return read;
         }
-        public bool updateCoche(ENCoche en)
+        public bool updateCoche(ENCoche en,uint id)
         {
             bool update = false;
 
             return update;
         }
-        public bool deleteCoche(ENCoche en)
+        public bool deleteCoche(ENCoche en, uint id)
         {
             bool deleted = false;
 

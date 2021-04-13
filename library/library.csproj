@@ -45,11 +45,9 @@
     <Compile Include="CAD\CADAnunico.cs" />
     <Compile Include="CAD\CADCoche.cs" />
     <Compile Include="CAD\CADPropiedad.cs" />
-    <Compile Include="CAD\CADPublicar.cs" />
     <Compile Include="EN\ENAnuncio.cs" />
     <Compile Include="EN\ENCoche.cs" />
     <Compile Include="EN\ENPropiedad.cs" />
-    <Compile Include="EN\ENPublicar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

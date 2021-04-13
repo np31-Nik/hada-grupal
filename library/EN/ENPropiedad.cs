@@ -81,7 +81,7 @@ namespace library
             return false;
         }
 
-        public bool eliminarPropiedad(uint id)
+        public bool deletePropiedad(uint id)
         {
             CADPropiedad prop = new CADPropiedad();
             return prop.deletePropiedad(this, id);

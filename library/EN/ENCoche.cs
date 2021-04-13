@@ -11,6 +11,7 @@ namespace library
 
         private string _tipo, _subTipo, _marca = null, _direccion;
         private int _anyo;
+        private uint id;
 
         public string tipo
         {
@@ -58,17 +59,17 @@ namespace library
         public bool readCoche()
         {
             CADCoche coche = new CADCoche();
-            return coche.readCoche(this);
+            return coche.readCoche(this,id);
         }
-        public bool deletCoche()
+        public bool deleteCoche()
         {
             CADCoche coche = new CADCoche();
-            return coche.deleteCoche(this);
+            return coche.deleteCoche(this, id);
         }
         public bool updateCoche()
         {
             CADCoche coche = new CADCoche();
-            return coche.updateCoche(this);
+            return coche.updateCoche(this, id);
 
 
         }
