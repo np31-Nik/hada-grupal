@@ -9,17 +9,17 @@ namespace library
     class ENFoto
     {
         private byte[] _foto;
-        //private ENAnuncio _anuncio;
+        private ENAnuncio _anuncio;
         public byte[] Foto
         {
             get { return _foto; }
             set { _foto = value; }
         }
-        /*public ENAnuncio Anuncio
+        public ENAnuncio Anuncio
         {
             get { return Anuncio; }
             set { Anuncio = value; }
-        }*/
+        }
         public ENFoto()
         {
             Foto = null;
