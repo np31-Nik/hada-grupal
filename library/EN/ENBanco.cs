@@ -30,5 +30,68 @@ namespace library
             get { return email; }
             set { email = value; }
         }
+
+        public ENBanco()
+        {
+            BANCO = "";
+            TELEFONO = 0;
+            EMAIL = "";
+        }
+
+        public ENBanco(string banco, int telefono, string email)
+        {
+            BANCO = banco;
+            TELEFONO = telefono;
+            EMAIL = email;
+        }
+
+        public bool createBanco()
+        {
+            CADBanco cadb = new CADBanco();
+            bool creado = cadb.createBanco(this);
+            return creado;
+        }
+
+        public bool deleteBanco()
+        {
+            CADBanco cadb = new CADBanco();
+            bool eliminado = cadb.deleteBanco(this);
+            return eliminado;
+        }
+
+        public bool updateBanco()
+        {
+            CADBanco cadb = new CADBanco();
+            bool act = cadb.updateBanco(this);
+            return act;
+        }
+
+        public bool readBanco()
+        {
+            CADBanco cadb = new CADBanco();
+            bool leido = cadb.readBanco(this);
+            return leido;
+        }
+
+        public bool readFirstBanco()
+        {
+            CADBanco cadb = new CADBanco();
+            bool leido = cadb.readFirstBanco(this);
+            return leido;
+        }
+
+        public bool readNextBanco()
+        {
+            CADBanco cadb = new CADBanco();
+            bool leido = cadb.readNextBanco(this);
+            return leido;
+        }
+
+        public bool readPrevBanco()
+        {
+            CADBanco cadb = new CADBanco();
+            bool leido = cadb.readPrevBanco(this);
+            return leido;
+        }
     }
 }

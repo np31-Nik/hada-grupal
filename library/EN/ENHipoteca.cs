@@ -82,5 +82,47 @@ namespace library
             bool creado = cadh.createHipoteca(this);
             return creado;
         }
+
+        public bool deleteHipoteca()
+        {
+            CADHipoteca cadh = new CADHipoteca();
+            bool eliminado = cadh.deleteHipoteca(this);
+            return eliminado;
+        }
+
+        public bool updateHipoteca()
+        {
+            CADHipoteca cadh = new CADHipoteca();
+            bool act = cadh.updateHipoteca(this);
+            return act;
+        }
+
+        public bool readHipoteca()
+        {
+            CADHipoteca cadh = new CADHipoteca();
+            bool leido = cadh.readHipoteca(this);
+            return leido;
+        }
+
+        public bool readFirstHipoteca()
+        {
+            CADHipoteca cadh = new CADHipoteca();
+            bool leido = cadh.readFirstHipoteca(this);
+            return leido;
+        }
+
+        public bool readNextHipoteca()
+        {
+            CADHipoteca cadh = new CADHipoteca();
+            bool leido = cadh.readNextHipoteca(this);
+            return leido;
+        }
+
+        public bool readPrevHipoteca()
+        {
+            CADHipoteca cadh = new CADHipoteca();
+            bool leido = cadh.readPrevHipoteca(this);
+            return leido;
+        }
     }
 }
