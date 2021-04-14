@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "library1", "Library\library1.csproj", "{4ED97B14-6C29-40AD-8614-D873014B495B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "library", "Library\library.csproj", "{4ED97B14-6C29-40AD-8614-D873014B495B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
