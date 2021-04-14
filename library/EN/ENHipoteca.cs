@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace library.EN
+namespace library
 {
     class ENHipoteca
     {
@@ -74,6 +74,13 @@ namespace library.EN
             INTERESES = intereses;
             NUMSOLICITUDES = numSolicitudes;
             BANCO = banco;
+        }
+
+        public bool createHipoteca()
+        {
+            CADHipoteca cadh = new CADHipoteca();
+            bool creado = cadh.createHipoteca(this);
+            return creado;
         }
     }
 }
