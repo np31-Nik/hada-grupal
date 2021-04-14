@@ -10,9 +10,9 @@ namespace library.EN
     {
         private int id;
 
-        private string Fechadesde;
+        private DateTime Fechadesde;
 
-        private string Fechahasta;
+        private DateTime Fechahasta;
 
         private float intereses;
 
