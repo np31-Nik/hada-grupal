@@ -13,6 +13,8 @@ namespace library
 {
     class CADBanco
     {
+        private String conexstring;
+
         public CADBanco()
         {
 
