@@ -23,10 +23,12 @@ namespace library
         public ENFoto()
         {
             Foto = null;
+            Anuncio = new ENAnuncio();
         }
-        public ENFoto(byte[] foto)
+        public ENFoto(byte[] foto, ENAnuncio anuncio)
         {
             Foto = foto;
+            Anuncio = anuncio;
         }
         /// <summary>
         /// Guarda esta Foto en la BD

@@ -9,19 +9,26 @@ namespace library
     class ENTipoAnuncio
     {
         private string _tipo;
+        private ENAnuncio _anuncio;
         public string Tipo
         {
             get { return _tipo; }
             set { _tipo = value; }
         }
-
+        public ENAnuncio Anuncio
+        {
+            get { return Anuncio; }
+            set { Anuncio = value; }
+        }
         public ENTipoAnuncio()
         {
             Tipo = "";
+            Anuncio = new ENAnuncio();
         }
-        public ENTipoAnuncio(string tipo)
+        public ENTipoAnuncio(string tipo, ENAnuncio anuncio)
         {
             Tipo = tipo;
+            Anuncio = anuncio;
         }
 
         public bool createTipoAnuncio()
