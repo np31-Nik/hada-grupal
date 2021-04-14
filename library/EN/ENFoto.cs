@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace library
 {
-    class ENFoto
+    public class ENFoto
     {
         private byte[] _foto;
         private ENAnuncio _anuncio;

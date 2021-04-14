@@ -12,7 +12,7 @@ using System.Configuration;
 
 namespace library
 {
-    class CADUsuario
+    public class CADUsuario
     {
         private string constring;
         private bool modifComandExec(string comando)

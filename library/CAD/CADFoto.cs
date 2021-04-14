@@ -12,7 +12,7 @@ using System.Configuration;
 
 namespace library
 {
-    class CADFoto
+    public class CADFoto
     {
         private string constring;
         private bool modifComandExec(string comando)

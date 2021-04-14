@@ -12,7 +12,7 @@ using System.Configuration;
 
 namespace library
 {
-    class CADTipoAnuncio
+    public class CADTipoAnuncio
     {
         private string constring;
         private bool modifComandExec(string comando)
