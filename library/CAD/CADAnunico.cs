@@ -12,7 +12,7 @@ namespace library
         private string constring;
         public CADAnuncio()
         {
-            constring = ConfigurationManager.ConnectionStrings["Database"].ToString(); ;//Conexion
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();//Conexion
         }
 
         public bool createAnuncio(ENAnuncio en, uint id)
@@ -36,6 +36,20 @@ namespace library
 
             return read;
         }
+        public bool readFirstAnuncio(ENAnuncio en, uint id)
+        {
+            bool updated = false;
+
+
+            return updated;
+        }
+        public bool readNextAnuncio(ENAnuncio en, uint id)
+        {
+            bool updated = false;
+
+
+            return updated;
+        }
         public bool updateAnuncio(ENAnuncio en, uint id)
         {
             bool updated = false;
@@ -43,5 +57,6 @@ namespace library
 
             return updated;
         }
+        
     }
 }

@@ -93,11 +93,11 @@ namespace library
         public bool updateAnuncio()
         {
             CADAnuncio anuncio = new CADAnuncio();
-            bool deleted = false;
+            bool updated = false;
             if (anuncio.updateAnuncio(this, id))
-                deleted = true;
+                updated = true;
 
-            return deleted;
+            return updated;
         }
         public bool readAnuncio()
         {
@@ -107,6 +107,24 @@ namespace library
                 deleted = true;
 
             return deleted;
+        }
+        public bool readNextAnuncio()
+        {
+            CADAnuncio anuncio = new CADAnuncio();
+            bool read = false;
+            if (anuncio.readNextAnuncio(this, id))
+                read = true;
+
+            return read;
+        }
+        public bool readFirstAnuncio()
+        {
+            CADAnuncio anuncio = new CADAnuncio();
+            bool read = false;
+            if (anuncio.readFirstAnuncio(this, id))
+                read = true;
+
+            return read;
         }
     }
 }
