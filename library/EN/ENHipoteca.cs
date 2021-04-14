@@ -26,13 +26,13 @@ namespace library.EN
             set { id = value; }
         }
 
-        public string FECHADESDE
+        public DateTime FECHADESDE
         {
             get { return Fechadesde; }
             set { Fechadesde = value; }
         }
 
-        public string FECHAHASTA
+        public DateTime FECHAHASTA
         {
             get { return Fechahasta; }
             set { Fechahasta = value; }
@@ -54,6 +54,26 @@ namespace library.EN
         {
             get { return banco; }
             set { banco = value; }
+        }
+
+        public ENHipoteca()
+        {
+            ID = 0;
+            FECHADESDE = DateTime.MinValue;
+            FECHAHASTA = DateTime.MaxValue;
+            INTERESES = 0;
+            NUMSOLICITUDES = 0;
+            BANCO = "";
+        }
+
+        public ENHipoteca(int id,DateTime Fechadesde,DateTime Fechahasta,float intereses,int numSolicitudes,string banco)
+        {
+            ID = id;
+            FECHADESDE = Fechadesde;
+            FECHAHASTA = Fechahasta;
+            INTERESES = intereses;
+            NUMSOLICITUDES = numSolicitudes;
+            BANCO = banco;
         }
     }
 }
