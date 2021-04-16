@@ -93,4 +93,4 @@ ENTipoCoche (Juan Ramon): Se almacena el tipo de coche (familiar/furgoneta...).
 
 
 ● Esquema E-R de la BD:
-Se encuentra en 'Solution items' -> 'EER.png'
+Se encuentra en el directorio raíz con nombre 'EER.png'.
