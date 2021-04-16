@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace library.EN
 {
-    class ENTipoCoche
+    public class ENTipoCoche
     {
         private string tipo_vehiculo;
 

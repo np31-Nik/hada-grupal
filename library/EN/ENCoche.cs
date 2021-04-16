@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace library
 {
-    class ENCoche
+    public class ENCoche
     {
 
         private string _tipo, _subTipo, _marca = null, _direccion;

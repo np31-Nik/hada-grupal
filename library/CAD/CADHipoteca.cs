@@ -11,7 +11,7 @@ using System.Configuration;
 
 namespace library
 {
-    class CADHipoteca
+    public class CADHipoteca
     {
         private String conexstring;
 

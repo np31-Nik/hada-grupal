@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace library
 {
-    class ENHipoteca
+    public class ENHipoteca
     {
         private int id;
 

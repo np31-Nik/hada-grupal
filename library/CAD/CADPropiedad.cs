@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace library
 {
-    class CADPropiedad
+    public class CADPropiedad
     {
 
         private string constring;

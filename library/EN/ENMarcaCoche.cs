@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace library.EN
 {
-    class ENMarcaCoche
+    public class ENMarcaCoche
     {
         private string logo;
         private string nombre;

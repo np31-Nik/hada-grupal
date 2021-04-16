@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace library
 {
-    class ENPropiedad
+    public class ENPropiedad
     {
         private string _tipo, _direccion;
         private int _superficie, _banyos, _habitaciones;

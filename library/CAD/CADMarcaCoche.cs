@@ -8,7 +8,7 @@ using library.EN;
 
 namespace library.CAD
 {
-    class CADMarcaCoche
+    public class CADMarcaCoche
 
     {
 

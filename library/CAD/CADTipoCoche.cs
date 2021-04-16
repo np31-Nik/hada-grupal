@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace library.CAD
 {
-    class CADTipoCoche
+    public class CADTipoCoche
     {
         private string constring;
 

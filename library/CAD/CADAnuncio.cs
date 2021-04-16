@@ -7,7 +7,7 @@ using System.Configuration;
 
 namespace library
 {
-    class CADAnuncio
+    public class CADAnuncio
     {
         private string constring;
         public CADAnuncio()

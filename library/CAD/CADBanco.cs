@@ -11,7 +11,7 @@ using System.Configuration;
 
 namespace library
 {
-    class CADBanco
+    public class CADBanco
     {
         private String conexstring;
 

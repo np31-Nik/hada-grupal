@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace library
 {
-    class ENAnuncio
+    public class ENAnuncio
     {
         public uint id = 0; //clave primaria
         private string _titulo, _localidad, _descripcion;
