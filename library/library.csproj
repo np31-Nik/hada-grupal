@@ -42,6 +42,11 @@
 		<Reference Include="System.Xml" />
 	</ItemGroup>
 	<ItemGroup>
+		<Compile Include="CAD\CADComentario.cs" />
+		<Compile Include="CAD\CADTipoPropiedad.cs" />
+		<Compile Include="EN\ENComentario.cs" />
+		<Compile Include="EN\ENTipoPropiedad.cs" />
+		<Compile Include="Properties\AssemblyInfo.cs" />
 		<Compile Include="CAD\CADMarcaCoche.cs" />
 		<Compile Include="CAD\CADTipoCoche.cs" />
 		<Compile Include="EN\ENMarcaCoche.cs" />
