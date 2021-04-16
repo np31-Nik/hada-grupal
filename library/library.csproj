@@ -42,6 +42,12 @@
 		<Reference Include="System.Xml" />
 	</ItemGroup>
 	<ItemGroup>
+		<Compile Include="CAD\CADFoto.cs" />
+		<Compile Include="CAD\CADTipoAnuncio.cs" />
+		<Compile Include="CAD\CADUsuario.cs" />
+		<Compile Include="EN\ENFoto.cs" />
+		<Compile Include="EN\ENTipoAnuncio.cs" />
+		<Compile Include="EN\ENUsuario.cs" />
 		<Compile Include="CAD\CADComentario.cs" />
 		<Compile Include="CAD\CADTipoPropiedad.cs" />
 		<Compile Include="EN\ENComentario.cs" />
