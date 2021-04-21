@@ -9,7 +9,7 @@ namespace library
     class ENCoche
     {
 
-        private string _tipo, _subTipo, _marca = null, _direccion;
+        private string _tipo, _subTipo, _marca = null;
         private int _anyo;
         private uint id;
 
