@@ -1,13 +1,13 @@
 		
-Juan Carlos Sánchez González
+Juan Carlos Sánchez González 77953880A
 
-Juan Ramón Morales Gómez
+Juan Ramón Morales Gómez 48732239T
 
-Robert Kazaryan
+Robert Kazaryan Y4256793J
 
-Serhii Vidernikov
+Serhii Vidernikov Y4459773H
 
-Nikita Polyanskiy (Coordinador)
+Nikita Polyanskiy P550048833 (Coordinador)
 
 
 ● Descripción: 
@@ -34,26 +34,26 @@ El usuario que no esté registrado podrá acceder a:
 	
 	---Artículos similares.
 	
+	---Comentarios de otros usuarios.
+	
 
 ● Listado EN Pública: 
 
-ENArticulo: Se obtiene la informacion y fotos sobre el articulo.
+ENAnuncio (Serhii): Se almacena la informacion sobre el anuncio + la informacion sobre el coche/propiedad.
 
-ENComentario: Se almacenan y se obtienen los comentarios del articulo.
+ENCoche (Serhii): Se almacena la informacion sobre el coche.
 
-ENHipoteca: Se obtiene la informacion y opciones de la hipoteca para el articulo.
+ENPropiedad (Serhii): Se almacena informacion sobre la propiedad.
 
-ENUsuario: Se comprueba si el usuario esta registrado o si es admin.
+ENComentario (Nikita): Se almacena y se recogen los comentarios de los anuncios.
 
-ENServicioPremium: Se obtienen los articulos premium y sus fotos.
+ENUsuario (Robert): Se registran los usuarios y se verifican al iniciar sesion, tambien se verifica si es admin.
 
-ENBusqueda: Se obtienen los articulos segun los criterios de busqueda.
+ENHipoteca (Juan Carlos): Se almacena la informacion sobre la solicitud de hipoteca.
 
-ENSimilares: Se obtienen varios articulos similares al actual.
-
-ENIniciarSesion: Se almacena al nuevo usuario registrado o se comprueba si intenta iniciar sesion.
 
 ● Parte privada: 
+
 El usuario registrado, además de tener las mismas funcionalidades que el usuario sin registrar, podrá:
 
 --Publicar sus propios artículos desde la página principal, introduciendo una descripción, algunos detalles (tipo de artículo , tipo de propiedad, precio, tipo de operación, nº de dormitorios y baños…etc)
@@ -69,7 +69,19 @@ El usuario registrado, además de tener las mismas funcionalidades que el usuari
 Además, habrá otro tipo de usuarios, los administradores, que podrán dirigir la aplicación web para su mejor rendimiento como por ejemplo, tener la potestad de poder dar de baja algún usuario malicioso, además de poder añadir más bancos para hipoteca, dar de baja cierto banco en la BD, etc. 
 
 ● Listado EN Privada: 
-ENPublicar: Se almacena el articulo en la BD.
+
+ENFoto (Robert): Se almacenan las fotos.
+
+ENBanco (Juan Carlos): Se almacena la informacion sobre los bancos.
+
+ENTipoAnuncio (Robert): Se almacenan los tipos de anuncio (venta/alquiler...).
+
+ENTipoPropiedad (Nikita): Se almacenan los tipos de propiedad (piso/chalet/adosado...).
+
+ENMarcaCoche (Juan Ramon): Se almacenan las marcas de los coches.
+
+ENTipoCoche (Juan Ramon): Se almacena el tipo de coche (familiar/furgoneta...).
+
 
 
 
@@ -79,3 +91,6 @@ ENPublicar: Se almacena el articulo en la BD.
 
 --Servicios de viaje y transporte.
 
+
+● Esquema E-R de la BD:
+Se encuentra en el directorio raíz con nombre 'EER.png'.
