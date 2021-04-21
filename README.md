@@ -39,7 +39,7 @@ El usuario que no esté registrado podrá acceder a:
 
 ● Listado EN Pública: 
 
-ENAnuncio (?): Se almacena la informacion sobre el anuncio + la informacion sobre el coche/propiedad.
+ENAnuncio (Serhii): Se almacena la informacion sobre el anuncio + la informacion sobre el coche/propiedad.
 
 ENCoche (Serhii): Se almacena la informacion sobre el coche.
 
@@ -70,7 +70,7 @@ Además, habrá otro tipo de usuarios, los administradores, que podrán dirigir 
 
 ● Listado EN Privada: 
 
-ENFoto (?): Se almacenan las fotos.
+ENFoto (Robert): Se almacenan las fotos.
 
 ENBanco (Juan Carlos): Se almacena la informacion sobre los bancos.
 
@@ -91,3 +91,6 @@ ENTipoCoche (Juan Ramon): Se almacena el tipo de coche (familiar/furgoneta...).
 
 --Servicios de viaje y transporte.
 
+
+● Esquema E-R de la BD:
+Se encuentra en el directorio raíz con nombre 'EER.png'.

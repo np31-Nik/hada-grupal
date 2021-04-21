@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4ED97B14-6C29-40AD-8614-D873014B495B}</ProjectGuid>
+    <ProjectGuid>{F69B0898-6D37-46F8-9512-2E670B0DF3DF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Library</RootNamespace>
-    <AssemblyName>Library</AssemblyName>
+    <RootNamespace>library</RootNamespace>
+    <AssemblyName>library</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,32 +33,13 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Configuration.ConfigurationManager.5.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
-    </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.OracleClient" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net" />
-    <Reference Include="System.Security" />
-    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Security.Permissions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Permissions.5.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ServiceProcess" />
-    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CAD\CADFoto.cs" />
@@ -67,10 +48,26 @@
     <Compile Include="EN\ENFoto.cs" />
     <Compile Include="EN\ENTipoAnuncio.cs" />
     <Compile Include="EN\ENUsuario.cs" />
+    <Compile Include="CAD\CADComentario.cs" />
+    <Compile Include="CAD\CADTipoPropiedad.cs" />
+    <Compile Include="EN\ENComentario.cs" />
+    <Compile Include="EN\ENTipoPropiedad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CAD\CADMarcaCoche.cs" />
+    <Compile Include="CAD\CADTipoCoche.cs" />
+    <Compile Include="EN\ENMarcaCoche.cs" />
+    <Compile Include="EN\ENTipoCoche.cs" />
+    <Compile Include="CAD\CADAnuncio.cs" />
+    <Compile Include="CAD\CADCoche.cs" />
+    <Compile Include="CAD\CADPropiedad.cs" />
+    <Compile Include="EN\ENAnuncio.cs" />
+    <Compile Include="EN\ENCoche.cs" />
+    <Compile Include="EN\ENPropiedad.cs" />
+    <Compile Include="CAD\CADBanco.cs" />
+    <Compile Include="CAD\CADHipoteca.cs" />
+    <Compile Include="EN\ENBanco.cs" />
+    <Compile Include="EN\ENHipoteca.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
