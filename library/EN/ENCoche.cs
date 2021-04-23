@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace library 
+namespace library
 {
     public class ENCoche
     {
-
-        private string _tipo, _subTipo, _marca = null;
+        private ENMarcaCoche _marca = null;
+        private string _tipo, _subTipo;
         private int _anyo;
         private uint id;
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebPublicar.aspx.cs" Inherits="WebPublicar.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebPublicar.aspx.cs" Inherits="UserInterface.WebPublicar" %>
 
 <!DOCTYPE html>
 
@@ -12,22 +12,27 @@
         <div>
             
     <h2>Publicar Articulo:</h2>
-            Tipo:
-            <asp:TextBox ID="nif" runat="server"> </asp:TextBox> <br /><br />
-            Nombre:
-            <asp:TextBox ID="nombre" runat="server"> </asp:TextBox> <br /><br />
-            Edad:
-            <asp:TextBox ID="edad" runat="server"> </asp:TextBox> <br /><br />
+            Titulo:
+            <asp:TextBox ID="titulo" runat="server"> </asp:TextBox> <br /><br />
+            Precio:
+            <asp:TextBox ID="precio" runat="server"> </asp:TextBox> <br /><br />
+            Localidad:
+            <asp:TextBox ID="localidad" runat="server"> </asp:TextBox> <br /><br />
+            Descripcion:
+            <asp:TextBox ID="descripcion" runat="server"> </asp:TextBox> <br /><br />
+            Codigo postal:
+            <asp:TextBox ID="cp" runat="server"> </asp:TextBox> <br /><br />
 
         </div>
         
-    <asp:DropDownList ID="marca" runat="server"> <br />
+    <asp:DropDownList ID="marca" runat="server"> 
 
       <asp:ListItem Text="--Select--" value="0"></asp:ListItem>
       <asp:ListItem Text="--Select--" value="1"></asp:ListItem>
       <asp:ListItem Text="--Select--" value="2">
       </asp:ListItem>  
     </asp:DropDownList>
+        <br />
     <asp:RadioButton ID="vehiculo" runat="server" Text="Vehiculo" GroupName="tipo"></asp:RadioButton>
     <asp:RadioButton ID="Propiedad" runat="server" Text="Propiedad" GroupName="tipo"></asp:RadioButton>
         <br />

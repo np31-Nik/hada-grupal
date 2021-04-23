@@ -1,4 +1,4 @@
-﻿using library.EN;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 
-namespace library.CAD
+namespace library
 {
     public class CADTipoCoche
     {

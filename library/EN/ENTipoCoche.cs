@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace library.EN
+namespace library
 {
     public class ENTipoCoche
     {
@@ -19,7 +19,7 @@ namespace library.EN
 
         public ENTipoCoche()
         {
-            categoria = " ";
+            categoria = "";
         }
 
         public ENTipoCoche(string modelo)

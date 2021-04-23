@@ -13,5 +13,13 @@ namespace UserInterface
         {
 
         }
+
+        protected void PublicarClick(object sender, EventArgs e) {
+        
+        }
+        protected void InicioClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
