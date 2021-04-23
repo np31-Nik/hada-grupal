@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebPublicar.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebPublicar.aspx.cs" Inherits="WebPublicar.WebForm1" %>
 
 <!DOCTYPE html>
 
