@@ -8,18 +8,19 @@ namespace library
 {
     public class ENCoche
     {
-        private ENMarcaCoche _marca = null;
-        private string _tipo, _subTipo;
+        private ENMarcaCoche _marca;
+        private ENTipoCoche _tipo;
+        private string _subTipo;
         private int _anyo;
         private uint id;
 
-        public string tipo
+        public ENTipoCoche tipo
         {
             get { return _tipo; }
             set { _tipo = value; }
         }
 
-        public string marca
+        public ENMarcaCoche marca
         {
             get { return _marca; }
             set { _marca = value; }
@@ -35,12 +36,12 @@ namespace library
 
         public ENCoche()
         {
-            tipo = "";
-            marca = "";
+            tipo = new ENTipoCoche();
+            marca = new ENMarcaCoche();
             anyo = 0;
 
         }
-        public ENCoche(int year, string type, string subType, string marcaParam)
+        public ENCoche(int year, ENTipoCoche type, string subType, ENMarcaCoche marcaParam)
         {
             tipo = type;
             marca = marcaParam;
