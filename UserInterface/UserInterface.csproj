@@ -68,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Anuncio.aspx" />
+    <Content Include="css\Anuncio.css" />
+    <Content Include="imagenes\left-arrow.png" />
+    <Content Include="imagenes\no-image.jpg" />
+    <Content Include="imagenes\right-arrow.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
