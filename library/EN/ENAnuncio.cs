@@ -12,7 +12,7 @@ namespace library
         private string _titulo, _localidad, _descripcion;
         private float _precio;
         private int _cp;
-        bool coche = false; //if true creamos coche, else crear propiedad
+        private bool coche = false; //if true creamos coche, else crear propiedad
 
         public string titulo
         {

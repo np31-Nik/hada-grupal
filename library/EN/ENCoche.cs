@@ -10,7 +10,6 @@ namespace library
     {
         private ENMarcaCoche _marca;
         private ENTipoCoche _tipo;
-        private string _subTipo;
         private int _anyo;
         private uint id;
 
