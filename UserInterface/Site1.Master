@@ -25,6 +25,12 @@
             <a href="#arriba">Volver</a>
             <a name="abajo"></a>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <p>
+                    Somos una empresa con muchos años de experiencia en el mundo de las propiedades inmbiliarias y vehículos.</p>
+                <p>
+                    contacto: <a href="mailto:deep@gmail.com">deep@gmail.com</a></p>
+                <p>
+                    telf:999999999</p>
             </asp:ContentPlaceHolder>
         </div>
     </form>
