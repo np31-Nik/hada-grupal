@@ -20,9 +20,9 @@
                 </items>
             </asp:menu>
             <a name="arriba"></a>
-            <a href="#abajo">Ir a la parte de abajo</a>
+            <a href="#abajo">Acerca de nosotros</a>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <a href="#arriba">Ir a la parte de arriba</a>
+            <a href="#arriba">Volver</a>
             <a name="abajo"></a>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
