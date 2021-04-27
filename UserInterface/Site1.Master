@@ -11,10 +11,10 @@
 <body>
     <form id="form1" runat="server" >
         <div>
-            <asp:menu ID="menu" runat="server" Orientation="Horizontal" StaticMenuStyle-BackColor="DarkGray" BackColor="Gray" >
+            <asp:menu ID="menu" runat="server" Orientation="Horizontal">
                 <items>
                     <asp:MenuItem Text="Inicio" Value="Inicio"></asp:MenuItem>
-                    <asp:MenuItem Text="Coches" Value="Coches"></asp:MenuItem>
+                    <asp:MenuItem Text="Coches" Value="Coches" ></asp:MenuItem>
                     <asp:MenuItem Text="Propiedades" Value="Propiedades"></asp:MenuItem>                        
                     <asp:MenuItem Text="Zona Clientes" Value="Zona Clientes"></asp:MenuItem>                        
                 </items>
