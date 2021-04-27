@@ -9,8 +9,21 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" >
         <div>
+            <asp:menu ID="menu" runat="server" Orientation="Horizontal" StaticMenuStyle-BackColor="DarkGray" BackColor="Gray" >
+                <items>
+                    <asp:MenuItem Text="Inicio" Value="Inicio"></asp:MenuItem>
+                    <asp:MenuItem Text="Coches" Value="Coches"></asp:MenuItem>
+                    <asp:MenuItem Text="Propiedades" Value="Propiedades"></asp:MenuItem>                        
+                    <asp:MenuItem Text="Zona Clientes" Value="Zona Clientes"></asp:MenuItem>                        
+                </items>
+            </asp:menu>
+            <a name="arriba"></a>
+            <a href="#abajo">Ir a la parte de abajo</a>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <a href="#arriba">Ir a la parte de arriba</a>
+            <a name="abajo"></a>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>

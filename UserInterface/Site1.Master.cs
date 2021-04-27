@@ -13,5 +13,24 @@ namespace UserInterface
         {
 
         }
+
+        protected void menu_click(object sender, System.Web.UI.WebControls.MenuEventArgs e)
+        {
+            switch (e.Item.Value) 
+            {
+                case "Inicio":
+                    Response.Redirect("~/Principal.aspx");
+                    return;
+                case "Coches":
+                    Response.Redirect("~/Busqueda.aspx");
+                    return;
+                case "Propiedades":
+                    Response.Redirect("~/Busqueda.aspx");
+                    return;
+                case "Zona Clientes":
+                    Response.Redirect("~/Registro.aspx");
+                    return;
+            }
+        }
     }
 }
