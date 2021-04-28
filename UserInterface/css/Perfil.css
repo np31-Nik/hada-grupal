@@ -1,0 +1,22 @@
+﻿body {
+}
+
+.tableProfileStile {
+    width: 100%;
+}
+
+.sideBarPerfil {
+    background-color: antiquewhite;
+    text-align: center;
+    width: 20%;
+}
+
+.menuBut {
+    border-color: #ffffff;
+    border-style: solid;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    font-weight: bold;
+}

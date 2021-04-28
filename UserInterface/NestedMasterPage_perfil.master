@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="NestedMasterPage_perfil.master.cs" Inherits="UserInterface.NestedMasterPage_perfil" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link  rel="stylesheet" type="text/css" href="css/Perfil.css" />
+    <table class="tableProfileStile">
+        <tr>
+            <td class="sideBarPerfil">
+                <asp:Panel ID="UserPanel" runat="server" Visible="True">
+                    <a  href="Perfil.aspx">Inicio</a>
+                    <br />
+                    <a  href="Perfil.aspx">Mis Anuncios</a>
+                    <br />
+                    <a  href="Admin.aspx" >Admin
+                    </a>
+                    <br />
+                </asp:Panel>
+                <asp:Panel ID="AdminPanel" runat="server" Visible="false">
+                    <a  href="Admin.aspx">Propiedad</a>
+                    <br />
+                    <a  href="Admin.aspx">Coche</a>
+                    <br />
+                    <a  href="Perfil.aspx">Usuario</a>
+                    <br />
+                </asp:Panel>
+                <br />
+                <asp:Button ID="Button1" runat="server" Text="Admin" OnClick="Button1_Click" />
+
+            </td>
+            <td>
+                <div>
+                    <asp:ContentPlaceHolder ID="ChildPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</asp:Content>
