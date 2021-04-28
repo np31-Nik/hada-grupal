@@ -42,15 +42,6 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TableCell PRECIO;
 
         /// <summary>
-        /// _REF control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label _REF;
-
-        /// <summary>
         /// REF control.
         /// </summary>
         /// <remarks>
@@ -267,6 +258,87 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TableCell TIPO_COCHE;
 
         /// <summary>
+        /// H_IMPORTE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox H_IMPORTE;
+
+        /// <summary>
+        /// H_ANYOS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox H_ANYOS;
+
+        /// <summary>
+        /// H_BANCOS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList H_BANCOS;
+
+        /// <summary>
+        /// H_CALCULAR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button H_CALCULAR;
+
+        /// <summary>
+        /// H_MENSAJE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label H_MENSAJE;
+
+        /// <summary>
+        /// H_RESULTADOS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel H_RESULTADOS;
+
+        /// <summary>
+        /// H_INTERES control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label H_INTERES;
+
+        /// <summary>
+        /// H_FINANCIAR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label H_FINANCIAR;
+
+        /// <summary>
+        /// H_CUOTAM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label H_CUOTAM;
+
+        /// <summary>
         /// IMAGE control.
         /// </summary>
         /// <remarks>
@@ -294,15 +366,6 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.ImageButton DER;
 
         /// <summary>
-        /// TIT_DESCRIPCION control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TIT_DESCRIPCION;
-
-        /// <summary>
         /// DESCRIPCION control.
         /// </summary>
         /// <remarks>
@@ -310,5 +373,95 @@ namespace UserInterface
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label DESCRIPCION;
+
+        /// <summary>
+        /// Sim1_Localidad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Sim1_Localidad;
+
+        /// <summary>
+        /// Sim1_Precio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Sim1_Precio;
+
+        /// <summary>
+        /// Sim2_Localidad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Sim2_Localidad;
+
+        /// <summary>
+        /// Sim2_Precio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Sim2_Precio;
+
+        /// <summary>
+        /// Sim3_Localidad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Sim3_Localidad;
+
+        /// <summary>
+        /// Sim3_Precio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Sim3_Precio;
+
+        /// <summary>
+        /// Sim4_Localidad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Sim4_Localidad;
+
+        /// <summary>
+        /// Sim4_Precio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Sim4_Precio;
+
+        /// <summary>
+        /// Sim5_Localidad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Sim5_Localidad;
+
+        /// <summary>
+        /// Sim5_Precio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Sim5_Precio;
     }
 }

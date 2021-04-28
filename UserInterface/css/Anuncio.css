@@ -4,10 +4,40 @@
 .PanelTitulo{
     width:70%;
 }
-.PanelDetalles{
+.PanelDerecho{
     width:20%;
 }
 
+.PanelDetalles{
+    width:100%;
+}
+
 .PanelImagen{
+    width:70%;
+}
+
+.PanelHipoteca{
+    position:relative;
+    width:100%;
+    top: -15px;
+    left: 0px;
+}
+
+.PanelDescripcion{
     width:70%
+}
+
+.PanelSimilares{
+    width:95%;
+    margin:auto auto auto 13px;
+}
+
+.Similar{
+    width:20%;
+    display:normal;
+    margin:auto;
+}
+
+.ListaSimilares{
+    width:100%;
 }
