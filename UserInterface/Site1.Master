@@ -13,10 +13,10 @@
         <div>
             <asp:menu ID="menu" runat="server" Orientation="Horizontal">
                 <items>
-                    <asp:MenuItem Text="Inicio" Value="Inicio" NavigateUrl="~/Principal.aspx"></asp:MenuItem>
-                    <asp:MenuItem Text="Coches" Value="Coches" NavigateUrl="~/Principal.aspx"></asp:MenuItem>
-                    <asp:MenuItem Text="Propiedades" Value="Propiedades" NavigateUrl="~/Principal.aspx"></asp:MenuItem>                        
-                    <asp:MenuItem Text="Zona Clientes" Value="Zona Clientes" NavigateUrl="~/Principal.aspx"></asp:MenuItem>                        
+                    <asp:MenuItem Text="Inicio" Value="Inicio" ></asp:MenuItem>
+                    <asp:MenuItem Text="Coches" Value="Coches" ></asp:MenuItem>
+                    <asp:MenuItem Text="Propiedades" Value="Propiedades" ></asp:MenuItem>                        
+                    <asp:MenuItem Text="Zona Clientes" Value="Zona Clientes" ></asp:MenuItem>                        
                 </items>
             </asp:menu>
             <a name="arriba"></a>
