@@ -22,13 +22,13 @@ namespace UserInterface
                     Response.Redirect("~/Principal.aspx");
                     return;
                 case "Coches":
-                    Response.Redirect("~/Busqueda.aspx");
+                    Response.Redirect("~/Principal.aspx");
                     return;
                 case "Propiedades":
-                    Response.Redirect("~/Busqueda.aspx");
+                    Response.Redirect("~/Principal.aspx");
                     return;
                 case "Zona Clientes":
-                    Response.Redirect("~/Registro.aspx");
+                    Response.Redirect("~/Principal.aspx");
                     return;
             }
         }
