@@ -13,5 +13,27 @@ namespace UserInterface
         {
 
         }
+
+        protected void ModPerfil_Click(object sender, EventArgs e)
+        {
+            UpdatePerfil.Visible = true;
+            PasswordPanel.Visible = true;
+            Nombre.ReadOnly = false;
+            Apellido.ReadOnly = false;
+            Emali.ReadOnly = false;
+            Telefono.ReadOnly = false;
+            Premium.Enabled = true;
+        }
+
+        protected void UpdatePerfil_Click(object sender, EventArgs e)
+        {
+            UpdatePerfil.Visible = false;
+            PasswordPanel.Visible = false;
+            Nombre.ReadOnly = true;
+            Apellido.ReadOnly = true;
+            Emali.ReadOnly = true;
+            Telefono.ReadOnly = true;
+            Premium.Enabled = false;
+        }
     }
 }
