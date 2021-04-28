@@ -11,7 +11,10 @@
 <body>
     <form id="form1" runat="server" >
         <div>
-            <asp:menu ID="menu" runat="server" Orientation="Horizontal">
+            <asp:menu ID="menu" runat="server" Orientation="Horizontal" Font-Names="Comic Sans MS">
+                <staticmenuitemstyle backcolor="LightSteelBlue" forecolor="Black"/>
+                <statichoverstyle backcolor="LightSkyBlue"/>
+
                 <items>
                     <asp:MenuItem Text="Inicio" Value="Inicio" ></asp:MenuItem>
                     <asp:MenuItem Text="Coches" Value="Coches" ></asp:MenuItem>
@@ -19,11 +22,13 @@
                     <asp:MenuItem Text="Zona Clientes" Value="Zona Clientes" ></asp:MenuItem>                        
                 </items>
             </asp:menu>
+            
             <a name="arriba"></a>
             <a href="#abajo">Acerca de nosotros</a>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <a href="#arriba">Volver</a>
             <a name="abajo"></a>
+            
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <p>
                     Somos una empresa con muchos años de experiencia en el mundo de las propiedades inmbiliarias y vehículos.</p>
