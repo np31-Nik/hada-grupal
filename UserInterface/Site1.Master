@@ -9,10 +9,10 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server" >
+    <form id="form1" runat="server">
         <div>
-            <asp:menu ID="menu" runat="server" Orientation="Horizontal">
-                <staticmenuitemstyle Font-Names="MS Sans Serif" backcolor="LightSteelBlue" forecolor="Black" HorizontalPadding="100" Font-Size="9" Font-Bold="true"/>
+            <asp:menu ID="menu" runat="server" Orientation="Horizontal" Width="100%">
+                <staticmenuitemstyle Font-Names="MS Sans Serif" backcolor="LightSteelBlue" forecolor="Black" HorizontalPadding="152" Font-Size="9" Font-Bold="true"/>
                 <statichoverstyle />
 
                 <items>
@@ -25,19 +25,20 @@
             
             <a name="arriba"></a>
             <a href="#abajo">Acerca de nosotros</a>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <a href="#arriba">Volver</a>
-            <a name="abajo"></a>
             
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <p>
-                    Somos una empresa con muchos años de experiencia en el mundo de las propiedades inmbiliarias y vehículos.</p>
-                <p>
-                    contacto: <a href="mailto:deep@gmail.com">deep@gmail.com</a></p>
-                <p>
-                    telf:999999999</p>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+                <>
             </asp:ContentPlaceHolder>
         </div>
     </form>
+    <h1 style="background-color: darkslategray; padding:25px" width: 100%;">
+        <small><small><small><small><small>
+            <a href="#arriba">Volver Arriba</a>
+            <a name="abajo"></a>
+            Somos una empresa con muchos años de experiencia en el mundo de las propiedades inmbiliarias y vehículos.
+            contacto: <a href="mailto:deep@gmail.com">deep@gmail.com</a>
+            telf:999999999
+        </small></small></small></small></small>
+    </h1>
 </body>
 </html>
