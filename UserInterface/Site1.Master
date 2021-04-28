@@ -11,15 +11,15 @@
 <body>
     <form id="form1" runat="server" >
         <div>
-            <asp:menu ID="menu" runat="server" Orientation="Horizontal" Font-Names="Comic Sans MS">
-                <staticmenuitemstyle backcolor="LightSteelBlue" forecolor="Black"/>
-                <statichoverstyle backcolor="LightSkyBlue"/>
+            <asp:menu ID="menu" runat="server" Orientation="Horizontal">
+                <staticmenuitemstyle Font-Names="MS Sans Serif" backcolor="LightSteelBlue" forecolor="Black" HorizontalPadding="100" Font-Size="9" Font-Bold="true"/>
+                <statichoverstyle />
 
                 <items>
                     <asp:MenuItem Text="Inicio" Value="Inicio" ></asp:MenuItem>
                     <asp:MenuItem Text="Coches" Value="Coches" ></asp:MenuItem>
                     <asp:MenuItem Text="Propiedades" Value="Propiedades" ></asp:MenuItem>                        
-                    <asp:MenuItem Text="Zona Clientes" Value="Zona Clientes" ></asp:MenuItem>                        
+                    <asp:MenuItem Text="Zona Clientes" Value="Zona Clientes" ></asp:MenuItem>
                 </items>
             </asp:menu>
             
