@@ -68,6 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\Perfil.css" />
+    <Content Include="Perfil_Coche_Admin.aspx" />
+    <Content Include="Perfil_Hipoteca-Banco_Admin.aspx" />
+    <Content Include="Perfil_MisAnuncios.aspx" />
+    <Content Include="Perfil_Propiedad_Admin.aspx" />
+    <Content Include="Perfil_TipoAnuncio_Admin.aspx" />
     <Content Include="Web.config" />
     <Content Include="Perfil.aspx" />
   </ItemGroup>
@@ -78,6 +83,41 @@
     </Compile>
     <Compile Include="NestedMasterPage_perfil.master.designer.cs">
       <DependentUpon>NestedMasterPage_perfil.master</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_Coche_Admin.aspx.cs">
+      <DependentUpon>Perfil_Coche_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_Coche_Admin.aspx.designer.cs">
+      <DependentUpon>Perfil_Coche_Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_Hipoteca-Banco_Admin.aspx.cs">
+      <DependentUpon>Perfil_Hipoteca-Banco_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_Hipoteca-Banco_Admin.aspx.designer.cs">
+      <DependentUpon>Perfil_Hipoteca-Banco_Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_MisAnuncios.aspx.cs">
+      <DependentUpon>Perfil_MisAnuncios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_MisAnuncios.aspx.designer.cs">
+      <DependentUpon>Perfil_MisAnuncios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_Propiedad_Admin.aspx.cs">
+      <DependentUpon>Perfil_Propiedad_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_Propiedad_Admin.aspx.designer.cs">
+      <DependentUpon>Perfil_Propiedad_Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_TipoAnuncio_Admin.aspx.cs">
+      <DependentUpon>Perfil_TipoAnuncio_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_TipoAnuncio_Admin.aspx.designer.cs">
+      <DependentUpon>Perfil_TipoAnuncio_Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">

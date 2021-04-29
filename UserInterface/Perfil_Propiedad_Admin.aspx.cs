@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UserInterface
 {
-    public partial class NestedMasterPage_perfil : System.Web.UI.MasterPage
+    public partial class Perfil_Propiedad_Admin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

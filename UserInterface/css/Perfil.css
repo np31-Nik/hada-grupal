@@ -1,22 +1,54 @@
 ﻿body {
 }
+.row {
+    margin-left: 0;
+    margin-right: 0;
+    vertical-align: top;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
 
 .tableProfileStile {
     width: 100%;
+    height: 80px;
+    vertical-align: top;
+    border: 1px solid #CCCCCC;
+    border-collapse: collapse;
+    
 }
 
-.sideBarPerfil {
-    background-color: antiquewhite;
-    text-align: center;
-    width: 20%;
+.menuText {
+    color:#ffffff;
 }
 
-.menuBut {
-    border-color: #ffffff;
-    border-style: solid;
-    background-color: #ffffff;
-    color: #000000;
-    font-family: Arial;
-    font-size: 10pt;
-    font-weight: bold;
+#sidebar {
+    position:fixed;
+    width:200px;
+    height:100%;
+    background:#151719;
+}
+
+#sidebar ul li{
+    color:rgba(230,230,230, .9);
+    text-align:center;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(100,100,100, .3);
+    list-style:none;
+}
+
+#sidebar a {
+    color: #ffffff;
+    text-decoration:none;
+}
+
+#mineContent{
+    height: 100%;
+    margin-left:210px;
+}
+
+#mineContent p {
+    padding: 5px 2px;
 }
