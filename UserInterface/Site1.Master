@@ -5,20 +5,14 @@
 <html>
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        a
-        {
-            background-image: url(/imagenes/IMG-20210429-WA0009.jpg);
-        }
-    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="background-image: url(/imagenes/IMG-20210429-WA0009.jpg)">
     <form id="form1" runat="server">
         <div>
-            <asp:menu ID="menu" runat="server" Orientation="Horizontal" Width="100%">
-                <staticmenuitemstyle Font-Names="MS Sans Serif" backcolor="#151719" forecolor="White" HorizontalPadding="152" Font-Size="9" Font-Bold="true"/>
+            <asp:menu ID="menu" runat="server" Orientation="Horizontal" Width=100%>
+                <staticmenuitemstyle Font-Names="MS Sans Serif" backcolor="#151719" forecolor="White" HorizontalPadding="160.5" Font-Size="9" Font-Bold="true"/>
                 <statichoverstyle />
 
                 <items>
@@ -31,9 +25,10 @@
             <h1 style="background-color: #151719; width: 100%; " align="center">
                 <font color="white" size=1>
                     <a name="arriba"></a>
-                    <a href="#abajo">Acerca de nosotros</a>
+                    <a href="#abajo" style="color:white">Acerca de nosotros</a>
                 </font>
             </h1>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
               
             </asp:ContentPlaceHolder>
@@ -44,12 +39,12 @@
         <img src="imagenes/kisspng-computer-icons-house-home-desktop-wallpaper-clip-a-home-icon-5acbedfc7b2e07.3858102315233141725046.jpg" width="30" height="30" />
         <br/>
         <font color="white" size=1>
-            <a href="#arriba">Volver Arriba</a>
+            <a href="#arriba" style="color:white">Volver Arriba</a>
             <a name="abajo"></a>
             <br/>
             Somos una empresa con muchos años de experiencia en el mundo de las propiedades inmbiliarias y vehículos.
             <br/>
-            contacto: <a href="mailto:deep@gmail.com">deep@gmail.com</a>
+            contacto: <a href="mailto:deep@gmail.com" style="color:white">deep@gmail.com</a>
             <br/>
             telf:999999999
         </font>
