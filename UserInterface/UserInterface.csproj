@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="imagenes\IMG-20210429-WA0009.jpg" />
     <Content Include="Principal.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
