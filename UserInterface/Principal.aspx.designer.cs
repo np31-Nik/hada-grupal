@@ -11,7 +11,7 @@ namespace UserInterface
 {
 
 
-    public partial class Principal
+    public partial class Site11
     {
     }
 }
