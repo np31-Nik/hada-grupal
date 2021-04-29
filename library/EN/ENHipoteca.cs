@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace library
 {
@@ -66,7 +62,7 @@ namespace library
             BANCO = "";
         }
 
-        public ENHipoteca(int id,DateTime Fechadesde,DateTime Fechahasta,float intereses,int numSolicitudes,string banco)
+        public ENHipoteca(int id, DateTime Fechadesde, DateTime Fechahasta, float intereses, int numSolicitudes, string banco)
         {
             ID = id;
             FECHADESDE = Fechadesde;

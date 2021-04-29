@@ -67,8 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\StyleSheet1.css" />
     <Content Include="Web.config" />
-    <Content Include="WebPublicar.aspx" />
+    <Content Include="Publicar.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,12 +80,12 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="WebPublicar.aspx.cs">
-      <DependentUpon>WebPublicar.aspx</DependentUpon>
+    <Compile Include="Publicar.aspx.cs">
+      <DependentUpon>Publicar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPublicar.aspx.designer.cs">
-      <DependentUpon>WebPublicar.aspx</DependentUpon>
+    <Compile Include="Publicar.aspx.designer.cs">
+      <DependentUpon>Publicar.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +98,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

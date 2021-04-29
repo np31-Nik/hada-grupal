@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace library
+﻿namespace library
 {
     public class ENAnuncio
     {
@@ -48,7 +42,7 @@ namespace library
             precio = -1;
             cp = -1;
         }
-        public ENAnuncio(string title, string city, string description,float price,int codPostal)
+        public ENAnuncio(string title, string city, string description, float price, int codPostal)
         {
             titulo = title;
             localidad = city;
@@ -57,14 +51,15 @@ namespace library
             cp = codPostal;
         }
 
-        public bool createAnuncio() {
+        public bool createAnuncio()
+        {
             CADAnuncio anuncio = new CADAnuncio();
             bool creado = false;
             if (coche)
             {
                 ENCoche coche = new ENCoche();
                 if (coche.createCoche(id))
-                    if (anuncio.createAnuncio(this,id))
+                    if (anuncio.createAnuncio(this, id))
                     {
                         creado = true;
                         id++;
@@ -74,7 +69,7 @@ namespace library
             {
                 ENPropiedad prop = new ENPropiedad();
                 if (prop.createPropiedad(id))
-                    if (anuncio.createAnuncio(this,id))
+                    if (anuncio.createAnuncio(this, id))
                     {
                         creado = true;
                         id++;
@@ -83,7 +78,8 @@ namespace library
             return creado;
         }
 
-        public bool deleteAnuncio() {
+        public bool deleteAnuncio()
+        {
             CADAnuncio anuncio = new CADAnuncio();
             bool deleted = false;
             if (anuncio.deleteAnuncio(this, id))

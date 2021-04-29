@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace library
+﻿namespace library
 {
     public class ENMarcaCoche
     {
@@ -34,21 +28,21 @@ namespace library
         public ENMarcaCoche()
         {
             CADMarcaCoche cad = new CADMarcaCoche();
-            companyia= " ";
+            companyia = " ";
             tipo = " ";
             matricula = " ";
         }
 
         public ENMarcaCoche(string company, string tipe, string numero)
         {
-            companyia= company;
+            companyia = company;
             tipo = tipe;
             matricula = numero;
         }
 
         public ENMarcaCoche(ENMarcaCoche marca)
         {
-            this.companyia= marca.companyia;
+            this.companyia = marca.companyia;
             this.tipo = marca.tipo;
             this.matricula = marca.matricula;
         }
@@ -81,7 +75,7 @@ namespace library
         public bool updateMarcaCoche()
         {
             CADMarcaCoche aux = new CADMarcaCoche();
-            bool actualizar= false;
+            bool actualizar = false;
             if (aux.readMarcaCoche(this))
             {
                 actualizar = aux.updateMarcaCoche(this);

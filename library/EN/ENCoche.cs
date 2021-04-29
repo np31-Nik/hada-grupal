@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace library
+﻿namespace library
 {
     public class ENCoche
     {
@@ -59,7 +53,7 @@ namespace library
         public bool readCoche()
         {
             CADCoche coche = new CADCoche();
-            return coche.readCoche(this,id);
+            return coche.readCoche(this, id);
         }
         public bool deleteCoche()
         {
