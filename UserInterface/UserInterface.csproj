@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Anuncio.aspx" />
     <Content Include="css\Anuncio.css" />
+    <Content Include="imagenes\background_image.jpg" />
     <Content Include="imagenes\left-arrow.png" />
     <Content Include="imagenes\no-image.jpg" />
     <Content Include="imagenes\right-arrow.png" />

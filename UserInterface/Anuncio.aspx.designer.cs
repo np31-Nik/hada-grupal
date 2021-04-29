@@ -51,6 +51,51 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.Label REF;
 
         /// <summary>
+        /// PROPIETARIO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PROPIETARIO;
+
+        /// <summary>
+        /// CONTACTO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table CONTACTO;
+
+        /// <summary>
+        /// T_DATOSCONTACTO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow T_DATOSCONTACTO;
+
+        /// <summary>
+        /// TELEFONO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell TELEFONO;
+
+        /// <summary>
+        /// EMAIL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell EMAIL;
+
+        /// <summary>
         /// INFO_GENERAL control.
         /// </summary>
         /// <remarks>

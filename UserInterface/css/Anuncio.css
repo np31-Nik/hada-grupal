@@ -1,19 +1,25 @@
 ﻿body {
+    background-color: #f1f1f1;
+    font-family: 'Lucida Sans Unicode' !important;
 }
 
-.PanelTitulo{
-    width:70%;
+
+.PanelTitulo {
+    width: 70%;
+    margin: auto auto auto 13px;
 }
-.PanelDerecho{
-    width:20%;
+.PanelDerecho {
+    width: 20%;
+    margin: auto 13px auto auto;
 }
 
-.PanelDetalles{
-    width:100%;
+.PanelDetalles {
+    width: 100%;
 }
 
-.PanelImagen{
-    width:70%;
+.PanelImagen {
+    width: 70%;
+    margin: auto auto auto 13px;
 }
 
 .PanelHipoteca{
@@ -23,13 +29,14 @@
     left: 0px;
 }
 
-.PanelDescripcion{
-    width:70%
+.PanelDescripcion {
+    width: 99%;
+    margin: auto 13px auto 13px;
 }
 
 .PanelSimilares{
-    width:95%;
-    margin:auto auto auto 13px;
+    width:99%;
+    margin:auto 13px auto 13px;
 }
 
 .Similar{

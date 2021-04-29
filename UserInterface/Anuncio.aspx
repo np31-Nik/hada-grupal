@@ -4,22 +4,44 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <link rel="Stylesheet" type="text/css" href="css/Anuncio.css" />
 
-    <div id="ArticuloContainer">
+    <div id="ArticuloContainer" >
 
-        <div class="PanelTitulo" style="float:left;" >
-            <asp:Table ID="TITULO_PRECIO" runat="server" BorderStyle="Groove" BorderColor="LightGray" BorderWidth="2px" >
+        <div class="PanelTitulo" style="float:left;background-color:#ffffff;color:black;" >
+            <asp:Table ID="TITULO_PRECIO" runat="server">
                 <asp:TableRow runat="server">
-                    <asp:TableCell ID="TITULO" Width=100% style="font-size:35px;font-weight: bold; color: black"></asp:TableCell>
-                    <asp:TableCell style="font-size: 20px;font-weight:bold;color:black" Text="Precio: "></asp:TableCell>
-                    <asp:TableCell ID="PRECIO" style="font-size: 20px;color:black"></asp:TableCell>
+                    <asp:TableCell ID="TITULO" Width=100% style="font-size:35px;font-weight: bold;"></asp:TableCell>
+                    <asp:TableCell style="font-size: 20px;font-weight:bold;" Text="Precio: "></asp:TableCell>
+                    <asp:TableCell ID="PRECIO" style="font-size: 20px;"></asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-            <asp:Label runat="server" Text="REF: " style="font-weight:bold;color:black"></asp:Label>
-            <asp:Label ID="REF" runat="server" style="color:black"></asp:Label>
+            <asp:Label runat="server" Text="REF: " style="font-weight:bold;"></asp:Label>
+            <asp:Label ID="REF" runat="server"></asp:Label>
         </div>
 
         <div class="PanelDerecho" style="float:right; height: 600px;">
-            <div class="PanelDetalles" style="border:outset">
+
+
+            <div class="PanelDetalles" style="background-color:#ffffff;color:black;">
+
+                <asp:Label runat="server" Text="Contacto" style="font-size:25px;font-weight:bold;text-align:center" Width="100%"></asp:Label>
+                <br />
+                <asp:Label ID="PROPIETARIO" runat="server" style="text-align:center" Width="100%"></asp:Label>
+                <br />
+                <asp:Table ID="CONTACTO" runat="server" Width="100%">
+                    <asp:TableRow runat="server" ID="T_DATOSCONTACTO">
+                        <asp:TableCell ID="TELEFONO" Width="80%"></asp:TableCell>
+                        <asp:TableCell ID="EMAIL" Width="80%"></asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+
+
+
+            </div>
+
+            <br />
+            <br />
+
+            <div class="PanelDetalles" style="background-color:#ffffff;color:black;">
                 <asp:Label runat="server" Text="Detalles" style="font-size:25px;font-weight:bold;text-align:center" Width="100%"></asp:Label>
 
                 <asp:Table ID="INFO_GENERAL" runat="server" Width="100%">
@@ -82,7 +104,7 @@
             <br />
             <br />
 
-            <div class="PanelHipoteca" style="border:outset">
+            <div class="PanelHipoteca" style="background-color:#ffffff;color:black;">
                 <asp:Label runat="server" Text="Calculador de hipoteca" style="font-size:25px;font-weight:bold;text-align:center;" Width="100%"></asp:Label>
                 <br />
                 <div style="float:left;width:50%;">
@@ -157,8 +179,11 @@
         </div>
         
         <br />
-
-        <div class="PanelImagen">
+        <br />
+        <br />
+        <br />
+        <div class="PanelImagen" style="background-color:#ffffff;color:black;">
+            <br />
             <asp:Panel runat="server" HorizontalAlign="Center">
                 <asp:Image ID="IMAGE" runat="server" ImageUrl="~/imagenes/no-image.jpg"/>
                 <br />
@@ -169,9 +194,9 @@
 
         <br />
 
-        <div class="PanelDescripcion" style="border:outset">
+        <div class="PanelDescripcion" style="background-color:#ffffff;color:black;">
             <div>
-               <asp:Label runat="server" Text="Descripción:" style="font-size:20px;font-weight:bold;color:black;text-align:center" Width="100%"></asp:Label>
+               <asp:Label runat="server" Text="Descripción:" style="font-size:20px;font-weight:bold;text-align:center" Width="100%"></asp:Label>
             </div>
 
             <br />
@@ -183,11 +208,11 @@
         <br />
         <br />
 
-        <div class="PanelSimilares" style="border-style: outset; border-color: inherit; border-width: medium; height: 332px;">
+        <div class="PanelSimilares" style="background-color:#ffffff;color:black;";height: 332px;">
 
-            <asp:Label runat="server" Text="Articulos similares:" style="font-size:20px;font-weight:bold;color:black;text-align:center" Width="100%"></asp:Label>
+            <asp:Label runat="server" Text="Articulos similares:" style="font-size:20px;font-weight:bold;text-align:center" Width="100%"></asp:Label>
              <br /><br />
-            <div class="ListaSimilares" style="text-align:center;">
+            <div class="ListaSimilares" style="text-align:center; height: 277px;">
                 <div class="Similar" id="Similar1" style="float:left;" >
                     <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
                     <br />
