@@ -11,18 +11,23 @@
     padding:0;
 }
 
-.tableProfileStile {
-    width: 100%;
-    height: 80px;
-    vertical-align: top;
-    border: 1px solid #CCCCCC;
-    border-collapse: collapse;
-    
+.formularioHead {
+    margin-left: 10px;
+}
+.formularioContent {
+    margin-left: 40px;
+}
+.formularioContent2 {
+    width: 600px;
+    height: 150px;
+}
+.formularioContent3 {
+    float: left;
+}
+.formularioTable {
+    float: right;
 }
 
-.menuText {
-    color:#ffffff;
-}
 
 #sidebar {
     position:fixed;
@@ -46,7 +51,7 @@
 
 #mineContent{
     height: 100%;
-    margin-left:210px;
+    margin-left:200px;
 }
 
 #mineContent p {
