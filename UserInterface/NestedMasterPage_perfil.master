@@ -23,7 +23,7 @@
                 <li><a  href="Perfil_Propiedad_Admin.aspx">Propiedad</a></li>
                 <li><a  href="Perfil_Coche_Admin.aspx">Coches</a></li>
                 <li><a  href="Perfil_Hipoteca-Banco_Admin.aspx">Hipoteca</a></li>
-                <li><a  href="Perfil_TipoAnuncio_Admin.aspx">Tipo de Auncio</a></li>
+                <li><a  href="Perfil_TipoAnuncio_Admin.aspx">Auncios</a></li>
             </ul>
         </asp:Panel>
     </div>

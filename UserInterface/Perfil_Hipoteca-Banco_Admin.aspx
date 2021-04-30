@@ -42,8 +42,7 @@
                     </p>
                     <p>
                         Desde <asp:TextBox ID="TextBox5" runat="server" Width="40px"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        Hasta <asp:TextBox ID="TextBox7" runat="server" Width="40px"></asp:TextBox>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hasta <asp:TextBox ID="TextBox7" runat="server" Width="40px"></asp:TextBox>
                     </p>
                     <p>
                         Interes% <asp:TextBox ID="TextBox6" runat="server" Width="40px"></asp:TextBox>
