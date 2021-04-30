@@ -31,9 +31,12 @@
                 <div>
                     <asp:Label runat="server" Text="Localidad:"></asp:Label>
                 </div>
-                <div>
-                    <asp:TextBox ID="localidad" runat="server"> </asp:TextBox>
-                </div>
+                <asp:DropDownList ID="localidad" runat="server">
+
+                    <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                    <asp:ListItem Text="Benidorm" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="Alicante" Value="2"></asp:ListItem>
+                </asp:DropDownList>
                 <br />
                 <div>
 
@@ -41,13 +44,10 @@
                 </div>
 
                 <div>
-                    <asp:TextBox ID="descripcion" runat="server"> </asp:TextBox>
+                    <asp:TextBox ID="descripcion" runat="server" style="width:80%;height:100px" TextMode="MultiLine"> </asp:TextBox>
                 </div>
                 <br />
 
-                <div>
-                    <asp:Label runat="server" Text="Codigo postal:"></asp:Label>
-                </div>
                 <div>
                     <asp:TextBox ID="cp" runat="server"> </asp:TextBox>
                 </div>
