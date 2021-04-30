@@ -1,0 +1,15 @@
+﻿body {
+    background-color: #f1f1f1;
+    font-family: 'Lucida Sans Unicode' !important;
+}
+
+.PanelIzquierdo {
+    width: 40%;
+    margin: auto auto auto 13px;
+}
+
+.PanelBusqueda{
+    width:80%;
+    margin:auto 13px auto auto;
+
+}
