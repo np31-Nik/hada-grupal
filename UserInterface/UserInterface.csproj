@@ -68,8 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="imagenes\455-4559731_icono-de-lupa-para-legal-design-thinking-lupa.png" />
+    <Content Include="imagenes\agencias-inmobiliarias-idolatria-de-la-exclusiva.jpg" />
     <Content Include="imagenes\IMG-20210429-WA0009.jpg" />
     <Content Include="imagenes\kisspng-computer-icons-house-home-desktop-wallpaper-clip-a-home-icon-5acbedfc7b2e07.3858102315233141725046.jpg" />
+    <Content Include="imagenes\productividad-agencia-inmobiliaria-2-e1571754106299.jpg" />
+    <Content Include="imagenes\shutterstock_499614244-1080x675.jpg" />
     <Content Include="Principal.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -25,10 +25,9 @@
             <h1 style="background-color: #151719; width: 100%; " align="center">
                 <font color="white" size=1>
                     <a name="arriba"></a>
-                    <a href="#abajo" style="color:white">Acerca de nosotros</a>
+                    <a href="#abajo" style="color:white; align-self:center;">Acerca de nosotros</a>
                 </font>
             </h1>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
               
             </asp:ContentPlaceHolder>
