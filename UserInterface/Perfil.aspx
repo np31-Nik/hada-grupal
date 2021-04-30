@@ -4,19 +4,29 @@
         <h2>Perfil</h2>
     </div>
     <div class="formularioContent">
-        <p>
-            Nombre <asp:TextBox ID="Nombre" runat="server" ReadOnly="True"></asp:TextBox> 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-            Apellido <asp:TextBox ID="Apellido" runat="server" ReadOnly="True"></asp:TextBox> 
-        </p>
-        <p>
-            Telefono <asp:TextBox ID="Telefono" runat="server" ReadOnly="True"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-            Email <asp:TextBox ID="Emali" runat="server" ReadOnly="True"></asp:TextBox>
-        </p>
-        <p>
-            Premium <asp:RadioButton ID="Premium" runat="server"  Enabled="False" />
-        </p>
+        <div id="perfilInf">
+            <table style="width: 400px;">
+                <tr>
+                    <td>Nombre </td>
+                    <td>Apellido</td>
+                </tr>
+                <tr>
+                    <td><asp:TextBox ID="Nombre" runat="server" ReadOnly="True"></asp:TextBox> </td>
+                    <td><asp:TextBox ID="Apellido" runat="server" ReadOnly="True"></asp:TextBox> </td>
+                </tr>
+                <tr>
+                    <td>Telefono</td>
+                    <td>Email</td>
+                </tr>
+                <tr>
+                    <td><asp:TextBox ID="Telefono" runat="server" ReadOnly="True"></asp:TextBox></td>
+                    <td><asp:TextBox ID="Emali" runat="server" ReadOnly="True"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>Premium <asp:CheckBox ID="Premium" runat="server" Enabled="false"/></td>
+                </tr>
+            </table>
+        </div>
         <p>
             <asp:Panel ID="PasswordPanel" runat="server" Visible="false">
                 Contrasenya <asp:TextBox ID="OldPassword" runat="server" EnableTheming="True" TextMode="Password"></asp:TextBox>
