@@ -8,7 +8,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="background-image: url(/imagenes/IMG-20210429-WA0009.jpg)">
+<body style="background-color:#f2f2f2">
     <form id="form1" runat="server">
         <div>
             <asp:menu ID="menu" runat="server" Orientation="Horizontal" Width=100%>

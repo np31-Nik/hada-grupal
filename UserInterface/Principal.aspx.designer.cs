@@ -15,22 +15,31 @@ namespace UserInterface
     {
 
         /// <summary>
-        /// Control clave.
+        /// Control CasaoCoche.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox clave;
+        protected global::System.Web.UI.WebControls.DropDownList CasaoCoche;
 
         /// <summary>
-        /// Control nombre.
+        /// Control ALQoVENT.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombre;
+        protected global::System.Web.UI.WebControls.DropDownList ALQoVENT;
+
+        /// <summary>
+        /// Control localidades.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList localidades;
 
         /// <summary>
         /// Control BoxNumeros.
@@ -51,39 +60,12 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox BoxNumeros2;
 
         /// <summary>
-        /// Control ALQoVENT.
+        /// Control LupaBuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ALQoVENT;
-
-        /// <summary>
-        /// Control CasaoCoche.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CasaoCoche;
-
-        /// <summary>
-        /// Control cp.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cp;
-
-        /// <summary>
-        /// Control local.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox local;
+        protected global::System.Web.UI.WebControls.ImageButton LupaBuscar;
     }
 }
