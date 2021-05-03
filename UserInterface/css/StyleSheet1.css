@@ -1,0 +1,13 @@
+﻿.bloque {
+    border: groove;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #F7F9F9;
+    
+}
+
+.todoContenido {
+    background-color: #F6DDCC;
+}

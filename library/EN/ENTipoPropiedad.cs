@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace library
+﻿namespace library
 {
     public class ENTipoPropiedad
     {
@@ -19,7 +13,7 @@ namespace library
         {
             tipo = "";
         }
-        
+
         public ENTipoPropiedad(string t)
         {
             tipo = t;
@@ -66,7 +60,7 @@ namespace library
             CADTipoPropiedad cad = new CADTipoPropiedad();
             if (!(cad.readTipoPropiedad(this)))
             {
-                success = cad.editTipoPropiedad(this,T);
+                success = cad.editTipoPropiedad(this, T);
             }
             return success;
         }

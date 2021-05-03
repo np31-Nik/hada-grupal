@@ -1,13 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlTypes;
-using System.Data.SqlClient;
-using System.Data.Common;
-using System.Data;
-using System.Configuration;
 
 namespace library
 {
@@ -17,10 +8,10 @@ namespace library
 
         public CADHipoteca()
         {
-            
+
         }
 
-        public bool createHipoteca(ENHipoteca en) 
+        public bool createHipoteca(ENHipoteca en)
         {
             bool creado = false;
             return creado;

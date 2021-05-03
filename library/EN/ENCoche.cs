@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace library
+﻿namespace library
 {
     public class ENCoche
     {
-
-        private string _tipo, _subTipo, _marca = null, _direccion;
+        private ENMarcaCoche _marca;
+        private ENTipoCoche _tipo;
         private int _anyo;
         private uint id;
 
-        public string tipo
+        public ENTipoCoche tipo
         {
             get { return _tipo; }
             set { _tipo = value; }
         }
 
-        public string marca
+        public ENMarcaCoche marca
         {
             get { return _marca; }
             set { _marca = value; }
@@ -35,12 +29,12 @@ namespace library
 
         public ENCoche()
         {
-            tipo = "";
-            marca = "";
+            tipo = new ENTipoCoche();
+            marca = new ENMarcaCoche();
             anyo = 0;
 
         }
-        public ENCoche(int year, string type, string subType, string marcaParam)
+        public ENCoche(int year, ENTipoCoche type, string subType, ENMarcaCoche marcaParam)
         {
             tipo = type;
             marca = marcaParam;
@@ -59,7 +53,7 @@ namespace library
         public bool readCoche()
         {
             CADCoche coche = new CADCoche();
-            return coche.readCoche(this,id);
+            return coche.readCoche(this, id);
         }
         public bool deleteCoche()
         {

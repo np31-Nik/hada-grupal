@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
-using library.EN;
-
-namespace library.CAD
+﻿namespace library
 {
     public class CADMarcaCoche
 
@@ -16,14 +8,14 @@ namespace library.CAD
 
         public CADMarcaCoche()
         {
-           // constring = constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            // constring = constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
         }
 
         public bool readMarcaCoche(ENMarcaCoche m)
         {
             bool leer = false;
 
-            return leer ;
+            return leer;
         }
 
         public bool createMarcaCoche(ENMarcaCoche m)
@@ -49,7 +41,7 @@ namespace library.CAD
 
         public bool readNextMarcaCoche(ENMarcaCoche m)
         {
-            bool leer= false;
+            bool leer = false;
 
             return leer;
         }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace library
 {
@@ -14,19 +10,22 @@ namespace library
         private string _user;
         private int _anuncio;
 
-        public int id { 
-            get { return _id; } 
-            set { _id = value; } 
+        public int id
+        {
+            get { return _id; }
+            set { _id = value; }
         }
 
-        public string text { 
-            get { return _text; } 
-            set { _text = value; } 
+        public string text
+        {
+            get { return _text; }
+            set { _text = value; }
         }
 
-        public DateTime fecha { 
-            get { return _fecha; } 
-            set { _fecha = value; } 
+        public DateTime fecha
+        {
+            get { return _fecha; }
+            set { _fecha = value; }
         }
 
         public string user
@@ -51,7 +50,8 @@ namespace library
             anuncio = -1;
         }
 
-        public ENComentario(int n_id,string n_text, DateTime n_fecha,string n_user, int n_anuncio){
+        public ENComentario(int n_id, string n_text, DateTime n_fecha, string n_user, int n_anuncio)
+        {
             id = n_id;
             text = n_text;
             fecha = n_fecha;
@@ -103,7 +103,7 @@ namespace library
             }
             return success;
         }
-        
+
         public bool readNextComentario()
         {
             CADComentario cad = new CADComentario();
