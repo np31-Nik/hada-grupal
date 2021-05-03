@@ -13,5 +13,18 @@ namespace UserInterface
         {
 
         }
+        protected void RB_Coche_Propiedad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RB_Coche_Propiedad.SelectedItem.Text == "Coche")
+            {
+                IF_PROPIEDAD.Visible = false;
+                IF_COCHE.Visible = true;
+            }
+            else if (RB_Coche_Propiedad.SelectedItem.Text == "Propiedad")
+            {
+                IF_COCHE.Visible = false;
+                IF_PROPIEDAD.Visible = true;
+            }
+        }
     }
 }
