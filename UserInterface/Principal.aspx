@@ -46,8 +46,8 @@
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         
         <p style="font-size:20px; text-align:left; font-family:sans-serif; background-color:#151719; color:white; padding:20px;">
-            Todo el mundo merece sentirse cómodo con su casa de en sueño o con su coche ideal, en inmobiliarias deppweb tenemos lo que la clientela 
-            nos ha demandado desde 1980, con total discreción, calidad y comodidad a precio más que justo. En deepweb le ayudaremos a cumplir sus sueños
+            Todo el mundo merece sentirse cómodo con su casa de en sueño o con su coche ideal, en "Casas y Coches de la DeepWeb" tenemos lo que la clientela 
+            nos ha demandado desde 1980, con total discreción, calidad y comodidad a precio más que justo. Nuestra empresa tiene como prioridad a cumplir los sueños de nuestros clientes
             al precio y calidad más competitivo del mercado líder actual. Contamos con más de 100 establecimientos en toda España para estar al alcance
             de nuestro público y poder satisfacer con efectividad sus demandas. Ya saben, con deepweb, nuestras prioridades son su satisfacción.
             "Discreción, calidad, y precio justo", son los valores de nuestra empresa.    
