@@ -31,14 +31,17 @@
                 <div>
                     <asp:Label runat="server" Text="Localidad:"></asp:Label>
                 </div>
-                <asp:DropDownList ID="localidad" runat="server">
+                <div>
+                    <asp:DropDownList ID="localidad" runat="server">
 
-                    <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                    <asp:ListItem Text="Benidorm" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="Alicante" Value="2"></asp:ListItem>
-                </asp:DropDownList>
+                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="Benidorm" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="Alicante" Value="2"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
                 <br />
                 <div>
+                 
 
                     <asp:Label runat="server" Text="Descripcion:"></asp:Label>
                 </div>
@@ -47,13 +50,6 @@
                     <asp:TextBox ID="descripcion" runat="server" style="width:80%;height:100px" TextMode="MultiLine"> </asp:TextBox>
                 </div>
                 <br />
-
-                <div>
-                    <asp:TextBox ID="cp" runat="server"> </asp:TextBox>
-                </div>
-                <br />
-
-
             </div>
         </div>
         <div runat="server" id="vehiculo" class="bloque" visible="false">
