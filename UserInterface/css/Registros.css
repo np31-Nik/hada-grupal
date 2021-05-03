@@ -1,0 +1,45 @@
+﻿body {
+    background-color:#f1f1f1;
+    margin:auto;
+    margin-top:50px;
+    padding:30px;
+    text-align:justify;
+}
+
+.PanelTitulo{
+    width: 70%;
+    padding: 30px;
+    margin:auto;
+    margin-top:100px;
+    font-family:'Calibri';
+    color:red;
+    text-align:center;
+    
+}
+
+.PanelDetalles {
+    width: 50%;
+    border-radius:1px;
+}
+
+
+.PnaelImagen {
+    width: 70%;
+}
+
+
+.form-register a {
+    color:white;
+    text-decoration: underline;
+}
+
+
+.form-register .botons {
+    width:100%;
+    background:blue;
+    border: none;
+    padding:12px;
+    color: white;
+    margin: 15px; 
+    font-size:16px;
+}

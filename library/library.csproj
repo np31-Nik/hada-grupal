@@ -68,6 +68,10 @@
     <Compile Include="EN\ENBanco.cs" />
     <Compile Include="EN\ENHipoteca.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
