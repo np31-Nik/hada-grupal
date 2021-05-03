@@ -66,28 +66,28 @@
         </p>
             <br /><br /><br /><br /><br />
 
-            <asp:ImageButton ID="ImageButton1" runat="server" Width="360px" Height="240px" BorderWidth="20px"/>
-            <asp:ImageButton ID="ImageButton6" runat="server" Width="360px" Height="240px" BorderWidth="20px"/>
+            <asp:ImageButton ID="ImageButton1" runat="server" Width="360px" Height="240px" BorderWidth="20px" OnClick="Oferta1"/>
+            <asp:ImageButton ID="ImageButton2" runat="server" Width="360px" Height="240px" BorderWidth="20px" OnClick="Oferta2"/>
 
             <br /><br /><br /><br /><br />
 
-            <asp:ImageButton ID="ImageButton2" runat="server" Width="360px" Height="240px" BorderWidth="20px"/>
-            <asp:ImageButton ID="ImageButton7" runat="server" Width="360px" Height="240px" BorderWidth="20px"/>
+            <asp:ImageButton ID="ImageButton3" runat="server" Width="360px" Height="240px" BorderWidth="20px" OnClick="Oferta3"/>
+            <asp:ImageButton ID="ImageButton4" runat="server" Width="360px" Height="240px" BorderWidth="20px" OnClick="Oferta4"/>
             
             <br /><br /><br /><br /><br />
 
-            <asp:ImageButton ID="ImageButton3" runat="server" Width="360px" Height="240px" BorderWidth="20px"/>
-            <asp:ImageButton ID="ImageButton8" runat="server" Width="360px" Height="240px" BorderWidth="20px"/>
+            <asp:ImageButton ID="ImageButton5" runat="server" Width="360px" Height="240px" BorderWidth="20px" OnClick="Oferta5"/>
+            <asp:ImageButton ID="ImageButton6" runat="server" Width="360px" Height="240px" BorderWidth="20px" OnClick="Oferta6"/>
             
             <br /><br /><br /><br /><br />
 
-            <asp:ImageButton ID="ImageButton4" runat="server" Width="360px" Height="240px" BorderWidth="20px"/>
-            <asp:ImageButton ID="ImageButton9" runat="server" Width="360px" Height="240px" BorderWidth="20px"/>
+            <asp:ImageButton ID="ImageButton7" runat="server" Width="360px" Height="240px" BorderWidth="20px" OnClick="Oferta7"/>
+            <asp:ImageButton ID="ImageButton8" runat="server" Width="360px" Height="240px" BorderWidth="20px" OnClick="Oferta8"/>
 
             <br /><br /><br /><br /><br />
 
-            <asp:ImageButton ID="ImageButton5" runat="server" Width="360px" Height="240px" BorderWidth="20px"/>
-            <asp:ImageButton ID="ImageButton10" runat="server" Width="360px" Height="240px" BorderWidth="20px"/>
+            <asp:ImageButton ID="ImageButton9" runat="server" Width="360px" Height="240px" BorderWidth="20px" OnClick="Oferta9"/>
+            <asp:ImageButton ID="ImageButton10" runat="server" Width="360px" Height="240px" BorderWidth="20px" OnClick="Oferta10"/>
             
             <br /><br /><br /><br /><br />
 

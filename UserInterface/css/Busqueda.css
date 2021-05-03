@@ -10,7 +10,7 @@
 
 .PanelBusqueda{
     width:80%;
-    height:80%;
+    height:547px;
     margin:auto 13px auto auto;
 
 }
@@ -21,4 +21,7 @@
 
 .RadioB input[type="radio"]{
     margin-left:30px;
+}
+
+.ResultadosBusqueda{    height: 26px;
 }

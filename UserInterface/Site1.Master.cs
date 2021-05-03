@@ -17,15 +17,23 @@ namespace UserInterface
                     Response.Redirect("~/Principal.aspx");
                     return;
                 case "Coches":
-                    Response.Redirect("~/Principal.aspx");
+                    Response.Redirect("~/Busqueda.aspx?tipo=coches");
                     return;
                 case "Propiedades":
-                    Response.Redirect("~/Principal.aspx");
+                    Response.Redirect("~/Busqueda.aspx?tipo=propiedades");
                     return;
-                case "Zona Clientes":
-                    Response.Redirect("~/Principal.aspx");
+                case "Publicar":
+                    Response.Redirect("~/Publicar.aspx");
+                    return;
+                case "Perfil":
+                    Response.Redirect("~/Perfil.aspx");
                     return;
             }
+        }
+
+        protected void LogoClick(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Principal.aspx");
         }
     }
 }

@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <link rel="Stylesheet" type="text/css" href="css/Busqueda.css" />
-    
+    <div>
     <div class="panelIzquierdo" style="float:left;background-color:#ffffff;color:black; width: 291px;">
         <asp:Label runat="server" Text="Tipo de articulo:"></asp:Label>
 
@@ -76,10 +76,14 @@
         <asp:Label runat="server" ID="MENSAJE" style="color:red" Visible="false"></asp:Label>
     </div>
 
-    <div class="PanelBusqueda" style="float:right;background-color:#ffffff;color:black;">
+    <div class="PanelBusqueda" style="background-color:#ffffff;color:black;">
         <asp:Label runat="server" Text="Resultados de busqueda" Width="100%" style="text-align:center;font-weight:bold;"></asp:Label>
+        <div class="ResultadosBusqueda">
 
+        </div>
     </div>
-
+        <br />
+        <br />
+    </div>
 
 </asp:Content>

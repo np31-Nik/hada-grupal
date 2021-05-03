@@ -11,7 +11,22 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.IsPostBack)
+            {
+                string tipo_busqueda = Request.QueryString["tipo"];
+                switch (tipo_busqueda)
+                {
+                    case "coches":
+                        RB_Coche_Propiedad.SelectedIndex = 0;
+                        RB_Coche_Propiedad_SelectedIndexChanged(null, null);
+                        return;
+                    case "propiedades":
+                        RB_Coche_Propiedad.SelectedIndex = 1;
+                        RB_Coche_Propiedad_SelectedIndexChanged(null, null);
+                        return;
+                }
 
+            }
         }
         protected void RB_Coche_Propiedad_SelectedIndexChanged(object sender, EventArgs e)
         {
