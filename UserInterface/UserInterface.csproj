@@ -67,20 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\Registro.css" />
-    <Content Include="Registro.aspx" />
+    <Content Include="css\Registros.css" />
+    <Content Include="Registros.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registro.aspx.cs">
-      <DependentUpon>Registro.aspx</DependentUpon>
+    <Compile Include="Registros.aspx.cs">
+      <DependentUpon>Registros.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registro.aspx.designer.cs">
-      <DependentUpon>Registro.aspx</DependentUpon>
+    <Compile Include="Registros.aspx.designer.cs">
+      <DependentUpon>Registros.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RegistroBase.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

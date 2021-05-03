@@ -1,5 +1,5 @@
 ﻿body {
-    background-color:antiquewhite;
+    background-color:olive;
     margin:auto;
     margin-top:100px;
     padding:30px;
@@ -11,8 +11,8 @@
     margin:auto;
     margin-top:100px;
     font-family:'Calibri';
-    color:black;
-    border-color:blue;
+    color:red;
+    
 }
 
 .PanelDetalles {
@@ -22,7 +22,7 @@
 
 
 .PnaelImagen {
-    width 70%;
+    width: 70%;
 }
 
 
