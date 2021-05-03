@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\StyleSheet1.css" />
+<<<<<<< HEAD
     <Content Include="css\Perfil.css" />
     <Content Include="Perfil_Coche_Admin.aspx" />
     <Content Include="Perfil_Hipoteca-Banco_Admin.aspx" />
@@ -84,8 +84,13 @@
     <Content Include="imagenes\no-image.jpg" />
     <Content Include="imagenes\right-arrow.png" />
     <Content Include="Web.config" />
+    <Content Include="WebPublicar.aspx" />
     <Content Include="Perfil.aspx" />
+=======
+    <Content Include="css\StyleSheet1.css" />
+    <Content Include="Web.config" />
     <Content Include="Publicar.aspx" />
+>>>>>>> Y4459773H
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NestedMasterPage_perfil.master.cs">
@@ -152,16 +157,21 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="Publicar.aspx.cs">
-      <DependentUpon>Publicar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+<<<<<<< HEAD
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Perfil.aspx.designer.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPublicar.aspx.cs">
+      <DependentUpon>WebPublicar.aspx</DependentUpon>
+=======
+    <Compile Include="Publicar.aspx.cs">
+      <DependentUpon>Publicar.aspx</DependentUpon>
+>>>>>>> Y4459773H
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Publicar.aspx.designer.cs">
       <DependentUpon>Publicar.aspx</DependentUpon>
@@ -178,13 +188,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+<<<<<<< HEAD
   <ItemGroup>
     <ProjectReference Include="..\library\library.csproj">
       <Project>{f69b0898-6d37-46f8-9512-2e670b0df3df}</Project>
       <Name>library</Name>
     </ProjectReference>
   </ItemGroup>
+=======
+  <ItemGroup />
+>>>>>>> Y4459773H
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

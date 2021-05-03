@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NestedMasterPage_perfil.master" AutoEventWireup="true" CodeBehind="Perfil.aspx.cs" Inherits="UserInterface.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NestedMasterPage_perfil.master" AutoEventWireup="true" CodeBehind="Perfil.aspx.cs" Inherits="UserInterface.Perfil" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildPlaceHolder1" runat="server">
     <div class="formularioHead">
         <h2>Perfil</h2>
