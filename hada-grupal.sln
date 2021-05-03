@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "library", "library\library.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterface", "UserInterface\UserInterface.csproj", "{DA0D58B5-F314-4563-9074-C45357D59A19}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntregaProyecto", "EntregaProyecto", "{0D8F10E3-2D40-45DB-8247-139059D909D0}"
+	ProjectSection(SolutionItems) = preProject
+		entregaInterfaz.zip = entregaInterfaz.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +35,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0D8F10E3-2D40-45DB-8247-139059D909D0} = {4556B8ED-1623-4557-8DA4-A0EF61CDDB29}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3EE95870-11BD-4A90-BA9B-97DF55776F6E}

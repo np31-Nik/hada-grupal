@@ -1,4 +1,0 @@
-﻿[*.cs]
-
-# CS0628: Nuevo miembro protegido declarado en el tipo sellado
-dotnet_diagnostic.CS0628.severity = silent
