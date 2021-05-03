@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\MargenLupa.css" />
     <Content Include="imagenes\455-4559731_icono-de-lupa-para-legal-design-thinking-lupa.png" />
     <Content Include="imagenes\agencias-inmobiliarias-idolatria-de-la-exclusiva.jpg" />
     <Content Include="imagenes\IMG-20210429-WA0009.jpg" />
@@ -103,9 +104,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="css\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

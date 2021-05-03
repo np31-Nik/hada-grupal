@@ -2,7 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
-    <div style="background-color: #151719; color:white; padding:10px; text-align:center ">
+    <link rel="stylesheet" type="text/css" href="css/MargenLupa.css" />
+    <div style="background-color: #151719; color:white; padding:10px; text-align:center;">
         Referencia: <asp:TextBox ID="ref" runat="server" Height="25px" Width="200px" />
         
         <asp:DropDownList runat="server" ID="CasaoCoche" AutoPostBack="True" Height="25px" Width="175px">
@@ -24,7 +25,7 @@
            
         Precio Límite: <asp:TextBox ID="BoxNumeros2" runat="server" Height="25px" Width="175px"/>
 
-        <asp:ImageButton ID="LupaBuscar" runat="server" ImageUrl="~/imagenes/455-4559731_icono-de-lupa-para-legal-design-thinking-lupa.png"  Width="30px" ImageAlign="Middle" Height="30px"/>
+        <asp:ImageButton ID="LupaBuscar" runat="server" ImageUrl="~/imagenes/455-4559731_icono-de-lupa-para-legal-design-thinking-lupa.png"  Width="30px" ImageAlign="Middle" Height="30px" CssClass="MargenLupa"/>
         
     </div>
     <div style="font-size:15px; text-align:center; font-family:'sans-serif';">
