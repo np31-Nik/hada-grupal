@@ -1,0 +1,70 @@
+﻿body {
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+
+.formularioHead {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 10px;
+    border-bottom: 1px solid rgba(100,100,100, .3);
+    background: #e8e8e8;
+}
+.formularioContent {
+    margin-left: 40px;
+}
+.formularioContent2 {
+    width: 600px;
+    height: 150px;
+}
+.formularioContent3 {
+    float: left;
+}
+.formularioTable {
+    float: right;
+}
+
+#perfilInf tr td{
+    padding-top: 5px;
+}
+
+#contentZone {
+    margin-left:1%;
+    background: #F2F2F2;
+    height: 100%;
+    width: 98%;
+    position:fixed;
+}
+
+#sidebar {
+    float:left;
+    width:200px;
+    height:100%;
+    background:#151719;
+}
+
+#sidebar ul li{
+    color:rgba(230,230,230, .9);
+    text-align:center;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(100,100,100, .3);
+    list-style:none;
+}
+
+#sidebar a {
+    color: #ffffff;
+    text-decoration:none;
+}
+
+#mineContent{
+    height: 100%;
+    margin-left:200px;
+}
+
+#mineContent p {
+    padding: 5px 2px;
+    
+}

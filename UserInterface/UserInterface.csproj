@@ -67,6 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\Perfil.css" />
+    <Content Include="Perfil_Coche_Admin.aspx" />
+    <Content Include="Perfil_Hipoteca-Banco_Admin.aspx" />
+    <Content Include="Perfil_MisAnuncios.aspx" />
+    <Content Include="Perfil_Propiedad_Admin.aspx" />
+    <Content Include="Perfil_TipoAnuncio_Admin.aspx" />
     <Content Include="Anuncio.aspx" />
     <Content Include="Busqueda.aspx" />
     <Content Include="css\Anuncio.css" />
@@ -78,8 +84,51 @@
     <Content Include="imagenes\right-arrow.png" />
     <Content Include="Web.config" />
     <Content Include="WebPublicar.aspx" />
+    <Content Include="Perfil.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NestedMasterPage_perfil.master.cs">
+      <DependentUpon>NestedMasterPage_perfil.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NestedMasterPage_perfil.master.designer.cs">
+      <DependentUpon>NestedMasterPage_perfil.master</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_Coche_Admin.aspx.cs">
+      <DependentUpon>Perfil_Coche_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_Coche_Admin.aspx.designer.cs">
+      <DependentUpon>Perfil_Coche_Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_Hipoteca-Banco_Admin.aspx.cs">
+      <DependentUpon>Perfil_Hipoteca-Banco_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_Hipoteca-Banco_Admin.aspx.designer.cs">
+      <DependentUpon>Perfil_Hipoteca-Banco_Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_MisAnuncios.aspx.cs">
+      <DependentUpon>Perfil_MisAnuncios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_MisAnuncios.aspx.designer.cs">
+      <DependentUpon>Perfil_MisAnuncios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_Propiedad_Admin.aspx.cs">
+      <DependentUpon>Perfil_Propiedad_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_Propiedad_Admin.aspx.designer.cs">
+      <DependentUpon>Perfil_Propiedad_Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_TipoAnuncio_Admin.aspx.cs">
+      <DependentUpon>Perfil_TipoAnuncio_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil_TipoAnuncio_Admin.aspx.designer.cs">
+      <DependentUpon>Perfil_TipoAnuncio_Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Anuncio.aspx.cs">
       <DependentUpon>Anuncio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -102,6 +151,13 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebPublicar.aspx.cs">
       <DependentUpon>WebPublicar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -111,6 +167,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NestedMasterPage_perfil.master" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
