@@ -321,13 +321,13 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox H_ANYOS;
 
         /// <summary>
-        /// H_BANCOS control.
+        /// BANCO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList H_BANCOS;
+        protected global::System.Web.UI.WebControls.DropDownList BANCO;
 
         /// <summary>
         /// H_CALCULAR control.

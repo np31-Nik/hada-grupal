@@ -132,7 +132,9 @@
                 </div>
 
                 <div style="float:right">
-                    <asp:DropDownList ID="H_BANCOS" runat="server"  ></asp:DropDownList>
+                    <asp:DropDownList ID="BANCO" runat="server" style="float:right;" AppendDataBoundItems="true" Height="25px" Width="125px">
+                        <asp:ListItem Text="Elige..." Value="" />   
+                    </asp:DropDownList>
                 </div>
 
                 <br />
@@ -201,8 +203,20 @@
 
             <br />
 
-            <asp:Label ID="DESCRIPCION" runat="server" Width="100%" Text="*DESCRIPCION AQUI*"></asp:Label>
+            <asp:Label ID="DESCRIPCION" runat="server" Width="100%" ></asp:Label>
             <br />
+        </div>
+
+        <br />
+        <br />
+
+        <div class="PanelDescripcion" ID="Panel_Comentarios" style="background-color:#ffffff;color:black;">
+            <div>
+               <asp:Label runat="server" Text="Comentarios de otros usuarios:" style="font-size:20px;font-weight:bold;text-align:center" Width="100%"></asp:Label>
+            </div>
+
+            <br />
+
         </div>
 
         <br />
@@ -213,16 +227,17 @@
             <asp:Label runat="server" Text="Articulos similares:" style="font-size:20px;font-weight:bold;text-align:center" Width="100%"></asp:Label>
              <br /><br />
             <div class="ListaSimilares" style="text-align:center; height: 277px;">
-                <div class="Similar" id="Similar1" style="float:left;" >
+
+                <div class="Similar" id="Similar1" style="float:left;">
                     <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
                     <br />
                     <div style="text-align:center;width:80%;margin:auto;">
                         <div style="float:left;">
-                            <asp:Label ID="Sim1_Localidad" Text="Alicante" runat="server"></asp:Label>
+                            <asp:Label ID="Sim1_Localidad" runat="server"></asp:Label>
                         </div>
 
                         <div style="float:right">
-                            <asp:Label ID="Sim1_Precio" Text="250000" runat="server"></asp:Label>
+                            <asp:Label ID="Sim1_Precio" runat="server"></asp:Label>
                         </div>
                     </div>
                 </div>
