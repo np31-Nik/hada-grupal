@@ -15,12 +15,13 @@
                 <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="" ImageAlign="Middle" Height="50px"/><br />
             </p>
 
-            <asp:menu ID="menu" runat="server" Orientation="Horizontal" Width=100%>
+            <asp:menu ID="menu" runat="server" Orientation="Horizontal" Width="100%">
                 <staticmenuitemstyle Width="100%" Font-Names="MS Sans Serif" backcolor="#151719" forecolor="White" HorizontalPadding="142" Font-Size="15" Font-Bold="true"/>
-                <statichoverstyle />
+                <statichoverstyle/>
+                <StaticMenuItemStyle Width="25%" />
 
                 <items>
-                    <asp:MenuItem Text="Inicio" Value="Inicio" ></asp:MenuItem>
+                    <asp:MenuItem Text="Inicio" Value="Inicio"></asp:MenuItem>
                     <asp:MenuItem Text="Coches" Value="Coches" ></asp:MenuItem>
                     <asp:MenuItem Text="Propiedades" Value="Propiedades" ></asp:MenuItem>                        
                     <asp:MenuItem Text="Zona Clientes" Value="Zona Clientes" ></asp:MenuItem>
