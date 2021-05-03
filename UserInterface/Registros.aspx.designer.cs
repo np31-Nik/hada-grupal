@@ -33,6 +33,15 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
 
         /// <summary>
+        /// Control dni.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dni;
+
+        /// <summary>
         /// Control nombres.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,13 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox nombres;
 
         /// <summary>
-        /// Control TextBox2.
+        /// Control apellidos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox apellidos;
 
         /// <summary>
         /// Control email.
@@ -78,31 +87,22 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox password2;
 
         /// <summary>
-        /// Control TextBox3.
+        /// Control movil.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox movil;
 
         /// <summary>
-        /// Control fijo.
+        /// Control RadioButtonList3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fijo;
-
-        /// <summary>
-        /// Control RadioButtonList2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList2;
+        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList3;
 
         /// <summary>
         /// Control registar.

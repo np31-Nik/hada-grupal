@@ -1,8 +1,9 @@
 ﻿body {
-    background-color:olive;
+    background-color:#f1f1f1;
     margin:auto;
-    margin-top:100px;
+    margin-top:50px;
     padding:30px;
+    text-align:justify;
 }
 
 .PanelTitulo{
@@ -12,6 +13,7 @@
     margin-top:100px;
     font-family:'Calibri';
     color:red;
+    text-align:center;
     
 }
 

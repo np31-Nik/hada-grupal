@@ -19,6 +19,13 @@ namespace UserInterface
 
         }
 
+       
+
+        protected void RadioButtonList3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         protected void RegistarClick(object sender, EventArgs e)
         {
            
