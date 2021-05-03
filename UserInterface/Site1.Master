@@ -24,7 +24,7 @@
                     <asp:MenuItem Text="Coches" Value="Coches" ></asp:MenuItem>
                     <asp:MenuItem Text="Propiedades" Value="Propiedades" ></asp:MenuItem>     
                     <asp:MenuItem Text="Publicar" Value="Publicar"></asp:MenuItem>
-                    <asp:MenuItem Text="Perfil" Value="Perfil" ></asp:MenuItem>
+                    <asp:MenuItem Text="Iniciar Sesion" Value="Perfil" ></asp:MenuItem>
                 </items>
             </asp:menu>
 
@@ -35,7 +35,6 @@
                 </font>
             </h1>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
-              
             </asp:ContentPlaceHolder>
             
         </div>

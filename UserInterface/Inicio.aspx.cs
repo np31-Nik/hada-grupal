@@ -16,7 +16,7 @@ namespace UserInterface
 
         protected void EntrarClick(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Perfil.aspx");
         }
     }
 }

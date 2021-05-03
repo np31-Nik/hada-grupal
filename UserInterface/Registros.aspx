@@ -40,7 +40,7 @@
                     </asp:RadioButtonList>
               <div class="from-register botons"></div>
              <asp:Button ID="registar" runat="server" Text="Registrar" onClick="RegistarClick"/>
-            <p> <a href ="#">¿Ya tiene cuenta?</a></p>
+            <p> <a href ="./Inicio.aspx">¿Ya tiene cuenta?</a></p>
 
 </asp:Content>
 

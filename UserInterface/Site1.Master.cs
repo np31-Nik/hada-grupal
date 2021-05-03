@@ -27,7 +27,7 @@ namespace UserInterface
                     Response.Redirect("~/Publicar.aspx");
                     return;
                 case "Perfil":
-                    Response.Redirect("~/Perfil.aspx");
+                    Response.Redirect("~/Registros.aspx");
                     return;
             }
         }

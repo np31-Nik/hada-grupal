@@ -28,7 +28,6 @@ namespace UserInterface
 
         protected void RegistarClick(object sender, EventArgs e)
         {
-           
         }
     }
 }
