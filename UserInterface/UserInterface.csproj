@@ -73,6 +73,7 @@
     <Content Include="css\Busqueda.css" />
     <Content Include="imagenes\background_image.jpg" />
     <Content Include="imagenes\left-arrow.png" />
+    <Content Include="imagenes\logo.png" />
     <Content Include="imagenes\no-image.jpg" />
     <Content Include="imagenes\right-arrow.png" />
     <Content Include="Web.config" />
