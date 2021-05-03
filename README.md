@@ -11,20 +11,19 @@ Nikita Polyanskiy P550048833 (Coordinador)
 
 
 ● Descripción: 
-Implementaremos una aplicación web de compra/alquiler de propiedades inmobiliarias, donde cada usuario registrado podrá publicar su propia propiedad, y cualquier visitante de la página podrá buscar a todas las propiedades publicadas a partir de criterios como ciudad,precio, tipo de propiedad, tipo de operación, etc, y podrá ver sus fotos, detalles, comentarios y el contacto del propietario.
+Implementaremos una aplicación web de compra/alquiler de propiedades inmobiliarias y coches, donde cada usuario registrado podrá publicar su propio anuncio, y cualquier visitante de la página podrá buscar todos los anuncios publicados a partir de criterios como ciudad,precio, tipo de operación, etc, y podrá ver sus fotos, detalles, comentarios y el contacto del propietario.
 
 ● Parte pública: 
 El usuario que no esté registrado podrá acceder a:
 
 --La página principal, en la cual aparecerán:
 
-	---Las propiedades cuyos propietarios son clientes premium.
+	---Los anuncios cuyos propietarios son clientes premium.
 	
 	---La opción de registro / iniciar sesión.
 	
-	---La búsqueda de todas las propiedades de la BD, en la cual se podrá poner criterios de búsqueda como ciudad, precio, tipo de operación (venta/alquiler), y tipo de artículo(inmobiliaria/coches).
+	---La búsqueda de todos los anuncios de la BD, en la cual se podrá poner criterios de búsqueda como ciudad, precio, tipo de operación (venta/alquiler), y tipo de artículo(inmobiliaria/coches).
 	
-	---En caso de búsqueda de coches, se introducirán los días.
 	
 --Acceder a la página de cada artículo donde se podrá ver:
 
@@ -60,9 +59,9 @@ El usuario registrado, además de tener las mismas funcionalidades que el usuari
 
 --Acceder a su perfil, donde podrá ver sus artículos publicados y editarlos.
 
---Solicitar ser cliente premium (se deberá introducir un método de pago).
+--Solicitar ser cliente premium.
 
---Dejar comentarios sobre una propiedad.
+--Dejar comentarios sobre un anuncio.
 
 
 
