@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
 
@@ -16,13 +12,13 @@ namespace library
         {
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString(); ;//Conexion
         }
-        public bool createPropiedad(ENPropiedad en,uint id)
+        public bool createPropiedad(ENPropiedad en, uint id)
         {
             bool creado = false;
             //Falta anyadir mas atibutos a la BD
             string comando = "Insert INTO [dbo].[Propiedad] (id,numCatastral, superficie, habitaciones, banyos)" +
-                "VALUES ('"+id + "', '" + en.numCatastral +"', '"  + en.superficie+ "', " 
-                + en.habitaciones+ "', " +en.banyos + ")";
+                "VALUES ('" + id + "', '" + en.numCatastral + "', '" + en.superficie + "', "
+                + en.habitaciones + "', " + en.banyos + ")";
 
             try
             {
@@ -52,13 +48,13 @@ namespace library
 
             return read;
         }
-        public bool updatePropiedad(ENPropiedad en,uint id)
+        public bool updatePropiedad(ENPropiedad en, uint id)
         {
             bool update = false;
 
             return update;
         }
-        public bool deletePropiedad(ENPropiedad en,uint id)
+        public bool deletePropiedad(ENPropiedad en, uint id)
         {
             bool deleted = false;
 

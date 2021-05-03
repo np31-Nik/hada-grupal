@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\StyleSheet1.css" />
     <Content Include="css\Perfil.css" />
     <Content Include="Perfil_Coche_Admin.aspx" />
     <Content Include="Perfil_Hipoteca-Banco_Admin.aspx" />
@@ -85,6 +86,7 @@
     <Content Include="Web.config" />
     <Content Include="WebPublicar.aspx" />
     <Content Include="Perfil.aspx" />
+    <Content Include="Publicar.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NestedMasterPage_perfil.master.cs">
@@ -151,6 +153,8 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Publicar.aspx.cs">
+      <DependentUpon>Publicar.aspx</DependentUpon>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -162,8 +166,8 @@
       <DependentUpon>WebPublicar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPublicar.aspx.designer.cs">
-      <DependentUpon>WebPublicar.aspx</DependentUpon>
+    <Compile Include="Publicar.aspx.designer.cs">
+      <DependentUpon>Publicar.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +181,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\library\library.csproj">
       <Project>{f69b0898-6d37-46f8-9512-2e670b0df3df}</Project>

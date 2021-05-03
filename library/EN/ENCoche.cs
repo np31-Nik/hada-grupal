@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace library
+﻿namespace library
 {
     public class ENCoche
     {
         private ENMarcaCoche _marca;
         private ENTipoCoche _tipo;
-        private string _subTipo;
         private int _anyo;
         private uint id;
 
@@ -60,7 +53,7 @@ namespace library
         public bool readCoche()
         {
             CADCoche coche = new CADCoche();
-            return coche.readCoche(this,id);
+            return coche.readCoche(this, id);
         }
         public bool deleteCoche()
         {
