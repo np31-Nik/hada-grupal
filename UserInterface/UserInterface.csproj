@@ -83,6 +83,14 @@
     <Content Include="imagenes\logo.png" />
     <Content Include="imagenes\no-image.jpg" />
     <Content Include="imagenes\right-arrow.png" />
+    <Content Include="css\MargenLupa.css" />
+    <Content Include="imagenes\455-4559731_icono-de-lupa-para-legal-design-thinking-lupa.png" />
+    <Content Include="imagenes\agencias-inmobiliarias-idolatria-de-la-exclusiva.jpg" />
+    <Content Include="imagenes\IMG-20210429-WA0009.jpg" />
+    <Content Include="imagenes\kisspng-computer-icons-house-home-desktop-wallpaper-clip-a-home-icon-5acbedfc7b2e07.3858102315233141725046.jpg" />
+    <Content Include="imagenes\productividad-agencia-inmobiliaria-2-e1571754106299.jpg" />
+    <Content Include="imagenes\shutterstock_499614244-1080x675.jpg" />
+    <Content Include="Principal.aspx" />
     <Content Include="Web.config" />
     <Content Include="Perfil.aspx" />
     <Content Include="Publicar.aspx" />
@@ -145,6 +153,13 @@
       <DependentUpon>Busqueda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Principal.aspx.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Principal.aspx.designer.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,6 +200,7 @@
       <Name>library</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
