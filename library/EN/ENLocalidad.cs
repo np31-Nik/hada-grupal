@@ -21,7 +21,7 @@ namespace library
         }
         public bool readLocalidad()
         {
-            CADTipoCoche aux = new CADTipoCoche();
+            CADLocalidad aux = new CADLocalidad();
             bool leer = aux.readLocalidad(this);
             return leer;
         }
@@ -29,7 +29,7 @@ namespace library
         public bool createLocalidad()
         {
             bool leer = false;
-            CADTipoCoche cad = new CADTipoCoche();
+            CADLocalidad cad = new CADLocalidad();
             if (!(cad.createLocalidad(this)))
             {
                 leer = cad.createLocalidad(this);
@@ -40,7 +40,7 @@ namespace library
         public bool deleteLocalidad()
         {
             bool borrar = false;
-            CADTipoCoche aux = new CADTipoCoche();
+            CADLocalidad aux = new CADLocalidad();
             if (!(aux.readLocalidad(this)))
             {
                 borrar = aux.deleteLocalidad(this);
@@ -51,10 +51,10 @@ namespace library
         public bool updateLocalidad(string apariencia)
         {
             bool editar = false;
-            CADTipoCoche aux = new CADTipoCoche();
+            CADLocalidad aux = new CADLocalidad();
             if (!(aux.readLocalidad(this)))
             {
-                editar = aux.updateLocalidad(this, apariencia);
+                editar = aux.updateLocalidad(this);
             }
             return editar;
         }
@@ -62,10 +62,10 @@ namespace library
         public bool readNextLocalidad(ENTipoCoche en)
         {
             bool siguiente = false;
-            CADTipoCoche aux = new CADTipoCoche();
-            if (!(aux.readTipoCoche(this)))
+            CADLocalidad aux = new CADLocalidad();
+            if (!(aux.readLocalidad(this)))
             {
-                siguiente = aux.readNextTipoCoche(this);
+                siguiente = aux.readNextLocalidad(this);
             }
             return siguiente;
         }
