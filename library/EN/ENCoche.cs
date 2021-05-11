@@ -5,7 +5,7 @@
         private ENMarcaCoche _marca;
         private ENTipoCoche _tipo;
         private int _anyo;
-        private uint id;
+        //private uint id;
 
         public ENTipoCoche tipo
         {

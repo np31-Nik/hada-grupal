@@ -2,13 +2,16 @@
 {
     public class ENAnuncio
     {
-        private ENTipoAnuncio tipo;
-        private ENLocalidad localidad;
+        public ENTipoAnuncio tipo;
+        public ENCoche coche;
+        public ENPropiedad prop;
+        public ENLocalidad localidad;
+        public ENTipoPropiedad tipoProp;
         public uint id = 0; //clave primaria
         private string _titulo, _descripcion;
         private float _precio;
 
-        private bool coche = false; //if true creamos coche, else crear propiedad
+        public bool EsCoche = false; //if true creamos coche, else crear propiedad
 
         public string titulo
         {
@@ -48,9 +51,8 @@
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool creado = false;
-            if (coche)
+            if (EsCoche)
             {
-                ENCoche coche = new ENCoche();
                 if (coche.createCoche(id))
                     if (anuncio.createAnuncio(this, id))
                     {
