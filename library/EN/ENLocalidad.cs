@@ -19,6 +19,11 @@ namespace library
         public ENLocalidad() {
             localidad = "";
         }
+        public ENLocalidad(string city)
+        {
+            localidad = city;
+        }
+
         public bool readLocalidad()
         {
             CADLocalidad aux = new CADLocalidad();
