@@ -2,21 +2,18 @@
 {
     public class ENAnuncio
     {
+        private ENTipoAnuncio tipo;
+        private ENLocalidad localidad;
         public uint id = 0; //clave primaria
-        private string _titulo, _localidad, _descripcion;
+        private string _titulo, _descripcion;
         private float _precio;
-        private int _cp;
+
         private bool coche = false; //if true creamos coche, else crear propiedad
 
         public string titulo
         {
             get { return _titulo; }
             set { _titulo = value; }
-        }
-        public string localidad
-        {
-            get { return _localidad; }
-            set { _localidad = value; }
         }
         public string descripcion
         {
@@ -28,27 +25,23 @@
             get { return _precio; }
             set { _precio = value; }
         }
-        public int cp
-        {
-            get { return _cp; }
-            set { _cp = value; }
-        }
+
 
         public ENAnuncio()
         {
             titulo = "";
-            localidad = "";
+            localidad = new ENLocalidad();
             descripcion = "";
             precio = -1;
-            cp = -1;
+            tipo = new ENTipoAnuncio();
         }
-        public ENAnuncio(string title, string city, string description, float price, int codPostal)
+        public ENAnuncio(string title, ENLocalidad city, string description, float price, ENTipoAnuncio tipoAnuncio)
         {
             titulo = title;
             localidad = city;
             descripcion = description;
             precio = price;
-            cp = codPostal;
+            tipo = tipoAnuncio;
         }
 
         public bool createAnuncio()
