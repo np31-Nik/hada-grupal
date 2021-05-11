@@ -14,7 +14,7 @@
                     runat="server"
                     AutoPostBack="true"
                     OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
-                    <asp:ListItem>Vehiculo</asp:ListItem>
+                    <asp:ListItem Selected="True">Vehiculo</asp:ListItem>
                     <asp:ListItem>Propiedad</asp:ListItem>
                 </asp:RadioButtonList>
             </div>
@@ -78,11 +78,20 @@
             </div>
             <br />
             <div>
+                <asp:Label runat="server" Text="Año:"></asp:Label>
+            </div>
+            <div>
+                <asp:TextBox ID="anyo" runat="server"> </asp:TextBox>
+            </div>
+            <br />
+            <div>
                 <asp:Label runat="server" Text="Precio:"></asp:Label>
             </div>
+            
             <div>
                 <asp:TextBox ID="precioVehiculo" runat="server"> </asp:TextBox>
             </div>
+            <br />
         </div>
 
         <div runat="server" id="propiedad" class="bloque" visible="false">
