@@ -88,13 +88,23 @@ namespace UserInterface
                         ENAnuncio anuncio = new ENAnuncio();
                         ENMarcaCoche marcaC = new ENMarcaCoche("", marca.SelectedItem.Text,"") ;
                         ENTipoCoche tipoC = new ENTipoCoche(tipoCoche.SelectedItem.Text);
+                        ENLocalidad loc = new ENLocalidad(localidad.SelectedItem.Text);
+                        ENCoche car = new ENCoche();
                         anuncio.titulo = titulo.Text;
                         anuncio.descripcion = descripcion.Text;
                         anuncio.precio = float.Parse(precioVehiculo.Text);
+                        anuncio.localidad = loc;
+                        anuncio.coche = car;
                         anuncio.coche.marca = marcaC;
                         anuncio.coche.tipo = tipoC;
                         anuncio.coche.anyo= int.Parse(anyo.Text);
                         anuncio.EsCoche = true;
+                        if (anuncio.createAnuncio()) {
+                            //Ir a la pagina de inicio o pagina de anuncio creado
+                        }
+                        else{
+                            mensaje.Text = "El anuncio no se ha creado. Intentelo mas tarde.";
+                        }
                     }
 
                 }
@@ -113,8 +123,27 @@ namespace UserInterface
                         mensaje.Text = "Debe elgir tipo de propiedad";
                     }
                     else {
-                    
+                        ENAnuncio anuncio = new ENAnuncio();
+                        ENMarcaCoche marcaC = new ENMarcaCoche("", marca.SelectedItem.Text, "");
+                        ENTipoCoche tipoC = new ENTipoCoche(tipoCoche.SelectedItem.Text);
+                        ENPropiedad propiedadAnuncio = new ENPropiedad(); 
+                        anuncio.titulo = titulo.Text;
+                        anuncio.descripcion = descripcion.Text;
+                        anuncio.precio = float.Parse(precio.Text);
+
+                        anuncio.prop = propiedadAnuncio;
+
+                        anuncio.EsCoche = false;
+                        if (anuncio.createAnuncio())
+                        {
+                            //Ir a la pagina de inicio o pagina de anuncio creado
+                        }
+                        else
+                        {
+                            mensaje.Text = "El anuncio no se ha creado. Intentelo mas tarde.";
+                        }
                     }
+                }
 
                 }
 
