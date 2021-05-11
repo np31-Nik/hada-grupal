@@ -2,17 +2,13 @@
 {
     public class ENPropiedad
     {
-        private string _tipo, _direccion;
+        private string _direccion;
         private int _superficie, _banyos, _habitaciones;
         private int _numCatastral = -1;
+        ENTipoPropiedad tipo;
 
 
 
-        public string tipo
-        {
-            get { return _tipo; }
-            set { _tipo = value; }
-        }
         public string direccion
         {
             get { return _direccion; }
@@ -45,14 +41,14 @@
         {
             numCatastral = -1;
             superficie = 0;
-            tipo = "";
+            tipo = new ENTipoPropiedad();
             direccion = "";
             habitaciones = 0;
             banyos = 0;
         }
 
         public ENPropiedad(int catastral, int metros, int rooms, int bathrooms,
-            string type, string subType, string dir)
+            ENTipoPropiedad type, string subType, string dir)
         { //Constructor para vivienda
             numCatastral = catastral;
             superficie = metros;
