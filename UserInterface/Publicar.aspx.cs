@@ -41,6 +41,7 @@ namespace UserInterface
 
         protected void PublicarClick(object sender, EventArgs e)
         {
+            int aux = 0;
             if (titulo.Text.Length > 55)
             {
                 mensaje.Text = "El tamaño maximo de titulo es de 55 caracteres. Tamaño actual: " + titulo.Text.Length;
@@ -118,25 +119,45 @@ namespace UserInterface
                     {
                         mensaje.Text = "El campo superficie es obligatorio";
                     }
-                    else if (Superficie.Text == "0")
+                    else if (TipoCasa.Text == "0")
                     {
                         mensaje.Text = "Debe elgir tipo de propiedad";
                     }
-                    else {
+                    else if (NumHabit.Text != "" && int.TryParse(NumHabit.Text, out aux)) {
+                        mensaje.Text = "Numero de habitaciones debe ser un numero entero";
+                    }
+                    else if (int.TryParse(Superficie.Text, out aux))
+                    {
+                        mensaje.Text = "Superficie debe ser un numero entero";
+                    }
+                    else if (NumBanyos.Text != "" && int.TryParse(NumBanyos.Text, out aux))
+                    {
+                        mensaje.Text = "Numero de baños debe ser un numero entero";
+                    }
+                    else
+                    {
                         ENAnuncio anuncio = new ENAnuncio();
-                        ENMarcaCoche marcaC = new ENMarcaCoche("", marca.SelectedItem.Text, "");
-                        ENTipoCoche tipoC = new ENTipoCoche(tipoCoche.SelectedItem.Text);
-                        ENPropiedad propiedadAnuncio = new ENPropiedad(); 
+                        ENTipoPropiedad tipoP = new ENTipoPropiedad(TipoCasa.SelectedItem.Text);
+                        ENPropiedad propiedadAnuncio = new ENPropiedad();
+                        
                         anuncio.titulo = titulo.Text;
                         anuncio.descripcion = descripcion.Text;
                         anuncio.precio = float.Parse(precio.Text);
 
-                        anuncio.prop = propiedadAnuncio;
-
+                        anuncio.prop = new ENPropiedad();
+                        if (NumHabit.Text!="")
+                            anuncio.prop.habitaciones = int.Parse(NumHabit.Text);
+                        anuncio.prop.superficie = int.Parse(Superficie.Text);
+                        if (NumBanyos.Text!="")
+                            anuncio.prop.habitaciones = int.Parse(NumHabit.Text);
+                        if (numCatastral.Text != "")
+                            anuncio.prop.numCatastral = int.Parse(numCatastral.Text);
+                        anuncio.tipoProp = tipoP;
                         anuncio.EsCoche = false;
                         if (anuncio.createAnuncio())
                         {
-                            //Ir a la pagina de inicio o pagina de anuncio creado
+                            mensaje.Text = "Anuncio creado correctamente";//quitar al acabar
+                            //Ir a la pagina de anuncio creado
                         }
                         else
                         {
@@ -145,7 +166,7 @@ namespace UserInterface
                     }
                 }
 
-                }
+                
 
             }
         }
