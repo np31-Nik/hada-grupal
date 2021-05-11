@@ -6,6 +6,8 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            mensaje.Text = "";
+            vehiculo.Visible = true;
         }
 
 
@@ -38,7 +40,56 @@ namespace UserInterface
 
         protected void PublicarClick(object sender, EventArgs e)
         {
-            mensaje.Text = "";
+            if (titulo.Text.Length > 55)
+            {
+                mensaje.Text = "El tamaño maximo de titulo es de 55 caracteres. Tamaño actual: " + titulo.Text.Length;
+
+            }
+            else if (titulo.Text == "") {
+                mensaje.Text = "Campo titulo es obligatorio";
+            }
+            else if (descripcion.Text.Length > 1000)
+            {
+                mensaje.Text = "El tamaño maximo de la descripcion es de 1000 caracteres. Tamaño actual: " + descripcion.ToString().Length;
+
+            }
+            else if (descripcion.Text == "")
+            {
+                mensaje.Text = "Campo descripcion es obligatorio";
+            }
+            else if (localidad.Text == "0")
+            {
+                mensaje.Text = "Debe elegir una de las localidades";
+            }
+
+            else
+            {
+                if (RadioButtonList1.SelectedItem.Text == "Vehiculo") {
+                    if (marca.Text == "0")
+                    {
+                        mensaje.Text = "Debe elegir marca de coche";
+                    }
+                    else if (tipoCoche.Text == "0")
+                    {
+                        mensaje.Text = "Debe elegir el tipo de coche";
+                    }
+                    else if (precio.Text == "")
+                    {
+                        mensaje.Text = "El campo precio es obligatorio";
+                    }
+                    else
+                    {
+
+
+                    }
+
+                }
+                else
+                {
+
+                }
+
+            }
         }
         protected void InicioClick(object sender, EventArgs e)
         {
