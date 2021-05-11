@@ -1,4 +1,5 @@
 ﻿using System;
+using library;
 
 namespace UserInterface
 {
@@ -80,11 +81,20 @@ namespace UserInterface
                     else if (anyo.Text == "")
                     {
                         mensaje.Text = "El campo anyo es obligatorio";
+
                     }
                     else
                     {
-
-
+                        ENAnuncio anuncio = new ENAnuncio();
+                        ENMarcaCoche marcaC = new ENMarcaCoche("", marca.SelectedItem.Text,"") ;
+                        ENTipoCoche tipoC = new ENTipoCoche(tipoCoche.SelectedItem.Text);
+                        anuncio.titulo = titulo.Text;
+                        anuncio.descripcion = descripcion.Text;
+                        anuncio.precio = float.Parse(precioVehiculo.Text);
+                        anuncio.coche.marca = marcaC;
+                        anuncio.coche.tipo = tipoC;
+                        anuncio.coche.anyo= int.Parse(anyo.Text);
+                        anuncio.EsCoche = true;
                     }
 
                 }
