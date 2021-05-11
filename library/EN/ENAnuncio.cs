@@ -75,27 +75,33 @@
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool deleted = false;
-            if (anuncio.deleteAnuncio(this, id))
-                deleted = true;
+            if (anuncio.readAnuncio(this, id))
+            {
+                if (anuncio.deleteAnuncio(this, id))
+                    deleted = true;
+            }
             return deleted;
         }
         public bool updateAnuncio()
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool updated = false;
-            if (anuncio.updateAnuncio(this, id))
-                updated = true;
+            if (anuncio.readAnuncio(this, id))
+            {
+                if (anuncio.updateAnuncio(this, id))
+                    updated = true;
+            }
 
             return updated;
         }
         public bool readAnuncio()
         {
             CADAnuncio anuncio = new CADAnuncio();
-            bool deleted = false;
+            bool read = false;
             if (anuncio.readAnuncio(this, id))
-                deleted = true;
+                read = true;
 
-            return deleted;
+            return read;
         }
         public bool readNextAnuncio()
         {
