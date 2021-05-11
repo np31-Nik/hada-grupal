@@ -73,9 +73,13 @@ namespace UserInterface
                     {
                         mensaje.Text = "Debe elegir el tipo de coche";
                     }
-                    else if (precio.Text == "")
+                    else if (precioVehiculo.Text == "")
                     {
                         mensaje.Text = "El campo precio es obligatorio";
+                    }
+                    else if (anyo.Text == "")
+                    {
+                        mensaje.Text = "El campo anyo es obligatorio";
                     }
                     else
                     {
@@ -86,6 +90,21 @@ namespace UserInterface
                 }
                 else
                 {
+                    if (precio.Text == "")
+                    {
+                        mensaje.Text = "El campo precio es obligatorio";
+                    }
+                    else if (Superficie.Text == "")
+                    {
+                        mensaje.Text = "El campo superficie es obligatorio";
+                    }
+                    else if (Superficie.Text == "0")
+                    {
+                        mensaje.Text = "Debe elgir tipo de propiedad";
+                    }
+                    else {
+                    
+                    }
 
                 }
 
