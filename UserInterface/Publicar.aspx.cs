@@ -149,7 +149,7 @@ namespace UserInterface
                             anuncio.prop.habitaciones = int.Parse(NumHabit.Text);
                         anuncio.prop.superficie = int.Parse(Superficie.Text);
                         if (NumBanyos.Text!="")
-                            anuncio.prop.habitaciones = int.Parse(NumHabit.Text);
+                            anuncio.prop.banyos = int.Parse(NumBanyos.Text);
                         if (numCatastral.Text != "")
                             anuncio.prop.numCatastral = int.Parse(numCatastral.Text);
                         anuncio.tipoProp = tipoP;
