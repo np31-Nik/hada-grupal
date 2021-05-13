@@ -93,7 +93,7 @@
             </div>
             <br />
         </div>
-
+        
         <div runat="server" id="propiedad" class="bloque" visible="false">
             <asp:RadioButtonList
                 ID="RadioButtonList2"
