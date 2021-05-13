@@ -7,6 +7,7 @@
         public ENPropiedad prop;
         public ENLocalidad localidad;
         public ENTipoPropiedad tipoProp;
+        public ENUsuario usuario;
         public uint id = 0; //clave primaria
         private string _titulo, _descripcion;
         private float _precio;
@@ -62,7 +63,6 @@
             }
             else
             {
-                ENPropiedad prop = new ENPropiedad();
                 if (prop.createPropiedad(id))
                     if (anuncio.createAnuncio(this, id))
                     {
@@ -77,9 +77,9 @@
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool deleted = false;
-            if (anuncio.readAnuncio(this, id))
+            if (anuncio.readAnuncio(this))
             {
-                if (anuncio.deleteAnuncio(this, id))
+                if (anuncio.deleteAnuncio(this))
                     deleted = true;
             }
             return deleted;
@@ -88,9 +88,9 @@
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool updated = false;
-            if (anuncio.readAnuncio(this, id))
+            if (anuncio.readAnuncio(this))
             {
-                if (anuncio.updateAnuncio(this, id))
+                if (anuncio.updateAnuncio(this))
                     updated = true;
             }
 
