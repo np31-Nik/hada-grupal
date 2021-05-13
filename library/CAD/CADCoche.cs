@@ -15,8 +15,8 @@ namespace library
         {
             bool creado = false;
             //Falta anyadir mas atibutos a la BD
-            string comando = "Insert INTO [dbo].[Coche] (id,anyo) " +
-                "VALUES ('" + id + "', '" + en.anyo + ")";
+            string comando = "Insert INTO [dbo].[Coche] (anuncio,ano,marca,tipo) " +
+                "VALUES ('" + id + "', '" + en.anyo + "', '" + en.marca + "', '" + en.tipo + ")";
 
             try
             {
