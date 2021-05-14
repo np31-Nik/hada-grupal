@@ -34,7 +34,7 @@
             anyo = 0;
 
         }
-        public ENCoche(int year, ENTipoCoche type, string subType, ENMarcaCoche marcaParam)
+        public ENCoche(int year, ENTipoCoche type, ENMarcaCoche marcaParam)
         {
             tipo = type;
             marca = marcaParam;
