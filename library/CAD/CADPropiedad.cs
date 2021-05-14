@@ -16,7 +16,7 @@ namespace library
         {
             bool creado = false;
             //Falta anyadir mas atibutos a la BD
-            string comando = "Insert INTO [dbo].[Propiedad] (id,numCatastral, superficie, habitaciones, banyos)" +
+            string comando = "Insert INTO [dbo].[Propiedad] (id,numCatastral, superficie, dorm, bano,tipo)" +
                 "VALUES ('" + id + "', '" + en.numCatastral + "', '" + en.superficie + "', "
                 + en.habitaciones + "', " + en.banyos + ")";
 

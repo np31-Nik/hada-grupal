@@ -136,21 +136,15 @@ namespace UserInterface
                         ENLocalidad loc = new ENLocalidad(localidad.SelectedItem.Text);
                         ENTipoPropiedad tipoP = new ENTipoPropiedad(TipoCasa.SelectedItem.Text);
                         //ENPropiedad propiedadAnuncio = new ENPropiedad();
-                        ENAnuncio anuncio = new ENAnuncio(titulo.Text,loc, descripcion.Text, float.Parse(precio.Text),tipoAnun,new ENPropiedad());
-                       
-                        
-                        anuncio.titulo = titulo.Text;
-                        anuncio.descripcion = descripcion.Text;
-                        anuncio.precio = float.Parse(precio.Text);
+                        ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precio.Text), tipoAnun, new ENPropiedad());
 
-                        anuncio.prop = new ENPropiedad();
                         if (NumHabit.Text!="")
                             anuncio.prop.habitaciones = int.Parse(NumHabit.Text);
                         anuncio.prop.superficie = int.Parse(Superficie.Text);
                         if (NumBanyos.Text!="")
                             anuncio.prop.banyos = int.Parse(NumBanyos.Text);
                         if (numCatastral.Text != "")
-                            anuncio.prop.numCatastral = int.Parse(numCatastral.Text);
+                            anuncio.prop.numCatastral = numCatastral.Text;
                         anuncio.tipoProp = tipoP;
                         anuncio.EsCoche = false;
                         if (anuncio.createAnuncio())

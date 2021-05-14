@@ -4,7 +4,7 @@
     {
         private string _direccion;
         private int _superficie, _banyos, _habitaciones;
-        private int _numCatastral = -1;
+        private string _numCatastral = "-1";
         private uint id;
         ENTipoPropiedad _tipo;
 
@@ -35,7 +35,7 @@
             set { _habitaciones = value; }
         }
 
-        public int numCatastral
+        public string numCatastral
         {
             get { return _numCatastral; }
             set { _numCatastral = value; }
@@ -43,7 +43,7 @@
 
         public ENPropiedad() //vacio
         {
-            numCatastral = -1;
+            numCatastral = "-1";
             superficie = 0;
             tipo = new ENTipoPropiedad();
             direccion = "";
@@ -51,7 +51,7 @@
             banyos = 0;
         }
 
-        public ENPropiedad(int catastral, int metros, int rooms, int bathrooms,
+        public ENPropiedad(string catastral, int metros, int rooms, int bathrooms,
             ENTipoPropiedad type, string subType, string dir)
         { //Constructor para vivienda
             numCatastral = catastral;
@@ -61,9 +61,6 @@
             habitaciones = rooms;
             banyos = bathrooms;
         }
-
-        //Constructor para vehiculo
-
 
         public bool createPropiedad(uint id)
         {
