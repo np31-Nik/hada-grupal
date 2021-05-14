@@ -88,9 +88,37 @@ namespace library
     
         public bool updatePropiedad(ENPropiedad en, uint id)
         {
-            bool update = false;
+            bool updated = false;
+            string comando = "UPDATE [dbo].[Propiedad] SET " +
+               "tipo= '" + en.tipo + "' ," +
+               "dorm= '" + en.habitaciones + "' ," +
+               "numCatastral=" + en.numCatastral + "' ," +
+               "superficie=" + en.superficie+ "' ," +
+               "bano=" + en.banyos+ "' ," +
+               "WHERE id = '" + id + "'";
+            try
+            {
+                SqlConnection conn = null;
+                conn = new SqlConnection(constring);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(comando, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                updated = true;
+            }
+            catch (SqlException ex)
+            {
+                updated = false;
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                updated = false;
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+            }
 
-            return update;
+
+            return updated;
         }
         public bool deletePropiedad(ENPropiedad en, uint id)
         {
