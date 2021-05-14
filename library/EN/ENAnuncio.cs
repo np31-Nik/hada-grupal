@@ -69,15 +69,24 @@
             precio = -1;
             tipo = new ENTipoAnuncio();
         }
-        public ENAnuncio(string title, ENLocalidad city, string description, float price, ENTipoAnuncio tipoAnuncio)
+        public ENAnuncio(string title, ENLocalidad city, string description, float price, ENTipoAnuncio tipoAnuncio,ENCoche car)
         {
             titulo = title;
             localidad = city;
             descripcion = description;
             precio = price;
             tipo = tipoAnuncio;
+            coche = car;
         }
 
+        public ENAnuncio(string title, ENLocalidad city, string description, float price, ENTipoAnuncio tipoAnuncio, ENPropiedad propiedad) {
+            titulo = title;
+            localidad = city;
+            descripcion = description;
+            precio = price;
+            tipo = tipoAnuncio;
+            prop = propiedad ;
+        }
         public bool createAnuncio()
         {
             CADAnuncio anuncio = new CADAnuncio();
