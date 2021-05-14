@@ -5,9 +5,13 @@
         private string _direccion;
         private int _superficie, _banyos, _habitaciones;
         private int _numCatastral = -1;
-        ENTipoPropiedad tipo;
+        private uint id;
+        ENTipoPropiedad _tipo;
 
-
+        public ENTipoPropiedad tipo {
+            get { return _tipo; }
+            set { _tipo = value; }
+        }
 
         public string direccion
         {
@@ -74,13 +78,17 @@
         public bool deletePropiedad(uint id)
         {
             CADPropiedad prop = new CADPropiedad();
-            return prop.deletePropiedad(this, id);
+            if(prop.readPropiedad(this,id))
+                return prop.deletePropiedad(this, id);
+            return false;
         }
 
         public bool updatePropiedad(uint id)
         {
             CADPropiedad prop = new CADPropiedad();
-            return prop.updatePropiedad(this, id);
+            if (prop.readPropiedad(this, id))
+                return prop.updatePropiedad(this, id);
+            return false;
         }
 
         public bool readPropiedad(uint id)
