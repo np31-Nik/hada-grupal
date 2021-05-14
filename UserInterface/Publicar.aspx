@@ -50,9 +50,19 @@
                     <asp:TextBox ID="descripcion" runat="server" style="width:80%;height:100px" TextMode="MultiLine"> </asp:TextBox>
                 </div>
                 <br />
+                <asp:RadioButtonList
+                    ID="tipoAnuncio"
+                    runat="server"
+                    AutoPostBack="true"
+                    OnSelectedIndexChanged="RadioButtonList2_SelectedIndexChanged">
+                    <asp:ListItem Selected="True">Alquiler</asp:ListItem>
+                    <asp:ListItem>Venta</asp:ListItem>
+                </asp:RadioButtonList>
             </div>
         </div>
         <div runat="server" id="vehiculo" class="bloque" visible="false">
+            
+            <br />
             <div>
                 <asp:Label runat="server" Text="Marca:"></asp:Label>
             </div>
@@ -95,15 +105,6 @@
         </div>
         
         <div runat="server" id="propiedad" class="bloque" visible="false">
-            <asp:RadioButtonList
-                ID="RadioButtonList2"
-                runat="server"
-                AutoPostBack="true"
-                OnSelectedIndexChanged="RadioButtonList2_SelectedIndexChanged">
-                <asp:ListItem>Alquiler</asp:ListItem>
-                <asp:ListItem>Venta</asp:ListItem>
-            </asp:RadioButtonList>
-            <br />
             <div>
                 <asp:Label runat="server" ID="precioProp"></asp:Label>
             </div>
