@@ -9,6 +9,7 @@ namespace UserInterface
         {
             mensaje.Text = "";
             vehiculo.Visible = true;
+
         }
 
 
@@ -29,11 +30,11 @@ namespace UserInterface
         }
         protected void RadioButtonList2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (RadioButtonList2.SelectedItem.Text == "Alquiler")
+            if (tipoAnuncio.SelectedItem.Text == "Alquiler")
             {
                 precioProp.Text = "Precio por mes:";
             }
-            else if (RadioButtonList2.SelectedItem.Text == "Venta")
+            else if (tipoAnuncio.SelectedItem.Text == "Venta")
             {
                 precioProp.Text = "Precio de venta:";
             }
@@ -86,19 +87,14 @@ namespace UserInterface
                     }
                     else
                     {
-                        ENAnuncio anuncio = new ENAnuncio();
-                        ENMarcaCoche marcaC = new ENMarcaCoche("", marca.SelectedItem.Text,"") ;
-                        ENTipoCoche tipoC = new ENTipoCoche(tipoCoche.SelectedItem.Text);
                         ENLocalidad loc = new ENLocalidad(localidad.SelectedItem.Text);
-                        ENCoche car = new ENCoche();
-                        anuncio.titulo = titulo.Text;
-                        anuncio.descripcion = descripcion.Text;
-                        anuncio.precio = float.Parse(precioVehiculo.Text);
-                        anuncio.localidad = loc;
-                        anuncio.coche = car;
-                        anuncio.coche.marca = marcaC;
-                        anuncio.coche.tipo = tipoC;
-                        anuncio.coche.anyo= int.Parse(anyo.Text);
+                        ENTipoAnuncio tipoAnun = new ENTipoAnuncio(tipoAnuncio.SelectedItem.Text);
+                        ENMarcaCoche marcaC = new ENMarcaCoche("", marca.SelectedItem.Text, "");
+                        ENTipoCoche tipoC = new ENTipoCoche(tipoCoche.SelectedItem.Text); 
+                        ENCoche car = new ENCoche(int.Parse(anyo.Text), tipoC, marcaC);
+                        ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precioVehiculo.Text),tipoAnun,car);
+                        
+                        
                         anuncio.EsCoche = true;
                         if (anuncio.createAnuncio()) {
                             //Ir a la pagina de inicio o pagina de anuncio creado
@@ -136,9 +132,12 @@ namespace UserInterface
                     }
                     else
                     {
-                        ENAnuncio anuncio = new ENAnuncio();
+                        ENTipoAnuncio tipoAnun = new ENTipoAnuncio(tipoAnuncio.SelectedItem.Text);
+                        ENLocalidad loc = new ENLocalidad(localidad.SelectedItem.Text);
                         ENTipoPropiedad tipoP = new ENTipoPropiedad(TipoCasa.SelectedItem.Text);
-                        ENPropiedad propiedadAnuncio = new ENPropiedad();
+                        //ENPropiedad propiedadAnuncio = new ENPropiedad();
+                        ENAnuncio anuncio = new ENAnuncio(titulo.Text,loc, descripcion.Text, float.Parse(precio.Text),tipoAnun,new ENPropiedad());
+                       
                         
                         anuncio.titulo = titulo.Text;
                         anuncio.descripcion = descripcion.Text;
