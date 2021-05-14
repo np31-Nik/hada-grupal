@@ -2,18 +2,48 @@
 {
     public class ENAnuncio
     {
-        public ENTipoAnuncio tipo;
-        public ENCoche coche;
-        public ENPropiedad prop;
-        public ENLocalidad localidad;
-        public ENTipoPropiedad tipoProp;
-        public ENUsuario usuario;
+        public ENTipoAnuncio _tipo;
+        public ENCoche _coche;
+        public ENPropiedad _prop;
+        public ENLocalidad _localidad;
+        public ENTipoPropiedad _tipoProp;
+        public ENUsuario _usuario;
         public uint id = 0; //clave primaria
         private string _titulo, _descripcion;
         private float _precio;
 
         public bool EsCoche = false; //if true creamos coche, else crear propiedad
 
+        public ENTipoAnuncio tipo
+        {
+            get { return _tipo; }
+            set { _tipo = value; }
+        }
+        public ENCoche coche
+        {
+            get { return _coche; }
+            set { _coche = value; }
+        }
+        public ENPropiedad prop
+        {
+            get { return _prop; }
+            set { _prop = value; }
+        }
+        public ENLocalidad localidad
+        {
+            get { return _localidad; }
+            set { _localidad = value; }
+        }
+        public ENTipoPropiedad tipoProp
+        {
+            get { return _tipoProp; }
+            set { _tipoProp = value; }
+        }
+        public ENUsuario usuario
+        {
+            get { return _usuario; }
+            set { _usuario = value; }
+        }
         public string titulo
         {
             get { return _titulo; }
@@ -100,7 +130,7 @@
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool read = false;
-            if (anuncio.readAnuncio(this, id))
+            if (anuncio.readAnuncio(this))
                 read = true;
 
             return read;
@@ -109,7 +139,7 @@
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool read = false;
-            if (anuncio.readNextAnuncio(this, id))
+            if (anuncio.readNextAnuncio(this))
                 read = true;
 
             return read;
@@ -118,7 +148,7 @@
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool read = false;
-            if (anuncio.readFirstAnuncio(this, id))
+            if (anuncio.readFirstAnuncio(this))
                 read = true;
 
             return read;
