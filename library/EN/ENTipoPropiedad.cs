@@ -54,13 +54,13 @@
 
         }
 
-        public bool editTipoPropiedad(string T)
+        public bool updateTipoPropiedad(string T)
         {
             bool success = false;
             CADTipoPropiedad cad = new CADTipoPropiedad();
             if (!(cad.readTipoPropiedad(this)))
             {
-                success = cad.editTipoPropiedad(this, T);
+                success = cad.updateTipoPropiedad(this, T);
             }
             return success;
         }
