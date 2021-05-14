@@ -9,7 +9,7 @@ namespace library
         private string constring;
         public CADCoche()
         {
-            constring = ConfigurationManager.ConnectionStrings["Database"].ToString(); ;//Conexion
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();//Conexion
         }
         public bool createCoche(ENCoche en, uint id)
         {
@@ -43,7 +43,7 @@ namespace library
         public bool readCoche(ENCoche en, uint id)
         {
             bool read = false;
-            string comando = "select * From [dbo].[Usuarios] where id='" + id + "'";
+            string comando = "select * From [dbo].[Usuarios] where anuncio='" + id + "'";
 
             try
             {
