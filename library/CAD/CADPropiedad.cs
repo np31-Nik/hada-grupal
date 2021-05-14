@@ -16,7 +16,7 @@ namespace library
         {
             bool creado = false;
             //Falta anyadir mas atibutos a la BD
-            string comando = "Insert INTO [dbo].[Propiedad] (id,numCatastral, superficie, dorm, bano, tipo)" +
+            string comando = "Insert INTO [dbo].[Propiedad] (anuncio, numCatastral, superficie, dorm, bano, tipo)" +
                 "VALUES ('" + id + "', '" + en.numCatastral + "', '" + en.superficie + "', "
                 + en.habitaciones + "', " + en.banyos + "', " + en.tipo + ")";
 
@@ -95,7 +95,7 @@ namespace library
                "numCatastral=" + en.numCatastral + "' ," +
                "superficie=" + en.superficie+ "' ," +
                "bano=" + en.banyos+ "' ," +
-               "WHERE id = '" + id + "'";
+               "WHERE anuncio = '" + id + "'";
             try
             {
                 SqlConnection conn = null;
@@ -122,9 +122,30 @@ namespace library
         }
         public bool deletePropiedad(ENPropiedad en, uint id)
         {
-            bool deleted = false;
+            bool borrado = false;
+            string comando = "DELETE FROM [dbo].[Propiedad] WHERE anuncio = '" + id + "'";
+            try
+            {
+                SqlConnection conn = null;
+                conn = new SqlConnection(constring);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(comando, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                borrado = true;
+            }
+            catch (SqlException ex)
+            {
+                borrado = false;
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                borrado = false;
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+            }
 
-            return deleted;
+            return borrado;
         }
     }
 }
