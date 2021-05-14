@@ -5,7 +5,7 @@
         private ENMarcaCoche _marca;
         private ENTipoCoche _tipo;
         private int _anyo;
-        //private uint id;
+        private uint id;
 
         public ENTipoCoche tipo
         {
@@ -50,17 +50,17 @@
             }
             return false;
         }
-        public bool readCoche()
+        public bool readCoche(uint id)
         {
             CADCoche coche = new CADCoche();
             return coche.readCoche(this, id);
         }
-        public bool deleteCoche()
+        public bool deleteCoche(uint id)
         {
             CADCoche coche = new CADCoche();
             return coche.deleteCoche(this, id);
         }
-        public bool updateCoche()
+        public bool updateCoche(uint id)
         {
             CADCoche coche = new CADCoche();
             return coche.updateCoche(this, id);
