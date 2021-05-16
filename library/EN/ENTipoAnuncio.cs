@@ -3,6 +3,12 @@
     public class ENTipoAnuncio
     {
         private string _tipo;
+        private string _newTipo;
+        public string NewTipo
+        {
+            get { return _newTipo; }
+            set { _newTipo = value; }
+        }
         public string Tipo
         {
             get { return _tipo; }
@@ -11,12 +17,17 @@
         public ENTipoAnuncio()
         {
             Tipo = "";
+            NewTipo = "";
         }
         public ENTipoAnuncio(string tipo)
         {
             Tipo = tipo;
         }
-
+        public ENTipoAnuncio(string tipo, string newTipo)
+        {
+            Tipo = tipo;
+            NewTipo = newTipo;
+        }
         public bool createTipoAnuncio()
         {
             CADTipoAnuncio db = new CADTipoAnuncio();
@@ -24,8 +35,12 @@
         }
         public bool updateTipoAnuncio()
         {
-            CADTipoAnuncio db = new CADTipoAnuncio();
-            return db.updateTipoAnuncio(this);
+            if (NewTipo != "")
+            {
+                CADTipoAnuncio db = new CADTipoAnuncio();
+                return db.updateTipoAnuncio(this);
+            }
+            return false;
         }
         public bool deleteTipoAnuncio()
         {
