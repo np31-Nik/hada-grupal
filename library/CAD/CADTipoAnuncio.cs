@@ -44,7 +44,7 @@ namespace library
 
                 dr.Read();
 
-                //en. = dr[""].ToString();
+                en.Tipo = dr["tipo"].ToString();
 
                 dr.Close();
                 c.Close();
@@ -68,25 +68,24 @@ namespace library
         {
             constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString();
         }
-
         public bool createTipoAnuncio(ENTipoAnuncio en)
         {
-            string comando = "Insert Into __ () VALUES()";
+            string comando = "Insert Into TipoAnuncio (tipo) VALUES('"+en.Tipo+"')";
             return modifComandExec(comando);
         }
         public bool updateTipoAnuncio(ENTipoAnuncio en)
         {
-            string comando = "Update  set  where nif=";
+            string comando = "Update TipoAnuncio set tipo='" + en.NewTipo + "' where tipo='" + en.Tipo + "'";
             return modifComandExec(comando);
         }
         public bool deleteTipoAnuncio(ENTipoAnuncio en)
         {
-            string comando = "Delete from where ";
+            string comando = "Delete from TipoAnuncio where tipo='" + en.Tipo + "'";
             return modifComandExec(comando);
         }
         public bool readTipoAnuncio(ENTipoAnuncio en)
         {
-            string comando = "Select __ from ";
+            string comando = "Select tipo from TipoAnuncio where tipo='" + en.Tipo + "'";
             return obtainComandExec(comando, en);
         }
 
