@@ -15,13 +15,13 @@ namespace UserInterface
     {
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control Tipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox Tipo;
 
         /// <summary>
         /// Control Button1.
@@ -60,13 +60,22 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// Control TextBox2.
+        /// Control TipoAnuncio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.SqlDataSource TipoAnuncio;
+
+        /// <summary>
+        /// Control Localidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Localidad;
 
         /// <summary>
         /// Control Button4.
