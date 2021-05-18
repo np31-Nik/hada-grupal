@@ -13,5 +13,19 @@ namespace UserInterface
         {
 
         }
+        protected void CalcularHipoteca(object sender,EventArgs e)
+        {
+
+        }
+
+        protected void NextImage(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void PrevImage(object sender, EventArgs e)
+        {
+
+        }
     }
 }

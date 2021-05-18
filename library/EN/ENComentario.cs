@@ -43,7 +43,7 @@ namespace library
         public ENComentario()
         {
             CADComentario cad = new CADComentario();
-            id = cad.getNewId();
+            id = -1;
             text = "";
             fecha = DateTime.Today;
             user = "";
@@ -119,13 +119,6 @@ namespace library
         {
             CADComentario cad = new CADComentario();
             bool success = cad.readFirstComentario(this);
-            return success;
-        }
-
-        public bool readLastComentario()
-        {
-            CADComentario cad = new CADComentario();
-            bool success = cad.readLastComentario(this);
             return success;
         }
     }

@@ -1,10 +1,11 @@
-﻿<%@ Page Title="Anuncio" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Anuncio.aspx.cs" Inherits="UserInterface.Anuncio" %>
+﻿<%@ Page Title="Anuncio" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Anuncio.aspx.cs" Inherits="UserInterface.Anuncio" MaintainScrollPositionOnPostback="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <link rel="Stylesheet" type="text/css" href="css/Anuncio.css" />
 
     <div id="ArticuloContainer" >
+                        <asp:ScriptManager ID="ScriptManager2" runat="server" />
 
         <div class="PanelTitulo" style="float:left;background-color:#ffffff;color:black;" >
             <asp:Table ID="TITULO_PRECIO" runat="server">
@@ -105,45 +106,65 @@
             <br />
 
             <div class="PanelHipoteca" style="background-color:#ffffff;color:black;">
-                <asp:Label runat="server" Text="Calculador de hipoteca" style="font-size:25px;font-weight:bold;text-align:center;" Width="100%"></asp:Label>
+            <asp:UpdatePanel runat="server" ID="UpdatePanel_Hipoteca" UpdateMode="Conditional">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="H_CALCULAR" EventName="Click"/>
+                </Triggers>
+                <ContentTemplate>
+                     <asp:Label runat="server" Text="Calculador de hipoteca" style="font-size:25px;font-weight:bold;text-align:center;" Width="100%"></asp:Label>
                 <br />
-                <div style="float:left;width:50%;">
+                <div style="float:left">
                     <asp:Label runat="server" Text="Importe:" ></asp:Label>
                 </div>
 
-                <div style="float:right">
+                    <div style="float:right">
                     <asp:TextBox runat="server" ID="H_IMPORTE" ></asp:TextBox>
                 </div>
 
+                    <div style="float:right">
+                        <asp:RangeValidator ID="RangeValidator1" runat ="server" ErrorMessage="Introduce un importe" ControlToValidate="H_IMPORTE"
+                            Type="Integer" MinimumValue="1000" MaximumValue="100000000" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca">*</asp:RangeValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Introduce un importe" 
+                            ControlToValidate="H_IMPORTE" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca">*</asp:RequiredFieldValidator>
+                    </div>
                 <br />
 
-                <div style="float:left;width:50%;">
+                <div style="float:left">
                     <asp:Label runat="server" Text="Años:" ></asp:Label>
                 </div>
-
-                <div style="float:right">
+                    <div style="float:right">
                     <asp:TextBox runat="server" ID="H_ANYOS"></asp:TextBox>
                 </div>
-
+                    <div style="float:right">
+                        <asp:RangeValidator ID="RangeValidator2" runat ="server" ErrorMessage="Introduce una cantidad de años (1-40)" ControlToValidate="H_ANYOS"
+                            Type="Integer" MinimumValue="1" MaximumValue="40" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca">*</asp:RangeValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Introduce una cantidad de años(1-40)"
+                            ControlToValidate="H_ANYOS" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca">*</asp:RequiredFieldValidator>
+                    </div>
                 <br />
-
-                <div style="float:left;width:50%;">
+                <div style="float:left">
                     <asp:Label runat="server" Text="Banco:"></asp:Label>
                 </div>
+                   
 
                 <div style="float:right">
                     <asp:DropDownList ID="BANCO" runat="server" style="float:right;" AppendDataBoundItems="true" Height="25px" Width="125px">
-                        <asp:ListItem Text="Elige..." Value="" />   
+                        <asp:ListItem Text="Elige..."/>   
                     </asp:DropDownList>
                 </div>
 
+                     <div style="float:right">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" InitialValue="Elige..." 
+                            ErrorMessage="Elige un Banco" ControlToValidate="BANCO" Style="color:red" ValidationGroup="Hipoteca">*</asp:RequiredFieldValidator>
+                    </div>
                 <br />
 
                 <div style="width:100%;text-align:center" >
-                <asp:Button ID="H_CALCULAR" runat="server" Text="Calcular" />
+                <asp:Button ID="H_CALCULAR" runat="server" Text="Calcular" OnClick="CalcularHipoteca" CausesValidation="true" ValidationGroup="Hipoteca" />
                 </div>
-
-                <asp:Label runat="server" id="H_MENSAJE" style="color:red" Text=""></asp:Label>
+                    <br />
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="Hipoteca"/>  
+                    <br />
 
                 <asp:Panel runat="server" id="H_RESULTADOS" visible="false" style="margin-bottom: 1px">
                     <br />
@@ -177,6 +198,8 @@
                         <asp:Label runat="server" id="H_CUOTAM"></asp:Label>
                     </div>
                 </asp:Panel>
+                </ContentTemplate>
+            </asp:UpdatePanel>
             </div>
         </div>
         
@@ -186,12 +209,21 @@
         <br />
         <div class="PanelImagen" style="background-color:#ffffff;color:black;">
             <br />
-            <asp:Panel runat="server" HorizontalAlign="Center">
-                <asp:Image ID="IMAGE" runat="server" ImageUrl="~/imagenes/no-image.jpg"/>
-                <br />
-                <asp:ImageButton ID="IZQ" runat="server" ImageUrl="~/imagenes/left-arrow.png" style="width:40px;height:40px;"/>
-                <asp:ImageButton ID="DER" runat="server" ImageUrl="~/imagenes/right-arrow.png" style="width:40px;height:40px;"/>
-            </asp:Panel>
+            <asp:UpdatePanel runat="server" ID="UpdatePanel_Imagen" UpdateMode="Conditional">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="IZQ" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="DER" EventName="Click" />
+                </Triggers>
+                <ContentTemplate>
+                    <asp:Panel runat="server" HorizontalAlign="Center">
+                        <asp:Image ID="IMAGE" runat="server" ImageUrl="~/imagenes/no-image.jpg"/>
+                        <br />
+                        <asp:ImageButton ID="IZQ" runat="server" ImageUrl="~/imagenes/left-arrow.png" style="width:40px;height:40px;" causesvalidation="false" OnClick="PrevImage"/>
+                        <asp:ImageButton ID="DER" runat="server" ImageUrl="~/imagenes/right-arrow.png" style="width:40px;height:40px;" causesvalidation="false" OnClick="NextImage"/>
+                    </asp:Panel>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            
         </div>
 
         <br />
