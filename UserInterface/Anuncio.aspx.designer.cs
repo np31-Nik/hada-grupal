@@ -402,13 +402,13 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.Button H_CALCULAR;
 
         /// <summary>
-        /// ValidationSummary1 control.
+        /// ValidationSummary_Hipoteca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary_Hipoteca;
 
         /// <summary>
         /// H_RESULTADOS control.

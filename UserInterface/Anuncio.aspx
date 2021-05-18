@@ -108,7 +108,7 @@
             <div class="PanelHipoteca" style="background-color:#ffffff;color:black;">
             <asp:UpdatePanel runat="server" ID="UpdatePanel_Hipoteca" UpdateMode="Conditional">
                 <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="H_CALCULAR" EventName="Click"/>
+                    <asp:AsyncPostBackTrigger ControlID="H_CALCULAR" EventName="Click" />
                 </Triggers>
                 <ContentTemplate>
                      <asp:Label runat="server" Text="Calculador de hipoteca" style="font-size:25px;font-weight:bold;text-align:center;" Width="100%"></asp:Label>
@@ -123,9 +123,11 @@
 
                     <div style="float:right">
                         <asp:RangeValidator ID="RangeValidator1" runat ="server" ErrorMessage="Introduce un importe" ControlToValidate="H_IMPORTE"
-                            Type="Integer" MinimumValue="1000" MaximumValue="100000000" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca">*</asp:RangeValidator>
+                            Type="Integer" MinimumValue="1000" MaximumValue="100000000" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca"
+                            EnableClientScript="false">*</asp:RangeValidator>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Introduce un importe" 
-                            ControlToValidate="H_IMPORTE" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca">*</asp:RequiredFieldValidator>
+                            ControlToValidate="H_IMPORTE" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca" 
+                            EnableClientScript="false">*</asp:RequiredFieldValidator>
                     </div>
                 <br />
 
@@ -137,9 +139,11 @@
                 </div>
                     <div style="float:right">
                         <asp:RangeValidator ID="RangeValidator2" runat ="server" ErrorMessage="Introduce una cantidad de años (1-40)" ControlToValidate="H_ANYOS"
-                            Type="Integer" MinimumValue="1" MaximumValue="40" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca">*</asp:RangeValidator>
+                            Type="Integer" MinimumValue="1" MaximumValue="40" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca"
+                            EnableClientScript="false">*</asp:RangeValidator>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Introduce una cantidad de años(1-40)"
-                            ControlToValidate="H_ANYOS" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca">*</asp:RequiredFieldValidator>
+                            ControlToValidate="H_ANYOS" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca"
+                            EnableClientScript="false">*</asp:RequiredFieldValidator>
                     </div>
                 <br />
                 <div style="float:left">
@@ -155,7 +159,8 @@
 
                      <div style="float:right">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" InitialValue="Elige..." 
-                            ErrorMessage="Elige un Banco" ControlToValidate="BANCO" Style="color:red" ValidationGroup="Hipoteca">*</asp:RequiredFieldValidator>
+                            ErrorMessage="Elige un Banco" ControlToValidate="BANCO" Style="color:red" ValidationGroup="Hipoteca"
+                            EnableClientScript="false">*</asp:RequiredFieldValidator>
                     </div>
                 <br />
 
@@ -163,7 +168,8 @@
                 <asp:Button ID="H_CALCULAR" runat="server" Text="Calcular" OnClick="CalcularHipoteca" CausesValidation="true" ValidationGroup="Hipoteca" />
                 </div>
                     <br />
-                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="Hipoteca"/>  
+                    <asp:ValidationSummary runat="server" DisplayMode="BulletList" EnableClientScript="false" ID="ValidationSummary_Hipoteca" ValidationGroup="Hipoteca"
+                        Forecolor="red"/>
                     <br />
 
                 <asp:Panel runat="server" id="H_RESULTADOS" visible="false" style="margin-bottom: 1px">
@@ -218,8 +224,8 @@
                     <asp:Panel runat="server" HorizontalAlign="Center">
                         <asp:Image ID="IMAGE" runat="server" ImageUrl="~/imagenes/no-image.jpg"/>
                         <br />
-                        <asp:ImageButton ID="IZQ" runat="server" ImageUrl="~/imagenes/left-arrow.png" style="width:40px;height:40px;" causesvalidation="false" OnClick="PrevImage"/>
-                        <asp:ImageButton ID="DER" runat="server" ImageUrl="~/imagenes/right-arrow.png" style="width:40px;height:40px;" causesvalidation="false" OnClick="NextImage"/>
+                        <asp:ImageButton ID="IZQ" runat="server" ImageUrl="~/imagenes/left-arrow.png" style="width:40px;height:40px;" OnClick="PrevImage"/>
+                        <asp:ImageButton ID="DER" runat="server" ImageUrl="~/imagenes/right-arrow.png" style="width:40px;height:40px;" OnClick="NextImage"/>
                     </asp:Panel>
                 </ContentTemplate>
             </asp:UpdatePanel>
