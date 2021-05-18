@@ -11,18 +11,20 @@
             <div class="formularioContent2">
                 <div class="formularioContent3">
                     <p style="margin-top:30px">
-                        Tipo <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        Tipo <asp:TextBox ID="Tipo" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="TipoValidE" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="TipoValidR" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
                     </p>
                     <p style="margin-top:40px">
-                        <asp:Button ID="Button1" runat="server" Text="Insertar" /> 
+                        <asp:Button ID="InsertarTipo" runat="server" Text="Insertar" OnClick="InsertarTipo_Click" /> 
                         &nbsp;
-                        <asp:Button ID="Button2" runat="server" Text="Borrar" />
+                        <asp:Button ID="BorrarTipo" runat="server" Text="Borrar" OnClick="BorrarTipo_Click"  />
                         &nbsp;
-                        <asp:Button ID="Button3" runat="server" Text="Modificar" />
+                        <asp:Button ID="ModificarTipo" runat="server" Text="Modificar" OnClick="ModificarTipo_Click"  />
                     </p>
                 </div>
                 <div class="formularioTable">
-                    <asp:GridView ID="GridViewTipoPropiedad" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" Width="100px" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="tipo" ForeColor="#333333" GridLines="None" DataSourceID="SqlTipoPropiedad" >
+                    <asp:GridView ID="GridViewTipoPropiedad" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" Width="100px" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="tipo" ForeColor="#333333" GridLines="None" DataSourceID="SqlTipoPropiedad" OnSelectedIndexChanged="GridViewTipoPropiedad_SelectedIndexChanged" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:BoundField DataField="tipo" ItemStyle-CssClass="itemStyle2" HeaderText="tipo" ReadOnly="True" SortExpression="tipo" />

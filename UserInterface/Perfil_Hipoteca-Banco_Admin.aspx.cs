@@ -13,5 +13,45 @@ namespace UserInterface
         {
 
         }
+
+        protected void InsertarHipoteca_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BorrarHipoteca_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ModificarHipoteca_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void InsertarBanco_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BorrarBanco_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ModificarBanco_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridViewBanco_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridViewHipoteca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

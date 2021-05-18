@@ -18,7 +18,7 @@
                             &nbsp;
                             <asp:Button ID="BorrarTipoA" runat="server" Text="Borrar" OnClick="BorrarTipoA_Click" />
                             &nbsp;
-                            <asp:Button ID="ModificarTipoA" runat="server" Text="Modificar" />
+                            <asp:Button ID="ModificarTipoA" runat="server" Text="Modificar" OnClick="ModificarTipoA_Click" />
                         </p>
                     </div>
 
@@ -59,11 +59,11 @@
                             Localidad <asp:TextBox ID="Localidad" runat="server"></asp:TextBox>
                         </p>
                         <p style="margin-top:40px">
-                            <asp:Button ID="InsertarLocalidad" runat="server" Text="Insertar" /> 
+                            <asp:Button ID="InsertarLocalidad" runat="server" Text="Insertar" OnClick="InsertarLocalidad_Click" /> 
                             &nbsp;
-                            <asp:Button ID="BorrarLocalidad" runat="server" Text="Borrar" />
+                            <asp:Button ID="BorrarLocalidad" runat="server" Text="Borrar" OnClick="BorrarLocalidad_Click" />
                             &nbsp;
-                            <asp:Button ID="ModificarLocalidad" runat="server" Text="Modificar" />
+                            <asp:Button ID="ModificarLocalidad" runat="server" Text="Modificar" OnClick="ModificarLocalidad_Click" />
                         </p>
                     </div>
                     <div class="formularioTable">

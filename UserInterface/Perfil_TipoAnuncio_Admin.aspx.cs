@@ -45,5 +45,25 @@ namespace UserInterface
         {
            
         }
+
+        protected void ModificarTipoA_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void InsertarLocalidad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BorrarLocalidad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ModificarLocalidad_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

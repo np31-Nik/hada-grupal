@@ -1,4 +1,6 @@
-﻿namespace library
+﻿using System.Data;
+
+namespace library
 {
     public class ENTipoAnuncio
     {
@@ -52,7 +54,12 @@
             CADTipoAnuncio db = new CADTipoAnuncio();
             return db.readTipoAnuncio(this);
         }
-
+        
+       /* public bool listarTipoAnuncio(DataSet b)
+        {
+            CADTipoAnuncio db = new CADTipoAnuncio();
+            return db.listarTipoAnuncio(b);
+        }*/
         /*public bool readFirstTipoAnuncio(ENTipoAnuncio en)
         {
              CADTipoAnuncio db = new CADTipoAnuncio();

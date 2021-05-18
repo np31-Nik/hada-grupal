@@ -13,5 +13,25 @@ namespace UserInterface
         {
 
         }
+
+        protected void InsertarTipo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BorrarTipo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ModificarTipo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridViewTipoPropiedad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

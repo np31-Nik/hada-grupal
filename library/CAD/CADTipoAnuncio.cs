@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace library
@@ -88,7 +89,11 @@ namespace library
             string comando = "Select tipo from TipoAnuncio where tipo='" + en.Tipo + "'";
             return obtainComandExec(comando, en);
         }
+       /* public bool listarTipoAnuncio(DataSet d)
+        {
 
+            return d;
+        }*/
         /*
         public bool readFirstTipoAnuncio(ENTipoAnuncio en)
         {

@@ -11,24 +11,24 @@
             <div class="formularioContent2">
                 <div class="formularioContent3">
                     <p>
-                        Banco <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        Banco <asp:TextBox ID="TextBoxBanco" runat="server"></asp:TextBox>
                     </p>
                     <p>
-                        Telefono <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        Telefono <asp:TextBox ID="TextBoxTelefono" runat="server"></asp:TextBox>
                     </p>
                     <p>
-                        Email <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        Email <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
                     </p>
                     <p >
-                        <asp:Button ID="Button1" runat="server" Text="Insertar" /> 
+                        <asp:Button ID="InsertarBanco" runat="server" Text="Insertar" OnClick="InsertarBanco_Click" /> 
                         &nbsp;
-                        <asp:Button ID="Button2" runat="server" Text="Borrar" />
+                        <asp:Button ID="BorrarBanco" runat="server" Text="Borrar" OnClick="BorrarBanco_Click" />
                         &nbsp;
-                        <asp:Button ID="Button3" runat="server" Text="Modificar" />
+                        <asp:Button ID="ModificarBanco" runat="server" Text="Modificar" OnClick="ModificarBanco_Click"  />
                     </p>
                 </div>
                 <div class="formularioTable">
-                    <asp:GridView ID="GridViewBanco" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="banco" ForeColor="#333333" GridLines="None" DataSourceID="sqlBanco" >
+                    <asp:GridView ID="GridViewBanco" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="banco" ForeColor="#333333" GridLines="None" DataSourceID="sqlBanco" OnSelectedIndexChanged="GridViewBanco_SelectedIndexChanged" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:BoundField DataField="banco" ItemStyle-CssClass="itemStyle2"  HeaderText="banco" ReadOnly="True" SortExpression="banco" />
@@ -63,25 +63,25 @@
             <div class="formularioContent2">
                 <div class="formularioContent3">
                     <p>
-                        Banco <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                        Banco <asp:TextBox ID="TextBoxBancoH" runat="server"></asp:TextBox>
                     </p>
                     <p>
-                        Desde <asp:TextBox ID="TextBox5" runat="server" Width="40px"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hasta <asp:TextBox ID="TextBox7" runat="server" Width="40px"></asp:TextBox>
+                        Desde <asp:TextBox ID="TextBoxDesde" runat="server" Width="40px"></asp:TextBox>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hasta <asp:TextBox ID="TextBoxHasta" runat="server" Width="40px"></asp:TextBox>
                     </p>
                     <p>
-                        Interes% <asp:TextBox ID="TextBox6" runat="server" Width="40px"></asp:TextBox>
+                        Interes% <asp:TextBox ID="TextBoxInteres" runat="server" Width="40px"></asp:TextBox>
                     </p>
                     <p >
-                        <asp:Button ID="Button4" runat="server" Text="Insertar" /> 
+                        <asp:Button ID="InsertarHipoteca" runat="server" Text="Insertar" OnClick="InsertarHipoteca_Click" /> 
                         &nbsp;
-                        <asp:Button ID="Button5" runat="server" Text="Borrar" />
+                        <asp:Button ID="BorrarHipoteca" runat="server" Text="Borrar" OnClick="BorrarHipoteca_Click" />
                         &nbsp;
-                        <asp:Button ID="Button6" runat="server" Text="Modificar" />
+                        <asp:Button ID="ModificarHipoteca" runat="server" Text="Modificar" OnClick="ModificarHipoteca_Click" />
                     </p>
                 </div>
                 <div class="formularioTable">
-                    <asp:GridView ID="GridViewHipoteca" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id" ForeColor="#333333" GridLines="None" DataSourceID="SqlHipoteca" >
+                    <asp:GridView ID="GridViewHipoteca" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id" ForeColor="#333333" GridLines="None" DataSourceID="SqlHipoteca" OnSelectedIndexChanged="GridViewHipoteca_SelectedIndexChanged" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:BoundField DataField="id" ItemStyle-CssClass="itemStyle2" HeaderText="id" ReadOnly="True" SortExpression="id" InsertVisible="False" />

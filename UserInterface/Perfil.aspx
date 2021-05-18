@@ -3,6 +3,9 @@
     <div class="formularioHead">
         <h2>Perfil&nbsp; <asp:TextBox ID="Nif" runat="server" Enabled="false" Width="100px" ReadOnly="true" BorderStyle="None" Font-Size="14pt"></asp:TextBox></h2>
     </div>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+    <ContentTemplate>
     <div class="formularioContent">
         <div id="perfilInf">
             <table style="width: 400px;">
@@ -28,14 +31,24 @@
             </table>
         </div>
         <p>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
             <asp:Panel ID="PasswordPanel" runat="server" Visible="false">
                 Contrasenya <asp:TextBox ID="OldPassword" runat="server" EnableTheming="True" TextMode="Password"></asp:TextBox>
             </asp:Panel>
-        </p>
-        <p>
-            <asp:Button ID="ModPerfil" runat="server" Text="Modificar" OnClick="ModPerfil_Click" />
-            &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="UpdatePerfil" runat="server" Text="Update" Visible="false" OnClick="UpdatePerfil_Click" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <p>
+            </p>
+            <p>
+                <asp:Button ID="ModPerfil" runat="server" OnClick="ModPerfil_Click" Text="Modificar" />
+                &nbsp;&nbsp;&nbsp;
+                <asp:Button ID="UpdatePerfil" runat="server" OnClick="UpdatePerfil_Click" Text="Update" Visible="false" />
+            </p>
+            <p>
+            </p>
         </p>
     </div>
+    </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
