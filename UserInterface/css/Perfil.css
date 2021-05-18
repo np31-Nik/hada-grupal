@@ -17,7 +17,7 @@
     margin-left: 40px;
 }
 .formularioContent2 {
-    width: 600px;
+    width: 1000px;
     height: 150px;
 }
 .formularioContent3 {
@@ -52,8 +52,8 @@
     border-bottom: 1px solid rgba(100,100,100, .3);
     list-style:none;
 }
-.sidebarPerfilMenu {
-    width:100%;
+.itemStyle2 {
+   min-width:100px;
 }
 
 #sidebar a {
