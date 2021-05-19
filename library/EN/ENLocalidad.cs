@@ -9,11 +9,18 @@ namespace library
     public class ENLocalidad
     {
         private string _localidad;
+        private string _newLocalidad;
 
         public string localidad
         {
             get { return _localidad; }
             set { _localidad = value; }
+        }
+
+        public string newLocalidad
+        {
+            get { return newLocalidad; }
+            set { newLocalidad = value; }
         }
 
         public ENLocalidad() {
