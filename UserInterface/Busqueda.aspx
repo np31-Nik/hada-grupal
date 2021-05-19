@@ -33,8 +33,8 @@
                 <asp:ListItem Text="Elige..."/>   
         </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" InitialValue="Elige..." 
-                            ErrorMessage="Elige un tipo de operacion" ControlToValidate="TIPO_OPERACION" Style="color:red" ValidationGroup="Buscar"
-                            EnableClientScript="false">*</asp:RequiredFieldValidator>
+                            ErrorMessage="Elige un tipo de operacion" ControlToValidate="TIPO_OPERACION" Style="color:red;float:right;" ValidationGroup="Buscar"
+                            EnableClientScript="false" >*</asp:RequiredFieldValidator>
 
                 <asp:SqlDataSource ID="TipoAnuncio_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoAnuncio]"></asp:SqlDataSource>
 
@@ -42,10 +42,12 @@
         <br />
         <asp:Label runat="server" Text="Precio desde: " style="float:left"></asp:Label>
         <asp:TextBox runat="server" ID="PRECIO_DESDE" style="float:right"></asp:TextBox>
+        <asp:RangeValidator runat="server" ControlToValidate="PRECIO_DESDE" ErrorMessage="'Precio desde' incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" style="float:right">!</asp:RangeValidator>
         <br />
         <br />
         <asp:Label runat="server" Text="Precio hasta: " style="float:left"></asp:Label>
         <asp:TextBox runat="server" ID="PRECIO_HASTA" style="float:right"></asp:TextBox>
+        <asp:RangeValidator runat="server" ControlToValidate="PRECIO_HASTA" ErrorMessage="'Precio hasta' incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" style="float:right">!</asp:RangeValidator>
         <br />
         <br />
         <asp:Label runat="server" Text="Localidad: "  style="float:left;"></asp:Label>
@@ -81,10 +83,13 @@
             <br />
             <asp:Label runat="server" Text="Dormitorios: " style="float:left"></asp:Label>
             <asp:TextBox runat="server" ID="DORMITORIOS" style="float:right"></asp:TextBox>
+            <asp:RangeValidator runat="server" ControlToValidate="DORMITORIOS" ErrorMessage="Número de dormitorios incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" style="float:right">!</asp:RangeValidator>
+
             <br />
             <br />
             <asp:Label runat="server" Text="Baños: " style="float:left"></asp:Label>
             <asp:TextBox runat="server" ID="BANYOS" style="float:right"></asp:TextBox>
+            <asp:RangeValidator runat="server" ControlToValidate="BANYOS" ErrorMessage="Número de baños incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" style="float:right">!</asp:RangeValidator>
         </div>
         <br />
         <br />

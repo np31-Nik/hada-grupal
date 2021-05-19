@@ -57,7 +57,7 @@ namespace UserInterface
 
         protected void BuscarAnuncios(object sender, EventArgs e)
         {
-
+            ListView1 = new ListView();
         }
     }
 }
