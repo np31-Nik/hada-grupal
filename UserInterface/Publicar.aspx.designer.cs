@@ -60,6 +60,15 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox descripcion;
 
         /// <summary>
+        /// Control tipoAnuncio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList tipoAnuncio;
+
+        /// <summary>
         /// Control vehiculo.
         /// </summary>
         /// <remarks>
@@ -87,6 +96,15 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.DropDownList tipoCoche;
 
         /// <summary>
+        /// Control anyo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox anyo;
+
+        /// <summary>
         /// Control precioVehiculo.
         /// </summary>
         /// <remarks>
@@ -103,15 +121,6 @@ namespace UserInterface
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl propiedad;
-
-        /// <summary>
-        /// Control RadioButtonList2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList2;
 
         /// <summary>
         /// Control precioProp.

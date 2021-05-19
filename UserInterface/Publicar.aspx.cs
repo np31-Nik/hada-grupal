@@ -1,14 +1,42 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using library;
 
 namespace UserInterface
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+
+        List<ENLocalidad> list = new List<ENLocalidad>();//lista donde almacenaras todo el item de la tabla de la bbdd
+
         protected void Page_Load(object sender, EventArgs e)
         {
             mensaje.Text = "";
             vehiculo.Visible = true;
+
+            localidad.Items.Add("pepepepep");
+            localidad.SelectedIndex
+
+
+            //seguramente dengas que devolver un dataTable de la base de datos porque devuelves todo la table
+            //entonces seria algo asi
+            foreach (DataRow item in listaDeLaBaseDeDatos.Rows)
+            { //for que recorre todos los item de la bbdd
+                localidad.Items.Add(item.localidad); //meto cada item en el ListItem
+                list.Add(item); // set todo el item en el array
+            }
+
+            //---------------------------
+            foreach (ENLocalidad item in listaDeLaBaseDeDatos) { //for que recorre todos los item de la bbdd
+                localidad.Items.Add(item.localidad); //meto cada item en el ListItem
+                list.Add(item); // set todo el item en el array
+            }
+            //si quieres seleccionar todo el item que se ha pulsado
+            //en el SelectedIndezChaged haces
+            int pos = localidad.SelectedIndex; //recogo el index seleccionado
+            ENLocalidad currentLocalidad = list[pos]; //busco el item entero en la lista
+            // full gucci
 
         }
 
