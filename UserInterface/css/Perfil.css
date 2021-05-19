@@ -21,10 +21,12 @@
     height: 150px;
 }
 .formularioContent3 {
-    float: left;
+    width:400px;
+    position:static;
 }
 .formularioTable {
-    float: right;
+   
+    position: static;
 }
 
 .errText{

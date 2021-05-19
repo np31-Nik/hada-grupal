@@ -9,7 +9,10 @@
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <div class="formularioContent2">
-                <div class="formularioContent3">
+                        <table>
+                        <tr>
+                            <td>
+                                <div class="formularioContent3">
                     <p style="margin-top:30px">
                         Marca <asp:TextBox ID="Marca" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="MarcaValid1" EnableClientScript="false" runat="server" ControlToValidate="Marca" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -23,25 +26,30 @@
                         <asp:Button ID="ModificarMarca" runat="server" Text="Modificar" OnClick="ModificarMarca_Click" />
                     </p>
                 </div>
-                <div class="formularioTable">
-                    <asp:GridView ID="GridViewMarca" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="marca" ForeColor="#333333" GridLines="None" DataSourceID="SqlMarcaCoche" >
-                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                            <Columns>
-                                <asp:BoundField DataField="marca" ItemStyle-CssClass="itemStyle2" HeaderText="marca" ReadOnly="True" SortExpression="marca" />
-                            </Columns>
-                            <EditRowStyle BackColor="#999999" />
-                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle HorizontalAlign="Center" BackColor="#F7F6F3" ForeColor="#333333" />
-                            <SelectedRowStyle  BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                        </asp:GridView>
-                    <asp:SqlDataSource ID="SqlMarcaCoche" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [marca] FROM [MarcaCoche]"></asp:SqlDataSource>
-                </div>
+                            </td>
+                            <td>
+                                <div class="formularioTable">
+                                <asp:GridView ID="GridViewMarca" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="marca" ForeColor="#333333" GridLines="None" DataSourceID="SqlMarcaCoche" >
+                                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                        <Columns>
+                                            <asp:BoundField DataField="marca" ItemStyle-CssClass="itemStyle2" HeaderText="marca" ReadOnly="True" SortExpression="marca" />
+                                        </Columns>
+                                        <EditRowStyle BackColor="#999999" />
+                                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                        <RowStyle HorizontalAlign="Center" BackColor="#F7F6F3" ForeColor="#333333" />
+                                        <SelectedRowStyle  BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                    </asp:GridView>
+                                <asp:SqlDataSource ID="SqlMarcaCoche" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [marca] FROM [MarcaCoche]"></asp:SqlDataSource>
+                                </div>
+                            </td>
+                        </tr>
+                        </table>
             </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -55,7 +63,10 @@
             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                 <ContentTemplate>
             <div class="formularioContent2">
-                <div class="formularioContent3">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="formularioContent3">
                     <p style="margin-top:30px">
                         Tipo <asp:TextBox ID="Tipo" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="TipoValid1" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -69,7 +80,9 @@
                         <asp:Button ID="ModificarTipo" runat="server" Text="Modificar" OnClick="ModificarTipo_Click" />
                     </p>
                 </div>
-                <div class="formularioTable">
+                        </td>
+                        <td>
+                            <div class="formularioTable">
                     <asp:GridView ID="GridViewTipoCoche" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="tipo" ForeColor="#333333" GridLines="None" DataSourceID="SqlTipoCoche" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
@@ -88,6 +101,9 @@
                         </asp:GridView>
                     <asp:SqlDataSource ID="SqlTipoCoche" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoCoche]"></asp:SqlDataSource>
                 </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
                 </ContentTemplate>
             </asp:UpdatePanel>

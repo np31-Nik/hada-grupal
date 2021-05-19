@@ -9,45 +9,53 @@
             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                 <ContentTemplate>
             <div class="formularioContent2">
-                <div class="formularioContent3">
-                    <p>
-                        Banco <asp:TextBox ID="TextBoxBanco" runat="server"></asp:TextBox>
-                    </p>
-                    <p>
-                        Telefono <asp:TextBox ID="TextBoxTelefono" runat="server"></asp:TextBox>
-                    </p>
-                    <p>
-                        Email <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
-                    </p>
-                    <p >
-                        <asp:Button ID="InsertarBanco" runat="server" Text="Insertar" OnClick="InsertarBanco_Click" /> 
-                        &nbsp;
-                        <asp:Button ID="BorrarBanco" runat="server" Text="Borrar" OnClick="BorrarBanco_Click" />
-                        &nbsp;
-                        <asp:Button ID="ModificarBanco" runat="server" Text="Modificar" OnClick="ModificarBanco_Click"  />
-                    </p>
-                </div>
-                <div class="formularioTable">
-                    <asp:GridView ID="GridViewBanco" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="banco" ForeColor="#333333" GridLines="None" DataSourceID="sqlBanco" OnSelectedIndexChanged="GridViewBanco_SelectedIndexChanged" >
-                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                            <Columns>
-                                <asp:BoundField DataField="banco" ItemStyle-CssClass="itemStyle2"  HeaderText="banco" ReadOnly="True" SortExpression="banco" />
-                                <asp:BoundField DataField="tel" ItemStyle-CssClass="itemStyle2" HeaderText="tel" SortExpression="tel" />
-                                <asp:BoundField DataField="email" ItemStyle-CssClass="itemStyle2" HeaderText="email" SortExpression="email" />
-                            </Columns>
-                            <EditRowStyle BackColor="#999999" />
-                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle HorizontalAlign="Center" BackColor="#F7F6F3" ForeColor="#333333" />
-                            <SelectedRowStyle  BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                        </asp:GridView>
-                    <asp:SqlDataSource ID="sqlBanco" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT * FROM [Banco]"></asp:SqlDataSource>
-                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="formularioContent3">
+                                <p>
+                                    Banco <asp:TextBox ID="TextBoxBanco" runat="server"></asp:TextBox>
+                                </p>
+                                <p>
+                                    Telefono <asp:TextBox ID="TextBoxTelefono" runat="server"></asp:TextBox>
+                                </p>
+                                <p>
+                                    Email <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
+                                </p>
+                                <p >
+                                    <asp:Button ID="InsertarBanco" runat="server" Text="Insertar" OnClick="InsertarBanco_Click" /> 
+                                    &nbsp;
+                                    <asp:Button ID="BorrarBanco" runat="server" Text="Borrar" OnClick="BorrarBanco_Click" />
+                                    &nbsp;
+                                    <asp:Button ID="ModificarBanco" runat="server" Text="Modificar" OnClick="ModificarBanco_Click"  />
+                                </p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="formularioTable">
+                                <asp:GridView ID="GridViewBanco" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="banco" ForeColor="#333333" GridLines="None" DataSourceID="sqlBanco" OnSelectedIndexChanged="GridViewBanco_SelectedIndexChanged" >
+                                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                        <Columns>
+                                            <asp:BoundField DataField="banco" ItemStyle-CssClass="itemStyle2"  HeaderText="banco" ReadOnly="True" SortExpression="banco" />
+                                            <asp:BoundField DataField="tel" ItemStyle-CssClass="itemStyle2" HeaderText="tel" SortExpression="tel" />
+                                            <asp:BoundField DataField="email" ItemStyle-CssClass="itemStyle2" HeaderText="email" SortExpression="email" />
+                                        </Columns>
+                                        <EditRowStyle BackColor="#999999" />
+                                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                        <RowStyle HorizontalAlign="Center" BackColor="#F7F6F3" ForeColor="#333333" />
+                                        <SelectedRowStyle  BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                    </asp:GridView>
+                                <asp:SqlDataSource ID="sqlBanco" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT * FROM [Banco]"></asp:SqlDataSource>
+                            </div>
+                        </td>
+                    </tr> 
+                </table>                        
             </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -61,7 +69,10 @@
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
             <div class="formularioContent2">
-                <div class="formularioContent3">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="formularioContent3">
                     <p>
                         Banco <asp:TextBox ID="TextBoxBancoH" runat="server"></asp:TextBox>
                     </p>
@@ -80,7 +91,9 @@
                         <asp:Button ID="ModificarHipoteca" runat="server" Text="Modificar" OnClick="ModificarHipoteca_Click" />
                     </p>
                 </div>
-                <div class="formularioTable">
+                        </td>
+                        <td>
+                            <div class="formularioTable">
                     <asp:GridView ID="GridViewHipoteca" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="id" ForeColor="#333333" GridLines="None" DataSourceID="SqlHipoteca" OnSelectedIndexChanged="GridViewHipoteca_SelectedIndexChanged" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
@@ -104,6 +117,9 @@
                         </asp:GridView>
                     <asp:SqlDataSource ID="SqlHipoteca" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT * FROM [Hipoteca]"></asp:SqlDataSource>
                 </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
