@@ -46,7 +46,7 @@ namespace library
         {
             bool borrar = false;
             CADLocalidad aux = new CADLocalidad();
-            if (!(aux.readLocalidad(this)))
+            if ((aux.readLocalidad(this)))
             {
                 borrar = aux.deleteLocalidad(this);
             }
@@ -57,7 +57,7 @@ namespace library
         {
             bool editar = false;
             CADLocalidad aux = new CADLocalidad();
-            if (!(aux.readLocalidad(this)))
+            if ((aux.readLocalidad(this)))
             {
                 editar = aux.updateLocalidad(this);
             }
@@ -68,7 +68,7 @@ namespace library
         {
             bool siguiente = false;
             CADLocalidad aux = new CADLocalidad();
-            if (!(aux.readLocalidad(this)))
+            if ((aux.readLocalidad(this)))
             {
                 siguiente = aux.readNextLocalidad(this);
             }
