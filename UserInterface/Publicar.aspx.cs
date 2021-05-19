@@ -15,7 +15,7 @@ namespace UserInterface
             mensaje.Text = "";
             vehiculo.Visible = true;
 
-            localidad.Items.Add("pepepepep");
+            /*localidad.Items.Add("pepepepep");
             localidad.SelectedIndex
 
 
@@ -37,7 +37,7 @@ namespace UserInterface
             int pos = localidad.SelectedIndex; //recogo el index seleccionado
             ENLocalidad currentLocalidad = list[pos]; //busco el item entero en la lista
             // full gucci
-
+            */
         }
 
 
