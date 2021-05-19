@@ -57,11 +57,10 @@
             }
             return false;
         }
-        public bool readCoche(int id)
+        public bool readCoche(ENCoche en)
         {
-            this.id = id;
             CADCoche coche = new CADCoche();
-            return coche.readCoche(this);
+            return coche.readCoche(en);
         }
         /*public bool deleteCoche(uint id)
         {

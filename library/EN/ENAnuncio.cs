@@ -166,11 +166,16 @@ namespace library
             if (anuncio.readAnuncio(this))
             {
                 if (TIPOANUNCIO == "vehiculo")
-                    if (coche.readCoche(id))
+                {
+                    coche.id = this.id;
+                    if (coche.readCoche(coche))
                         read = true;
-                else if (TIPOANUNCIO == "propiedad")
-                    if (prop.readPropiedad(id))
+                }
+                else if (TIPOANUNCIO == "propiedad") { 
+                    coche.id = this.id;
+                    if (prop.readPropiedad(prop))
                         read = true;
+                }
             }
             return read;
         }
