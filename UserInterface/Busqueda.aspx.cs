@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using library;
 
 namespace UserInterface
 {
@@ -13,6 +14,17 @@ namespace UserInterface
         {
             if (!this.IsPostBack)
             {
+                
+                /*
+                 * ENTipoPropiedad TP = new ENTipoPropiedad();
+                TP.readFirstTipoPropiedad();
+                TIPO_OPERACION.Items.Add(TP.tipo);
+               while (TP.readNextTipoPropiedad())
+                {
+                    TIPO_OPERACION.Items.Add(TP.tipo);
+                }
+                */
+
                 string tipo_busqueda = Request.QueryString["tipo"];
                 switch (tipo_busqueda)
                 {
@@ -27,6 +39,7 @@ namespace UserInterface
                 }
 
             }
+
         }
         protected void RB_Coche_Propiedad_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -40,6 +53,11 @@ namespace UserInterface
                 IF_COCHE.Visible = false;
                 IF_PROPIEDAD.Visible = true;
             }
+        }
+
+        protected void BuscarAnuncios(object sender, EventArgs e)
+        {
+
         }
     }
 }

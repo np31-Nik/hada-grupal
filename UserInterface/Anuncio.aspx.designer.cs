@@ -384,6 +384,15 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.DropDownList BANCO;
 
         /// <summary>
+        /// Banco_db control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource Banco_db;
+
+        /// <summary>
         /// RequiredFieldValidator3 control.
         /// </summary>
         /// <remarks>
@@ -490,6 +499,51 @@ namespace UserInterface
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label DESCRIPCION;
+
+        /// <summary>
+        /// UpdatePanel_Comentario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel_Comentario;
+
+        /// <summary>
+        /// ComentarioUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ComentarioUsuario;
+
+        /// <summary>
+        /// PublicarComentario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PublicarComentario;
+
+        /// <summary>
+        /// ListaComentarios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ListaComentarios;
+
+        /// <summary>
+        /// Database control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource Database;
 
         /// <summary>
         /// Sim1_Localidad control.

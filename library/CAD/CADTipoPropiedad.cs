@@ -17,7 +17,7 @@ namespace library
 
         public CADTipoPropiedad()
         {
-            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString();
         }
 
         public bool createTipoPropiedad(ENTipoPropiedad en)
