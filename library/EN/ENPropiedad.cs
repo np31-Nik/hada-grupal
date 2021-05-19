@@ -78,26 +78,22 @@
             return false;
         }
 
-        public bool deletePropiedad(uint id)
+        public bool deletePropiedad(ENPropiedad en)
         {
             CADPropiedad prop = new CADPropiedad();
-            if(prop.readPropiedad(this,id))
-                return prop.deletePropiedad(this, id);
-            return false;
+            return prop.deletePropiedad(en);
         }
 
-        public bool updatePropiedad(uint id)
+        public bool updatePropiedad(ENPropiedad en)
         {
             CADPropiedad prop = new CADPropiedad();
-            if (prop.readPropiedad(this, id))
-                return prop.updatePropiedad(this, id);
-            return false;
+            return prop.updatePropiedad(en);
         }
 
-        public bool readPropiedad(uint id)
+        public bool readPropiedad(ENPropiedad en)
         {
             CADPropiedad prop = new CADPropiedad();
-            return prop.readPropiedad(this, id);
+            return prop.readPropiedad(en);
 
         }
     }

@@ -57,21 +57,25 @@
             }
             return false;
         }
-        public bool readCoche(uint id)
+        public bool readCoche(int id)
         {
+            this.id = id;
             CADCoche coche = new CADCoche();
             return coche.readCoche(this);
         }
-        public bool deleteCoche(uint id)
+        /*public bool deleteCoche(uint id)
         {
             CADCoche coche = new CADCoche();
-            return coche.deleteCoche(this);
-        }
-        public bool updateCoche(uint id)
+            if(readCoche(id))
+                return coche.deleteCoche(this);
+            return false;
+        }*/
+        public bool updateCoche(ENCoche en)
         {
             CADCoche coche = new CADCoche();
-            return coche.updateCoche(this);
-
+            if (readCoche(en.id)) 
+                return coche.updateCoche(this);
+            return false;
 
         }
     }

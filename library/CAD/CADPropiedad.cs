@@ -42,10 +42,10 @@ namespace library
             return creado;
         }
 
-        public bool readPropiedad(ENPropiedad en, uint id)
+        public bool readPropiedad(ENPropiedad en)
         {
             bool read = false;
-            string comando = "select * From [dbo].[Propiedad] where anuncio='" + id + "'";
+            string comando = "select * From [dbo].[Propiedad] where anuncio='" + en.id + "'";
 
             try
             {
@@ -56,10 +56,10 @@ namespace library
                 SqlDataReader buscar = cmd.ExecuteReader();
                 while (buscar.Read() && !read)
                 {
-                    if (buscar["id"].ToString() == id.ToString())
+                    if (buscar["anuncio"].ToString() == en.id.ToString())
                     {
                         
-                        id = (uint)int.Parse(buscar["id"].ToString());
+                        en.id = int.Parse(buscar["anuncio"].ToString());
                         en.numCatastral = buscar["numCatastral"].ToString();
                         en.superficie = int.Parse(buscar["superficie"].ToString());
                         en.tipo = (ENTipoPropiedad)buscar["tipo"];
@@ -86,7 +86,7 @@ namespace library
             return read;
         }
     
-        public bool updatePropiedad(ENPropiedad en, uint id)
+        public bool updatePropiedad(ENPropiedad en)
         {
             bool updated = false;
             string comando = "UPDATE [dbo].[Propiedad] SET " +
@@ -95,7 +95,7 @@ namespace library
                "numCatastral=" + en.numCatastral + "' ," +
                "superficie=" + en.superficie+ "' ," +
                "bano=" + en.banyos+ "' ," +
-               "WHERE anuncio = '" + id + "'";
+               "WHERE anuncio = '" + en.id + "'";
             try
             {
                 SqlConnection conn = null;
@@ -120,10 +120,10 @@ namespace library
 
             return updated;
         }
-        public bool deletePropiedad(ENPropiedad en, uint id)
+        public bool deletePropiedad(ENPropiedad en)
         {
             bool borrado = false;
-            string comando = "DELETE FROM [dbo].[Propiedad] WHERE anuncio = '" + id + "'";
+            string comando = "DELETE FROM [dbo].[Propiedad] WHERE anuncio = '" + en.id + "'";
             try
             {
                 SqlConnection conn = null;

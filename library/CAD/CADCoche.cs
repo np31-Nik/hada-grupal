@@ -54,10 +54,10 @@ namespace library
                 SqlDataReader buscar = cmd.ExecuteReader();
                 while (buscar.Read() && !read)
                 {
-                    if (buscar["id"].ToString() == en.id.ToString())
+                    if (buscar["anuncio"].ToString() == en.id.ToString())
                     {
                         read = true;
-                        en.id = int.Parse(buscar["id"].ToString());
+                        en.id = int.Parse(buscar["anuncio"].ToString());
                         en.marca = (ENMarcaCoche)buscar["marca"];
                         en.tipo = (ENTipoCoche)buscar["tipo"];
                         en.anyo = (int)buscar["ano"]; /////////REVISAR
@@ -87,7 +87,7 @@ namespace library
                "tipo= '" + en.tipo + "' ," +
                "ano= '" + en.anyo + "' ," +
                "marca=" + en.marca +
-               "WHERE id = '" + en.id + "'";
+               "WHERE anuncio = '" + en.id + "'";
             try
             {
                 SqlConnection conn = null;
@@ -115,7 +115,7 @@ namespace library
         public bool deleteCoche(ENCoche en)
         {
             bool borrado = false;
-            string comando = "DELETE FROM [dbo].[Coche] WHERE id = '" + en.id + "'";
+            string comando = "DELETE FROM [dbo].[Coche] WHERE anuncio = '" + en.id + "'";
             try
             {
                 SqlConnection conn = null;

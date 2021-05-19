@@ -92,6 +92,7 @@ namespace library
             tipo = tipoAnuncio;
             prop = propiedad ;
         }
+
         public bool createAnuncio()
         {
             CADAnuncio anuncio = new CADAnuncio();
@@ -138,25 +139,39 @@ namespace library
             }
             return deleted;
         }
-        public bool updateAnuncio()
+
+        public bool updateAnuncio()//REVISAR
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool updated = false;
-            if (anuncio.readAnuncio(this))
+            if (anuncio.updateAnuncio(this))
             {
-                if (anuncio.updateAnuncio(this))
+                if (TIPOANUNCIO == "vehiculo")
+                    coche.id = this.id;
+                if (coche.updateCoche(coche))
                     updated = true;
+                else if (TIPOANUNCIO == "propiedad")
+                    prop.id = this.id;
+                    if (prop.updatePropiedad(prop))
+                        updated = true;
             }
 
             return updated;
         }
+
         public bool readAnuncio()
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool read = false;
             if (anuncio.readAnuncio(this))
-                read = true;
-
+            {
+                if (TIPOANUNCIO == "vehiculo")
+                    if (coche.readCoche(id))
+                        read = true;
+                else if (TIPOANUNCIO == "propiedad")
+                    if (prop.readPropiedad(id))
+                        read = true;
+            }
             return read;
         }
         public bool readNextAnuncio()
