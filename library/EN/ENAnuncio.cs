@@ -1,4 +1,6 @@
-﻿namespace library
+﻿using System;
+
+namespace library
 {
     public class ENAnuncio
     {
@@ -60,7 +62,7 @@
             set { _precio = value; }
         }
 
-
+        //Constructor vacio
         public ENAnuncio()
         {
             titulo = "";
@@ -69,6 +71,8 @@
             precio = -1;
             tipo = new ENTipoAnuncio();
         }
+
+        //Constructor para Vehiculo
         public ENAnuncio(string title, ENLocalidad city, string description, float price, ENTipoAnuncio tipoAnuncio,ENCoche car)
         {
             titulo = title;
@@ -79,6 +83,7 @@
             coche = car;
         }
 
+        //Constructor para Propiedad
         public ENAnuncio(string title, ENLocalidad city, string description, float price, ENTipoAnuncio tipoAnuncio, ENPropiedad propiedad) {
             titulo = title;
             localidad = city;
@@ -93,23 +98,29 @@
             bool creado = false;
             if (EsCoche)
             {
-                if (coche.createCoche(id))
-                    if (anuncio.createAnuncio(this, id))
+                if (anuncio.createAnuncio(this))
+                    id = readUltimoId(this.usuario);
+                    if (coche.createCoche(coche,id))
                     {
                         creado = true;
-                        id++;
                     }
             }
             else
             {
-                if (prop.createPropiedad(id))
-                    if (anuncio.createAnuncio(this, id))
+                if (anuncio.createAnuncio(this))
+                    if (prop.createPropiedad(prop))
                     {
                         creado = true;
                         id++;
                     }
             }
             return creado;
+        }
+
+        private uint readUltimoId(ENUsuario usuario)
+        {
+            CADAnuncio anuncio = new CADAnuncio();
+            return anuncio.readUltimoId(usuario);
         }
 
         public bool deleteAnuncio()

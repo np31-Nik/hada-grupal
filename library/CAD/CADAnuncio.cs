@@ -12,11 +12,38 @@ namespace library
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString();//Conexion
         }
 
-        public bool createAnuncio(ENAnuncio en, uint id)
+        public uint readUltimoId(ENUsuario en) {
+            uint auxid = 0;
+
+            string comando = "select MAX(id) From [dbo].[Anuncio] where usuario = '" + en.Nif + "'";
+            try{
+                SqlConnection conn = null;
+                conn = new SqlConnection(constring);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(comando, conn);
+                SqlDataReader buscar = cmd.ExecuteReader();
+                buscar.Read();
+                auxid= uint.Parse(buscar["id"].ToString());
+                buscar.Close();
+                conn.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+            }
+
+            return auxid;
+        }
+
+        public bool createAnuncio(ENAnuncio en)
         {
             bool creado = false;
-            string comando = "Insert INTO [dbo].[Anuncio] (id, titulo, precio, usuario, tipo, localidad, descripcion) " +
-                "VALUES ('" + en.id + "', '" + en.titulo + "', " + en.precio + "', " + en.usuario.Nif + "', " + en.tipo + "', " + en.localidad + "', " + en.descripcion + ")";
+            string comando = "Insert INTO [dbo].[Anuncio] (titulo, precio, usuario, tipo, localidad, descripcion) " +
+                "VALUES ('" + en.titulo + "', " + en.precio + "', " + en.usuario.Nif + "', " + en.tipo + "', " + en.localidad + "', " + en.descripcion + ")";
             try
             {
                 SqlConnection conn = null;
