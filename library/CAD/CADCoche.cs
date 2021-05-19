@@ -43,7 +43,7 @@ namespace library
         public bool readCoche(ENCoche en)
         {
             bool read = false;
-            string comando = "select * From [dbo].[Usuarios] where anuncio='" + en.id + "'";
+            string comando = "select * From [dbo].[Coche] where anuncio='" + en.id + "'";
 
             try
             {
