@@ -70,10 +70,32 @@ namespace library
         }
         public bool deleteAnuncio(ENAnuncio en)
         {
-            bool deleted = false;
+            bool borrado = false;
+            string comando = "DELETE FROM [dbo].[Anuncio] WHERE id = '" + en.id + "'";
+            try
+            {
+                SqlConnection conn = null;
+                conn = new SqlConnection(constring);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(comando, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                borrado = true;
+            }
+            catch (SqlException ex)
+            {
+                borrado = false;
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                borrado = false;
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+            }
 
 
-            return deleted;
+
+            return borrado;
         }
         public bool readAnuncio(ENAnuncio en)
         {
@@ -149,6 +171,32 @@ namespace library
         public bool updateAnuncio(ENAnuncio en)
         {
             bool updated = false;
+            string comando = "UPDATE [dbo].[Anuncio] SET " +
+                "titulo= '" + en.titulo + "' ," +
+                "precio= '" + en.precio + "' ," +
+                "localidad= '" + en.localidad.localidad + "' ," +
+                "descripcion= '" + en.descripcion + "' ," +
+                "WHERE id = '" + en.id + "'";
+            try
+            {
+                SqlConnection conn = null;
+                conn = new SqlConnection(constring);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(comando, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                updated = true;
+            }
+            catch (SqlException ex)
+            {
+                updated = false;
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                updated = false;
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+            }
 
 
             return updated;
