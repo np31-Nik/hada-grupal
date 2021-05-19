@@ -13,5 +13,35 @@ namespace UserInterface
         {
             
         }
+
+        protected void InsertarMarca_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BorrarMarca_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ModificarMarca_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void InsertarTipo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BorrarTipo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ModificarTipo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

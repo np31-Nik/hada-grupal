@@ -11,14 +11,16 @@
                     <div class="formularioContent2">
                 <div class="formularioContent3">
                     <p style="margin-top:30px">
-                        Marca <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        Marca <asp:TextBox ID="Marca" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="MarcaValid1" EnableClientScript="false" runat="server" ControlToValidate="Marca" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="MarcaValid2" EnableClientScript="false" ControlToValidate="Marca" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
                     </p>
                     <p style="margin-top:40px">
-                        <asp:Button ID="Button1" runat="server" Text="Insertar" /> 
+                        <asp:Button ID="InsertarMarca" runat="server" Text="Insertar" OnClick="InsertarMarca_Click" /> 
                         &nbsp;
-                        <asp:Button ID="Button2" runat="server" Text="Borrar" />
+                        <asp:Button ID="BorrarMarca" runat="server" Text="Borrar" OnClick="BorrarMarca_Click" />
                         &nbsp;
-                        <asp:Button ID="Button3" runat="server" Text="Modificar" />
+                        <asp:Button ID="ModificarMarca" runat="server" Text="Modificar" OnClick="ModificarMarca_Click" />
                     </p>
                 </div>
                 <div class="formularioTable">
@@ -55,14 +57,16 @@
             <div class="formularioContent2">
                 <div class="formularioContent3">
                     <p style="margin-top:30px">
-                        Tipo <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                        Tipo <asp:TextBox ID="Tipo" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="TipoValid1" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="TipoValid2" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
                     </p>
                     <p style="margin-top:40px">
-                        <asp:Button ID="Button4" runat="server" Text="Insertar" /> 
+                        <asp:Button ID="InsertarTipo" runat="server" Text="Insertar" OnClick="InsertarTipo_Click" /> 
                         &nbsp;
-                        <asp:Button ID="Button5" runat="server" Text="Borrar" />
+                        <asp:Button ID="BorrarTipo" runat="server" Text="Borrar" OnClick="BorrarTipo_Click" />
                         &nbsp;
-                        <asp:Button ID="Button6" runat="server" Text="Modificar" />
+                        <asp:Button ID="ModificarTipo" runat="server" Text="Modificar" OnClick="ModificarTipo_Click" />
                     </p>
                 </div>
                 <div class="formularioTable">

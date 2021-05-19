@@ -42,6 +42,24 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox Tipo;
 
         /// <summary>
+        /// Control TipoValid1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TipoValid1;
+
+        /// <summary>
+        /// Control TipoValid2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator TipoValid2;
+
+        /// <summary>
         /// Control InsertarTipoA.
         /// </summary>
         /// <remarks>
@@ -103,6 +121,24 @@ namespace UserInterface
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Localidad;
+
+        /// <summary>
+        /// Control LocalidadValid1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator LocalidadValid1;
+
+        /// <summary>
+        /// Control LocalidadValid2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator LocalidadValid2;
 
         /// <summary>
         /// Control InsertarLocalidad.

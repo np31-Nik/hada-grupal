@@ -12,6 +12,8 @@
                     <div class="formularioContent3">
                         <p style="margin-top:30px">
                             Tipo <asp:TextBox ID="Tipo" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="TipoValid1" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="TipoValid2" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
                         </p>
                         <p style="margin-top:40px">
                             <asp:Button ID="InsertarTipoA" runat="server" Text="Insertar" OnClick="InsertarTipoA_Click" /> 
@@ -57,6 +59,8 @@
                     <div class="formularioContent3">
                         <p style="margin-top:30px">
                             Localidad <asp:TextBox ID="Localidad" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="LocalidadValid1" EnableClientScript="false" runat="server" ControlToValidate="Localidad" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="LocalidadValid2" EnableClientScript="false" ControlToValidate="Localidad" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
                         </p>
                         <p style="margin-top:40px">
                             <asp:Button ID="InsertarLocalidad" runat="server" Text="Insertar" OnClick="InsertarLocalidad_Click" /> 
