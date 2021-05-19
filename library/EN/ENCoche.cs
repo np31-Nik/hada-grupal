@@ -5,8 +5,14 @@
         private ENMarcaCoche _marca;
         private ENTipoCoche _tipo;
         private int _anyo;
-        private uint id;
+        private int _id;
 
+
+        public int id
+        {
+            get { return (int)_id; }
+            set { _id = value; }
+        }
         public ENTipoCoche tipo
         {
             get { return _tipo; }
@@ -41,10 +47,11 @@
             anyo = year;
 
         }
-        public bool createCoche(uint id)
+        public bool createCoche(ENCoche coche,uint idParam)
         {
-            CADCoche coche = new CADCoche();
-            if (coche.createCoche(this, id))
+            CADCoche CadCoche = new CADCoche();
+            id = (int)idParam;
+            if (CadCoche.createCoche(coche))
             {
                 return true;
             }

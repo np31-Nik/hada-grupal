@@ -11,12 +11,12 @@ namespace library
         {
             constring = ConfigurationManager.ConnectionStrings["Database"].ToString();//Conexion
         }
-        public bool createCoche(ENCoche en, uint id)
+        public bool createCoche(ENCoche en)
         {
             bool creado = false;
             //Falta anyadir mas atibutos a la BD
             string comando = "Insert INTO [dbo].[Coche] (anuncio,ano,marca,tipo) " +
-                "VALUES ('" + id + "', '" + en.anyo + "', '" + en.marca + "', '" + en.tipo + ")";
+                "VALUES ('" + en.id + "', '" + en.anyo + "', '" + en.marca + "', '" + en.tipo + ")";
 
             try
             {
@@ -40,10 +40,10 @@ namespace library
             return creado;
         }
 
-        public bool readCoche(ENCoche en, uint id)
+        public bool readCoche(ENCoche en)
         {
             bool read = false;
-            string comando = "select * From [dbo].[Usuarios] where anuncio='" + id + "'";
+            string comando = "select * From [dbo].[Usuarios] where anuncio='" + en.id + "'";
 
             try
             {
@@ -54,10 +54,10 @@ namespace library
                 SqlDataReader buscar = cmd.ExecuteReader();
                 while (buscar.Read() && !read)
                 {
-                    if (buscar["id"].ToString() == id.ToString())
+                    if (buscar["id"].ToString() == en.id.ToString())
                     {
                         read = true;
-                        id = (uint)int.Parse(buscar["id"].ToString());
+                        en.id = int.Parse(buscar["id"].ToString());
                         en.marca = (ENMarcaCoche)buscar["marca"];
                         en.tipo = (ENTipoCoche)buscar["tipo"];
                         en.anyo = (int)buscar["ano"]; /////////REVISAR
@@ -80,14 +80,14 @@ namespace library
             }
             return read;
         }
-        public bool updateCoche(ENCoche en, uint id)
+        public bool updateCoche(ENCoche en)
         {
             bool updated = false;
             string comando = "UPDATE [dbo].[Coche] SET " +
                "tipo= '" + en.tipo + "' ," +
                "ano= '" + en.anyo + "' ," +
                "marca=" + en.marca +
-               "WHERE id = '" + id + "'";
+               "WHERE id = '" + en.id + "'";
             try
             {
                 SqlConnection conn = null;
@@ -112,10 +112,10 @@ namespace library
 
             return updated;
         }
-        public bool deleteCoche(ENCoche en, uint id)
+        public bool deleteCoche(ENCoche en)
         {
             bool borrado = false;
-            string comando = "DELETE FROM [dbo].[Coche] WHERE id = '" + id + "'";
+            string comando = "DELETE FROM [dbo].[Coche] WHERE id = '" + en.id + "'";
             try
             {
                 SqlConnection conn = null;
