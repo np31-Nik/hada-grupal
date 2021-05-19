@@ -5,7 +5,7 @@
         private string _direccion;
         private int _superficie, _banyos, _habitaciones;
         private string _numCatastral = "-1";
-        private uint id;
+        private int _id;
         ENTipoPropiedad _tipo;
 
         public ENTipoPropiedad tipo {
@@ -40,6 +40,11 @@
             get { return _numCatastral; }
             set { _numCatastral = value; }
         }
+        public int id
+        {
+            get { return (int)_id; }
+            set { _id = value; }
+        }
 
         public ENPropiedad() //vacio
         {
@@ -62,10 +67,11 @@
             banyos = bathrooms;
         }
 
-        public bool createPropiedad(uint id)
+        public bool createPropiedad(ENPropiedad propiedad, int idParam)
         {
             CADPropiedad prop = new CADPropiedad();
-            if (prop.createPropiedad(this, id))
+            propiedad.id = idParam;
+            if (prop.createPropiedad(propiedad))
             {
                 return true;
             }

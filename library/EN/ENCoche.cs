@@ -47,10 +47,10 @@
             anyo = year;
 
         }
-        public bool createCoche(ENCoche coche,uint idParam)
+        public bool createCoche(ENCoche coche,int idParam)
         {
             CADCoche CadCoche = new CADCoche();
-            id = (int)idParam;
+            coche.id = idParam;
             if (CadCoche.createCoche(coche))
             {
                 return true;
@@ -60,17 +60,17 @@
         public bool readCoche(uint id)
         {
             CADCoche coche = new CADCoche();
-            return coche.readCoche(this, id);
+            return coche.readCoche(this);
         }
         public bool deleteCoche(uint id)
         {
             CADCoche coche = new CADCoche();
-            return coche.deleteCoche(this, id);
+            return coche.deleteCoche(this);
         }
         public bool updateCoche(uint id)
         {
             CADCoche coche = new CADCoche();
-            return coche.updateCoche(this, id);
+            return coche.updateCoche(this);
 
 
         }

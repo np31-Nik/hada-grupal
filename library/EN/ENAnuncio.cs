@@ -10,7 +10,7 @@ namespace library
         public ENLocalidad _localidad;
         public ENTipoPropiedad _tipoProp;
         public ENUsuario _usuario;
-        public uint id = 0; //clave primaria
+        public int id = 0; //clave primaria
         private string _titulo, _descripcion;
         private float _precio;
 
@@ -99,25 +99,29 @@ namespace library
             if (EsCoche)
             {
                 if (anuncio.createAnuncio(this))
+                {
                     id = readUltimoId(this.usuario);
-                    if (coche.createCoche(coche,id))
+                    if (coche.createCoche(coche, id))
                     {
                         creado = true;
                     }
+                }
             }
             else
             {
                 if (anuncio.createAnuncio(this))
-                    if (prop.createPropiedad(prop))
+                {
+                    id = readUltimoId(this.usuario);
+                    if (prop.createPropiedad(prop,id))
                     {
                         creado = true;
-                        id++;
                     }
+                }
             }
             return creado;
         }
 
-        private uint readUltimoId(ENUsuario usuario)
+        private int readUltimoId(ENUsuario usuario)
         {
             CADAnuncio anuncio = new CADAnuncio();
             return anuncio.readUltimoId(usuario);
