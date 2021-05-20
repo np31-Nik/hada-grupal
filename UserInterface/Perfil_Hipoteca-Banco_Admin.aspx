@@ -29,6 +29,9 @@
                                     &nbsp;
                                     <asp:Button ID="ModificarBanco" runat="server" Text="Modificar" OnClick="ModificarBanco_Click"  />
                                 </p>
+                                <p>
+									<asp:Label ID="Label_Estado" runat="server" ForeColor="Red"></asp:Label>
+								</p>
                             </div>
                         </td>
                         <td>
@@ -73,24 +76,30 @@
                     <tr>
                         <td>
                             <div class="formularioContent3">
-                    <p>
-                        Banco <asp:TextBox ID="TextBoxBancoH" runat="server"></asp:TextBox>
-                    </p>
-                    <p>
-                        Desde <asp:TextBox ID="TextBoxDesde" runat="server" Width="40px"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hasta <asp:TextBox ID="TextBoxHasta" runat="server" Width="40px"></asp:TextBox>
-                    </p>
-                    <p>
-                        Interes% <asp:TextBox ID="TextBoxInteres" runat="server" Width="40px"></asp:TextBox>
-                    </p>
-                    <p >
-                        <asp:Button ID="InsertarHipoteca" runat="server" Text="Insertar" OnClick="InsertarHipoteca_Click" /> 
-                        &nbsp;
-                        <asp:Button ID="BorrarHipoteca" runat="server" Text="Borrar" OnClick="BorrarHipoteca_Click" />
-                        &nbsp;
-                        <asp:Button ID="ModificarHipoteca" runat="server" Text="Modificar" OnClick="ModificarHipoteca_Click" />
-                    </p>
-                </div>
+                                <p>
+                                    ID <asp:TextBox ID="TextBoxId" runat="server" Enabled="false" Width="25"></asp:TextBox>
+                                </p>
+                                <p>
+                                    Banco <asp:TextBox ID="TextBoxBancoH" runat="server"></asp:TextBox>
+                                </p>
+                                <p>
+                                    Desde <asp:TextBox ID="TextBoxDesde" runat="server" Width="40px"></asp:TextBox>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hasta <asp:TextBox ID="TextBoxHasta" runat="server" Width="40px"></asp:TextBox>
+                                </p>
+                                <p>
+                                    Interes% <asp:TextBox ID="TextBoxInteres" runat="server" Width="40px"></asp:TextBox>
+                                </p>
+                                <p >
+                                    <asp:Button ID="InsertarHipoteca" runat="server" Text="Insertar" OnClick="InsertarHipoteca_Click" /> 
+                                    &nbsp;
+                                    <asp:Button ID="BorrarHipoteca" runat="server" Text="Borrar" OnClick="BorrarHipoteca_Click" />
+                                    &nbsp;
+                                    <asp:Button ID="ModificarHipoteca" runat="server" Text="Modificar" OnClick="ModificarHipoteca_Click" />
+                                </p>
+                                <p>
+									<asp:Label ID="Label_Estado2" runat="server" ForeColor="Red"></asp:Label>
+								</p>
+                            </div>
                         </td>
                         <td>
                             <div class="formularioTable">

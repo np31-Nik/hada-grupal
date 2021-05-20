@@ -87,6 +87,15 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.Button ModificarBanco;
 
         /// <summary>
+        /// Control Label_Estado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Estado;
+
+        /// <summary>
         /// Control GridViewBanco.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace UserInterface
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
+        /// Control TextBoxId.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxId;
 
         /// <summary>
         /// Control TextBoxBancoH.
@@ -175,6 +193,15 @@ namespace UserInterface
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ModificarHipoteca;
+
+        /// <summary>
+        /// Control Label_Estado2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Estado2;
 
         /// <summary>
         /// Control GridViewHipoteca.

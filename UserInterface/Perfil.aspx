@@ -15,7 +15,7 @@
                 </tr>
                 <tr>
                     <td><asp:TextBox ID="Nombre" runat="server" Enabled="false"></asp:TextBox> 
-                        <br /> <asp:RegularExpressionValidator ID="NombreValid2" EnableClientScript="false" ControlToValidate="Nombre" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
+                        <br /> <asp:RegularExpressionValidator ID="NombreValid2" EnableClientScript="false" ControlToValidate="Nombre" ValidationExpression="([a-z]|[A-Z])*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
                     </td>
                     <td><asp:TextBox ID="Apellido" runat="server" Enabled="false"></asp:TextBox> 
                         <br /> <asp:RegularExpressionValidator ID="Apellidoalid2" EnableClientScript="false" ControlToValidate="Apellido" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>

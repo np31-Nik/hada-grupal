@@ -87,6 +87,15 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.Button ModificarTipoA;
 
         /// <summary>
+        /// Control Label_Estado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Estado;
+
+        /// <summary>
         /// Control GridViewTipoAnuncio.
         /// </summary>
         /// <remarks>
@@ -166,6 +175,15 @@ namespace UserInterface
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ModificarLocalidad;
+
+        /// <summary>
+        /// Control Label_Estado2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Estado2;
 
         /// <summary>
         /// Control GridViewLocalidad.

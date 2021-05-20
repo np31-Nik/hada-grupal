@@ -1,4 +1,5 @@
-﻿using System;
+﻿using library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,12 +17,48 @@ namespace UserInterface
 
         protected void InsertarMarca_Click(object sender, EventArgs e)
         {
-
+            ENMarcaCoche en = new ENMarcaCoche();
+            en.tipo = Tipo.Text;
+            try
+            {
+                if (en.createMarcaCoche())
+                {
+                    Label_Estado.Text = "Success";
+                    GridViewMarca.DataBind();
+                }
+                else
+                {
+                    Label_Estado.Text = "Error ";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                Label_Estado.Text = ex.Message;
+            }
         }
 
         protected void BorrarMarca_Click(object sender, EventArgs e)
         {
-
+            ENMarcaCoche en = new ENMarcaCoche();
+            en.tipo = Tipo.Text;
+            try
+            {
+                if (en.deleteMarcaCoche())
+                {
+                    Label_Estado.Text = "Success";
+                    GridViewMarca.DataBind();
+                }
+                else
+                {
+                    Label_Estado.Text = "Error ";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                Label_Estado.Text = ex.Message;
+            }
         }
 
         protected void ModificarMarca_Click(object sender, EventArgs e)
@@ -31,12 +68,48 @@ namespace UserInterface
 
         protected void InsertarTipo_Click(object sender, EventArgs e)
         {
-
+            ENTipoCoche en = new ENTipoCoche();
+            en.categoria = Tipo.Text;
+            try
+            {
+                if (en.createTipoCoche())
+                {
+                    Label_Estado2.Text = "Success";
+                    GridViewTipoCoche.DataBind();
+                }
+                else
+                {
+                    Label_Estado2.Text = "Error ";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                Label_Estado2.Text = ex.Message;
+            }
         }
 
         protected void BorrarTipo_Click(object sender, EventArgs e)
         {
-
+            ENTipoCoche en = new ENTipoCoche();
+            en.categoria = Tipo.Text;
+            try
+            {
+                if (en.deleteTipoCoche())
+                {
+                    Label_Estado2.Text = "Success";
+                    GridViewTipoCoche.DataBind();
+                }
+                else
+                {
+                    Label_Estado2.Text = "Error ";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                Label_Estado2.Text = ex.Message;
+            }
         }
 
         protected void ModificarTipo_Click(object sender, EventArgs e)
