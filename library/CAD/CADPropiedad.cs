@@ -16,12 +16,13 @@ namespace library
         {
             bool creado = false;
             //Falta anyadir mas atibutos a la BD
-            string comando = "Insert INTO [dbo].[Propiedad] (anuncio, numCatastral, superficie, dorm, bano, tipo)" +
-                "VALUES ('" + en.id + "', '" + en.numCatastral + "', '" + en.superficie + "', "
-                + en.habitaciones + "', " + en.banyos + "', " + en.tipo + ")";
+            
 
             try
             {
+                string comando = "Insert INTO [dbo].[Propiedad] (anuncio, numCatastral, superficie, dorm, bano, tipo)" +
+                "VALUES ('" + en.id + "', '" + en.numCatastral + "', '" + en.superficie + "', "
+                + en.habitaciones + "', " + en.banyos + "', " + en.tipo + ")";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -45,10 +46,11 @@ namespace library
         public bool readPropiedad(ENPropiedad en)
         {
             bool read = false;
-            string comando = "select * From [dbo].[Propiedad] where anuncio='" + en.id + "'";
+            
 
             try
             {
+                string comando = "select * From [dbo].[Propiedad] where anuncio='" + en.id + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -89,15 +91,16 @@ namespace library
         public bool updatePropiedad(ENPropiedad en)
         {
             bool updated = false;
-            string comando = "UPDATE [dbo].[Propiedad] SET " +
+            
+            try
+            {
+                string comando = "UPDATE [dbo].[Propiedad] SET " +
                "tipo= '" + en.tipo + "' ," +
                "dorm= '" + en.habitaciones + "' ," +
                "numCatastral=" + en.numCatastral + "' ," +
-               "superficie=" + en.superficie+ "' ," +
-               "bano=" + en.banyos+ "' ," +
+               "superficie=" + en.superficie + "' ," +
+               "bano=" + en.banyos + "' ," +
                "WHERE anuncio = '" + en.id + "'";
-            try
-            {
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -123,9 +126,10 @@ namespace library
         public bool deletePropiedad(ENPropiedad en)
         {
             bool borrado = false;
-            string comando = "DELETE FROM [dbo].[Propiedad] WHERE anuncio = '" + en.id + "'";
+            
             try
             {
+                string comando = "DELETE FROM [dbo].[Propiedad] WHERE anuncio = '" + en.id + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();

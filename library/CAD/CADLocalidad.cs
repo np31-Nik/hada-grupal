@@ -18,12 +18,11 @@ namespace library
         public bool createLocalidad(ENLocalidad en)
         {
             bool creado = false;
-            //Falta anyadir mas atibutos a la BD
-            string comando = "Insert INTO [dbo].[Localidad] (Localidad)" +
-                "VALUES ('"+ en.localidad  + ")";
-
+           
             try
             {
+                string comando = "Insert INTO [dbo].[Localidad] (Localidad)" +
+                "VALUES ('" + en.localidad + ")";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -47,10 +46,11 @@ namespace library
         public bool readLocalidad(ENLocalidad en)
         {
             bool encontrado = false;
-            string comando = "select * From [dbo].[Localidad] where localidad='" + en.localidad + "'";
+            
 
             try
             {
+                string comando = "select * From [dbo].[Localidad] where localidad='" + en.localidad + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -85,11 +85,12 @@ namespace library
         public bool updateLocalidad(ENLocalidad en)
         {
             bool updated = false;
-            string comando = "UPDATE [dbo].[Localidad] SET " +
-                "localidad= '" + en.newLocalidad+ "' ," +
-                "WHERE localidad = '" + en.localidad + "'";
+           
             try
             {
+                string comando = "UPDATE [dbo].[Localidad] SET " +
+               "localidad= '" + en.newLocalidad + "' ," +
+               "WHERE localidad = '" + en.localidad + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -115,9 +116,10 @@ namespace library
         public bool deleteLocalidad(ENLocalidad en)
         {
             bool deleted = false;
-            string comando = "DELETE FROM [dbo].[Localidad] WHERE nif = '" + en.localidad + "'";
+            
             try
             {
+                string comando = "DELETE FROM [dbo].[Localidad] WHERE nif = '" + en.localidad + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();

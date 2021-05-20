@@ -15,11 +15,12 @@ namespace library
         {
             bool creado = false;
             //Falta anyadir mas atibutos a la BD
-            string comando = "Insert INTO [dbo].[Coche] (anuncio,ano,marca,tipo) " +
-                "VALUES ('" + en.id + "', '" + en.anyo + "', '" + en.marca + "', '" + en.tipo + ")";
+            
 
             try
             {
+                string comando = "Insert INTO [dbo].[Coche] (anuncio,ano,marca,tipo) " +
+                "VALUES ('" + en.id + "', '" + en.anyo + "', '" + en.marca + "', '" + en.tipo + ")";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -43,10 +44,11 @@ namespace library
         public bool readCoche(ENCoche en)
         {
             bool read = false;
-            string comando = "select * From [dbo].[Coche] where anuncio='" + en.id + "'";
+            
 
             try
             {
+                string comando = "select * From [dbo].[Coche] where anuncio='" + en.id + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -83,13 +85,14 @@ namespace library
         public bool updateCoche(ENCoche en)
         {
             bool updated = false;
-            string comando = "UPDATE [dbo].[Coche] SET " +
+            
+            try
+            {
+                string comando = "UPDATE [dbo].[Coche] SET " +
                "tipo= '" + en.tipo + "' ," +
                "ano= '" + en.anyo + "' ," +
                "marca=" + en.marca +
                "WHERE anuncio = '" + en.id + "'";
-            try
-            {
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -115,9 +118,10 @@ namespace library
         public bool deleteCoche(ENCoche en)
         {
             bool borrado = false;
-            string comando = "DELETE FROM [dbo].[Coche] WHERE anuncio = '" + en.id + "'";
+            
             try
             {
+                string comando = "DELETE FROM [dbo].[Coche] WHERE anuncio = '" + en.id + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();

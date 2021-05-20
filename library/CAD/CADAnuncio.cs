@@ -15,8 +15,9 @@ namespace library
         public int readUltimoId(ENUsuario en) {
             int auxid = 0;
 
-            string comando = "select MAX(id) From [dbo].[Anuncio] where usuario = '" + en.Nif + "'";
+            
             try{
+                string comando = "select MAX(id) From [dbo].[Anuncio] where usuario = '" + en.Nif + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -42,10 +43,12 @@ namespace library
         public bool createAnuncio(ENAnuncio en)
         {
             bool creado = false;
-            string comando = "Insert INTO [dbo].[Anuncio] (titulo, precio, usuario, tipo, localidad, descripcion, categoria) " +
-                "VALUES ('" + en.titulo + "', " + en.precio + "', " + en.usuario.Nif + "', " + en.tipo + "', " + en.localidad + "', " + en.descripcion + "', " + en.categoria + ")";
+            
             try
             {
+                string comando = "Insert INTO [dbo].[Anuncio] (titulo, precio, usuario, tipo, localidad, descripcion, categoria) " +
+                "VALUES ('" + en.titulo + "', " + en.precio + "', " + en.usuario.Nif + "', " + en.tipo + "', " + en.localidad +
+                "', " + en.descripcion + "', " + en.categoria + ")";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -71,9 +74,10 @@ namespace library
         public bool deleteAnuncio(ENAnuncio en)
         {
             bool borrado = false;
-            string comando = "DELETE FROM [dbo].[Anuncio] WHERE id = '" + en.id + "'";
+            
             try
             {
+                string comando = "DELETE FROM [dbo].[Anuncio] WHERE id = '" + en.id + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -101,10 +105,11 @@ namespace library
         {
 
             bool encontrado = false;
-            string comando = "select * From [dbo].[Anuncio] where id='" + en.id + "'";
+           
 
             try
             {
+                string comando = "select * From [dbo].[Anuncio] where id='" + en.id + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -171,14 +176,15 @@ namespace library
         public bool updateAnuncio(ENAnuncio en)
         {
             bool updated = false;
-            string comando = "UPDATE [dbo].[Anuncio] SET " +
+            
+            try
+            {
+                string comando = "UPDATE [dbo].[Anuncio] SET " +
                 "titulo= '" + en.titulo + "' ," +
                 "precio= '" + en.precio + "' ," +
                 "localidad= '" + en.localidad.localidad + "' ," +
                 "descripcion= '" + en.descripcion + "' ," +
                 "WHERE id = '" + en.id + "'";
-            try
-            {
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
