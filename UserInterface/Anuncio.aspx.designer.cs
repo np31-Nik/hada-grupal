@@ -465,31 +465,22 @@ namespace UserInterface
         protected global::System.Web.UI.UpdatePanel UpdatePanel_Imagen;
 
         /// <summary>
-        /// IMAGE control.
+        /// ListView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image IMAGE;
+        protected global::System.Web.UI.WebControls.ListView ListView1;
 
         /// <summary>
-        /// IZQ control.
+        /// Imagenes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton IZQ;
-
-        /// <summary>
-        /// DER control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton DER;
+        protected global::System.Web.UI.WebControls.SqlDataSource Imagenes;
 
         /// <summary>
         /// DESCRIPCION control.

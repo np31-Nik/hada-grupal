@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="Anuncio" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Anuncio.aspx.cs" Inherits="UserInterface.Anuncio" MaintainScrollPositionOnPostback="true" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -223,10 +225,73 @@
                 </Triggers>
                 <ContentTemplate>
                     <asp:Panel runat="server" HorizontalAlign="Center">
-                        <asp:Image ID="IMAGE" runat="server" ImageUrl="~/imagenes/no-image.jpg"/>
-                        <br />
-                        <asp:ImageButton ID="IZQ" runat="server" ImageUrl="~/imagenes/left-arrow.png" style="width:40px;height:40px;" OnClick="PrevImage"/>
-                        <asp:ImageButton ID="DER" runat="server" ImageUrl="~/imagenes/right-arrow.png" style="width:40px;height:40px;" OnClick="NextImage"/>
+                        <table width="100%">
+   <tr>
+     <td align="center">
+       <table>
+         <tr>
+            <td>
+                        <asp:ListView ID="ListView1" runat="server" DataSourceID="Imagenes">
+                            <EmptyDataTemplate>
+                                <table runat="server" style="">
+                                    <tr>
+                                        <td><asp:Image ID="IMAGE" runat="server" ImageUrl="~/imagenes/no-image.jpg"/></td>
+                                    </tr>
+                                </table>
+                            </EmptyDataTemplate>
+                            <ItemTemplate>
+                                <tr style="">
+                                    <td>
+                                        <asp:Image ID="foto" runat="server" ImageUrl='<%# Eval("foto") %>' />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                            <LayoutTemplate>
+                                <div style="width:100%;position:center;text-align:center;">
+                                <table runat="server">
+                                    <tr runat="server">
+                                        <td runat="server">
+                                            <table id="itemPlaceholderContainer" runat="server" border="0" style="">
+                                                <tr runat="server" style="">
+                                                    <th runat="server"></th>
+                                                </tr>
+                                                <tr id="itemPlaceholder" runat="server">
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr runat="server">
+                                        <td runat="server" style="">
+                                            <asp:DataPager ID="DataPager1" runat="server" PageSize="1" style="width:40px;height:40px;">
+                                                <Fields>
+                                                    <asp:NextPreviousPagerField ButtonType="Image" PreviousPageImageUrl="~/imagenes/left-arrow.png" 
+                                                        NextPageImageUrl="~/imagenes/right-arrow.png" ButtonCssClass="BotonesIMG" ShowFirstPageButton="false" ShowLastPageButton="false" />
+                                                </Fields>
+                                            </asp:DataPager>
+                                        </td>
+                                    </tr>
+                                </table>
+                                    </div>
+                            </LayoutTemplate>
+                            <SelectedItemTemplate>
+                                <tr style="">
+                                    <td>
+                                        <asp:Label ID="fotoLabel" runat="server" Text='<%# Eval("foto") %>' />
+                                    </td>
+                                </tr>
+                            </SelectedItemTemplate>
+                        </asp:ListView>
+                 </td>
+         </tr>
+       </table>
+     </td>
+   </tr>
+</table>
+                        <asp:SqlDataSource ID="Imagenes" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [foto] FROM [Foto] WHERE ([anuncio] = @anuncio)">
+                            <SelectParameters>
+                                <asp:QueryStringParameter Name="anuncio" QueryStringField="anuncio_id" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                     </asp:Panel>
                 </ContentTemplate>
             </asp:UpdatePanel>
