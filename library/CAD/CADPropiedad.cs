@@ -10,7 +10,7 @@ namespace library
         private string constring;
         public CADPropiedad()
         {
-            constring = ConfigurationManager.ConnectionStrings["Database"].ToString(); ;//Conexion
+            constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString(); ;//Conexion
         }
         public bool createPropiedad(ENPropiedad en)
         {
@@ -21,8 +21,8 @@ namespace library
             try
             {
                 string comando = "Insert INTO [dbo].[Propiedad] (anuncio, numCatastral, superficie, dorm, bano, tipo)" +
-                "VALUES ('" + en.id + "', '" + en.numCatastral + "', '" + en.superficie + "', "
-                + en.habitaciones + "', " + en.banyos + "', " + en.tipo + ")";
+                "VALUES ('" + en.id + "', '" + en.numCatastral + "', '" + en.superficie + "', '"
+                + en.habitaciones + "', '" + en.banyos + "', '" + en.tipo.tipo + "')";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();

@@ -17,14 +17,17 @@ namespace library
 
             
             try{
-                string comando = "select MAX(id) From [dbo].[Anuncio] where usuario = '" + en.Nif + "'";
+                string comando = "select id From [dbo].[Anuncio] where usuario = '" + en.Nif + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
                 SqlDataReader buscar = cmd.ExecuteReader();
-                buscar.Read();
-                auxid= int.Parse(buscar["id"].ToString());
+                while (buscar.Read())
+                {
+                    if((int)buscar["id"]>auxid)
+                        auxid = int.Parse(buscar["id"].ToString());
+                }
                 buscar.Close();
                 conn.Close();
             }
@@ -47,8 +50,8 @@ namespace library
             try
             {
                 string comando = "Insert INTO [dbo].[Anuncio] (titulo, precio, usuario, tipo, localidad, descripcion, categoria) " +
-                "VALUES ('" + en.titulo + "', " + en.precio + "', " + en.usuario.Nif + "', " + en.tipo + "', " + en.localidad +
-                "', " + en.descripcion + "', " + en.categoria + ")";
+                "VALUES ('" + en.titulo + "', '" + en.precio + "', '" + en.usuario.Nif + "', '" + en.tipo.Tipo + "', '" + en.localidad.localidad +
+                "', '" + en.descripcion + "', '" + en.categoria + "')";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
