@@ -4,7 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" type="text/css" href="css/StyleSheet1.css">
-    <div class="todoContenido">
+<asp:ScriptManager ID="ScriptManager2" runat="server" />
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="RadioButtonList1" EventName="SelectedIndexChanged" />
+        </Triggers>
+        <ContentTemplate>
+            <div class="todoContenido">
         <div runat="server" id="main">
             <h2 style="text-align: center">Publicar Articulo:</h2>
 
@@ -163,5 +169,8 @@
             <asp:Button ID="inicio" runat="server" Text="Inicio" OnClick="InicioClick" />
         </div>
     </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    
 
 </asp:Content>
