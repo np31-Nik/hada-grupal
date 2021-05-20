@@ -37,14 +37,13 @@ namespace UserInterface
             //en el SelectedIndezChaged haces
             int pos = localidad.SelectedIndex; //recogo el index seleccionado
             ENLocalidad currentLocalidad = list[pos]; //busco el item entero en la lista
-            // full gucci
             */
         }
 
 
         protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //mensaje.Text = "elegiste: " + RadioButtonList1.SelectedItem.Text;
+            mensaje.Text = "elegiste: " + RadioButtonList1.SelectedItem.Text;
             if (RadioButtonList1.SelectedItem.Text == "Vehiculo")
             {
                 vehiculo.Visible = true;
