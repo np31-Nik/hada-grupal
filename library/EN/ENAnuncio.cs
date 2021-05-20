@@ -11,7 +11,7 @@ namespace library
         public ENTipoPropiedad _tipoProp;
         public ENUsuario _usuario;
         public int id = 0; //clave primaria
-        private string _titulo, _descripcion;
+        private string _titulo, _descripcion,_categoria;
         private float _precio;
 
         public bool EsCoche = false; //if true creamos coche, else crear propiedad
@@ -46,6 +46,11 @@ namespace library
             get { return _usuario; }
             set { _usuario = value; }
         }
+        public string categoria
+        {
+            get { return _categoria; }
+            set { _categoria = value; }
+        }
         public string titulo
         {
             get { return _titulo; }
@@ -70,26 +75,30 @@ namespace library
             descripcion = "";
             precio = -1;
             tipo = new ENTipoAnuncio();
+            usuario = new ENUsuario();
         }
 
         //Constructor para Vehiculo
-        public ENAnuncio(string title, ENLocalidad city, string description, float price, ENTipoAnuncio tipoAnuncio,ENCoche car)
+        public ENAnuncio(string title, ENLocalidad city, string description, float price, ENTipoAnuncio tipoAnuncio,ENUsuario user ,ENCoche car)
         {
             titulo = title;
             localidad = city;
             descripcion = description;
             precio = price;
             tipo = tipoAnuncio;
+            usuario = user;
             coche = car;
         }
 
         //Constructor para Propiedad
-        public ENAnuncio(string title, ENLocalidad city, string description, float price, ENTipoAnuncio tipoAnuncio, ENPropiedad propiedad) {
+        public ENAnuncio(string title, ENLocalidad city, string description, float price,
+            ENTipoAnuncio tipoAnuncio, ENUsuario user, ENPropiedad propiedad) {
             titulo = title;
             localidad = city;
             descripcion = description;
             precio = price;
             tipo = tipoAnuncio;
+            usuario = user;
             prop = propiedad ;
         }
 
@@ -146,11 +155,11 @@ namespace library
             bool updated = false;
             if (anuncio.updateAnuncio(this))
             {
-                if (TIPOANUNCIO == "vehiculo")
+                if (categoria == "vehiculo")
                     coche.id = this.id;
                 if (coche.updateCoche(coche))
                     updated = true;
-                else if (TIPOANUNCIO == "propiedad")
+                else if (categoria == "propiedad")
                     prop.id = this.id;
                     if (prop.updatePropiedad(prop))
                         updated = true;
@@ -165,13 +174,13 @@ namespace library
             bool read = false;
             if (anuncio.readAnuncio(this))
             {
-                if (TIPOANUNCIO == "vehiculo")
+                if (categoria == "vehiculo")
                 {
                     coche.id = this.id;
                     if (coche.readCoche(coche))
                         read = true;
                 }
-                else if (TIPOANUNCIO == "propiedad") { 
+                else if (categoria == "propiedad") { 
                     coche.id = this.id;
                     if (prop.readPropiedad(prop))
                         read = true;

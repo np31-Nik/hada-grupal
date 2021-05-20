@@ -9,7 +9,7 @@ namespace library
         private string constring;
         public CADAnuncio()
         {
-            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();//Conexion
+            constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString();//Conexion
         }
 
         public int readUltimoId(ENUsuario en) {
@@ -42,8 +42,8 @@ namespace library
         public bool createAnuncio(ENAnuncio en)
         {
             bool creado = false;
-            string comando = "Insert INTO [dbo].[Anuncio] (titulo, precio, usuario, tipo, localidad, descripcion) " +
-                "VALUES ('" + en.titulo + "', " + en.precio + "', " + en.usuario.Nif + "', " + en.tipo + "', " + en.localidad + "', " + en.descripcion + ")";
+            string comando = "Insert INTO [dbo].[Anuncio] (titulo, precio, usuario, tipo, localidad, descripcion, categoria) " +
+                "VALUES ('" + en.titulo + "', " + en.precio + "', " + en.usuario.Nif + "', " + en.tipo + "', " + en.localidad + "', " + en.descripcion + "', " + en.categoria + ")";
             try
             {
                 SqlConnection conn = null;
@@ -118,13 +118,13 @@ namespace library
                         en.titulo = buscar["titulo"].ToString();
                         en.descripcion = buscar["descripcion"].ToString();
                         en.precio = int.Parse(buscar["precio"].ToString());
-                        if (TIPOANUNCIO == "vehiculo") {
+                        if (en.categoria == "vehiculo") {
                             en.coche.id = en.id;
                             en.coche.anyo = int.Parse(buscar["ano"].ToString());
-                            en.coche.marca = new ENMarcaCoche(buscar["marca"].ToString());
+                            en.coche.marca = new ENMarcaCoche("",buscar["marca"].ToString(),"");
                             en.coche.tipo = new ENTipoCoche(buscar["tipo"].ToString());
                         }
-                        else if (TIPOANUNCIO=="propiedad")
+                        else if (en.categoria=="propiedad")
                         {
                             en.prop.id = en.id;
                             en.prop.superficie= int.Parse(buscar["superficie"].ToString());

@@ -14,6 +14,7 @@ namespace UserInterface
         {
             mensaje.Text = "";
             vehiculo.Visible = true;
+            //propiedad.Visible = true;
 
             /*localidad.Items.Add("pepepepep");
             localidad.SelectedIndex
@@ -70,7 +71,7 @@ namespace UserInterface
 
         protected void PublicarClick(object sender, EventArgs e)
         {
-            int aux = 0;
+            int aux;
             if (titulo.Text.Length > 55)
             {
                 mensaje.Text = "El tamaño maximo de titulo es de 55 caracteres. Tamaño actual: " + titulo.Text.Length;
@@ -120,8 +121,9 @@ namespace UserInterface
                         ENMarcaCoche marcaC = new ENMarcaCoche("", marca.SelectedItem.Text, "");
                         ENTipoCoche tipoC = new ENTipoCoche(tipoCoche.SelectedItem.Text); 
                         ENCoche car = new ENCoche(int.Parse(anyo.Text), tipoC, marcaC);
-                        ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precioVehiculo.Text),tipoAnun,car);
-                        
+                        ENUsuario user = new ENUsuario();
+                        ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precioVehiculo.Text),tipoAnun,user,car);
+                        anuncio.categoria = "vehiculo";
                         
                         anuncio.EsCoche = true;
                         if (anuncio.createAnuncio()) {
@@ -150,7 +152,7 @@ namespace UserInterface
                     else if (NumHabit.Text != "" && int.TryParse(NumHabit.Text, out aux)) {
                         mensaje.Text = "Numero de habitaciones debe ser un numero entero";
                     }
-                    else if (int.TryParse(Superficie.Text, out aux))
+                    else if (!int.TryParse(Superficie.Text.ToString(), out aux))
                     {
                         mensaje.Text = "Superficie debe ser un numero entero";
                     }
@@ -165,9 +167,9 @@ namespace UserInterface
                         ENTipoPropiedad tipoP = new ENTipoPropiedad(TipoCasa.SelectedItem.Text);
 
                         //ENPropiedad propiedadAnuncio = new ENPropiedad();
-
-                        ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precio.Text), tipoAnun, new ENPropiedad());
-
+                        ENUsuario user = new ENUsuario();
+                        ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precio.Text), tipoAnun, user, new ENPropiedad());
+                        anuncio.categoria = "propiedad";
 
                         anuncio.prop.superficie = int.Parse(Superficie.Text); //Obligatorio
                         anuncio.tipoProp = tipoP;

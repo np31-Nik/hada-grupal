@@ -32,12 +32,10 @@
                     <asp:Label runat="server" Text="Localidad:"></asp:Label>
                 </div>
                 <div>
-                    <asp:DropDownList ID="localidad" runat="server">
-
+                    <asp:DropDownList ID="localidad" runat="server" DataSourceID="SqlDataSource1" DataTextField="localidad" DataValueField="localidad">
                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                        <asp:ListItem Text="Benidorm" Value="1"></asp:ListItem>
-                        <asp:ListItem Text="Alicante" Value="2"></asp:ListItem>
                     </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [localidad] FROM [Localidad]"></asp:SqlDataSource>
                 </div>
                 <br />
                 <div>
@@ -67,24 +65,23 @@
                 <asp:Label runat="server" Text="Marca:"></asp:Label>
             </div>
             <div>
-                <asp:DropDownList ID="marca" runat="server">
+                <asp:DropDownList ID="marca" runat="server" DataSourceID="SqlDataSource2" DataTextField="marca" DataValueField="marca">
 
                     <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                    <asp:ListItem Text="--Select--" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="--Select--" Value="2"></asp:ListItem>
                 </asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [marca] FROM [MarcaCoche]"></asp:SqlDataSource>
             </div>
             <br />
             <div>
                 <asp:Label runat="server" Text="Tipo:"></asp:Label>
             </div>
             <div>
-                <asp:DropDownList ID="tipoCoche" runat="server">
+                <asp:DropDownList ID="tipoCoche" runat="server" DataSourceID="TipoCocheDataSource" DataTextField="tipo" DataValueField="tipo">
 
                     <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                    <asp:ListItem Text="--Select--" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="--Select--" Value="2"></asp:ListItem>
+
                 </asp:DropDownList>
+                <asp:SqlDataSource ID="TipoCocheDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoCoche]"></asp:SqlDataSource>
             </div>
             <br />
             <div>
@@ -125,11 +122,10 @@
                 <asp:Label runat="server" Text="Tipo de propiedad"></asp:Label>
             </div>
             <div>
-                <asp:DropDownList ID="TipoCasa" runat="server">
+                <asp:DropDownList ID="TipoCasa" runat="server" DataSourceID="TipoPropiedadDataSource" DataTextField="tipo" DataValueField="tipo">
                     <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                    <asp:ListItem Text="--Select--" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="--Select--" Value="2"></asp:ListItem>
                 </asp:DropDownList>
+                <asp:SqlDataSource ID="TipoPropiedadDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoPropiedad]"></asp:SqlDataSource>
             </div>
             <br />
             <div>
