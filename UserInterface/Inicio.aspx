@@ -3,12 +3,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel= "Stylesheet" type="text/css" href="css/Inicio.css" />
-     <h2> Inicio sesion: </h2>
-     <div runat="server" id="main"></div>
-      Ingrese su correo:
-      <asp:TextBox ID="correo" runat="server"> </asp:TextBox> <br /><br />
-      Ingrese su contraseña:
-      <asp:TextBox ID="contrasenya" runat="server"> </asp:TextBox> <br /><br />
+       Usuario: 
+        <asp:TextBox CssClass="textBox" ID="nombreUsuario" runat="server"  BorderStyle="Inset" ToolTip="Escriba aquí su nombre de usuario" Width="80%"/>  
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ForeColor="Red"  ErrorMessage="Campo Requerido"  ControlToValidate="nombreUsuario">
+        </asp:RequiredFieldValidator>
+        </div>
+         <br />
+        Password:
+          <asp:TextBox CssClass="txtBox" ID="Contraseña" runat="server"  MaxLength="30" BorderStyle="Inset" ToolTip="Escriba aqui la contraseña" Width="80%" TextMode="Password" />  
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red"  ErrorMessage="Campo Requerido" ControlToValidate="Contraseña"></asp:RequiredFieldValidator>
+        <div></div>
+       
+          <br> 
       <asp:Button ID="entrar" runat="server" Text="Entrar" onClick="EntrarClick"/>
             
 </asp:Content>
