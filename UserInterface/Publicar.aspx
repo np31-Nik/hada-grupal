@@ -15,7 +15,8 @@
                     ID="RadioButtonList1"
                     runat="server"
                     AutoPostBack="true"
-                    OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
+                    OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged"
+                    ClientIDMode="AutoID">
                     <asp:ListItem Selected="True">Vehiculo</asp:ListItem>
                     <asp:ListItem>Propiedad</asp:ListItem>
                 </asp:RadioButtonList>
@@ -63,9 +64,7 @@
 
         <div>
             <asp:UpdatePanel runat="server" ID="UpdatePanelPublicar" UpdateMode="Conditional">
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="RadioButtonList1" EventName="SelectedIndexChanged" />
-                </Triggers>
+               
                 <ContentTemplate>
                     <div runat="server" id="vehiculo" class="bloque" visible="false">
 
