@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace library
@@ -209,6 +210,40 @@ namespace library
 
 
             return updated;
+        }
+        public DataSet BusquedaAnuncios(string cmd_a, string cmd_b, ref bool success)
+        {
+            success = false;
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection connection = null;
+                connection = new SqlConnection(constring);
+                connection.Open();
+
+                SqlDataAdapter adp = new SqlDataAdapter("select * from [dbo].[Anuncio], [dbo].[Coche] " +
+                    "WHERE [dbo].[Anuncio].id = [dbo].[Coche].id " +
+                    "AND [dbo].[Anuncio].id=(select id from [dbo].[Anuncio] " + cmd_a + ")" +
+                    "AND [dbo].[Coche].id=(select id from [dbo].[Coche] " + cmd_b + ")"
+                    , constring);
+
+                adp.Fill(ds);
+
+                connection.Close();
+                success = true;
+            }
+            catch (SqlException sqlex)
+            {
+                success = false;
+                Console.WriteLine("User operation has failed. Error: {0}", sqlex.Message);
+
+            }
+            catch (Exception ex)
+            {
+                success = false;
+                Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+            }
+            return ds;
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace library
 {
@@ -106,7 +107,7 @@ namespace library
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool creado = false;
-            if (EsCoche)
+            if (categoria=="vehiculo")
             {
                 if (anuncio.createAnuncio(this))
                 {
@@ -117,7 +118,7 @@ namespace library
                     }
                 }
             }
-            else
+            else if(categoria == "propiedad")
             {
                 if (anuncio.createAnuncio(this))
                 {
@@ -206,5 +207,13 @@ namespace library
 
             return read;
         }
+        public DataSet BusquedaAnuncios(string cmd_a, string cmd_b, ref bool success)
+        {
+            CADAnuncio anuncio = new CADAnuncio();
+            success = false;
+            DataSet ds = anuncio.BusquedaAnuncios(cmd_a, cmd_b, ref success);
+            return ds;
+        }
+
     }
 }
