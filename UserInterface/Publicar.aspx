@@ -5,67 +5,70 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" type="text/css" href="css/StyleSheet1.css">
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
-    <div class="todoContenido">
+    <asp:UpdatePanel runat="server" ID="UpdatePanelPublicar" UpdateMode="Conditional">
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="RadioButtonList1" EventName="SelectedIndexChanged" />
+        </Triggers>
+        <ContentTemplate>
+            <div class="todoContenido">
 
-        <div runat="server" id="main">
-            <h2 style="text-align: center">Publicar Articulo:</h2>
+                <div runat="server" id="main">
+                    <h2 style="text-align: center">Publicar Articulo:</h2>
 
-            <div style="padding-left: 100px; padding-right: 100px;">
-                <asp:RadioButtonList
-                    ID="RadioButtonList1"
-                    runat="server"
-                    AutoPostBack="true"
-                    OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged"
-                    ClientIDMode="AutoID">
-                    <asp:ListItem Selected="True">Vehiculo</asp:ListItem>
-                    <asp:ListItem>Propiedad</asp:ListItem>
-                </asp:RadioButtonList>
-            </div>
+                    <div style="padding-left: 100px; padding-right: 100px;">
+                        <asp:RadioButtonList
+                            ID="RadioButtonList1"
+                            runat="server"
+                            AutoPostBack="true"
+                            OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged"
+                            ClientIDMode="AutoID">
+                            <asp:ListItem Selected="True">Vehiculo</asp:ListItem>
+                            <asp:ListItem>Propiedad</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
 
-            <br />
-            <div class="bloque">
-                <div>
-                    <asp:Label runat="server" Text="Titulo:"></asp:Label>
+                    <br />
+                    <div class="bloque">
+                        <div>
+                            <asp:Label runat="server" Text="Titulo:"></asp:Label>
+                        </div>
+                        <div>
+                            <asp:TextBox ID="titulo" runat="server"> </asp:TextBox>
+                        </div>
+                        <br />
+                        <div>
+                            <asp:Label runat="server" Text="Localidad:"></asp:Label>
+                        </div>
+                        <div>
+                            <asp:DropDownList ID="localidad" runat="server" DataSourceID="SqlDataSource1" DataTextField="localidad" DataValueField="localidad">
+                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [localidad] FROM [Localidad]"></asp:SqlDataSource>
+                        </div>
+                        <br />
+                        <div>
+
+
+                            <asp:Label runat="server" Text="Descripcion:"></asp:Label>
+                        </div>
+
+                        <div>
+                            <asp:TextBox ID="descripcion" runat="server" Style="width: 80%; height: 100px" TextMode="MultiLine"> </asp:TextBox>
+                        </div>
+                        <br />
+                        <asp:RadioButtonList
+                            ID="tipoAnuncio"
+                            runat="server"
+                            AutoPostBack="true"
+                            OnSelectedIndexChanged="RadioButtonList2_SelectedIndexChanged">
+                            <asp:ListItem Selected="True">Alquiler</asp:ListItem>
+                            <asp:ListItem>Venta</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
                 </div>
-                <div>
-                    <asp:TextBox ID="titulo" runat="server"> </asp:TextBox>
-                </div>
-                <br />
-                <div>
-                    <asp:Label runat="server" Text="Localidad:"></asp:Label>
-                </div>
-                <div>
-                    <asp:DropDownList ID="localidad" runat="server" DataSourceID="SqlDataSource1" DataTextField="localidad" DataValueField="localidad">
-                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [localidad] FROM [Localidad]"></asp:SqlDataSource>
-                </div>
-                <br />
-                <div>
-
-
-                    <asp:Label runat="server" Text="Descripcion:"></asp:Label>
-                </div>
 
                 <div>
-                    <asp:TextBox ID="descripcion" runat="server" Style="width: 80%; height: 100px" TextMode="MultiLine"> </asp:TextBox>
-                </div>
-                <br />
-                <asp:RadioButtonList
-                    ID="tipoAnuncio"
-                    runat="server"
-                    AutoPostBack="true"
-                    OnSelectedIndexChanged="RadioButtonList2_SelectedIndexChanged">
-                    <asp:ListItem Selected="True">Alquiler</asp:ListItem>
-                    <asp:ListItem>Venta</asp:ListItem>
-                </asp:RadioButtonList>
-            </div>
-        </div>
 
-        <div>
-            <asp:UpdatePanel runat="server" ID="UpdatePanelPublicar" UpdateMode="Conditional">
-               
-                <ContentTemplate>
                     <div runat="server" id="vehiculo" class="bloque" visible="false">
 
                         <br />
@@ -165,22 +168,23 @@
                         </div>
                         <br />
                     </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
-        </div>
-        <asp:Label ID="mensaje" runat="server"></asp:Label>
-        <br />
-        <br />
-        <div class="bloque">
-            <h3>Imagenes de articulo:</h3>
-            <asp:FileUpload ID="cargarimg1" runat="server" Text="Cargar imagenes" AllowMultiple="true" /><br />
-        </div>
-        <div style="text-align: center;">
-            <asp:Button ID="publicar" runat="server" Text="Publicar" OnClick="PublicarClick" />
-            <asp:Button ID="inicio" runat="server" Text="Inicio" OnClick="InicioClick" />
 
-        </div>
-    </div>
+                </div>
+                <asp:Label ID="mensaje" runat="server"></asp:Label>
+                <br />
+                <br />
+                <div class="bloque">
+                    <h3>Imagenes de articulo:</h3>
+                    <asp:FileUpload ID="cargarimg1" runat="server" Text="Cargar imagenes" AllowMultiple="true" /><br />
+                </div>
+                <div style="text-align: center;">
+                    <asp:Button ID="publicar" runat="server" Text="Publicar" OnClick="PublicarClick" />
+                    <asp:Button ID="inicio" runat="server" Text="Inicio" OnClick="InicioClick" />
+
+                </div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
 
 </asp:Content>
