@@ -108,14 +108,18 @@
     <div class="PanelBusqueda" style="background-color:#ffffff;color:black;">
         <asp:Label runat="server" Text="Resultados de busqueda" Width="100%" style="text-align:center;font-weight:bold;"></asp:Label>
         <div class="ResultadosBusqueda">
-            <table width="100%">
+            <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="BUSCAR" EventName="Click" />
+                </Triggers>
+                <ContentTemplate>
+                    <table width="100%">
    <tr>
      <td align="center">
        <table>
          <tr>
             <td>
             <asp:ListView ID="ListView1" runat="server" DataSourceID="Database" GroupItemCount="4">
-                
                 <EmptyDataTemplate>
                     <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;
                         border-color: #999999;border-style:none;border-width:1px;">
@@ -137,7 +141,7 @@
                     
                     <td runat="server" style="background-color:#DCDCDC;color: #000000;">
                         <asp:ImageButton ID="img_anuncio" runat="server"
-                                ImageUrl=""
+                                ImageUrl="~\imagenes\image0.jpg"
                                 Height="200px" Width="300px" />
                         <br />
                         precio:
@@ -178,7 +182,7 @@
 
               
             </asp:ListView>
-            <asp:SqlDataSource ID="Database" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [precio], [tipo], [localidad] FROM [Anuncio] WHERE (([localidad] = @localidad) AND ([precio] &lt;= @precio) AND ([precio] &gt;= @precio2) AND ([tipo] = @tipo))">
+            <asp:SqlDataSource ID="Database" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [precio], [tipo], [localidad] FROM [Anuncio]">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="LOCALIDAD" Name="localidad" PropertyName="SelectedValue" Type="String" />
                     <asp:ControlParameter ControlID="PRECIO_HASTA" Name="precio" PropertyName="Text" Type="Int32" />
@@ -192,6 +196,9 @@
      </td>
    </tr>
 </table>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            
         </div>
     </div>
         <br />
