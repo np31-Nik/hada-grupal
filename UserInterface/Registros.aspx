@@ -5,9 +5,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel= "Stylesheet" type="text/css" href="css/Registros.css" />
+    <div class="principal">
+        <center>
+
         <h2>Registro de usuarios:</h2>
-        <div class="PanelTitulo"></div>
-        <div runat="server" id="main"></div>
             Premium:
              <asp:RadioButtonList
                 ID="RadioButtonList1"
@@ -68,7 +69,8 @@
                     <br />
                   <asp:CustomValidator ID="CustomValidator4" runat="server"  ControlToValidate="nif"  OnServerValidate="CustomValidator1_ServerValidate" ForeColor="Red"  ErrorMessage="Ya existe un usuario con ese NIF"> </asp:CustomValidator>
                   <p> <a href ="./Inicio.aspx">¿Ya tiene cuenta?</a></p>
-
+        </div>
+    </center>
 </asp:Content>
 
    

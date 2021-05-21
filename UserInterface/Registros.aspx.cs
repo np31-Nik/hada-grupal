@@ -1,5 +1,4 @@
-﻿using library;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -58,7 +57,7 @@ namespace UserInterface
             string nombre = NombreUsuario.Text;
             if (nombre != "")
             {
-                if (usuario.readUsuario(nombre))
+                if (usuario.readUsuario())
                 {
                     args.IsValid = false;
                 }
@@ -70,76 +69,5 @@ namespace UserInterface
             }
 
         }
-
-
-        protected void CustomValidator5_ServerValidate(object source, ServerValidateEventArgs args)
-
-        {
-            ENUsuario usuario = new ENUsuario();
-            string contrasenya = Contraseña.Text;
-            if (contrasenya != "")
-            {
-                if (usuario.readUsuario(contrasenya))
-                {
-                    args.IsValid = false;
-                }
-                else
-                {
-                    args.IsValid = true;
-
-                }
-
-            }
-
-        }
-
-        protected void CustomValidator3_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            ENUsuario usuario = new ENUsuario();
-            string dniAuxiliar = nif.Text;
-            if (dniAuxiliar != "")
-            {
-                if (usuario.readUsuario(dniAuxiliar))
-                {
-                    args.IsValid = false;
-                }
-                else
-                {
-                    args.IsValid = true;
-                }
-
-            }
-        }
-
-
-        protected void  CustomValidator7_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            ENUsuario usuario = new ENUsuario();
-            string correo = email.Text;
-            if (correo != "")
-            {
-                if (usuario.readUsuario(correo))
-                {
-                    args.IsValid = false;
-                }
-                else
-                {
-                    args.IsValid = true;
-                }
-
-            }
-        }
-
-        protected void CustomValidator8_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            ENUsuario usuario = new ENUsuario();
-          
-            
-
-
-        }
-
-
-
      }
 }

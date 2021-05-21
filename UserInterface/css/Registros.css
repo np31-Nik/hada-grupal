@@ -3,7 +3,6 @@
     margin: auto;
     margin-top: 50px;
     padding: 30px;
-    color: red;
 }
 
 .PanelTitulo{
@@ -40,4 +39,9 @@
     color: white;
     margin: 15px; 
     font-size:16px;
+}
+
+.Principal{
+    margin:0 auto;
+    text-align:center;
 }

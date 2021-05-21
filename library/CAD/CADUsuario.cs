@@ -90,7 +90,7 @@ namespace library
         /// </summary>
         public bool readUsuario(ENUsuario en)
         {
-            string comando = "Select * from Usuario where nif='" + en.Nif + "'and contrasena='" + en.Contrasenya + "'";
+            string comando = "Select * from Usuario where nif='" + en.Nif + "'";
             return obtainComandExec(comando, en);
         }
         /*

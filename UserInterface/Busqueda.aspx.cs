@@ -62,7 +62,7 @@ namespace UserInterface
             String comandoAnuncio = "WHERE ";
             String comandoCoche = "WHERE ";
             String comandoPropiedad = "WHERE ";
-            DataSet ds;
+            DataSet ds = new DataSet();
             bool success = false;
             bool and = false;
 

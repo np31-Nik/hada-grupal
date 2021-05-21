@@ -22,7 +22,7 @@ namespace UserInterface
                 else
                 {
                     ENAnuncio en = new ENAnuncio();
-                    en.id = uint.Parse(Request.QueryString["anuncio_id"]);
+                    en.id = int.Parse(Request.QueryString["anuncio_id"]);
                     en.readAnuncio();
 
 
@@ -33,15 +33,14 @@ namespace UserInterface
                     PROPIETARIO.Text = propietario.Nombre + " " + propietario.Apellido;
                     TELEFONO.Text = propietario.Telefono;
                     EMAIL.Text = propietario.Email;
-                    LOCALIDAD.Text = en.localidad;
-                    COD_POSTAL.Text = en.cp.ToString();
+                    LOCALIDAD.Text = en.localidad.localidad;
 
-                    switch (en.tipo)
+                    switch (en.tipo.Tipo)
                     {
                         case "vehiculo":
                             ENCoche coche = new ENCoche();
                             coche.id = en.id;
-                            coche.readCoche();
+                            coche.readCoche(coche);
                             ANYO.Text = coche.anyo.ToString();
                             MARCA.Text = coche.marca.tipo;
                             TIPO_COCHE.Text = coche.tipo.categoria;
@@ -49,12 +48,12 @@ namespace UserInterface
                         case "propiedad":
                             ENPropiedad prop = new ENPropiedad();
                             prop.id = en.id;
-                            prop.readPropiedad();
+                            prop.readPropiedad(prop);
                             REF_CAT.Text = prop.numCatastral;
                             SUPERFICIE.Text = prop.superficie.ToString();
                             DORMITORIOS.Text = prop.habitaciones.ToString();
                             BANYOS.Text = prop.banyos.ToString();
-                            TIPO_PROPIEDAD.Text = prop.tipo;
+                            TIPO_PROPIEDAD.Text = prop.tipo.tipo;
                             break;
                     }
                 }

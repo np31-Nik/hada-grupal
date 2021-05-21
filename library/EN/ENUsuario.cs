@@ -88,7 +88,7 @@
         /// Recupera el usuario indicado de la BD
         /// </summary>
         /// <returns>False si no se ha podido realizar la operación</returns>
-        public bool readUsuario(string email)
+        public bool readUsuario()
         {
             CADUsuario db = new CADUsuario();
             return db.readUsuario(this);
