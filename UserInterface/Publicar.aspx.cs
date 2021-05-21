@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Web;
 using library;
 
 namespace UserInterface
@@ -14,36 +15,16 @@ namespace UserInterface
         {
             mensaje.Text = "";
             vehiculo.Visible = true;
-            //propiedad.Visible = true;
-
-            /*localidad.Items.Add("pepepepep");
-            localidad.SelectedIndex
-
-
-            //seguramente dengas que devolver un dataTable de la base de datos porque devuelves todo la table
-            //entonces seria algo asi
-            foreach (DataRow item in listaDeLaBaseDeDatos.Rows)
-            { //for que recorre todos los item de la bbdd
-                localidad.Items.Add(item.localidad); //meto cada item en el ListItem
-                list.Add(item); // set todo el item en el array
-            }
-
-            //---------------------------
-            foreach (ENLocalidad item in listaDeLaBaseDeDatos) { //for que recorre todos los item de la bbdd
-                localidad.Items.Add(item.localidad); //meto cada item en el ListItem
-                list.Add(item); // set todo el item en el array
-            }
-            //si quieres seleccionar todo el item que se ha pulsado
-            //en el SelectedIndezChaged haces
-            int pos = localidad.SelectedIndex; //recogo el index seleccionado
-            ENLocalidad currentLocalidad = list[pos]; //busco el item entero en la lista
-            */
+            /*if (Session["nif"] == null)
+            {
+                Response.Redirect("~/Registros.aspx");
+            }*/
         }
 
 
         protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            mensaje.Text = "elegiste: " + RadioButtonList1.SelectedItem.Text;
+            //mensaje.Text = "elegiste: " + RadioButtonList1.SelectedItem.Text;
             if (RadioButtonList1.SelectedItem.Text == "Vehiculo")
             {
                 vehiculo.Visible = true;
@@ -122,11 +103,31 @@ namespace UserInterface
                         ENCoche car = new ENCoche(int.Parse(anyo.Text), tipoC, marcaC);
                         ENUsuario user = new ENUsuario();
                         ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precioVehiculo.Text),tipoAnun,user,car);
-                        anuncio.categoria = "vehiculo";
-                        
+                        anuncio.categoria = "coche";
+                        anuncio.usuario.Nif = Session["nif"].ToString();
+
+
                         anuncio.EsCoche = true;
+                        
+
                         if (anuncio.createAnuncio()) {
-                            //Ir a la pagina de inicio o pagina de anuncio creado
+                            if (cargarimg1.HasFiles)
+                            {
+                                foreach(HttpPostedFile uploadedFile in cargarimg1.PostedFiles)
+                                {
+                                    if (true/*cargarimg1.PostedFiles*/)
+                                    {
+                                        int size = cargarimg1.PostedFile.ContentLength;
+                                        byte[] Imagen = new byte[size];
+                                        cargarimg1.PostedFile.InputStream.Read(Imagen, 0, size);
+                                        ENFoto imgParaDB = new ENFoto();
+                                        imgParaDB.Foto = Imagen;
+                                        imgParaDB.createFoto();
+                                        //añadir a BD
+                                    }
+                                }
+                            }
+                            Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
                         }
                         else{
                             mensaje.Text = "El anuncio no se ha creado. Intentelo mas tarde.";
@@ -169,9 +170,10 @@ namespace UserInterface
                         ENUsuario user = new ENUsuario();
                         ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precio.Text), tipoAnun, user, new ENPropiedad());
                         anuncio.categoria = "propiedad";
+                        anuncio.usuario.Nif = Session["nif"].ToString();
 
                         anuncio.prop.superficie = int.Parse(Superficie.Text); //Obligatorio
-                        anuncio.tipoProp = tipoP;
+                        anuncio.prop.tipo = tipoP;
                         anuncio.EsCoche = false;
 
                         if (NumHabit.Text!="")//Optativo
@@ -183,8 +185,23 @@ namespace UserInterface
 
                         if (anuncio.createAnuncio())
                         {
-                            mensaje.Text = "Anuncio creado correctamente";//quitar al acabar
-                            //Ir a la pagina de anuncio creado
+                            if (cargarimg1.HasFiles)
+                            {
+                                foreach (HttpPostedFile uploadedFile in cargarimg1.PostedFiles)
+                                {
+                                    if (true/*cargarimg1.PostedFiles*/)
+                                    {
+                                        int size = cargarimg1.PostedFile.ContentLength;
+                                        byte[] Imagen = new byte[size];
+                                        cargarimg1.PostedFile.InputStream.Read(Imagen, 0, size);
+                                        ENFoto imgParaDB = new ENFoto();
+                                        imgParaDB.Foto = Imagen;
+                                        imgParaDB.createFoto();
+                                        //añadir a BD
+                                    }
+                                }
+                            }
+                            Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
                         }
                         else
                         {
@@ -199,7 +216,7 @@ namespace UserInterface
         }
         protected void InicioClick(object sender, EventArgs e)
         {
-            mensaje.Text = "";
+            Response.Redirect("~/Principal.aspx");
         }
     }
 }

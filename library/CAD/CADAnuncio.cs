@@ -127,7 +127,7 @@ namespace library
                         en.titulo = buscar["titulo"].ToString();
                         en.descripcion = buscar["descripcion"].ToString();
                         en.precio = int.Parse(buscar["precio"].ToString());
-                        if (en.categoria == "vehiculo") {
+                        if (en.categoria == "coche") {
                             en.coche.id = en.id;
                             en.coche.anyo = int.Parse(buscar["ano"].ToString());
                             en.coche.marca = new ENMarcaCoche("",buscar["marca"].ToString(),"");

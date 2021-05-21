@@ -9,7 +9,7 @@ namespace library
         private string constring;
         public CADCoche()
         {
-            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();//Conexion
+            constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString();//Conexion
         }
         public bool createCoche(ENCoche en)
         {
@@ -20,7 +20,7 @@ namespace library
             try
             {
                 string comando = "Insert INTO [dbo].[Coche] (anuncio,ano,marca,tipo) " +
-                "VALUES ('" + en.id + "', '" + en.anyo + "', '" + en.marca + "', '" + en.tipo + ")";
+                "VALUES ('" + en.id + "', '" + en.anyo + "', '" + "BMW"/*en.marca.companyia*/ + "', '" + en.tipo.categoria + "')";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();

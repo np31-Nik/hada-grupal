@@ -107,7 +107,7 @@ namespace library
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool creado = false;
-            if (categoria=="vehiculo")
+            if (categoria=="coche")
             {
                 if (anuncio.createAnuncio(this))
                 {
