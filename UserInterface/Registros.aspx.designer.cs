@@ -159,15 +159,6 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox movil;
 
         /// <summary>
-        /// RadioButtonList3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList3;
-
-        /// <summary>
         /// registar control.
         /// </summary>
         /// <remarks>
