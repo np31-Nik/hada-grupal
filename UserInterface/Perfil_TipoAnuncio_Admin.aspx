@@ -89,7 +89,7 @@
 							</td>
 							<td>
 								<div class="formularioTable">
-						<asp:GridView ID="GridViewLocalidad" runat="server" EmptyDataText="La tabla esta vacia" AutoGenerateColumns="False" AllowPaging="True" PageSize="4" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="localidad" DataSourceID="sqlLocalidad">
+						<asp:GridView ID="GridViewLocalidad" runat="server" EmptyDataText="La tabla esta vacia" AutoGenerateColumns="False" AllowPaging="True" PageSize="4" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="localidad" DataSourceID="sqlLocalidad" OnSelectedIndexChanged="GridViewLocalidad_SelectedIndexChanged">
 							<AlternatingRowStyle BackColor="White" ForeColor="#284775" />
 							<Columns>
 								<asp:CommandField ShowSelectButton="True" />

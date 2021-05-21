@@ -32,7 +32,7 @@
                                 </td>
                                 <td>
                                     <div class="formularioTable">
-                                    <asp:GridView ID="GridViewMarca" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="marca" ForeColor="#333333" GridLines="None" DataSourceID="SqlMarcaCoche" >
+                                    <asp:GridView ID="GridViewMarca" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="marca" ForeColor="#333333" GridLines="None" DataSourceID="SqlMarcaCoche" OnSelectedIndexChanged="GridViewMarca_SelectedIndexChanged" >
                                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                             <Columns>
                                                 <asp:BoundField DataField="marca" ItemStyle-CssClass="itemStyle2" HeaderText="marca" ReadOnly="True" SortExpression="marca" />
@@ -89,7 +89,7 @@
                                 </td>
                                 <td>
                                     <div class="formularioTable">
-                                        <asp:GridView ID="GridViewTipoCoche" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="tipo" ForeColor="#333333" GridLines="None" DataSourceID="SqlTipoCoche" >
+                                        <asp:GridView ID="GridViewTipoCoche" runat="server" EmptyDataText="La tabla esta vacia"  AutoGenerateSelectButton="True" AllowPaging="True" PageSize="4" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="tipo" ForeColor="#333333" GridLines="None" DataSourceID="SqlTipoCoche" OnSelectedIndexChanged="GridViewTipoCoche_SelectedIndexChanged" >
                                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                                 <Columns>
                                                     <asp:BoundField DataField="tipo" ItemStyle-CssClass="itemStyle2" HeaderText="tipo" ReadOnly="True" SortExpression="tipo" />

@@ -17,58 +17,67 @@ namespace UserInterface
 
         protected void InsertarTipo_Click(object sender, EventArgs e)
         {
-            ENTipoPropiedad en = new ENTipoPropiedad();
-            en.tipo = Tipo.Text;
-            try
+            if(TipoValidE.IsValid && TipoValidR.IsValid)
             {
-                if (en.createTipoPropiedad())
+                ENTipoPropiedad en = new ENTipoPropiedad();
+                en.tipo = Tipo.Text;
+                try
                 {
-                    Label_Estado.Text = "Success";
-                    GridViewTipoPropiedad.DataBind();
+                    if (en.createTipoPropiedad())
+                    {
+                        Label_Estado.Text = "Success";
+                        GridViewTipoPropiedad.DataBind();
+                    }
+                    else
+                    {
+                        Label_Estado.Text = "Error ";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Label_Estado.Text = "Error ";
+                    Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                    Label_Estado.Text = ex.Message;
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-                Label_Estado.Text = ex.Message;
             }
         }
 
         protected void BorrarTipo_Click(object sender, EventArgs e)
         {
-            ENTipoPropiedad en = new ENTipoPropiedad();
-            en.tipo = Tipo.Text;
-            try
+            if (TipoValidE.IsValid && TipoValidR.IsValid)
             {
-                if (en.deleteTipoPropiedad())
+                ENTipoPropiedad en = new ENTipoPropiedad();
+                en.tipo = Tipo.Text;
+                try
                 {
-                    Label_Estado.Text = "Success";
-                    GridViewTipoPropiedad.DataBind();
+                    if (en.deleteTipoPropiedad())
+                    {
+                        Label_Estado.Text = "Success";
+                        GridViewTipoPropiedad.DataBind();
+                    }
+                    else
+                    {
+                        Label_Estado.Text = "Error ";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Label_Estado.Text = "Error ";
+                    Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                    Label_Estado.Text = ex.Message;
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-                Label_Estado.Text = ex.Message;
             }
         }
 
         protected void ModificarTipo_Click(object sender, EventArgs e)
         {
+            if (TipoValidE.IsValid && TipoValidR.IsValid)
+            {
 
+            }
         }
 
         protected void GridViewTipoPropiedad_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Tipo.Text = GridViewTipoPropiedad.SelectedValue.ToString();
         }
     }
 }

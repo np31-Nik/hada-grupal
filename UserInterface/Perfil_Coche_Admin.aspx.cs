@@ -17,47 +17,53 @@ namespace UserInterface
 
         protected void InsertarMarca_Click(object sender, EventArgs e)
         {
-            ENMarcaCoche en = new ENMarcaCoche();
-            en.tipo = Tipo.Text;
-            try
-            {
-                if (en.createMarcaCoche())
+            if (MarcaValid1.IsValid && MarcaValid2.IsValid) 
+            { 
+                ENMarcaCoche en = new ENMarcaCoche();
+                en.tipo = Tipo.Text;
+                try
                 {
-                    Label_Estado.Text = "Success";
-                    GridViewMarca.DataBind();
+                    if (en.createMarcaCoche())
+                    {
+                        Label_Estado.Text = "Success";
+                        GridViewMarca.DataBind();
+                    }
+                    else
+                    {
+                        Label_Estado.Text = "Error ";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Label_Estado.Text = "Error ";
+                    Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                    Label_Estado.Text = ex.Message;
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-                Label_Estado.Text = ex.Message;
             }
         }
 
         protected void BorrarMarca_Click(object sender, EventArgs e)
         {
-            ENMarcaCoche en = new ENMarcaCoche();
-            en.tipo = Tipo.Text;
-            try
+            if (MarcaValid1.IsValid && MarcaValid2.IsValid)
             {
-                if (en.deleteMarcaCoche())
+                ENMarcaCoche en = new ENMarcaCoche();
+                en.tipo = Tipo.Text;
+                try
                 {
-                    Label_Estado.Text = "Success";
-                    GridViewMarca.DataBind();
+                    if (en.deleteMarcaCoche())
+                    {
+                        Label_Estado.Text = "Success";
+                        GridViewMarca.DataBind();
+                    }
+                    else
+                    {
+                        Label_Estado.Text = "Error ";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Label_Estado.Text = "Error ";
+                    Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                    Label_Estado.Text = ex.Message;
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-                Label_Estado.Text = ex.Message;
             }
         }
 
@@ -68,53 +74,69 @@ namespace UserInterface
 
         protected void InsertarTipo_Click(object sender, EventArgs e)
         {
-            ENTipoCoche en = new ENTipoCoche();
-            en.categoria = Tipo.Text;
-            try
+            if(TipoValid1.IsValid && TipoValid2.IsValid)
             {
-                if (en.createTipoCoche())
+                ENTipoCoche en = new ENTipoCoche();
+                en.categoria = Tipo.Text;
+                try
                 {
-                    Label_Estado2.Text = "Success";
-                    GridViewTipoCoche.DataBind();
+                    if (en.createTipoCoche())
+                    {
+                        Label_Estado2.Text = "Success";
+                        GridViewTipoCoche.DataBind();
+                    }
+                    else
+                    {
+                        Label_Estado2.Text = "Error ";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Label_Estado2.Text = "Error ";
+                    Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                    Label_Estado2.Text = ex.Message;
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-                Label_Estado2.Text = ex.Message;
             }
         }
 
         protected void BorrarTipo_Click(object sender, EventArgs e)
         {
-            ENTipoCoche en = new ENTipoCoche();
-            en.categoria = Tipo.Text;
-            try
+            if (TipoValid1.IsValid && TipoValid2.IsValid)
             {
-                if (en.deleteTipoCoche())
+                ENTipoCoche en = new ENTipoCoche();
+                en.categoria = Tipo.Text;
+                try
                 {
-                    Label_Estado2.Text = "Success";
-                    GridViewTipoCoche.DataBind();
+                    if (en.deleteTipoCoche())
+                    {
+                        Label_Estado2.Text = "Success";
+                        GridViewTipoCoche.DataBind();
+                    }
+                    else
+                    {
+                        Label_Estado2.Text = "Error ";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Label_Estado2.Text = "Error ";
+                    Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                    Label_Estado2.Text = ex.Message;
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-                Label_Estado2.Text = ex.Message;
             }
         }
 
         protected void ModificarTipo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void GridViewMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Marca.Text = GridViewMarca.SelectedValue.ToString();
+        }
+
+        protected void GridViewTipoCoche_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Tipo.Text = GridViewTipoCoche.SelectedValue.ToString();
         }
     }
 }

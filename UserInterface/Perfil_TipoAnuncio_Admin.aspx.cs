@@ -29,47 +29,53 @@ namespace UserInterface
 
         protected void InsertarTipoA_Click(object sender, EventArgs e)
         {
-            ENTipoAnuncio en = new ENTipoAnuncio();
-            en.Tipo = Tipo.Text;
-            try
+            if(TipoValid1.IsValid && TipoValid2.IsValid)
             {
-                if (en.createTipoAnuncio())
+                ENTipoAnuncio en = new ENTipoAnuncio();
+                en.Tipo = Tipo.Text;
+                try
                 {
-                    Label_Estado.Text = "Success";
-                    GridViewTipoAnuncio.DataBind();
+                    if (en.createTipoAnuncio())
+                    {
+                        Label_Estado.Text = "Success";
+                        GridViewTipoAnuncio.DataBind();
+                    }
+                    else
+                    {
+                        Label_Estado.Text = "Error ";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Label_Estado.Text = "Error ";
+                    Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                    Label_Estado.Text = ex.Message;
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-                Label_Estado.Text = ex.Message;
             }
         }
 
         protected void BorrarTipoA_Click(object sender, EventArgs e)
         {
-            ENTipoAnuncio en = new ENTipoAnuncio();
-            en.Tipo = Tipo.Text;
-            try
+            if (TipoValid1.IsValid && TipoValid2.IsValid)
             {
-                if (en.deleteTipoAnuncio())
+                ENTipoAnuncio en = new ENTipoAnuncio();
+                en.Tipo = Tipo.Text;
+                try
                 {
-                    Label_Estado.Text = "Success";
-                    GridViewTipoAnuncio.DataBind();
+                    if (en.deleteTipoAnuncio())
+                    {
+                        Label_Estado.Text = "Success";
+                        GridViewTipoAnuncio.DataBind();
+                    }
+                    else
+                    {
+                        Label_Estado.Text = "Error ";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Label_Estado.Text = "Error ";
+                    Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                    Label_Estado.Text = ex.Message;
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-                Label_Estado.Text = ex.Message;
             }
         }
 
@@ -80,53 +86,64 @@ namespace UserInterface
 
         protected void InsertarLocalidad_Click(object sender, EventArgs e)
         {
-            /* ENLocalidad en = new ENLocalidad();
-             en.Localidad = Tipo.Text;
-             try
-             {
-                 if (en.createLocalidad())
+            if(LocalidadValid1.IsValid && LocalidadValid2.IsValid)
+            {
+                /* ENLocalidad en = new ENLocalidad();
+                 en.Localidad = Tipo.Text;
+                 try
                  {
-                     Label_Estado2.Text = "Success";
-                     GridViewLocalidad.DataBind();
+                     if (en.createLocalidad())
+                     {
+                         Label_Estado2.Text = "Success";
+                         GridViewLocalidad.DataBind();
+                     }
+                     else
+                     {
+                         Label_Estado2.Text = "Error ";
+                     }
                  }
-                 else
+                 catch (Exception ex)
                  {
-                     Label_Estado2.Text = "Error ";
-                 }
-             }
-             catch (Exception ex)
-             {
-                 Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-                 Label_Estado2.Text = ex.Message;
-             }*/
+                     Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                     Label_Estado2.Text = ex.Message;
+                 }*/
+            }
         }
 
         protected void BorrarLocalidad_Click(object sender, EventArgs e)
         {
-            /* ENLocalidad en = new ENLocalidad();
-            en.Localidad = Tipo.Text;
-            try
+            if (LocalidadValid1.IsValid && LocalidadValid2.IsValid)
             {
-                if (en.deleteLocalidad())
+                /* ENLocalidad en = new ENLocalidad();
+                en.Localidad = Tipo.Text;
+                try
                 {
-                    Label_Estado2.Text = "Success";
-                    GridViewLocalidad.DataBind();
+                    if (en.deleteLocalidad())
+                    {
+                        Label_Estado2.Text = "Success";
+                        GridViewLocalidad.DataBind();
+                    }
+                    else
+                    {
+                        Label_Estado2.Text = "Error ";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Label_Estado2.Text = "Error ";
-                }
+                    Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                    Label_Estado2.Text = ex.Message;
+                }*/
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-                Label_Estado2.Text = ex.Message;
-            }*/
         }
 
         protected void ModificarLocalidad_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void GridViewLocalidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Localidad.Text = GridViewLocalidad.SelectedValue.ToString();
         }
     }
 }
