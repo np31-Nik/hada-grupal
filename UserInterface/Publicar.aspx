@@ -170,7 +170,9 @@
                     </div>
 
                 </div>
-                <asp:Label ID="mensaje" runat="server"></asp:Label>
+                <div style="padding-left:100px;">
+                <asp:Label ID="mensaje" runat="server" ForeColor="Red"></asp:Label>
+                    </div>
                 <br />
                 <br />
                 <div class="bloque">
