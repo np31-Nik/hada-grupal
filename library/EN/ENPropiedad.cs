@@ -2,17 +2,17 @@
 {
     public class ENPropiedad
     {
-        private string _tipo, _direccion;
+        private string _direccion;
         private int _superficie, _banyos, _habitaciones;
-        private int _numCatastral = -1;
+        private string _numCatastral = "-1";
+        private int _id;
+        ENTipoPropiedad _tipo;
 
-
-
-        public string tipo
-        {
+        public ENTipoPropiedad tipo {
             get { return _tipo; }
             set { _tipo = value; }
         }
+
         public string direccion
         {
             get { return _direccion; }
@@ -35,24 +35,29 @@
             set { _habitaciones = value; }
         }
 
-        public int numCatastral
+        public string numCatastral
         {
             get { return _numCatastral; }
             set { _numCatastral = value; }
         }
+        public int id
+        {
+            get { return (int)_id; }
+            set { _id = value; }
+        }
 
         public ENPropiedad() //vacio
         {
-            numCatastral = -1;
+            numCatastral = "-1";
             superficie = 0;
-            tipo = "";
+            tipo = new ENTipoPropiedad();
             direccion = "";
             habitaciones = 0;
             banyos = 0;
         }
 
-        public ENPropiedad(int catastral, int metros, int rooms, int bathrooms,
-            string type, string subType, string dir)
+        public ENPropiedad(string catastral, int metros, int rooms, int bathrooms,
+            ENTipoPropiedad type, string subType, string dir)
         { //Constructor para vivienda
             numCatastral = catastral;
             superficie = metros;
@@ -62,35 +67,33 @@
             banyos = bathrooms;
         }
 
-        //Constructor para vehiculo
-
-
-        public bool createPropiedad(uint id)
+        public bool createPropiedad(ENPropiedad propiedad, int idParam)
         {
             CADPropiedad prop = new CADPropiedad();
-            if (prop.createPropiedad(this, id))
+            propiedad.id = idParam;
+            if (prop.createPropiedad(propiedad))
             {
                 return true;
             }
             return false;
         }
 
-        public bool deletePropiedad(uint id)
+        public bool deletePropiedad(ENPropiedad en)
         {
             CADPropiedad prop = new CADPropiedad();
-            return prop.deletePropiedad(this, id);
+            return prop.deletePropiedad(en);
         }
 
-        public bool updatePropiedad(uint id)
+        public bool updatePropiedad(ENPropiedad en)
         {
             CADPropiedad prop = new CADPropiedad();
-            return prop.updatePropiedad(this, id);
+            return prop.updatePropiedad(en);
         }
 
-        public bool readPropiedad(uint id)
+        public bool readPropiedad(ENPropiedad en)
         {
             CADPropiedad prop = new CADPropiedad();
-            return prop.readPropiedad(this, id);
+            return prop.readPropiedad(en);
 
         }
     }

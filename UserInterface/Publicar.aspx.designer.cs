@@ -15,6 +15,24 @@ namespace UserInterface
     {
 
         /// <summary>
+        /// Control ScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// Control UpdatePanelPublicar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelPublicar;
+
+        /// <summary>
         /// Control main.
         /// </summary>
         /// <remarks>
@@ -51,6 +69,15 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.DropDownList localidad;
 
         /// <summary>
+        /// Control SqlDataSource1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
+        /// <summary>
         /// Control descripcion.
         /// </summary>
         /// <remarks>
@@ -58,6 +85,15 @@ namespace UserInterface
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox descripcion;
+
+        /// <summary>
+        /// Control tipoAnuncio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList tipoAnuncio;
 
         /// <summary>
         /// Control vehiculo.
@@ -78,6 +114,15 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.DropDownList marca;
 
         /// <summary>
+        /// Control MarcaCocheDataSource.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource MarcaCocheDataSource;
+
+        /// <summary>
         /// Control tipoCoche.
         /// </summary>
         /// <remarks>
@@ -85,6 +130,24 @@ namespace UserInterface
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList tipoCoche;
+
+        /// <summary>
+        /// Control TipoCocheDataSource.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource TipoCocheDataSource;
+
+        /// <summary>
+        /// Control anyo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox anyo;
 
         /// <summary>
         /// Control precioVehiculo.
@@ -103,15 +166,6 @@ namespace UserInterface
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl propiedad;
-
-        /// <summary>
-        /// Control RadioButtonList2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList2;
 
         /// <summary>
         /// Control precioProp.
@@ -148,6 +202,15 @@ namespace UserInterface
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TipoCasa;
+
+        /// <summary>
+        /// Control TipoPropiedadDataSource.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource TipoPropiedadDataSource;
 
         /// <summary>
         /// Control Direccion.
@@ -202,6 +265,15 @@ namespace UserInterface
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload cargarimg1;
+
+        /// <summary>
+        /// Control RegularExpressionValidator7.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator7;
 
         /// <summary>
         /// Control publicar.
