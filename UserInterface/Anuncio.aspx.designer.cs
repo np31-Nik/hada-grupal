@@ -132,24 +132,6 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TableCell LOCALIDAD;
 
         /// <summary>
-        /// T_CODPOSTAL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableRow T_CODPOSTAL;
-
-        /// <summary>
-        /// COD_POSTAL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell COD_POSTAL;
-
-        /// <summary>
         /// INFO_PROPIEDAD control.
         /// </summary>
         /// <remarks>

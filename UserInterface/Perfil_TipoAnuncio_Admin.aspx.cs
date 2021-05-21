@@ -88,8 +88,8 @@ namespace UserInterface
         {
             if(LocalidadValid1.IsValid && LocalidadValid2.IsValid)
             {
-                /* ENLocalidad en = new ENLocalidad();
-                 en.Localidad = Tipo.Text;
+                ENLocalidad en = new ENLocalidad();
+                 en.localidad = Tipo.Text;
                  try
                  {
                      if (en.createLocalidad())
@@ -106,7 +106,7 @@ namespace UserInterface
                  {
                      Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
                      Label_Estado2.Text = ex.Message;
-                 }*/
+                 }
             }
         }
 
@@ -114,8 +114,8 @@ namespace UserInterface
         {
             if (LocalidadValid1.IsValid && LocalidadValid2.IsValid)
             {
-                /* ENLocalidad en = new ENLocalidad();
-                en.Localidad = Tipo.Text;
+                ENLocalidad en = new ENLocalidad();
+                en.localidad = Tipo.Text;
                 try
                 {
                     if (en.deleteLocalidad())
@@ -132,7 +132,7 @@ namespace UserInterface
                 {
                     Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
                     Label_Estado2.Text = ex.Message;
-                }*/
+                }
             }
         }
 

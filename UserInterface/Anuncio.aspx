@@ -12,9 +12,9 @@
         <div class="PanelTitulo" style="float:left;background-color:#ffffff;color:black;" >
             <asp:Table ID="TITULO_PRECIO" runat="server">
                 <asp:TableRow runat="server">
-                    <asp:TableCell ID="TITULO" Width=100% style="font-size:35px;font-weight: bold;"></asp:TableCell>
-                    <asp:TableCell style="font-size: 20px;font-weight:bold;" Text="Precio: "></asp:TableCell>
-                    <asp:TableCell ID="PRECIO" style="font-size: 20px;"></asp:TableCell>
+                    <asp:TableCell ID="TITULO" Width=99% style="font-size:35px;font-weight: bold;"></asp:TableCell>
+                    <asp:TableCell style="font-size: 20px;font-weight:bold;float:right;" Text="Precio: "></asp:TableCell>
+                    <asp:TableCell ID="PRECIO" style="font-size: 20px;float:right"></asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
             <asp:Label runat="server" Text="REF: " style="font-weight:bold;"></asp:Label>
@@ -49,57 +49,52 @@
 
                 <asp:Table ID="INFO_GENERAL" runat="server" Width="100%">
                     <asp:TableRow runat="server" ID="T_LOCALIDAD">
-                        <asp:TableCell Text="Localidad: " Width="80%"></asp:TableCell>
-                        <asp:TableCell ID="LOCALIDAD"></asp:TableCell>
-                    </asp:TableRow>
-
-                    <asp:TableRow runat="server" ID="T_CODPOSTAL">
-                        <asp:TableCell Text="Cod.Postal: " Width="80%"></asp:TableCell>
-                        <asp:TableCell ID="COD_POSTAL"></asp:TableCell>
+                        <asp:TableCell Text="Localidad: " Width="50%"></asp:TableCell>
+                        <asp:TableCell ID="LOCALIDAD" style="float:right"></asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
 
                 <asp:Table ID="INFO_PROPIEDAD" runat="server" Width="100%">
                     <asp:TableRow runat="server" ID="T_REF_CAT">
-                        <asp:TableCell Text="Ref.Catastral: " Width="80%"></asp:TableCell>
-                        <asp:TableCell ID="REF_CAT"></asp:TableCell>
+                        <asp:TableCell Text="Ref.Catastral: " Width="50%"></asp:TableCell>
+                        <asp:TableCell ID="REF_CAT" style="float:right">-</asp:TableCell>
                     </asp:TableRow>
 
                     <asp:TableRow runat="server" ID="T_SUPERFICIE">
-                        <asp:TableCell Text="Superficie: " Width="80%"></asp:TableCell>
-                        <asp:TableCell ID="SUPERFICIE"></asp:TableCell>
+                        <asp:TableCell Text="Superficie: " Width="50%"></asp:TableCell>
+                        <asp:TableCell ID="SUPERFICIE" style="float:right"></asp:TableCell>
                     </asp:TableRow>
 
                     <asp:TableRow runat="server" ID="T_DORMITORIOS">
-                        <asp:TableCell Text="Dormitorios: " Width="80%"></asp:TableCell>
-                        <asp:TableCell ID="DORMITORIOS"></asp:TableCell>
+                        <asp:TableCell Text="Dormitorios: " Width="50%"></asp:TableCell>
+                        <asp:TableCell ID="DORMITORIOS" style="float:right"></asp:TableCell>
                     </asp:TableRow>
 
                     <asp:TableRow runat="server" ID="T_BANYOS">
-                        <asp:TableCell Text="Baños: " Width="80%"></asp:TableCell>
-                        <asp:TableCell ID="BANYOS"></asp:TableCell>
+                        <asp:TableCell Text="Baños: " Width="50%"></asp:TableCell>
+                        <asp:TableCell ID="BANYOS" style="float:right"></asp:TableCell>
                     </asp:TableRow>
 
                     <asp:TableRow runat="server" ID="T_TIPO_PROPIEDAD">
-                        <asp:TableCell Text="Tipo: " Width="80%"></asp:TableCell>
-                        <asp:TableCell ID="TIPO_PROPIEDAD"></asp:TableCell>
+                        <asp:TableCell Text="Tipo: " Width="50%"></asp:TableCell>
+                        <asp:TableCell ID="TIPO_PROPIEDAD" style="float:right"></asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
 
                 <asp:Table ID="INFO_COCHE" runat="server" Width="100%">
                     <asp:TableRow runat="server" ID="T_ANYO">
-                        <asp:TableCell Text="Año: " Width="80%"></asp:TableCell>
-                        <asp:TableCell ID="ANYO"></asp:TableCell>
+                        <asp:TableCell Text="Año: " Width="50%"></asp:TableCell>
+                        <asp:TableCell ID="ANYO" style="float:right"></asp:TableCell>
                     </asp:TableRow>
 
                     <asp:TableRow runat="server" ID="T_MARCA">
-                        <asp:TableCell Text="Marca: " Width="80%"></asp:TableCell>
-                        <asp:TableCell ID="MARCA"></asp:TableCell>
+                        <asp:TableCell Text="Marca: " Width="50%"></asp:TableCell>
+                        <asp:TableCell ID="MARCA" style="float:right"></asp:TableCell>
                     </asp:TableRow>
 
                     <asp:TableRow runat="server" ID="T_TIPO_COCHE">
-                        <asp:TableCell Text="Tipo: " Width="80%"></asp:TableCell>
-                        <asp:TableCell ID="TIPO_COCHE"></asp:TableCell>
+                        <asp:TableCell Text="Tipo: " Width="50%"></asp:TableCell>
+                        <asp:TableCell ID="TIPO_COCHE" style="float:right"></asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
             </div>
@@ -219,10 +214,7 @@
         <div class="PanelImagen" style="background-color:#ffffff;color:black;">
             <br />
             <asp:UpdatePanel runat="server" ID="UpdatePanel_Imagen" UpdateMode="Conditional">
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="IZQ" EventName="Click" />
-                    <asp:AsyncPostBackTrigger ControlID="DER" EventName="Click" />
-                </Triggers>
+
                 <ContentTemplate>
                     <asp:Panel runat="server" HorizontalAlign="Center">
                         <table width="100%">
@@ -235,14 +227,14 @@
                             <EmptyDataTemplate>
                                 <table runat="server" style="">
                                     <tr>
-                                        <td><asp:Image ID="IMAGE" runat="server" ImageUrl="~/imagenes/no-image.jpg"/></td>
+                                        <td><asp:Image ID="IMAGE" runat="server" ImageUrl="~\imagenes\imagen0.jpg"/></td>
                                     </tr>
                                 </table>
                             </EmptyDataTemplate>
                             <ItemTemplate>
                                 <tr style="">
                                     <td>
-                                        <asp:Image ID="foto" runat="server" ImageUrl='<%# Eval("foto") %>' />
+                                        <asp:Image ID="foto" runat="server" Height="600px" Width="1000px" ImageUrl="~\imagenes\imagen0.jpg" />
                                     </td>
                                 </tr>
                             </ItemTemplate>

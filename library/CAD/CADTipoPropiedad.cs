@@ -118,7 +118,7 @@ namespace library
             return success;
         }
 
-        public bool updateTipoPropiedad(ENTipoPropiedad en, string T)
+        public bool updateTipoPropiedad(ENTipoPropiedad en)
         {
             bool success = false;
             try
@@ -127,7 +127,7 @@ namespace library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                SqlCommand cmd = new SqlCommand("UPDATE [dbo].[TipoPropiedad] SET tipo='" + T + "' WHERE tipo='" + en.tipo + "'", connection);
+                SqlCommand cmd = new SqlCommand("UPDATE [dbo].[TipoPropiedad] SET tipo='" + en.NewTipo + "' WHERE tipo='" + en.tipo + "'", connection);
 
                 cmd.ExecuteNonQuery();
                 connection.Close();

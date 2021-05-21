@@ -9,6 +9,13 @@
             set { _tipo = value; }
         }
 
+        private string _newTipo;
+        public string NewTipo
+        {
+            get { return _newTipo; }
+            set { _newTipo = value; }
+        }
+
         public ENTipoPropiedad()
         {
             tipo = "";
@@ -57,10 +64,11 @@
         public bool updateTipoPropiedad(string T)
         {
             bool success = false;
+            NewTipo = T;
             CADTipoPropiedad cad = new CADTipoPropiedad();
             if (!(cad.readTipoPropiedad(this)))
             {
-                success = cad.updateTipoPropiedad(this, T);
+                success = cad.updateTipoPropiedad(this);
             }
             return success;
         }

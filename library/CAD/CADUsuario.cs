@@ -50,6 +50,7 @@ namespace library
                 en.Telefono = dr["tel"].ToString();
                 en.Premium = bool.Parse(dr["premium"].ToString());
                 en.Admin = bool.Parse(dr["admin"].ToString());
+                en.Email = dr["email"].ToString();
 
                 dr.Close();
                 c.Close();

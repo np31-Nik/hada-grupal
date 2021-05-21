@@ -64,7 +64,7 @@ namespace library
                         en.id = int.Parse(buscar["anuncio"].ToString());
                         en.numCatastral = buscar["numCatastral"].ToString();
                         en.superficie = int.Parse(buscar["superficie"].ToString());
-                        en.tipo = (ENTipoPropiedad)buscar["tipo"];
+                        en.tipo.tipo = buscar["tipo"].ToString();
                         en.banyos = int.Parse(buscar["bano"].ToString());
                         en.habitaciones = int.Parse(buscar["dorm"].ToString());
                     }

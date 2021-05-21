@@ -42,7 +42,7 @@ namespace UserInterface
             string email = nombreUsuario.Text;
             if (email != "")
             {
-                if (usuario.readUsuario(email))
+                if (usuario.readUsuario())
                 {
                     args.IsValid = false;
                 }
