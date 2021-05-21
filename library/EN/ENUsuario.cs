@@ -94,6 +94,15 @@
             return db.readUsuario(this);
         }
         /// <summary>
+        /// Comprueba si existe el usuario
+        /// </summary>
+        /// <returns>False si no se ha podido realizar la operación</returns>
+        public bool existeUsuario()
+        {
+            CADUsuario db = new CADUsuario();
+            return db.existeUsuario(this);
+        }
+        /// <summary>
         /// Actualiza este usuario en la BD
         /// </summary>
         /// <returns>False si no se ha podido realizar la operación</returns>

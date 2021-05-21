@@ -93,6 +93,14 @@ namespace library
             string comando = "Select * from Usuario where nif='" + en.Nif + "'and contrasena='" + en.Contrasenya + "'";
             return obtainComandExec(comando, en);
         }
+        /// <summary>
+        /// Devuelve solo el NIF del usuario indicado leído de la BD.
+        /// </summary>
+        public bool existeUsuario(ENUsuario en)
+        {
+            string comando = "Select nif from Usuario where nif='" + en.Nif + "'";
+            return obtainComandExec(comando, en);
+        }
         /*
         /// <summary>
         /// Devuelve solo el primer usuario de la BD.
