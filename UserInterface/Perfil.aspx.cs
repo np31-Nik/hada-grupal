@@ -11,17 +11,28 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["nombre"] = "Y4256793-J";
+            Nif.Text = Session["nombre"].ToString();
+            if (Session["nif"]!=null)
+            {
+                Nif.Text = Session["nif"].ToString();
+                Nombre.Text = Session["nombre"].ToString();
+                Apellido.Text = Session["apellido"].ToString();
+                Telefono.Text = Session["nombre"].ToString();
+                Emali.Text = Session["nombre"].ToString();
+                Premium.Checked = bool.Parse(Session["premium"].ToString());
+            }
+            
         }
 
         protected void ModPerfil_Click(object sender, EventArgs e)
         {
             UpdatePerfil.Visible = true;
             PasswordPanel.Visible = true;
-            Nombre.ReadOnly = false;
-            Apellido.ReadOnly = false;
-            Emali.ReadOnly = false;
-            Telefono.ReadOnly = false;
+            Nombre.Enabled = true;
+            Apellido.Enabled = true;
+            Emali.Enabled = true;
+            Telefono.Enabled = true;
             Premium.Enabled = true;
         }
 
@@ -29,10 +40,10 @@ namespace UserInterface
         {
             UpdatePerfil.Visible = false;
             PasswordPanel.Visible = false;
-            Nombre.ReadOnly = true;
-            Apellido.ReadOnly = true;
-            Emali.ReadOnly = true;
-            Telefono.ReadOnly = true;
+            Nombre.Enabled = false;
+            Apellido.Enabled = false;
+            Emali.Enabled = false;
+            Telefono.Enabled = false;
             Premium.Enabled = false;
         }
     }

@@ -9,7 +9,7 @@
         private string _contrasenya;
         private bool _premium;
         private bool _admin;
-        private int _telefono;
+        private string _telefono;
 
         public string Nif
         {
@@ -33,7 +33,7 @@
         }
         public string Contrasenya
         {
-            private get { return _contrasenya; }
+            get { return _contrasenya; }
             set { _contrasenya = value; }
         }
         public bool Premium
@@ -46,7 +46,7 @@
             get { return _admin; }
             set { _admin = value; }
         }
-        public int Telefono
+        public string Telefono
         {
             get { return _telefono; }
             set { _telefono = value; }
@@ -61,9 +61,9 @@
             Contrasenya = "";
             Premium = false;
             Admin = false;
-            Telefono = 0;
+            Telefono = "";
         }
-        public ENUsuario(string nif, string nombre, string apellido, string email, string contrasenya, bool premium, bool admin, int telefono)
+        public ENUsuario(string nif, string nombre, string apellido, string email, string contrasenya, bool premium, bool admin, string telefono)
         {
             Nif = nif;
             Nombre = nombre;
@@ -94,6 +94,25 @@
             return db.readUsuario(this);
         }
         /// <summary>
+        /// Actualiza este usuario en la BD
+        /// </summary>
+        /// <returns>False si no se ha podido realizar la operación</returns>
+        public bool updateUsuario()
+        {
+            CADUsuario db = new CADUsuario();
+            return db.updateUsuario(this);
+        }
+        /// <summary>
+        /// Borra este usuario de la BD
+        /// </summary>
+        /// <returns>False si no se ha podido realizar la operación</returns>
+        public bool deleteUsuario()
+        {
+            CADUsuario db = new CADUsuario();
+            return db.deleteUsuario(this);
+        }
+        /*
+        /// <summary>
         /// Recupera todos los usuarios de la BD y devuelve solo el primer usuario
         /// </summary>
         /// <returns>False si no se ha podido realizar la operación</returns>
@@ -120,23 +139,6 @@
             CADUsuario db = new CADUsuario();
             return db.readPrevUsuario(this);
         }
-        /// <summary>
-        /// Actualiza este usuario en la BD
-        /// </summary>
-        /// <returns>False si no se ha podido realizar la operación</returns>
-        public bool updateUsuario()
-        {
-            CADUsuario db = new CADUsuario();
-            return db.updateUsuario(this);
-        }
-        /// <summary>
-        /// Borra este usuario de la BD
-        /// </summary>
-        /// <returns>False si no se ha podido realizar la operación</returns>
-        public bool deleteUsuario()
-        {
-            CADUsuario db = new CADUsuario();
-            return db.deleteUsuario(this);
-        }
+        */
     }
 }
