@@ -15,6 +15,33 @@ namespace UserInterface
     {
 
         /// <summary>
+        /// ScriptManager2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager2;
+
+        /// <summary>
+        /// UpdatePanel_IZQ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel_IZQ;
+
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
         /// RB_Coche_Propiedad control.
         /// </summary>
         /// <remarks>
@@ -31,6 +58,24 @@ namespace UserInterface
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TIPO_OPERACION;
+
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+
+        /// <summary>
+        /// TipoAnuncio_db control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource TipoAnuncio_db;
 
         /// <summary>
         /// PRECIO_DESDE control.
@@ -60,6 +105,15 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.DropDownList LOCALIDAD;
 
         /// <summary>
+        /// Localidad_db control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource Localidad_db;
+
+        /// <summary>
         /// IF_COCHE control.
         /// </summary>
         /// <remarks>
@@ -78,6 +132,15 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.DropDownList MARCA;
 
         /// <summary>
+        /// Marca_db control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource Marca_db;
+
+        /// <summary>
         /// TIPO_COCHE control.
         /// </summary>
         /// <remarks>
@@ -85,6 +148,15 @@ namespace UserInterface
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TIPO_COCHE;
+
+        /// <summary>
+        /// TipoCoche_db control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource TipoCoche_db;
 
         /// <summary>
         /// IF_PROPIEDAD control.
@@ -103,6 +175,15 @@ namespace UserInterface
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TIPO_PROPIEDAD;
+
+        /// <summary>
+        /// TipoPropiedad_db control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource TipoPropiedad_db;
 
         /// <summary>
         /// DORMITORIOS control.
@@ -132,12 +213,30 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.Button BUSCAR;
 
         /// <summary>
-        /// MENSAJE control.
+        /// ValidationSummary_Buscar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MENSAJE;
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary_Buscar;
+
+        /// <summary>
+        /// ListView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ListView1;
+
+        /// <summary>
+        /// Database control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource Database;
     }
 }

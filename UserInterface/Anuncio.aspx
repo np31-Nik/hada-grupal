@@ -1,10 +1,13 @@
-﻿<%@ Page Title="Anuncio" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Anuncio.aspx.cs" Inherits="UserInterface.Anuncio" %>
+﻿<%@ Page Title="Anuncio" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Anuncio.aspx.cs" Inherits="UserInterface.Anuncio" MaintainScrollPositionOnPostback="true" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <link rel="Stylesheet" type="text/css" href="css/Anuncio.css" />
 
     <div id="ArticuloContainer" >
+                        <asp:ScriptManager ID="ScriptManager2" runat="server" />
 
         <div class="PanelTitulo" style="float:left;background-color:#ffffff;color:black;" >
             <asp:Table ID="TITULO_PRECIO" runat="server">
@@ -105,45 +108,72 @@
             <br />
 
             <div class="PanelHipoteca" style="background-color:#ffffff;color:black;">
-                <asp:Label runat="server" Text="Calculador de hipoteca" style="font-size:25px;font-weight:bold;text-align:center;" Width="100%"></asp:Label>
+            <asp:UpdatePanel runat="server" ID="UpdatePanel_Hipoteca" UpdateMode="Conditional">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="H_CALCULAR" EventName="Click" />
+                </Triggers>
+                <ContentTemplate>
+                     <asp:Label runat="server" Text="Calculador de hipoteca" style="font-size:25px;font-weight:bold;text-align:center;" Width="100%"></asp:Label>
                 <br />
-                <div style="float:left;width:50%;">
+                <div style="float:left">
                     <asp:Label runat="server" Text="Importe:" ></asp:Label>
                 </div>
 
-                <div style="float:right">
+                    <div style="float:right">
                     <asp:TextBox runat="server" ID="H_IMPORTE" ></asp:TextBox>
                 </div>
 
+                    <div style="float:right">
+                        <asp:RangeValidator ID="RangeValidator1" runat ="server" ErrorMessage="Introduce un importe" ControlToValidate="H_IMPORTE"
+                            Type="Integer" MinimumValue="1000" MaximumValue="100000000" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca"
+                            EnableClientScript="false">*</asp:RangeValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Introduce un importe" 
+                            ControlToValidate="H_IMPORTE" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca" 
+                            EnableClientScript="false">*</asp:RequiredFieldValidator>
+                    </div>
                 <br />
 
-                <div style="float:left;width:50%;">
+                <div style="float:left">
                     <asp:Label runat="server" Text="Años:" ></asp:Label>
                 </div>
-
-                <div style="float:right">
+                    <div style="float:right">
                     <asp:TextBox runat="server" ID="H_ANYOS"></asp:TextBox>
                 </div>
-
+                    <div style="float:right">
+                        <asp:RangeValidator ID="RangeValidator2" runat ="server" ErrorMessage="Introduce una cantidad de años (1-40)" ControlToValidate="H_ANYOS"
+                            Type="Integer" MinimumValue="1" MaximumValue="40" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca"
+                            EnableClientScript="false">*</asp:RangeValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Introduce una cantidad de años(1-40)"
+                            ControlToValidate="H_ANYOS" Style="color:red" Display="Dynamic" ValidationGroup="Hipoteca"
+                            EnableClientScript="false">*</asp:RequiredFieldValidator>
+                    </div>
                 <br />
-
-                <div style="float:left;width:50%;">
+                <div style="float:left">
                     <asp:Label runat="server" Text="Banco:"></asp:Label>
                 </div>
+                   
 
                 <div style="float:right">
-                    <asp:DropDownList ID="BANCO" runat="server" style="float:right;" AppendDataBoundItems="true" Height="25px" Width="125px">
-                        <asp:ListItem Text="Elige..." Value="" />   
+                    <asp:DropDownList ID="BANCO" runat="server" style="float:right;" AppendDataBoundItems="True" Height="25px" Width="125px" DataSourceID="Banco_db" DataTextField="banco" DataValueField="banco">
+                        <asp:ListItem Text="Elige..."/>   
                     </asp:DropDownList>
+                    <asp:SqlDataSource ID="Banco_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [banco] FROM [Banco]"></asp:SqlDataSource>
                 </div>
 
+                     <div style="float:right">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" InitialValue="Elige..." 
+                            ErrorMessage="Elige un Banco" ControlToValidate="BANCO" Style="color:red" ValidationGroup="Hipoteca"
+                            EnableClientScript="false">*</asp:RequiredFieldValidator>
+                    </div>
                 <br />
 
                 <div style="width:100%;text-align:center" >
-                <asp:Button ID="H_CALCULAR" runat="server" Text="Calcular" />
+                <asp:Button ID="H_CALCULAR" runat="server" Text="Calcular" OnClick="CalcularHipoteca" CausesValidation="true" ValidationGroup="Hipoteca" />
                 </div>
-
-                <asp:Label runat="server" id="H_MENSAJE" style="color:red" Text=""></asp:Label>
+                    <br />
+                    <asp:ValidationSummary runat="server" DisplayMode="BulletList" EnableClientScript="false" ID="ValidationSummary_Hipoteca" ValidationGroup="Hipoteca"
+                        Forecolor="red"/>
+                    <br />
 
                 <asp:Panel runat="server" id="H_RESULTADOS" visible="false" style="margin-bottom: 1px">
                     <br />
@@ -177,6 +207,8 @@
                         <asp:Label runat="server" id="H_CUOTAM"></asp:Label>
                     </div>
                 </asp:Panel>
+                </ContentTemplate>
+            </asp:UpdatePanel>
             </div>
         </div>
         
@@ -186,12 +218,84 @@
         <br />
         <div class="PanelImagen" style="background-color:#ffffff;color:black;">
             <br />
-            <asp:Panel runat="server" HorizontalAlign="Center">
-                <asp:Image ID="IMAGE" runat="server" ImageUrl="~/imagenes/no-image.jpg"/>
-                <br />
-                <asp:ImageButton ID="IZQ" runat="server" ImageUrl="~/imagenes/left-arrow.png" style="width:40px;height:40px;"/>
-                <asp:ImageButton ID="DER" runat="server" ImageUrl="~/imagenes/right-arrow.png" style="width:40px;height:40px;"/>
-            </asp:Panel>
+            <asp:UpdatePanel runat="server" ID="UpdatePanel_Imagen" UpdateMode="Conditional">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="IZQ" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="DER" EventName="Click" />
+                </Triggers>
+                <ContentTemplate>
+                    <asp:Panel runat="server" HorizontalAlign="Center">
+                        <table width="100%">
+   <tr>
+     <td align="center">
+       <table>
+         <tr>
+            <td>
+                        <asp:ListView ID="ListView1" runat="server" DataSourceID="Imagenes">
+                            <EmptyDataTemplate>
+                                <table runat="server" style="">
+                                    <tr>
+                                        <td><asp:Image ID="IMAGE" runat="server" ImageUrl="~/imagenes/no-image.jpg"/></td>
+                                    </tr>
+                                </table>
+                            </EmptyDataTemplate>
+                            <ItemTemplate>
+                                <tr style="">
+                                    <td>
+                                        <asp:Image ID="foto" runat="server" ImageUrl='<%# Eval("foto") %>' />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                            <LayoutTemplate>
+                                <div style="width:100%;position:center;text-align:center;">
+                                <table runat="server">
+                                    <tr runat="server">
+                                        <td runat="server">
+                                            <table id="itemPlaceholderContainer" runat="server" border="0" style="">
+                                                <tr runat="server" style="">
+                                                    <th runat="server"></th>
+                                                </tr>
+                                                <tr id="itemPlaceholder" runat="server">
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr runat="server">
+                                        <td runat="server" style="">
+                                            <asp:DataPager ID="DataPager1" runat="server" PageSize="1" style="width:40px;height:40px;">
+                                                <Fields>
+                                                    <asp:NextPreviousPagerField ButtonType="Image" PreviousPageImageUrl="~/imagenes/left-arrow.png" 
+                                                        NextPageImageUrl="~/imagenes/right-arrow.png" ButtonCssClass="BotonesIMG" ShowFirstPageButton="false" ShowLastPageButton="false" />
+                                                </Fields>
+                                            </asp:DataPager>
+                                        </td>
+                                    </tr>
+                                </table>
+                                    </div>
+                            </LayoutTemplate>
+                            <SelectedItemTemplate>
+                                <tr style="">
+                                    <td>
+                                        <asp:Label ID="fotoLabel" runat="server" Text='<%# Eval("foto") %>' />
+                                    </td>
+                                </tr>
+                            </SelectedItemTemplate>
+                        </asp:ListView>
+                 </td>
+         </tr>
+       </table>
+     </td>
+   </tr>
+</table>
+                        <asp:SqlDataSource ID="Imagenes" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [foto] FROM [Foto] WHERE ([anuncio] = @anuncio)">
+                            <SelectParameters>
+                                <asp:QueryStringParameter Name="anuncio" QueryStringField="anuncio_id" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                    </asp:Panel>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            
         </div>
 
         <br />
@@ -213,6 +317,111 @@
         <div class="PanelDescripcion" ID="Panel_Comentarios" style="background-color:#ffffff;color:black;">
             <div>
                <asp:Label runat="server" Text="Comentarios de otros usuarios:" style="font-size:20px;font-weight:bold;text-align:center" Width="100%"></asp:Label>
+                <asp:UpdatePanel runat="server" ID="UpdatePanel_Comentario" UpdateMode="Conditional">
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="PublicarComentario" EventName="Click" />
+                    </Triggers>
+                    <ContentTemplate>
+                        <div class="Comentario">
+                            <asp:TextBox runat="server" ID="ComentarioUsuario" style="width:100%;height:100px" placeholder="Escribe tu comentario aqui..." textmode="MultiLine"></asp:TextBox>
+                            <br />
+                            <asp:Button runat="server" ID="PublicarComentario" Text="Publicar comentario" OnClick="Comentar" />
+                        </div>
+                        
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                    
+                <div>
+                    <asp:ListView runat="server" ID="ListaComentarios" DataSourceID="Database" >
+                        <AlternatingItemTemplate>
+                            <span style="background-color: #FAFAD2;color: #284775;">coment:
+                            <asp:DynamicControl runat="server" DataField="coment" Mode="ReadOnly" />
+                            <br />
+                            fecha:
+                            <asp:DynamicControl runat="server" DataField="fecha" Mode="ReadOnly" />
+                            <br />
+                            usuario:
+                            <asp:DynamicControl runat="server" DataField="usuario" Mode="ReadOnly" />
+<br />
+                            <br />
+                            </span>
+                        </AlternatingItemTemplate>
+                        <EditItemTemplate>
+                            <span style="background-color: #FFCC66;color: #000080;">coment:
+                            <asp:DynamicControl runat="server" DataField="coment" Mode="Edit" />
+                            <br />
+                            fecha:
+                            <asp:DynamicControl runat="server" DataField="fecha" Mode="Edit" />
+                            <br />
+                            usuario:
+                            <asp:DynamicControl runat="server" DataField="usuario" Mode="Edit" />
+                            <br />
+                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                            <br /><br /></span>
+                        </EditItemTemplate>
+                        <EmptyDataTemplate>
+                            <span>Este anuncio no tiene comentarios.</span>
+                        </EmptyDataTemplate>
+                        <InsertItemTemplate>
+                            <span style="">coment:
+                            <asp:DynamicControl runat="server" DataField="coment" Mode="Insert" ValidationGroup="Insert" />
+                            <br />
+                            fecha:
+                            <asp:DynamicControl runat="server" DataField="fecha" Mode="Insert" ValidationGroup="Insert" />
+                            <br />
+                            usuario:
+                            <asp:DynamicControl runat="server" DataField="usuario" Mode="Insert" ValidationGroup="Insert" />
+                            <br />
+                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" ValidationGroup="Insert" />
+                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                            <br /><br /></span>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <span style="background-color: #FFFBD6;color: #333333;">coment:
+                            <asp:DynamicControl runat="server" DataField="coment" Mode="ReadOnly" />
+                            <br />
+                            fecha:
+                            <asp:DynamicControl runat="server" DataField="fecha" Mode="ReadOnly" />
+                            <br />
+                            usuario:
+                            <asp:DynamicControl runat="server" DataField="usuario" Mode="ReadOnly" />
+<br />
+                            <br />
+                            </span>
+                        </ItemTemplate>
+                        <LayoutTemplate>
+                            <div id="itemPlaceholderContainer" runat="server" style="font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                <span runat="server" id="itemPlaceholder" />
+                            </div>
+                            <div style="text-align: center;background-color: #FFCC66;font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;">
+                                <asp:DataPager ID="DataPager1" runat="server">
+                                    <Fields>
+                                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                                    </Fields>
+                                </asp:DataPager>
+                            </div>
+                        </LayoutTemplate>
+                        <SelectedItemTemplate>
+                            <span style="background-color: #FFCC66;font-weight: bold;color: #000080;">coment:
+                            <asp:DynamicControl runat="server" DataField="coment" Mode="ReadOnly" />
+                            <br />
+                            fecha:
+                            <asp:DynamicControl runat="server" DataField="fecha" Mode="ReadOnly" />
+                            <br />
+                            usuario:
+                            <asp:DynamicControl runat="server" DataField="usuario" Mode="ReadOnly" />
+<br />
+                            <br />
+                            </span>
+                        </SelectedItemTemplate>
+                    </asp:ListView>
+                    <asp:SqlDataSource ID="Database" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [coment], [fecha], [usuario] FROM [Comentario] WHERE ([anuncio] = @anuncio)">
+                        <SelectParameters>
+                            <asp:QueryStringParameter Name="anuncio" QueryStringField="anuncio_id" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                </div>
             </div>
 
             <br />

@@ -54,29 +54,29 @@
 
         }
 
-        public bool editTipoPropiedad(string T)
+        public bool updateTipoPropiedad(string T)
         {
             bool success = false;
             CADTipoPropiedad cad = new CADTipoPropiedad();
             if (!(cad.readTipoPropiedad(this)))
             {
-                success = cad.editTipoPropiedad(this, T);
+                success = cad.updateTipoPropiedad(this, T);
             }
             return success;
         }
 
-        public bool readNextTipoPropiedad(ENTipoPropiedad en)
+        public bool readNextTipoPropiedad()
         {
             bool success = false;
             CADTipoPropiedad cad = new CADTipoPropiedad();
-            if (!(cad.readTipoPropiedad(this)))
+            if (cad.readTipoPropiedad(this))
             {
                 success = cad.readNextTipoPropiedad(this);
             }
             return success;
         }
 
-        public bool readFirstTipoPropiedad(ENTipoPropiedad en)
+        public bool readFirstTipoPropiedad()
         {
             CADTipoPropiedad cad = new CADTipoPropiedad();
             bool success = cad.readFirstTipoPropiedad(this);
