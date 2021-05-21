@@ -6,9 +6,9 @@ namespace library
     {
         private int id;
 
-        private DateTime Fechadesde;
+        private int anyodesde;
 
-        private DateTime Fechahasta;
+        private int anyohasta;
 
         private float intereses;
 
@@ -22,16 +22,16 @@ namespace library
             set { id = value; }
         }
 
-        public DateTime FECHADESDE
+        public int FECHADESDE
         {
-            get { return Fechadesde; }
-            set { Fechadesde = value; }
+            get { return anyodesde; }
+            set { anyodesde = value; }
         }
 
-        public DateTime FECHAHASTA
+        public int FECHAHASTA
         {
-            get { return Fechahasta; }
-            set { Fechahasta = value; }
+            get { return anyohasta; }
+            set { anyohasta = value; }
         }
 
         public float INTERESES
@@ -55,18 +55,18 @@ namespace library
         public ENHipoteca()
         {
             ID = 0;
-            FECHADESDE = DateTime.MinValue;
-            FECHAHASTA = DateTime.MaxValue;
+            FECHADESDE = 0;
+            FECHAHASTA = 0;
             INTERESES = 0;
             NUMSOLICITUDES = 0;
             BANCO = "";
         }
 
-        public ENHipoteca(int id, DateTime Fechadesde, DateTime Fechahasta, float intereses, int numSolicitudes, string banco)
+        public ENHipoteca(int id, int anyodesde, int anyohasta, float intereses, int numSolicitudes, string banco)
         {
             ID = id;
-            FECHADESDE = Fechadesde;
-            FECHAHASTA = Fechahasta;
+            FECHADESDE = anyodesde;
+            FECHAHASTA = anyohasta;
             INTERESES = intereses;
             NUMSOLICITUDES = numSolicitudes;
             BANCO = banco;
