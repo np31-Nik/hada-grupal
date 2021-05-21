@@ -76,11 +76,11 @@
                             <asp:Label runat="server" Text="Marca:"></asp:Label>
                         </div>
                         <div>
-                            <asp:DropDownList ID="marca" runat="server" DataSourceID="SqlDataSource2" DataTextField="marca" DataValueField="marca">
+                            <asp:DropDownList ID="marca" runat="server" DataSourceID="MarcaCocheDataSource" DataTextField="marca" DataValueField="marca">
 
                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                             </asp:DropDownList>
-                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [marca] FROM [MarcaCoche]"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="MarcaCocheDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [marca] FROM [MarcaCoche]"></asp:SqlDataSource>
                         </div>
                         <br />
                         <div>
@@ -175,7 +175,15 @@
                 <br />
                 <div class="bloque">
                     <h3>Imagenes de articulo:</h3>
-                    <asp:FileUpload ID="cargarimg1" runat="server" Text="Cargar imagenes" AllowMultiple="true" /><br />
+                    <asp:FileUpload ID="cargarimg1" runat="server" Text="Cargar imagenes" AllowMultiple="true" />
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7"
+                        EnableClientScript="false"
+                        runat="server" ControlToValidate="cargarimg1"
+                        ErrorMessage="Only .png, .jpeg, .jpg Images formats are allowed." ForeColor="Red"
+                        ValidationExpression="/^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpeg|.JPEG|.png|.PNG|.JPG|.jpg|.bitmap|.BITMAP)$/"
+                        SetFocusOnError="true"></asp:RegularExpressionValidator>
+
+                    <br />
                 </div>
                 <div style="text-align: center;">
                     <asp:Button ID="publicar" runat="server" Text="Publicar" OnClick="PublicarClick" />
