@@ -10,7 +10,7 @@ namespace library
 
         private int anyohasta;
 
-        private float intereses;
+        private int intereses;
 
         private int numSolicitudes;
 
@@ -34,7 +34,7 @@ namespace library
             set { anyohasta = value; }
         }
 
-        public float INTERESES
+        public int INTERESES
         {
             get { return intereses; }
             set { intereses = value; }
@@ -62,7 +62,7 @@ namespace library
             BANCO = "";
         }
 
-        public ENHipoteca(int id, int anyodesde, int anyohasta, float intereses, int numSolicitudes, string banco)
+        public ENHipoteca(int id, int anyodesde, int anyohasta, int intereses, int numSolicitudes, string banco)
         {
             ID = id;
             FECHADESDE = anyodesde;
