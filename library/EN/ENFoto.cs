@@ -2,8 +2,14 @@
 {
     public class ENFoto
     {
+        private int _id;
         private byte[] _foto;
         private ENAnuncio _anuncio;
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
         public byte[] Foto
         {
             get { return _foto; }
@@ -21,6 +27,7 @@
         }
         public ENFoto(byte[] foto, ENAnuncio anuncio)
         {
+            ID = -1;
             Foto = foto;
             Anuncio = anuncio;
         }
@@ -66,8 +73,12 @@
         /// <returns>False si no se ha podido realizar la operación</returns>
         public bool updateFoto()
         {
-            CADFoto db = new CADFoto();
-            return db.updateFoto(this);
+            if (ID != -1)
+            {
+                CADFoto db = new CADFoto();
+                return db.updateFoto(this);
+            }
+            return false;
         }
         /// <summary>
         /// Borra esta foto de la BD
@@ -75,8 +86,12 @@
         /// <returns>False si no se ha podido realizar la operación</returns>
         public bool deleteFoto()
         {
-            CADFoto db = new CADFoto();
-            return db.deleteFoto(this);
+            if (ID != -1)
+            {
+                CADFoto db = new CADFoto();
+                return db.deleteFoto(this);
+            }
+            return false;
         }
     }
 }

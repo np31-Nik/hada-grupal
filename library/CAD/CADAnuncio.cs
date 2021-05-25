@@ -121,17 +121,19 @@ namespace library
                 SqlDataReader buscar = cmd.ExecuteReader();
                 while (buscar.Read() && !encontrado)
                 {
-                    if (int.Parse(buscar["id"].ToString()) == en.id)
-                    {
+
                         encontrado = true;
                         en.titulo = buscar["titulo"].ToString();
+                        en.usuario.Nif = buscar["usuario"].ToString();
                         en.descripcion = buscar["descripcion"].ToString();
                         en.precio = int.Parse(buscar["precio"].ToString());
+                        en.categoria = buscar["categoria"].ToString();
+                    en.localidad.localidad = buscar["localidad"].ToString();
                         if (en.categoria == "coche") {
                             en.coche.id = en.id;
                             en.coche.anyo = int.Parse(buscar["ano"].ToString());
-                            en.coche.marca = new ENMarcaCoche("",buscar["marca"].ToString(),"");
-                            en.coche.tipo = new ENTipoCoche(buscar["tipo"].ToString());
+                            en.coche.marca.tipo = buscar["marca"].ToString();
+                            en.coche.tipo.categoria = buscar["tipo"].ToString();
                         }
                         else if (en.categoria=="propiedad")
                         {
@@ -139,10 +141,10 @@ namespace library
                             en.prop.superficie= int.Parse(buscar["superficie"].ToString());
                             en.prop.habitaciones = int.Parse(buscar["dorm"].ToString());
                             en.prop.banyos = int.Parse(buscar["bano"].ToString());
-                            en.prop.tipo = new ENTipoPropiedad(buscar["tipo"].ToString());
+                            en.prop.tipo.tipo = buscar["tipo"].ToString();
                             en.prop.numCatastral = buscar["numCatastral"].ToString();
                         }
-                    }
+                   
                 }
                 buscar.Close();
                 conn.Close();

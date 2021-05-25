@@ -48,3 +48,13 @@
 .ListaSimilares{
     width:100%;
 }
+
+.Comentario{
+    width:50%;
+    margin: 0 auto;
+}
+
+.BotonesIMG{
+    width:40px;
+    height:40px;
+}

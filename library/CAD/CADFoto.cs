@@ -44,7 +44,8 @@ namespace library
 
                 dr.Read();
 
-                //en.Foto = byte.Parse(dr[""].ToString());
+                en.ID = int.Parse(dr["id"].ToString());
+                en.Foto = (byte[])dr["foto"];
 
                 dr.Close();
                 c.Close();
@@ -71,41 +72,42 @@ namespace library
 
         public bool createFoto(ENFoto en)
         {
-            string comando = "Insert Into __ () VALUES()";
+            string comando = "Insert Into Foto (anuncio,foto) VALUES('" + en.Anuncio.id + "','" + en.Foto + "')";
             return modifComandExec(comando);
         }
         public bool updateFoto(ENFoto en)
         {
-            string comando = "Update  set  where nif=";
+            string comando = "Update Foto set foto='" + en.Foto + "' where id='" + en.ID + "'";
             return modifComandExec(comando);
         }
         public bool deleteFoto(ENFoto en)
         {
-            string comando = "Delete from where ";
+            string comando = "Delete from Foto where id='" + en.ID + "'";
             return modifComandExec(comando);
         }
-        public bool readFoto(ENFoto en)
-        {
-            string comando = "Select __ from ";
-            return obtainComandExec(comando, en);
-        }
-
         public bool readFirstFoto(ENFoto en)
         {
-            string comando = "Select __ from  ";
+            string comando = "Select id, foto from Foto where id=(select min(id) from Foto where anuncio='" + en.Anuncio.id + "')";
             return obtainComandExec(comando, en);
         }
 
         public bool readNextFoto(ENFoto en)
         {
-            string comando = "Select __ from  ";
+            string comando = "Select id, foto from Foto where id=min(select id from Foto where id>'"+en.ID+ "' and anuncio='" + en.Anuncio.id + "')";
             return obtainComandExec(comando, en);
         }
 
         public bool readPrevFoto(ENFoto en)
         {
-            string comando = "Select __ from ";
+            string comando = "Select id, foto from Foto where id=max(select id from Foto where id<'" + en.ID + "' and anuncio='" + en.Anuncio.id + "')";
             return obtainComandExec(comando, en);
         }
+        /*
+       public bool readFoto(ENFoto en)
+       {
+           string comando = "Select foto from Foto where id=";
+           return obtainComandExec(comando, en);
+       }
+       */
     }
 }
