@@ -1,4 +1,7 @@
-﻿namespace library
+﻿using System.Collections.Generic;
+using System.Web;
+
+namespace library
 {
     public class ENFoto
     {
@@ -17,8 +20,8 @@
         }
         public ENAnuncio Anuncio
         {
-            get { return Anuncio; }
-            set { Anuncio = value; }
+            get { return _anuncio; }
+            set { _anuncio = value; }
         }
         public ENFoto()
         {
@@ -92,6 +95,25 @@
                 return db.deleteFoto(this);
             }
             return false;
+        }
+        public bool readFoto()
+        {
+            if (ID != -1)
+            {
+                CADFoto db = new CADFoto();
+                return db.readFoto(this);
+            }
+            return false;
+        }
+        /// <summary>
+        /// Funcion para subir multiples imagenes
+        /// </summary>
+        /// <param name="files"> PostedFiles del FileUpluad, ej: FileUpluad.PostedFiles</param>
+        /// <returns>True si consige y False si no</returns>
+        public bool uploadMultiplImage(IList<HttpPostedFile> files)
+        {
+            CADFoto db = new CADFoto();
+            return db.uploadMultiplImage(this, files);
         }
     }
 }
