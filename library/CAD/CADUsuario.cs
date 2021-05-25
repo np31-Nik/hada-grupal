@@ -82,7 +82,7 @@ namespace library
         /// </summary>
         public bool createUsuario(ENUsuario en)
         {
-            string comando = "Insert Into Usuario (nif,nombre,apellido,tel,premium,email,comtrasena) " +
+            string comando = "Insert Into Usuario (nif,nombre,apellido,tel,premium,email,contrasena) " +
                 "VALUES('" + en.Nif + "','" + en.Nombre + "','" + en.Apellido + "','" + en.Telefono + "','" + en.Premium + "','" + en.Email + "','" + en.Contrasenya + "')";
             return modifComandExec(comando);
         }
