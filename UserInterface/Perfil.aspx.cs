@@ -11,8 +11,7 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["nombre"] = "Y4256793-J";
-            Nif.Text = Session["nombre"].ToString();
+            /*
             if (Session["nif"]!=null)
             {
                 Nif.Text = Session["nif"].ToString();
@@ -22,7 +21,11 @@ namespace UserInterface
                 Emali.Text = Session["nombre"].ToString();
                 Premium.Checked = bool.Parse(Session["premium"].ToString());
             }
-            
+            else
+            {
+                Response.Redirect("~/Inicio.aspx");
+            }
+            */
         }
 
         protected void ModPerfil_Click(object sender, EventArgs e)

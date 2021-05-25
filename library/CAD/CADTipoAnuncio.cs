@@ -20,10 +20,6 @@ namespace library
                 c.Close();
                 return true;
             }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
             catch (Exception)
             {
                 return false;
@@ -50,10 +46,6 @@ namespace library
                 dr.Close();
                 c.Close();
                 return true;
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
             }
             catch (Exception)
             {

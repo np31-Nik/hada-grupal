@@ -13,15 +13,21 @@
                     <tr>
                         <td>
                             <div class="formularioContent3">
-                                <p>
-                                    Banco <asp:TextBox ID="TextBoxBanco" runat="server"></asp:TextBox>
-                                </p>
-                                <p>
-                                    Telefono <asp:TextBox ID="TextBoxTelefono" runat="server"></asp:TextBox>
-                                </p>
-                                <p>
-                                    Email <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
-                                </p>
+                                <asp:Table ID="Table3" runat="server">
+                                    <asp:TableRow>
+                                        <asp:TableCell>Banco:</asp:TableCell>
+                                        <asp:TableCell><asp:TextBox ID="TextBoxBanco" runat="server"></asp:TextBox></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>Telefono:</asp:TableCell>
+                                        <asp:TableCell><asp:TextBox ID="TextBoxTelefono" runat="server"></asp:TextBox></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>Email:</asp:TableCell>
+                                        <asp:TableCell><asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox></asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
+
                                 <p >
                                     <asp:Button ID="InsertarBanco" runat="server" Text="Insertar" OnClick="InsertarBanco_Click" /> 
                                     &nbsp;
@@ -76,20 +82,29 @@
                     <tr>
                         <td>
                             <div class="formularioContent3">
+                                <asp:Table ID="Table1" runat="server">
+                                    <asp:TableRow>
+                                        <asp:TableCell Width="76px">ID:</asp:TableCell>
+                                        <asp:TableCell><asp:TextBox ID="TextBoxId" runat="server" Enabled="false" Width="25"></asp:TextBox></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>Banco:</asp:TableCell>
+                                        <asp:TableCell><asp:TextBox ID="TextBoxBancoH" runat="server" Width="145px"></asp:TextBox></asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
+                                <asp:Table ID="Table2" runat="server">
+                                    <asp:TableRow>
+                                        <asp:TableCell Width="76px">Desde:</asp:TableCell>
+                                        <asp:TableCell Width="60px"><asp:TextBox ID="TextBoxDesde" runat="server" Width="40px"></asp:TextBox></asp:TableCell>
+                                        <asp:TableCell>Hasta:</asp:TableCell>
+                                        <asp:TableCell><asp:TextBox ID="TextBoxHasta" runat="server" Width="40px"></asp:TextBox></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>Interes%:</asp:TableCell>
+                                        <asp:TableCell><asp:TextBox ID="TextBoxInteres" runat="server" Width="40px"></asp:TextBox></asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
                                 <p>
-                                    ID <asp:TextBox ID="TextBoxId" runat="server" Enabled="false" Width="25"></asp:TextBox>
-                                </p>
-                                <p>
-                                    Banco <asp:TextBox ID="TextBoxBancoH" runat="server"></asp:TextBox>
-                                </p>
-                                <p>
-                                    Desde <asp:TextBox ID="TextBoxDesde" runat="server" Width="40px"></asp:TextBox>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hasta <asp:TextBox ID="TextBoxHasta" runat="server" Width="40px"></asp:TextBox>
-                                </p>
-                                <p>
-                                    Interes% <asp:TextBox ID="TextBoxInteres" runat="server" Width="40px"></asp:TextBox>
-                                </p>
-                                <p >
                                     <asp:Button ID="InsertarHipoteca" runat="server" Text="Insertar" OnClick="InsertarHipoteca_Click" /> 
                                     &nbsp;
                                     <asp:Button ID="BorrarHipoteca" runat="server" Text="Borrar" OnClick="BorrarHipoteca_Click" />
