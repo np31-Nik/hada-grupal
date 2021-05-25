@@ -35,6 +35,19 @@ namespace library
             Anuncio = anuncio;
         }
         /// <summary>
+        /// Consturctor para subir solo Una foto
+        /// </summary>
+        /// <param name="image">La foto a subir, es el PostedFile</param>
+        /// <param name="anuncio">Anuncio al que subir, hace falta solo el Anuncio.id</param>
+        public ENFoto(HttpPostedFile image, ENAnuncio anuncio)
+        {
+            int tamanyo = image.ContentLength;
+            _foto = new byte[tamanyo];
+            image.InputStream.Read(_foto, 0, tamanyo);
+            ID = -1;
+            Anuncio = anuncio;
+        }
+        /// <summary>
         /// Guarda esta Foto en la BD
         /// </summary>
         /// <returns>False si no se ha podido realizar la operación</returns>
