@@ -129,13 +129,13 @@ namespace library
                         en.precio = int.Parse(buscar["precio"].ToString());
                         en.categoria = buscar["categoria"].ToString();
                     en.localidad.localidad = buscar["localidad"].ToString();
-                        if (en.categoria == "Coche") {
+                        if (en.categoria == "coche") {
                             en.coche.id = en.id;
                             en.coche.anyo = int.Parse(buscar["ano"].ToString());
                             en.coche.marca.tipo = buscar["marca"].ToString();
                             en.coche.tipo.categoria = buscar["tipo"].ToString();
                         }
-                        else if (en.categoria=="Propiedad")
+                        else if (en.categoria=="propiedad")
                         {
                             en.prop.id = en.id;
                             en.prop.superficie= int.Parse(buscar["superficie"].ToString());
