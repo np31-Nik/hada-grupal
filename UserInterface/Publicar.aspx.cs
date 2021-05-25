@@ -122,13 +122,15 @@ namespace UserInterface
                                 {
                                     if (true/*cargarimg1.PostedFiles*/)
                                     {
+                                        ENFoto img = new ENFoto();
+                                        /*
                                         int size = cargarimg1.PostedFile.ContentLength;
                                         byte[] Imagen = new byte[size];
                                         cargarimg1.PostedFile.InputStream.Read(Imagen, 0, size);
                                         ENFoto imgParaDB = new ENFoto();
                                         imgParaDB.Foto = Imagen;
                                         imgParaDB.createFoto();
-                                        //añadir a BD
+                                        //añadir a BD*/
                                     }
                                 }
                             }
@@ -196,13 +198,14 @@ namespace UserInterface
                                 {
                                     if (true/*cargarimg1.PostedFiles*/)
                                     {
-                                        int size = cargarimg1.PostedFile.ContentLength;
+                                        ENFoto img = new ENFoto();
+                                        /*int size = cargarimg1.PostedFile.ContentLength;
                                         byte[] Imagen = new byte[size];
                                         cargarimg1.PostedFile.InputStream.Read(Imagen, 0, size);
                                         ENFoto imgParaDB = new ENFoto();
                                         imgParaDB.Foto = Imagen;
                                         imgParaDB.createFoto();
-                                        //añadir a BD
+                                        //añadir a BD*/
                                     }
                                 }
                             }
