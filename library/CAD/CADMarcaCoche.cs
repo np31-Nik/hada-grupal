@@ -12,7 +12,7 @@ namespace library
 
         public CADMarcaCoche()
         {
-              constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+              constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString();
         }
 
         public bool readMarcaCoche(ENMarcaCoche m)
