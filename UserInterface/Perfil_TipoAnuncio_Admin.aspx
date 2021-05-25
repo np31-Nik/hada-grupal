@@ -16,7 +16,7 @@
 									<p style="margin-top:30px">
 										Tipo <asp:TextBox ID="Tipo" runat="server"></asp:TextBox>
 										<asp:RequiredFieldValidator ID="TipoValid1" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-										<asp:RegularExpressionValidator ID="TipoValid2" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
+										<asp:RegularExpressionValidator ID="TipoValid2" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
 									</p>
 									<p style="margin-top:40px">
 										<asp:Button ID="InsertarTipoA" runat="server" Text="Insertar" OnClick="InsertarTipoA_Click" /> 
@@ -73,7 +73,7 @@
 									<p style="margin-top:30px">
 										Localidad <asp:TextBox ID="Localidad" runat="server"></asp:TextBox>
 										<asp:RequiredFieldValidator ID="LocalidadValid1" EnableClientScript="false" runat="server" ControlToValidate="Localidad" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-										<asp:RegularExpressionValidator ID="LocalidadValid2" EnableClientScript="false" ControlToValidate="Localidad" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
+										<asp:RegularExpressionValidator ID="LocalidadValid2" EnableClientScript="false" ControlToValidate="Localidad" ValidationExpression="[A-Z]([\s]?[A-Z]?[a-z]+)+" runat="server" ErrorMessage="ej: Localidad" ForeColor="Red"></asp:RegularExpressionValidator>
 									</p>
 									<p style="margin-top:40px">
 										<asp:Button ID="InsertarLocalidad" runat="server" Text="Insertar" OnClick="InsertarLocalidad_Click" /> 

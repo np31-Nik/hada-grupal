@@ -11,6 +11,7 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             if (Session["nif"]!=null)
             {
                 Nif.Text = Session["nif"].ToString();
@@ -24,6 +25,7 @@ namespace UserInterface
             {
                 Response.Redirect("~/Inicio.aspx");
             }
+            */
         }
 
         protected void ModPerfil_Click(object sender, EventArgs e)
