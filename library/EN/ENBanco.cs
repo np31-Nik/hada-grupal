@@ -4,7 +4,7 @@
     {
         private string banco;
 
-        private int telefono;
+        private string telefono;
 
         private string email;
 
@@ -13,7 +13,7 @@
             get { return banco; }
             set { banco = value; }
         }
-        public int TELEFONO
+        public string TELEFONO
         {
             get { return telefono; }
             set { telefono = value; }
@@ -28,11 +28,11 @@
         public ENBanco()
         {
             BANCO = "";
-            TELEFONO = 0;
+            TELEFONO = "";
             EMAIL = "";
         }
 
-        public ENBanco(string banco, int telefono, string email)
+        public ENBanco(string banco, string telefono, string email)
         {
             BANCO = banco;
             TELEFONO = telefono;

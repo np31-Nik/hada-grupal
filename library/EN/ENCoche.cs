@@ -5,8 +5,14 @@
         private ENMarcaCoche _marca;
         private ENTipoCoche _tipo;
         private int _anyo;
-        private uint id;
+        private int _id;
 
+
+        public int id
+        {
+            get { return (int)_id; }
+            set { _id = value; }
+        }
         public ENTipoCoche tipo
         {
             get { return _tipo; }
@@ -34,38 +40,43 @@
             anyo = 0;
 
         }
-        public ENCoche(int year, ENTipoCoche type, string subType, ENMarcaCoche marcaParam)
+        public ENCoche(int year, ENTipoCoche type, ENMarcaCoche marcaParam)
         {
             tipo = type;
             marca = marcaParam;
             anyo = year;
 
         }
-        public bool createCoche(uint id)
+        public bool createCoche(ENCoche coche,int idParam)
         {
-            CADCoche coche = new CADCoche();
-            if (coche.createCoche(this, id))
+            CADCoche CadCoche = new CADCoche();
+            coche.id = idParam;
+            if (CadCoche.createCoche(coche))
             {
                 return true;
             }
             return false;
         }
-        public bool readCoche()
+        public bool readCoche(ENCoche en)
         {
             CADCoche coche = new CADCoche();
-            return coche.readCoche(this, id);
+            return coche.readCoche(en);
         }
-        public bool deleteCoche()
+        /*public bool deleteCoche(uint id)
         {
             CADCoche coche = new CADCoche();
-            return coche.deleteCoche(this, id);
-        }
-        public bool updateCoche()
+            if(readCoche(id))
+                return coche.deleteCoche(this);
+            return false;
+        }*/
+        public bool updateCoche(ENCoche en)
         {
             CADCoche coche = new CADCoche();
-            return coche.updateCoche(this, id);
+            if (readCoche(en)) 
+                return coche.updateCoche(this);
+            return false;
 
-
         }
+
     }
 }
