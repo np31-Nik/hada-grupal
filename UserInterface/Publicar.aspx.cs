@@ -52,6 +52,7 @@ namespace UserInterface
         protected void PublicarClick(object sender, EventArgs e)
         {
             int aux;
+
             if (titulo.Text.Length > 55)
             {
                 mensaje.Text = "El tamaño maximo de titulo es de 55 caracteres. Tamaño actual: " + titulo.Text.Length;
@@ -72,6 +73,10 @@ namespace UserInterface
             else if (localidad.Text == "0")
             {
                 mensaje.Text = "Debe elegir una de las localidades";
+            }
+            else if (cargarimg1.HasFiles == false)
+            {
+                mensaje.Text = "Debe subir al menos una foto!";
             }
 
             else
