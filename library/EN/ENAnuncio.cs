@@ -77,6 +77,8 @@ namespace library
             precio = -1;
             tipo = new ENTipoAnuncio();
             usuario = new ENUsuario();
+            prop = new ENPropiedad();
+            coche = new ENCoche();
         }
 
         //Constructor para Vehiculo
@@ -175,14 +177,14 @@ namespace library
             bool read = false;
             if (anuncio.readAnuncio(this))
             {
-                if (categoria == "vehiculo")
+                if (categoria == "Coche")
                 {
                     coche.id = this.id;
                     if (coche.readCoche(coche))
                         read = true;
                 }
-                else if (categoria == "propiedad") { 
-                    coche.id = this.id;
+                else if (categoria == "Propiedad") {
+                    prop.id = this.id;
                     if (prop.readPropiedad(prop))
                         read = true;
                 }
