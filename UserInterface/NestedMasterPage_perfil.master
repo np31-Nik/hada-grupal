@@ -17,7 +17,7 @@
                 <asp:MenuItem Text="Mis Anuncios" NavigateUrl="~/Perfil_MisAnuncios.aspx"></asp:MenuItem>
             </Items>
         </asp:Menu>
-        <asp:Menu ID="Admin" runat="server" Width="100%" Orientation="Vertical" Visible="true" StaticMenuItemStyle-Width="180px">
+        <asp:Menu ID="Admin" runat="server" Width="100%" Orientation="Vertical" Visible="false" StaticMenuItemStyle-Width="180px">
             <Items>
                 <asp:MenuItem Text="Propiedad" NavigateUrl="~/Perfil_Propiedad_Admin.aspx"></asp:MenuItem>
                 <asp:MenuItem Text="Coches" NavigateUrl="~/Perfil_Coche_Admin.aspx"></asp:MenuItem>

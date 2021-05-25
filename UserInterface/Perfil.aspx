@@ -15,10 +15,10 @@
                 </tr>
                 <tr>
                     <td><asp:TextBox ID="Nombre" runat="server" Enabled="false"></asp:TextBox> 
-                        <br /> <asp:RegularExpressionValidator ID="NombreValid2" EnableClientScript="false" ControlToValidate="Nombre" ValidationExpression="([a-z]|[A-Z])*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
+                        <br /> <asp:RegularExpressionValidator ID="NombreValid2" EnableClientScript="false" ControlToValidate="Nombre" ValidationExpression="[A-Z][a-z]+" runat="server" ErrorMessage="ej:Nombre" ForeColor="Red"></asp:RegularExpressionValidator>
                     </td>
                     <td><asp:TextBox ID="Apellido" runat="server" Enabled="false"></asp:TextBox> 
-                        <br /> <asp:RegularExpressionValidator ID="Apellidoalid2" EnableClientScript="false" ControlToValidate="Apellido" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
+                        <br /> <asp:RegularExpressionValidator ID="Apellidoalid2" EnableClientScript="false" ControlToValidate="Apellido" ValidationExpression="[A-Z][a-z]+" runat="server" ErrorMessage="ej:Apellido" ForeColor="Red"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -27,10 +27,10 @@
                 </tr>
                 <tr>
                     <td><asp:TextBox ID="Telefono" runat="server" Enabled="false"></asp:TextBox>
-                        <br /> <asp:RegularExpressionValidator ID="TelefonoValid2" EnableClientScript="false" ControlToValidate="Telefono" ValidationExpression="([+]|\d)\d*" runat="server" ErrorMessage="Se necesita numero de tel." ForeColor="Red"></asp:RegularExpressionValidator>
+                        <br /> <asp:RegularExpressionValidator ID="TelefonoValid2" EnableClientScript="false" ControlToValidate="Telefono" ValidationExpression="([+]|\d)\d+" runat="server" ErrorMessage="ej: 000000 o +00000" ForeColor="Red"></asp:RegularExpressionValidator>
                     </td>
                     <td><asp:TextBox ID="Emali" runat="server" Enabled="false"></asp:TextBox>
-                        <br /> <asp:RegularExpressionValidator ID="EmailValid2" EnableClientScript="false" ControlToValidate="Emali" ValidationExpression="\w*[@]\w*[.]\w*" runat="server" ErrorMessage="Se necesita algo@algo.algo" ForeColor="Red"></asp:RegularExpressionValidator>
+                        <br /> <asp:RegularExpressionValidator ID="EmailValid2" EnableClientScript="false" ControlToValidate="Emali" ValidationExpression="\w+[@]\w+[.]\w+" runat="server" ErrorMessage="ej: algo@algo.algo" ForeColor="Red"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>

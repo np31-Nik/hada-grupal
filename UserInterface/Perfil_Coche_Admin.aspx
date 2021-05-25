@@ -16,7 +16,7 @@
                                         <p style="margin-top:30px">
                                             Marca <asp:TextBox ID="Marca" runat="server"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="MarcaValid1" EnableClientScript="false" runat="server" ControlToValidate="Marca" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="MarcaValid2" EnableClientScript="false" ControlToValidate="Marca" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
+                                            <asp:RegularExpressionValidator ID="MarcaValid2" EnableClientScript="false" ControlToValidate="Marca" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Marca o Marca marca" ForeColor="Red"></asp:RegularExpressionValidator>
                                         </p>
                                         <p style="margin-top:40px">
                                             <asp:Button ID="InsertarMarca" runat="server" Text="Insertar" OnClick="InsertarMarca_Click" /> 
@@ -73,7 +73,7 @@
                                         <p style="margin-top:30px">
                                             Tipo <asp:TextBox ID="Tipo" runat="server"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="TipoValid1" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="TipoValid2" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[a-z]*" runat="server" ErrorMessage="Solo se permiten caracteres" ForeColor="Red"></asp:RegularExpressionValidator>
+                                            <asp:RegularExpressionValidator ID="TipoValid2" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
                                         </p>
                                         <p style="margin-top:40px">
                                             <asp:Button ID="InsertarTipo" runat="server" Text="Insertar" OnClick="InsertarTipo_Click" /> 
