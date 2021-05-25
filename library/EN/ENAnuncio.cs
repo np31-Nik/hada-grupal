@@ -177,13 +177,13 @@ namespace library
             bool read = false;
             if (anuncio.readAnuncio(this))
             {
-                if (categoria == "coche")
+                if (categoria == "Coche")
                 {
                     coche.id = this.id;
                     if (coche.readCoche(coche))
                         read = true;
                 }
-                else if (categoria == "propiedad") {
+                else if (categoria == "Propiedad") {
                     prop.id = this.id;
                     if (prop.readPropiedad(prop))
                         read = true;
