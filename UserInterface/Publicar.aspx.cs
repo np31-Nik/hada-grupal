@@ -74,10 +74,10 @@ namespace UserInterface
             {
                 mensaje.Text = "Debe elegir una de las localidades";
             }
-            else if (cargarimg1.HasFiles == false)
+            /*else if (cargarimg1.HasFile == false)
             {
                 mensaje.Text = "Debe subir al menos una foto!";
-            }
+            }*/
 
             else
             {
@@ -109,7 +109,7 @@ namespace UserInterface
                         ENUsuario user = new ENUsuario();
                         ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precioVehiculo.Text),tipoAnun,user,car);
                         anuncio.categoria = "coche";
-                        anuncio.usuario.Nif = Session["nif"].ToString();
+                        anuncio.usuario.Nif = "uno1";//Session["nif"].ToString();
 
 
                         anuncio.EsCoche = true;
@@ -118,20 +118,12 @@ namespace UserInterface
                         if (anuncio.createAnuncio()) {
                             if (cargarimg1.HasFiles)
                             {
-                                foreach(HttpPostedFile uploadedFile in cargarimg1.PostedFiles)
+                                if (true/*cargarimg1.PostedFiles*/)
                                 {
-                                    if (true/*cargarimg1.PostedFiles*/)
-                                    {
-                                        ENFoto img = new ENFoto();
-                                        /*
-                                        int size = cargarimg1.PostedFile.ContentLength;
-                                        byte[] Imagen = new byte[size];
-                                        cargarimg1.PostedFile.InputStream.Read(Imagen, 0, size);
-                                        ENFoto imgParaDB = new ENFoto();
-                                        imgParaDB.Foto = Imagen;
-                                        imgParaDB.createFoto();
-                                        //añadir a BD*/
-                                    }
+                                    ENFoto img = new ENFoto();
+                                    img.Anuncio.id = anuncio.id;
+                                    if (img.uploadMultiplImage(cargarimg1.PostedFiles))
+                                        Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
                                 }
                             }
                             Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
@@ -194,22 +186,14 @@ namespace UserInterface
                         {
                             if (cargarimg1.HasFiles)
                             {
-                                foreach (HttpPostedFile uploadedFile in cargarimg1.PostedFiles)
+                                if (true/*cargarimg1.PostedFiles*/)
                                 {
-                                    if (true/*cargarimg1.PostedFiles*/)
-                                    {
-                                        ENFoto img = new ENFoto();
-                                        /*int size = cargarimg1.PostedFile.ContentLength;
-                                        byte[] Imagen = new byte[size];
-                                        cargarimg1.PostedFile.InputStream.Read(Imagen, 0, size);
-                                        ENFoto imgParaDB = new ENFoto();
-                                        imgParaDB.Foto = Imagen;
-                                        imgParaDB.createFoto();
-                                        //añadir a BD*/
-                                    }
+                                    ENFoto img = new ENFoto();
+                                    img.Anuncio.id = anuncio.id;
+                                    if (img.uploadMultiplImage(cargarimg1.PostedFiles))
+                                        Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
                                 }
                             }
-                            Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
                         }
                         else
                         {
