@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace library
 {
@@ -213,7 +214,7 @@ namespace library
 
             return updated;
         }
-        public DataSet BusquedaAnuncios(string cmd_a, string cmd_b, ref bool success)
+        public DataSet BusquedaAnuncios(string cmd_a, string cmd_b, string tabla, ref bool success)
         {
             success = false;
             DataSet ds = new DataSet();
@@ -222,12 +223,12 @@ namespace library
                 SqlConnection connection = null;
                 connection = new SqlConnection(constring);
                 connection.Open();
-
-                SqlDataAdapter adp = new SqlDataAdapter("select * from [dbo].[Anuncio], [dbo].[Coche] " +
-                    "WHERE [dbo].[Anuncio].id = [dbo].[Coche].id " +
+                string query = "select * from [dbo].[Anuncio], [dbo].[Foto], [dbo].[" + tabla +"] " +
+                    "WHERE [dbo].[Anuncio].id=[dbo].[" + tabla + "].anuncio " +
                     "AND [dbo].[Anuncio].id=(select id from [dbo].[Anuncio] " + cmd_a + ")" +
-                    "AND [dbo].[Coche].id=(select id from [dbo].[Coche] " + cmd_b + ")"
-                    , constring);
+                    " AND [dbo].[" + tabla + "].anuncio=(select anuncio from [dbo].[" + tabla + "] " + cmd_b + ")"+
+                    " AND [dbo].[Foto].anuncio = [dbo].[Anuncio].id";
+                SqlDataAdapter adp = new SqlDataAdapter(query, constring);
 
                 adp.Fill(ds);
 

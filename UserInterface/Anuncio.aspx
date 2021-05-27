@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="Anuncio" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Anuncio.aspx.cs" Inherits="UserInterface.Anuncio" MaintainScrollPositionOnPostback="true" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -325,68 +324,25 @@
                     
                 <div>
                     <asp:ListView runat="server" ID="ListaComentarios" DataSourceID="Database" >
-                        <AlternatingItemTemplate>
-                            <span style="background-color: #FAFAD2;color: #284775;">coment:
-                            <asp:DynamicControl runat="server" DataField="coment" Mode="ReadOnly" />
-                            <br />
-                            fecha:
-                            <asp:DynamicControl runat="server" DataField="fecha" Mode="ReadOnly" />
-                            <br />
-                            usuario:
-                            <asp:DynamicControl runat="server" DataField="usuario" Mode="ReadOnly" />
-<br />
-                            <br />
-                            </span>
-                        </AlternatingItemTemplate>
-                        <EditItemTemplate>
-                            <span style="background-color: #FFCC66;color: #000080;">coment:
-                            <asp:DynamicControl runat="server" DataField="coment" Mode="Edit" />
-                            <br />
-                            fecha:
-                            <asp:DynamicControl runat="server" DataField="fecha" Mode="Edit" />
-                            <br />
-                            usuario:
-                            <asp:DynamicControl runat="server" DataField="usuario" Mode="Edit" />
-                            <br />
-                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                            <br /><br /></span>
-                        </EditItemTemplate>
+                        
                         <EmptyDataTemplate>
-                            <span>Este anuncio no tiene comentarios.</span>
+                            <span>No data was returned.</span>
                         </EmptyDataTemplate>
-                        <InsertItemTemplate>
-                            <span style="">coment:
-                            <asp:DynamicControl runat="server" DataField="coment" Mode="Insert" ValidationGroup="Insert" />
-                            <br />
-                            fecha:
-                            <asp:DynamicControl runat="server" DataField="fecha" Mode="Insert" ValidationGroup="Insert" />
-                            <br />
-                            usuario:
-                            <asp:DynamicControl runat="server" DataField="usuario" Mode="Insert" ValidationGroup="Insert" />
-                            <br />
-                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" ValidationGroup="Insert" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                            <br /><br /></span>
-                        </InsertItemTemplate>
                         <ItemTemplate>
-                            <span style="background-color: #FFFBD6;color: #333333;">coment:
-                            <asp:DynamicControl runat="server" DataField="coment" Mode="ReadOnly" />
+                            <asp:Label ID="fechaLabel" runat="server" Text='<%# Eval("fecha") %>' />
                             <br />
-                            fecha:
-                            <asp:DynamicControl runat="server" DataField="fecha" Mode="ReadOnly" />
+                            <asp:Label ID="usuarioLabel" runat="server" Text='<%# Eval("usuario") %>' />
                             <br />
-                            usuario:
-                            <asp:DynamicControl runat="server" DataField="usuario" Mode="ReadOnly" />
+                            Escribió:
+                            <asp:Label ID="comentLabel" runat="server" Text='<%# Eval("coment") %>' />
 <br />
                             <br />
-                            </span>
                         </ItemTemplate>
                         <LayoutTemplate>
                             <div id="itemPlaceholderContainer" runat="server" style="font-family: Verdana, Arial, Helvetica, sans-serif;">
                                 <span runat="server" id="itemPlaceholder" />
                             </div>
-                            <div style="text-align: center;background-color: #FFCC66;font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;">
+                            <div style="text-align: center;background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
                                 <asp:DataPager ID="DataPager1" runat="server">
                                     <Fields>
                                         <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
@@ -394,21 +350,9 @@
                                 </asp:DataPager>
                             </div>
                         </LayoutTemplate>
-                        <SelectedItemTemplate>
-                            <span style="background-color: #FFCC66;font-weight: bold;color: #000080;">coment:
-                            <asp:DynamicControl runat="server" DataField="coment" Mode="ReadOnly" />
-                            <br />
-                            fecha:
-                            <asp:DynamicControl runat="server" DataField="fecha" Mode="ReadOnly" />
-                            <br />
-                            usuario:
-                            <asp:DynamicControl runat="server" DataField="usuario" Mode="ReadOnly" />
-<br />
-                            <br />
-                            </span>
-                        </SelectedItemTemplate>
+                       
                     </asp:ListView>
-                    <asp:SqlDataSource ID="Database" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [coment], [fecha], [usuario] FROM [Comentario] WHERE ([anuncio] = @anuncio)">
+                    <asp:SqlDataSource ID="Database" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [fecha], [usuario], [coment] FROM [Comentario] WHERE ([anuncio] = @anuncio)">
                         <SelectParameters>
                             <asp:QueryStringParameter Name="anuncio" QueryStringField="anuncio_id" Type="Int32" />
                         </SelectParameters>

@@ -8,7 +8,8 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="background-color:#f2f2f2">
+<body style="background-color:#f2f2f2" onkeydown='if(event.keyCode==13)return false;'>
+
     <form id="form1" runat="server">
         <div>
             <p align="center">

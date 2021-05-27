@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,36 +14,50 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
             if (!this.IsPostBack)
             {
-                
-                /*
-                 * ENTipoPropiedad TP = new ENTipoPropiedad();
-                TP.readFirstTipoPropiedad();
-                TIPO_OPERACION.Items.Add(TP.tipo);
-               while (TP.readNextTipoPropiedad())
-                {
-                    TIPO_OPERACION.Items.Add(TP.tipo);
-                }
-                */
-
-                string tipo_busqueda = Request.QueryString["tipo"];
-                switch (tipo_busqueda)
+                Page.DataBind();
+                string tipo = Request.QueryString["tipo"];
+                switch (tipo)
                 {
                     case "coches":
                         RB_Coche_Propiedad.SelectedIndex = 0;
                         RB_Coche_Propiedad_SelectedIndexChanged(null, null);
-                        return;
+                        break;
                     case "propiedades":
                         RB_Coche_Propiedad.SelectedIndex = 1;
                         RB_Coche_Propiedad_SelectedIndexChanged(null, null);
-                        return;
+                        break;
                     default:
-                        Response.Redirect("~/Busqueda.aspx");
                         break;
 
                 }
+                string tipo_op = Server.UrlDecode(Request.QueryString["tipo_op"]);
+                if (TIPO_OPERACION.Items.FindByText(tipo_op) != null)
+                {
+                    TIPO_OPERACION.SelectedValue = tipo_op;
+                    TIPO_OPERACION.SelectedItem.Text = tipo_op;
+                }
 
+
+                string localidad = Server.UrlDecode(Request.QueryString["localidad"]);
+                if (LOCALIDAD.Items.Contains(new ListItem(localidad)))
+                {
+                    LOCALIDAD.SelectedValue = localidad;
+                }
+
+                string precio_min = Server.UrlDecode(Request.QueryString["precio_min"]);
+                PRECIO_DESDE.Text = precio_min;
+
+                string precio_max = Server.UrlDecode(Request.QueryString["precio_max"]);
+                PRECIO_HASTA.Text = precio_max;
+
+                BuscarAnuncios(null, null);
             }
 
         }
@@ -62,102 +77,109 @@ namespace UserInterface
 
         protected void BuscarAnuncios(object sender, EventArgs e)
         {
-            ENAnuncio en = new ENAnuncio();
-            String comandoAnuncio = "WHERE ";
-            String comandoCoche = "WHERE ";
-            String comandoPropiedad = "WHERE ";
-            DataSet ds = new DataSet();
-            bool success = false;
-            bool and = false;
-
-            comandoAnuncio += "tipo ='" + TIPO_OPERACION.SelectedItem.Text + "'";
-
-            if(PRECIO_DESDE.Text != null)
+            Page.Validate("Buscar");
+            if (Page.IsValid)
             {
-                AnyadirAdd(ref and, ref comandoAnuncio);
-                comandoAnuncio += "precio >= '" + PRECIO_DESDE.Text + "'";
+                ENAnuncio en = new ENAnuncio();
+                String comandoAnuncio = "WHERE ";
+                String comandoCoche = "WHERE ";
+                String comandoPropiedad = "WHERE ";
+                DataSet ds = new DataSet();
+                bool success = false;
+                bool and = false;
+
+                comandoAnuncio += "tipo='" + TIPO_OPERACION.SelectedItem.Text + "'";
                 and = true;
-            }
 
-
-            if (PRECIO_HASTA.Text != null)
-            {
-                AnyadirAdd(ref and, ref comandoAnuncio);
-                comandoAnuncio += "precio <= '" + PRECIO_HASTA.Text + "'";
-                and = true;
-            }
-
-            if(LOCALIDAD.Text != null)
-            {
-                AnyadirAdd(ref and, ref comandoAnuncio);
-                comandoAnuncio += "localidad = '" + LOCALIDAD.Text + "'";
-                and = true;
-            }
-
-            if (comandoAnuncio == "WHERE ")
-            {
-                comandoAnuncio = "";
-            }
-
-            and = false;
-
-            if (string.Compare(RB_Coche_Propiedad.SelectedItem.Text, "Coche") == 0)
-            {
-                if(TIPO_COCHE.SelectedItem.Text != "Elige...")
-                {
-                    comandoCoche += "tipo = '" + TIPO_COCHE.SelectedItem.Text;
-                    and = true;
-                }
-
-                if(MARCA.SelectedItem.Text != "Elige...")
+                if (PRECIO_DESDE.Text.Length != 0)
                 {
                     AnyadirAdd(ref and, ref comandoAnuncio);
-                    comandoCoche += "marca = '" + MARCA.SelectedItem.Text + "'";
+                    comandoAnuncio += "precio>='" + PRECIO_DESDE.Text + "'";
                     and = true;
                 }
 
-                if(comandoPropiedad=="WHERE ")
-                {
-                    comandoPropiedad = "";
-                }
 
-                ds = en.BusquedaAnuncios(comandoAnuncio, comandoPropiedad, ref success);
-
-            }
-            else if (string.Compare(RB_Coche_Propiedad.SelectedItem.Text, "Propiedad")==0)
-            {
-                Response.Redirect("~/Principal.aspx");
-                if(TIPO_PROPIEDAD.SelectedItem.Text != "Elige...")
-                {
-                    comandoPropiedad += "tipo = '" + TIPO_PROPIEDAD.SelectedItem.Text + "'";
-                    and = true;
-                }
-
-                if (DORMITORIOS.Text != null)
+                if (PRECIO_HASTA.Text.Length != 0)
                 {
                     AnyadirAdd(ref and, ref comandoAnuncio);
-                    comandoPropiedad += "dorm = '" + DORMITORIOS.Text + "'";
+                    comandoAnuncio += "precio<='" + PRECIO_HASTA.Text + "'";
                     and = true;
                 }
 
-                if (BANYOS.Text != null)
+                if (LOCALIDAD.Text.Length != 0)
                 {
                     AnyadirAdd(ref and, ref comandoAnuncio);
-                    comandoPropiedad += "bano ='" + BANYOS.Text + "'";
+                    comandoAnuncio += "localidad='" + LOCALIDAD.Text + "'";
                     and = true;
                 }
 
-                if (comandoCoche == "WHERE ")
+                if (comandoAnuncio == "WHERE ")
                 {
-                    comandoCoche = "";
+                    comandoAnuncio = "";
                 }
 
-                ds = en.BusquedaAnuncios(comandoAnuncio, comandoCoche,ref success);
+                and = false;
 
+                if (string.Compare(RB_Coche_Propiedad.SelectedItem.Text, "Coche") == 0)
+                {
+                    if (TIPO_COCHE.SelectedItem.Text != "Elige...")
+                    {
+                        comandoCoche += "tipo='" + TIPO_COCHE.SelectedItem.Text;
+                        and = true;
+                    }
+
+                    if (MARCA.SelectedItem.Text != "Elige...")
+                    {
+                        AnyadirAdd(ref and, ref comandoCoche);
+                        comandoCoche += "marca='" + MARCA.SelectedItem.Text + "'";
+                        and = true;
+                    }
+
+                    if (comandoCoche == "WHERE ")
+                    {
+                        comandoCoche = "";
+                    }
+
+                    ds = en.BusquedaAnuncios(comandoAnuncio, comandoCoche,"Coche", ref success);
+
+                }
+                else if (string.Compare(RB_Coche_Propiedad.SelectedItem.Text, "Propiedad") == 0)
+                {
+                    if (TIPO_PROPIEDAD.SelectedItem.Text != "Elige...")
+                    {
+                        comandoPropiedad += "tipo='" + TIPO_PROPIEDAD.SelectedItem.Text + "'";
+                        and = true;
+                    }
+
+                    if (DORMITORIOS.Text.Length != 0)
+                    {
+                        AnyadirAdd(ref and, ref comandoPropiedad);
+                        comandoPropiedad += "dorm='" + DORMITORIOS.Text + "'";
+                        and = true;
+                    }
+
+                    if (BANYOS.Text.Length != 0)
+                    {
+                        AnyadirAdd(ref and, ref comandoPropiedad);
+                        comandoPropiedad += "bano='" + BANYOS.Text + "'";
+                        and = true;
+                    }
+
+                    if (comandoPropiedad == "WHERE ")
+                    {
+                        comandoPropiedad = "";
+                    }
+
+                    ds = en.BusquedaAnuncios(comandoAnuncio, comandoPropiedad,"Propiedad", ref success);
+
+                }
+
+                ListView1.DataSourceID = null;
+                ListView1.DataSource = ds;
+                ListView1.DataBind();
+                ListView1.DataSourceID = null;
             }
-
-            ListView1.DataSource = ds;
-            ListView1.DataBind();
+            
 
         }
 
@@ -172,7 +194,7 @@ namespace UserInterface
 
         protected void AbrirAnuncio(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
