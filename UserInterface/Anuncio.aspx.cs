@@ -17,7 +17,7 @@ namespace UserInterface
             {
                 if (Request.QueryString["anuncio_id"] == null)
                 {
-                    Response.Redirect("~/Principal.aspx");
+                    Response.Redirect("~/Busqueda.aspx");
                 }
                 else
                 {
@@ -27,11 +27,10 @@ namespace UserInterface
 
                     if (!existe)
                     {
-                        Response.Redirect("~/Inicio.aspx");
+                        Response.Redirect("~/Busqueda.aspx");
                     }
                     else
                     {
-
                         REF.Text = en.id.ToString();
                         TITULO.Text = en.titulo;
                         PRECIO.Text = en.precio.ToString() + "€";
@@ -69,6 +68,8 @@ namespace UserInterface
                                 TIPO_PROPIEDAD.Text = prop.tipo.tipo;
                                 break;
                         }
+
+                        Similares(en);
                     }
                 }
             }
@@ -81,6 +82,82 @@ namespace UserInterface
         protected void Comentar(object sender,EventArgs e)
         {
 
+        }
+
+        protected void AnuncioSimilar(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Anuncio.aspx?anuncio_id=" + ((ImageButton)sender).CommandArgument.ToString());
+        }
+
+        protected void Similares(ENAnuncio en)
+        {
+            string cmd_A = "WHERE ";
+            string cmd_B = "WHERE ";
+            float precio_min, precio_max;
+            string tabla = en.categoria;
+            bool success = false;
+
+            cmd_A += "tipo='" + en.tipo.Tipo + "' AND categoria='" + en.categoria + "' AND localidad='" + en.localidad.localidad + "' AND id<>'"+en.id+"'";
+
+            switch (en.categoria)
+            {
+                case "Coche":
+                    ENCoche coche = new ENCoche();
+                    coche.id = en.id;
+                    coche.readCoche(coche);
+
+                    if (en.tipo.Tipo == "Venta") {
+                        precio_min = en.precio - 10000;
+                        precio_max = en.precio + 10000;
+                        if (precio_min < 0)
+                        {
+                            precio_min = 0;
+                        }
+                    }else
+                    {
+                        precio_min = en.precio - 400;
+                        precio_max = en.precio + 400;
+                        if (precio_min < 0)
+                        {
+                            precio_min = 0;
+                        }
+                    }
+                    
+                    cmd_B += "precio>='" + precio_min + "' AND precio<='" + precio_max + "' AND tipo='" + coche.tipo.categoria + "'";
+                    break;
+
+                case "Propiedad":
+                    ENPropiedad prop = new ENPropiedad();
+                    prop.id = en.id;
+                    prop.readPropiedad(prop);
+
+                    if (en.tipo.Tipo == "Venta")
+                    {
+                        precio_min = en.precio - 25000;
+                        precio_max = en.precio + 25000;
+                        if (precio_min < 0)
+                        {
+                            precio_min = 0;
+                        }
+                    }
+                    else
+                    {
+                        precio_min = en.precio - 400;
+                        precio_max = en.precio + 400;
+                        if (precio_min < 0)
+                        {
+                            precio_min = 0;
+                        }
+                    }
+                    cmd_B += "precio>='" + precio_min + "' AND precio<='" + precio_max + "' AND tipo='" + prop.tipo.tipo + "'";
+
+                    break;
+            }
+            DataSet ds = en.BusquedaAnuncios(cmd_A, cmd_B, tabla, ref success);
+            ListViewSimilares.DataSourceID = null;
+            ListViewSimilares.DataSource = ds;
+            ListViewSimilares.DataBind();
+            ListViewSimilares.DataSourceID = null;
         }
     }
 }

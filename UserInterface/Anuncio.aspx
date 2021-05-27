@@ -368,77 +368,79 @@
         <br />
 
         <div class="PanelSimilares" style="background-color:#ffffff;color:black;";height: 332px;">
-
+            <asp:UpdatePanel runat="server" UpdateMode="Always">
+                <ContentTemplate>
             <asp:Label runat="server" Text="Articulos similares:" style="font-size:20px;font-weight:bold;text-align:center" Width="100%"></asp:Label>
              <br /><br />
             <div class="ListaSimilares" style="text-align:center; height: 277px;">
+                                    <table width="100%">
+   <tr>
+     <td align="center">
+       <table>
+         <tr>
+            <td>
+                <asp:ListView ID="ListViewSimilares" runat="server" GroupItemCount="5" DataSourceID="DatosBusqueda">
+                    
+                    <EmptyDataTemplate>
+                        <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
+                            <tr>
+                                <td>No se han encontrado articulos similares.</td>
+                            </tr>
+                        </table>
+                    </EmptyDataTemplate>
+                    <EmptyItemTemplate>
+<td runat="server" />
+                    </EmptyItemTemplate>
+                    <GroupTemplate>
+                        <tr id="itemPlaceholderContainer" runat="server">
+                            <td id="itemPlaceholder" runat="server"></td>
+                        </tr>
+                    </GroupTemplate>
+                   
+                    <ItemTemplate>
+                        <td runat="server" style="background-color:#DCDCDC;color: #000000;">
+                            <asp:ImageButton ID="FOTObtn" runat="server" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' Width="300px" Height="200px"
+                                  OnClick="AnuncioSimilar" CommandArgument='<%# Eval("id") %>' />
+                            <br />
+                            <asp:Label ID="tipoLabel" runat="server" style="float:left" Text='<%# Eval("tipo") %>' />
+                            <asp:Label runat="server" Text="€" style="float:right"></asp:Label>
+                            <asp:Label ID="precioLabel" runat="server" style="float:right" Text='<%# Eval("precio") %>' />
+                            <br />
+                            <asp:Label ID="localidadLabel" runat="server" style="float:right" Text='<%# Eval("localidad") %>' />
+                            </td>
+                    </ItemTemplate>
+                    <LayoutTemplate>
+                        <table runat="server">
+                            <tr runat="server">
+                                <td runat="server">
+                                    <table id="groupPlaceholderContainer" runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                        <tr id="groupPlaceholder" runat="server">
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr runat="server">
+                                <td runat="server">
+                                    <asp:DataPager ID="DataPager1" runat="server" PageSize="5">
 
-                <div class="Similar" id="Similar1" style="float:left;">
-                    <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
-                    <br />
-                    <div style="text-align:center;width:80%;margin:auto;">
-                        <div style="float:left;">
-                            <asp:Label ID="Sim1_Localidad" runat="server"></asp:Label>
-                        </div>
-
-                        <div style="float:right">
-                            <asp:Label ID="Sim1_Precio" runat="server"></asp:Label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="Similar" id="Similar2" style="float:left">
-                    <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
-                    <br />
-                    <div style="text-align:center;width:80%;margin:auto;">
-                        <div style="float:left">
-                            <asp:Label ID="Sim2_Localidad" runat="server"></asp:Label>
-                        </div>
-                        <div style="float:right">
-                            <asp:Label ID="Sim2_Precio" runat="server"></asp:Label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="Similar" id="Similar3" style="float:left">
-                    <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
-                    <br />
-                    <div style="text-align:center;width:80%;margin:auto;">
-                        <div style="float:left">
-                            <asp:Label ID="Sim3_Localidad" runat="server"></asp:Label>
-                        </div>
-                        <div style="float:right">
-                            <asp:Label ID="Sim3_Precio" runat="server"></asp:Label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="Similar" id="Similar4" style="float:left">
-                    <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
-                    <br />
-                    <div style="text-align:center;width:80%;margin:auto;">
-                        <div style="float:left">
-                            <asp:Label ID="Sim4_Localidad" runat="server"></asp:Label>
-                        </div>
-                        <div style="float:right">
-                            <asp:Label ID="Sim4_Precio" runat="server"></asp:Label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="Similar" id="Similar5" style="float:left">
-                    <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
-                    <br />
-                    <div style="text-align:center;width:80%;margin:auto;">
-                        <div style="float:left">
-                            <asp:Label ID="Sim5_Localidad" runat="server"></asp:Label>
-                        </div>
-                        <div style="float:right">
-                            <asp:Label ID="Sim5_Precio" runat="server"></asp:Label>
-                        </div>
-                    </div>
-                </div>
+                                    </asp:DataPager>
+                                </td>
+                            </tr>
+                        </table>
+                    </LayoutTemplate>
+                    
+                </asp:ListView>
+                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+                
+                </td>
+         </tr>
+       </table>
+     </td>
+   </tr>
+</table>
             </div>
+            </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
     </div>
 

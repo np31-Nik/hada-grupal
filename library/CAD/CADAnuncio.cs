@@ -124,6 +124,7 @@ namespace library
                 {
 
                         encontrado = true;
+                    en.tipo.Tipo = buscar["tipo"].ToString();
                         en.titulo = buscar["titulo"].ToString();
                         en.usuario.Nif = buscar["usuario"].ToString();
                         en.descripcion = buscar["descripcion"].ToString();
@@ -225,9 +226,10 @@ namespace library
                 connection.Open();
                 string query = "select * from [dbo].[Anuncio], [dbo].[Foto], [dbo].[" + tabla +"] " +
                     "WHERE [dbo].[Anuncio].id=[dbo].[" + tabla + "].anuncio " +
-                    "AND [dbo].[Anuncio].id=(select id from [dbo].[Anuncio] " + cmd_a + ")" +
-                    " AND [dbo].[" + tabla + "].anuncio=(select anuncio from [dbo].[" + tabla + "] " + cmd_b + ")"+
+                    "AND [dbo].[Anuncio].id IN (select id from [dbo].[Anuncio] " + cmd_a + ")" +
+                    " AND [dbo].[" + tabla + "].anuncio IN (select anuncio from [dbo].[" + tabla + "] " + cmd_b + ")"+
                     " AND [dbo].[Foto].anuncio = [dbo].[Anuncio].id";
+
                 SqlDataAdapter adp = new SqlDataAdapter(query, constring);
 
                 adp.Fill(ds);

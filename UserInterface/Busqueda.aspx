@@ -108,7 +108,6 @@
     </div>
 
     <div class="PanelBusqueda" style="background-color:#ffffff;color:black;">
-        <asp:Label runat="server" Text="Resultados de busqueda" Width="100%" style="text-align:center;font-weight:bold;"></asp:Label>
         <div class="ResultadosBusqueda">
          
                     <table width="100%">
@@ -120,6 +119,8 @@
             
             <asp:UpdatePanel runat="server" UpdateMode="Always">
                 <ContentTemplate>
+                            <asp:Label runat="server" Text="Resultados de busqueda" Width="100%" style="text-align:center;font-weight:bold;"></asp:Label>
+
                                     <asp:ListView ID="ListView1" runat="server" DataSourceID="DatosBusqueda" GroupItemCount="4">
                    
                   

@@ -191,10 +191,5 @@ namespace UserInterface
                 add = false;
             }
         }
-
-        protected void AbrirAnuncio(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
