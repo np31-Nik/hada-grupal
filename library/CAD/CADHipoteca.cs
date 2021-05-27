@@ -39,13 +39,10 @@ namespace library
             catch (SqlException ex)
             {
                 creado = false;
-                throw ex;
-
             }
             catch (Exception ex)
             {
                 creado = false;
-                throw ex;
             }
 
             return creado;
@@ -70,12 +67,10 @@ namespace library
             catch (SqlException ex)
             {
                 eliminado = false;
-                throw ex;
             }
             catch (Exception ex)
             {
                 eliminado = false;
-                throw ex;
             }
 
             return eliminado;
@@ -112,12 +107,10 @@ namespace library
             catch (SqlException ex)
             {
                 leido = false;
-                throw ex;
             }
             catch (Exception ex)
             {
                 leido = false;
-                throw ex;
             }
 
             return leido;
@@ -153,12 +146,10 @@ namespace library
             catch (SqlException ex)
             {
                 leido = false;
-                throw ex;
             }
             catch (Exception ex)
             {
                 leido = false;
-                throw ex;
             }
 
             return leido;
@@ -206,12 +197,10 @@ namespace library
             catch (SqlException ex)
             {
                 leido = false;
-                throw ex;
             }
             catch (Exception ex)
             {
                 leido = false;
-                throw ex;
             }
 
             return leido;
@@ -254,12 +243,10 @@ namespace library
             catch (SqlException ex)
             {
                 leido = false;
-                throw ex;
             }
             catch (Exception ex)
             {
                 leido = false;
-                throw ex;
             }
 
             return leido;
@@ -284,12 +271,10 @@ namespace library
             catch (SqlException ex)
             {
                 act = false;
-                throw ex;
             }
             catch (Exception ex)
             {
                 act = false;
-                throw ex;
             }
 
             return act;
