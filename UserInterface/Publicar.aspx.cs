@@ -59,7 +59,8 @@ namespace UserInterface
                 mensaje.Text = "El tamaño maximo de titulo es de 55 caracteres. Tamaño actual: " + titulo.Text.Length;
 
             }
-            else if (titulo.Text == "") {
+            else if (titulo.Text == "")
+            {
                 mensaje.Text = "Campo titulo es obligatorio";
             }
             else if (descripcion.Text.Length > 1000)
@@ -75,14 +76,10 @@ namespace UserInterface
             {
                 mensaje.Text = "Debe elegir una de las localidades";
             }
-            /*else if (cargarimg1.HasFile == false)
-            {
-                mensaje.Text = "Debe subir al menos una foto!";
-            }*/
-
             else
             {
-                if (RadioButtonList1.SelectedItem.Text == "Vehiculo") {
+                if (RadioButtonList1.SelectedItem.Text == "Vehiculo")
+                {
                     if (marca.Text == "0")
                     {
                         mensaje.Text = "Debe elegir marca de coche";
@@ -105,20 +102,21 @@ namespace UserInterface
                         ENLocalidad loc = new ENLocalidad(localidad.SelectedItem.Text);
                         ENTipoAnuncio tipoAnun = new ENTipoAnuncio(tipoAnuncio.SelectedItem.Text);
                         ENMarcaCoche marcaC = new ENMarcaCoche("", marca.SelectedItem.Text, "");
-                        ENTipoCoche tipoC = new ENTipoCoche(tipoCoche.SelectedItem.Text); 
+                        ENTipoCoche tipoC = new ENTipoCoche(tipoCoche.SelectedItem.Text);
                         ENCoche car = new ENCoche(int.Parse(anyo.Text), tipoC, marcaC);
                         ENUsuario user = new ENUsuario();
-                        ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precioVehiculo.Text),tipoAnun,user,car);
+                        ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precioVehiculo.Text), tipoAnun, user, car);
                         anuncio.categoria = "coche";
                         anuncio.usuario.Nif = "11";//Session["nif"].ToString();
 
 
                         anuncio.EsCoche = true;
 
-                        
 
-                        if (anuncio.createAnuncio()) {
-                            if (cargarimg1.HasFile || cargarimg1.HasFiles)
+
+                        if (anuncio.createAnuncio())
+                        {
+                            if ((cargarimg1.HasFile || cargarimg1.HasFiles) && cargarimg1.PostedFiles.Count < 10)
                             {
                                 try
                                 {
@@ -143,7 +141,8 @@ namespace UserInterface
                                             Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
                                         }
                                     }
-                                    else {
+                                    else
+                                    {
                                         mensaje.Text = "El formato de imagenes debe ser: .png o .jpg o .jpeg";
                                     }
                                 }
@@ -152,12 +151,14 @@ namespace UserInterface
                                     mensaje.Text = "Error " + ex;
                                 }
                             }
-                            else {
-                                mensaje.Text = "Debe caragr al menos una imagen (.png o .jpg o . jpeg)";
+                            else
+                            {
+                                mensaje.Text = "Debe cargar al menos una imagen (.png o .jpg o . jpeg) pero no mas de 10";
                             }
                             anuncio.deleteAnuncio();
                         }
-                        else{
+                        else
+                        {
                             mensaje.Text = "El anuncio no se ha creado. Intentelo mas tarde.";
                         }
                     }
@@ -177,7 +178,8 @@ namespace UserInterface
                     {
                         mensaje.Text = "Debe elgir tipo de propiedad";
                     }
-                    else if (NumHabit.Text != "" && int.TryParse(NumHabit.Text, out aux)) {
+                    else if (NumHabit.Text != "" && int.TryParse(NumHabit.Text, out aux))
+                    {
                         mensaje.Text = "Numero de habitaciones debe ser un numero entero";
                     }
                     else if (!int.TryParse(Superficie.Text.ToString(), out aux))
@@ -204,25 +206,55 @@ namespace UserInterface
                         anuncio.prop.tipo = tipoP;
                         anuncio.EsCoche = false;
 
-                        if (NumHabit.Text!="")//Optativo
+                        if (NumHabit.Text != "")//Optativo
                             anuncio.prop.habitaciones = int.Parse(NumHabit.Text);
-                        if (NumBanyos.Text!="")
+                        if (NumBanyos.Text != "")
                             anuncio.prop.banyos = int.Parse(NumBanyos.Text);
                         if (numCatastral.Text != "")
                             anuncio.prop.numCatastral = numCatastral.Text;
 
                         if (anuncio.createAnuncio())
                         {
-                            if (cargarimg1.HasFiles)
+                            if ((cargarimg1.HasFile || cargarimg1.HasFiles) && cargarimg1.PostedFiles.Count < 10)
                             {
-                                if (true/*cargarimg1.PostedFiles*/)
+                                try
                                 {
-                                    ENFoto img = new ENFoto();
-                                    img.Anuncio.id = anuncio.id;
-                                    if (img.uploadMultiplImage(cargarimg1.PostedFiles))
-                                        Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
+                                    bool formatoCorrercto = true;
+                                    foreach (HttpPostedFile file in cargarimg1.PostedFiles)
+                                    {
+                                        if (file.ContentType != "image/jpg" &&
+                                            file.ContentType != "image/jpeg" &&
+                                            file.ContentType != "image/png" &&
+                                            file.ContentType != "image/JPG" &&
+                                            file.ContentType != "image/JPEG" &&
+                                            file.ContentType != "image/PNG")
+
+                                            formatoCorrercto = false;
+                                    }
+                                    if (formatoCorrercto)
+                                    {
+                                        ENFoto img = new ENFoto();
+                                        img.Anuncio.id = anuncio.id;
+                                        if (img.uploadMultiplImage(cargarimg1.PostedFiles))
+                                        {
+                                            Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        mensaje.Text = "El formato de imagenes debe ser: .png o .jpg o .jpeg";
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    mensaje.Text = "Error " + ex;
                                 }
                             }
+                            else
+                            {
+                                mensaje.Text = "Debe cargar al menos una imagen (.png o .jpg o . jpeg) pero no mas de 10";
+                            }
+                            anuncio.deleteAnuncio();
                         }
                         else
                         {
@@ -231,7 +263,7 @@ namespace UserInterface
                     }
                 }
 
-                
+
 
             }
         }
