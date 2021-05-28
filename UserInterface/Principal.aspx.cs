@@ -33,7 +33,7 @@ namespace UserInterface
             }
         }
 
-        protected void clickLupa(System.Web.UI.ImageClickEventArgs e)
+        protected void LupaBuscar_Click(object sender, ImageClickEventArgs e)
         {
             string direccion = "";
             

@@ -25,7 +25,8 @@
            
         Precio Límite: <asp:TextBox ID="BoxNumeros2" runat="server" Height="25px" Width="175px"/>
 
-        <asp:ImageButton ID="LupaBuscar" runat="server" ImageUrl="~/imagenes/455-4559731_icono-de-lupa-para-legal-design-thinking-lupa.png"  Width="30px" ImageAlign="Middle" Height="30px" CssClass="MargenLupa"/>
+        <asp:ImageButton ID="LupaBuscar" runat="server" ImageUrl="~/imagenes/455-4559731_icono-de-lupa-para-legal-design-thinking-lupa.png"  
+        Width="30px" ImageAlign="Middle" Height="30px" CssClass="MargenLupa" OnClick="LupaBuscar_Click"/>
         
     </div>
     <div style="font-size:15px; text-align:center; font-family:'sans-serif';">
