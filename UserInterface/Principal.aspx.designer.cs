@@ -15,13 +15,13 @@ namespace UserInterface
     {
 
         /// <summary>
-        /// Control ref.
+        /// Control ref_id.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox @ref;
+        protected global::System.Web.UI.WebControls.TextBox ref_id;
 
         /// <summary>
         /// Control CasaoCoche.

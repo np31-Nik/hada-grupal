@@ -38,7 +38,6 @@ namespace UserInterface
                         RB_Coche_Propiedad_SelectedIndexChanged(null, null);
                         return;
                     default:
-                        Response.Redirect("~/Busqueda.aspx");
                         break;
 
                 }

@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
     <link rel="stylesheet" type="text/css" href="css/MargenLupa.css" />
     <div style="background-color: #151719; color:white; padding:10px; text-align:center;">
-        Referencia: <asp:TextBox ID="ref" runat="server" Height="25px" Width="200px" />
+        Referencia: <asp:TextBox ID="ref_id" runat="server" Height="25px" Width="200px" />
         
         <asp:DropDownList runat="server" ID="CasaoCoche" AutoPostBack="True" Height="25px" Width="175px">
             <asp:ListItem Selected="True" Value="Propiedad"> Propiedad </asp:ListItem>
