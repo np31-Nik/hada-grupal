@@ -1,26 +1,28 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace library
 {
-    public class CADCoche
+    public class CADLocalidad
     {
         private string constring;
-        public CADCoche()
+        public CADLocalidad()
         {
-            constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString();//Conexion
+            constring = ConfigurationManager.ConnectionStrings["Database"].ToString(); ;//Conexion
         }
-        public bool createCoche(ENCoche en)
+        public bool createLocalidad(ENLocalidad en)
         {
             bool creado = false;
-            //Falta anyadir mas atibutos a la BD
-            
-
+           
             try
             {
-                string comando = "Insert INTO [dbo].[Coche] (anuncio,ano,marca,tipo) " +
-                "VALUES ('" + en.id + "', '" + en.anyo + "', '" + "BMW"/*en.marca.companyia*/ + "', '" + en.tipo.categoria + "')";
+                string comando = "Insert INTO [dbo].[Localidad] (Localidad)" +
+                "VALUES ('" + en.localidad + ")";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -41,28 +43,25 @@ namespace library
             return creado;
         }
 
-        public bool readCoche(ENCoche en)
+        public bool readLocalidad(ENLocalidad en)
         {
-            bool read = false;
+            bool encontrado = false;
             
 
             try
             {
-                string comando = "select * From [dbo].[Coche] where anuncio='" + en.id + "'";
+                string comando = "select * From [dbo].[Localidad] where localidad='" + en.localidad + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
                 SqlDataReader buscar = cmd.ExecuteReader();
-                while (buscar.Read() && !read)
+                while (buscar.Read() && !encontrado)
                 {
-                    if (buscar["anuncio"].ToString() == en.id.ToString())
+                    if (buscar["localidad"].ToString() == en.localidad)
                     {
-                        read = true;
-                        en.id = int.Parse(buscar["anuncio"].ToString());
-                        en.marca = (ENMarcaCoche)buscar["marca"];
-                        en.tipo = (ENTipoCoche)buscar["tipo"];
-                        en.anyo = (int)buscar["ano"]; /////////REVISAR
+                        en.localidad = buscar["localidad"].ToString();
+                        encontrado = true;
                     }
                 }
                 buscar.Close();
@@ -71,28 +70,27 @@ namespace library
             }
             catch (SqlException ex)
             {
-                read = false;
+                encontrado = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
             catch (Exception ex)
             {
-                read = false;
+                encontrado = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
 
             }
-            return read;
+
+            return encontrado;
         }
-        public bool updateCoche(ENCoche en)
+        public bool updateLocalidad(ENLocalidad en)
         {
             bool updated = false;
-            
+           
             try
             {
-                string comando = "UPDATE [dbo].[Coche] SET " +
-               "tipo= '" + en.tipo + "' ," +
-               "ano= '" + en.anyo + "' ," +
-               "marca=" + en.marca +
-               "WHERE anuncio = '" + en.id + "'";
+                string comando = "UPDATE [dbo].[Localidad] SET " +
+               "localidad= '" + en.newLocalidad + "' ," +
+               "WHERE localidad = '" + en.localidad + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -115,34 +113,42 @@ namespace library
 
             return updated;
         }
-        public bool deleteCoche(ENCoche en)
+        public bool deleteLocalidad(ENLocalidad en)
         {
-            bool borrado = false;
+            bool deleted = false;
             
             try
             {
-                string comando = "DELETE FROM [dbo].[Coche] WHERE anuncio = '" + en.id + "'";
+                string comando = "DELETE FROM [dbo].[Localidad] WHERE nif = '" + en.localidad + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                borrado = true;
+                deleted = true;
             }
             catch (SqlException ex)
             {
-                borrado = false;
+                deleted = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
             catch (Exception ex)
             {
-                borrado = false;
+                deleted = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
 
-            return borrado;
 
+
+            return deleted;
+        }
+        public bool readNextLocalidad(ENLocalidad en)
+        {
+            bool read = false;
+
+            return read;
         }
     }
 }
+
