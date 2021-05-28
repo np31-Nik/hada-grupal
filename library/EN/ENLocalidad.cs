@@ -19,8 +19,8 @@ namespace library
 
         public string newLocalidad
         {
-            get { return newLocalidad; }
-            set { newLocalidad = value; }
+            get { return _newLocalidad; }
+            set { _newLocalidad = value; }
         }
 
         public ENLocalidad() {
