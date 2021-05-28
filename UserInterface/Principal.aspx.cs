@@ -14,6 +14,58 @@ namespace UserInterface
 
         }
 
+        protected void controlbarra(object sender,ServerValidateEventArgs e)
+        {
+            e.IsValid = true;
+            int prueba = 0;
+
+            if (@ref.Text != null && int.TryParse(@ref.Text.ToString(), out prueba) == false) 
+            {
+                e.IsValid = false;
+            }
+            if (BoxNumeros2.Text != null && int.TryParse(BoxNumeros.Text.ToString(), out prueba) == false) 
+            {
+                e.IsValid = false;
+            }
+            if (BoxNumeros.Text != null && int.TryParse(BoxNumeros2.Text.ToString(), out prueba) == false) 
+            {
+                e.IsValid = false;
+            }
+        }
+
+        protected void clickLupa(object sender, System.Web.UI.WebControls.ImageButton e)
+        {
+            string direccion = "";
+
+            if (Page.IsValid == true) 
+            {
+                if (@ref.Text != null) 
+                {
+                    direccion += "~/Anuncio.aspx?anuncio_id=" + @ref.Text.ToString();
+                    Response.Redirect(direccion);
+                }
+                else 
+                {
+                    direccion += "~/Busqueda.aspx?tipo=" + CasaoCoche.SelectedValue.ToString() + "&tipo_op=" + ALQoVENT.SelectedValue.ToString();
+
+                    if (localidades.SelectedValue != "Localidad") 
+                    {
+                        direccion += "&localidad=" + localidades.SelectedValue.ToString();
+                    }
+                    if (BoxNumeros.Text != null)
+                    {
+                        direccion += "&precio_min=" + BoxNumeros.Text.ToString();
+                    }
+                    if (BoxNumeros2.Text != null)
+                    {
+                        direccion += "&precio_max=" + BoxNumeros2.Text.ToString();
+                    }
+
+                    Response.Redirect(direccion);
+                }
+            }
+        }
+
         protected void Oferta1(object sender, EventArgs e)
         {
             Response.Redirect("~/Anuncio.aspx");
