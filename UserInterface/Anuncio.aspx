@@ -222,18 +222,18 @@
        <table>
          <tr>
             <td>
-                        <asp:ListView ID="ListView1" runat="server" DataSourceID="Imagenes">
+                        <asp:ListView ID="ListView1" runat="server" DataSourceID="Imagenes" OnDataBound="ListView1_DataBound">
                             <EmptyDataTemplate>
-                                <table runat="server" style="">
+                                <table runat="server">
                                     <tr>
-                                        <td><asp:Image ID="IMAGE" runat="server" ImageUrl="~\imagenes\imagen0.jpg"/></td>
+                                        <td><asp:Image ID="IMAGE" runat="server" ImageUrl="~\imagenes\no-image.jpg"/></td>
                                     </tr>
                                 </table>
                             </EmptyDataTemplate>
                             <ItemTemplate>
                                 <tr style="">
                                     <td>
-                                        <asp:Image ID="foto" runat="server" Height="600px" Width="1000px" ImageUrl="~\imagenes\imagen0.jpg" />
+                                        <asp:Image ID="foto" runat="server" Height="600px" Width="1000px" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' />
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -252,10 +252,12 @@
                                         </td>
                                     </tr>
                                     <tr runat="server">
-                                        <td runat="server" style="">
-                                            <asp:DataPager ID="DataPager1" runat="server" PageSize="1" style="width:40px;height:40px;">
+                                        <td runat="server">
+                                            <asp:DataPager ID="DataPager1" runat="server" PageSize="1" >
                                                 <Fields>
-                                                    <asp:NextPreviousPagerField ButtonType="Image" PreviousPageImageUrl="~/imagenes/left-arrow.png" 
+                                                    <asp:NextPreviousPagerField ButtonType="Button" PreviousPageImageUrl="~/imagenes/left-arrow.png"  ShowNextPageButton="false" ShowPreviousPageButton="true"
+                                                        ButtonCssClass="BotonesIMG" ShowFirstPageButton="false" ShowLastPageButton="false" PreviousPageText="☚"/>
+                                                    <asp:NextPreviousPagerField ButtonType="Button" ShowPreviousPageButton="false" NextPageText="☛" ShowNextPageButton="true"
                                                         NextPageImageUrl="~/imagenes/right-arrow.png" ButtonCssClass="BotonesIMG" ShowFirstPageButton="false" ShowLastPageButton="false" />
                                                 </Fields>
                                             </asp:DataPager>
@@ -264,13 +266,6 @@
                                 </table>
                                     </div>
                             </LayoutTemplate>
-                            <SelectedItemTemplate>
-                                <tr style="">
-                                    <td>
-                                        <asp:Label ID="fotoLabel" runat="server" Text='<%# Eval("foto") %>' />
-                                    </td>
-                                </tr>
-                            </SelectedItemTemplate>
                         </asp:ListView>
                  </td>
          </tr>
@@ -278,9 +273,9 @@
      </td>
    </tr>
 </table>
-                        <asp:SqlDataSource ID="Imagenes" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [foto] FROM [Foto] WHERE ([anuncio] = @anuncio)">
+                        <asp:SqlDataSource ID="Imagenes" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE Foto.anuncio = Anuncio.id AND Anuncio.id = @id">
                             <SelectParameters>
-                                <asp:QueryStringParameter Name="anuncio" QueryStringField="anuncio_id" Type="Int32" />
+                                <asp:QueryStringParameter Name="id" QueryStringField="anuncio_id" />
                             </SelectParameters>
                         </asp:SqlDataSource>
                     </asp:Panel>
@@ -430,7 +425,13 @@
                     </LayoutTemplate>
                     
                 </asp:ListView>
-                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id))) AND (Anuncio.id &lt;&gt; @id) AND (Anuncio.categoria = @categoria) AND (Anuncio.tipo = @tipo)">
+                    <SelectParameters>
+                        <asp:QueryStringParameter Name="id" QueryStringField="anuncio_id" />
+                        <asp:ControlParameter ControlID="CATEGORIA" Name="categoria" PropertyName="Value" />
+                        <asp:ControlParameter ControlID="TIPO_ANUNCIO" Name="tipo" PropertyName="Value" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
                 
                 </td>
          </tr>
@@ -443,5 +444,7 @@
             </asp:UpdatePanel>
         </div>
     </div>
+     <asp:HiddenField ID="CATEGORIA" runat="server"/>
+     <asp:HiddenField ID="TIPO_ANUNCIO" runat="server"/>
 
 </asp:Content>
