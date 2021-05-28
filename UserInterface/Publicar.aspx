@@ -182,17 +182,12 @@
     <div class="bloque">
         <h3>Imagenes de articulo:</h3>
         <asp:FileUpload ID="cargarimg1" runat="server" Text="Cargar imagenes" AllowMultiple="true" />
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator7"
-            EnableClientScript="false"
-            runat="server" ControlToValidate="cargarimg1"
-            ErrorMessage="Only .png, .jpeg, .jpg Images formats are allowed." ForeColor="Red"
-            ValidationExpression="/^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpeg|.JPEG|.png|.PNG|.JPG|.jpg|.bitmap|.BITMAP)$/"
-            SetFocusOnError="true"></asp:RegularExpressionValidator>
+        
 
         <br />
     </div>
     <div style="text-align: center;">
-        <asp:Button ID="publicar" runat="server" Text="Publicar" OnClick="PublicarClick" />
+        <asp:Button ID="publicar" runat="server" ValidationGroup="cargarimg" Text="Publicar" OnClick="PublicarClick" />
         <asp:Button ID="inicio" runat="server" Text="Inicio" OnClick="InicioClick" />
 
     </div>

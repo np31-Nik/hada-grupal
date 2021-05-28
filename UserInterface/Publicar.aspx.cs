@@ -114,20 +114,61 @@ namespace UserInterface
 
 
                         anuncio.EsCoche = true;
+
                         
 
                         if (anuncio.createAnuncio()) {
                             if (cargarimg1.HasFile || cargarimg1.HasFiles)
                             {
-                                if (true/*cargarimg1.PostedFiles*/)
+                                try
                                 {
-                                    ENFoto img = new ENFoto();
-                                    img.Anuncio.id = anuncio.id;
-                                    if (img.uploadMultiplImage(cargarimg1.PostedFiles))
-                                        Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
+                                    /*
+                                     <asp:RegularExpressionValidator 
+            ID="RegularExpressionValidator7"
+            EnableClientScript="false"
+            runat="server" ControlToValidate="cargarimg1"
+            ErrorMessage="Only .png, .jpeg, .jpg Images formats are allowed." ForeColor="Red"
+            ValidationExpression="(([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.jpeg)($|[\s]))+"
+            ValidationGroup="cargarimg"
+            SetFocusOnError="true"></asp:RegularExpressionValidator>
+                                     */
+                                    bool formatoCorrercto = true;
+                                    foreach(HttpPostedFile file in cargarimg1.PostedFiles)
+                                    {
+                                        if(file.ContentType!="image/jpg" &&
+                                            file.ContentType != "image/jpeg" &&
+                                            file.ContentType != "image/png" &&
+                                            file.ContentType != "image/JPG" &&
+                                            file.ContentType != "image/JPEG" &&
+                                            file.ContentType != "image/PNG")
+                                            formatoCorrercto = false;
+                                        /*string format = System.IO.Path.GetExtension(cargarimg1.FileName);
+                                        if (format != ".jpg" && format != ".jpeg" && format != ".png" &&
+                                            format != ".JPG" && format != ".JPEG" && format != ".PNG")
+                                            formatoCorrercto = false;*/
+                                    }
+                                    if (formatoCorrercto)
+                                    {
+                                        ENFoto img = new ENFoto();
+                                        img.Anuncio.id = anuncio.id;
+                                        if (img.uploadMultiplImage(cargarimg1.PostedFiles))
+                                        {
+                                            Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
+                                        }
+                                    }
+                                    else {
+                                        mensaje.Text = "El formato de imagenes debe ser: .png o .jpg o .jpeg";
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    mensaje.Text = "Error " + ex;
                                 }
                             }
-                            Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
+                            else {
+                                mensaje.Text = "Debe caragr al menos una imagen (.png o .jpg o . jpeg)";
+                            }
+                            anuncio.deleteAnuncio();
                         }
                         else{
                             mensaje.Text = "El anuncio no se ha creado. Intentelo mas tarde.";
