@@ -13,6 +13,7 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["nif"] = "Y4441167L";
             if (!this.IsPostBack)
             {
                 if (Request.QueryString["anuncio_id"] == null)
@@ -41,6 +42,7 @@ namespace UserInterface
                         TELEFONO.Text = propietario.Telefono;
                         EMAIL.Text = propietario.Email;
                         LOCALIDAD.Text = en.localidad.localidad;
+                        LOCALIDADH.Value = en.localidad.localidad;
                         DESCRIPCION.Text = en.descripcion;
                         CATEGORIA.Value = en.categoria;
                         TIPO_ANUNCIO.Value = en.tipo.Tipo;
@@ -70,6 +72,10 @@ namespace UserInterface
                                 break;
                         }
 
+                        if (Session["nif"] != null)
+                        {
+                            PanelComentarioUsuario.Visible = true;
+                        }
                         //Similares(en);
                     }
                 }
@@ -82,13 +88,37 @@ namespace UserInterface
 
         protected void Comentar(object sender, EventArgs e)
         {
+            if (Session["nif"] != null && ComentarioUsuario.Text != "")
+            {
+                ENComentario en = new ENComentario();
+                en.anuncio = int.Parse(REF.Text);
+                en.user = Session["nif"].ToString();
+                en.text = ComentarioUsuario.Text;
+                en.createComentario();
 
+                bool success = false;
+                DataSet ds = new DataSet();
+                ds = en.BuscarComentarios(REF.Text, ref success);
+
+                ComentarioUsuario.Text = "";
+
+                if (success)
+                {
+                    ListaComentarios.DataSourceID = null;
+                    ListaComentarios.DataSource = ds;
+                    ListaComentarios.DataBind();
+                    ListaComentarios.DataSourceID = null;
+                }
+
+            }
+            
         }
 
         protected void ListView1_DataBound(object sender, EventArgs e)
         {
             DataPager dp = (DataPager)ListView1.FindControl("DataPager1");
             dp.Visible = (dp.PageSize < dp.TotalRowCount);
+            dp.ApplyStyleSheetSkin(this);
 
         }
 

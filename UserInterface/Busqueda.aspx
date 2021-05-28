@@ -141,7 +141,7 @@
                     </GroupTemplate>
                    
                     <ItemTemplate>
-                        <td runat="server" style="background-color:#DCDCDC;color: #000000;">
+                        <td runat="server" style="background-color:#DCDCDC;color: #000000;border:ridge;border-color:black">
                             <asp:ImageButton ID="FOTO" runat="server" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' Width="300px" Height="200px"
                                 PostBackUrl='<%#"~/Anuncio.aspx?anuncio_id="+ Eval("id") %>'/>
                             <br />

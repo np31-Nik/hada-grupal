@@ -256,8 +256,8 @@
                                             <asp:DataPager ID="DataPager1" runat="server" PageSize="1" >
                                                 <Fields>
                                                     <asp:NextPreviousPagerField ButtonType="Button" PreviousPageImageUrl="~/imagenes/left-arrow.png"  ShowNextPageButton="false" ShowPreviousPageButton="true"
-                                                        ButtonCssClass="BotonesIMG" ShowFirstPageButton="false" ShowLastPageButton="false" PreviousPageText="☚"/>
-                                                    <asp:NextPreviousPagerField ButtonType="Button" ShowPreviousPageButton="false" NextPageText="☛" ShowNextPageButton="true"
+                                                        ButtonCssClass="BotonesIMG" ShowFirstPageButton="false" ShowLastPageButton="false" PreviousPageText="<"/>
+                                                    <asp:NextPreviousPagerField ButtonType="Button" ShowPreviousPageButton="false" NextPageText=">" ShowNextPageButton="true"
                                                         NextPageImageUrl="~/imagenes/right-arrow.png" ButtonCssClass="BotonesIMG" ShowFirstPageButton="false" ShowLastPageButton="false" />
                                                 </Fields>
                                             </asp:DataPager>
@@ -303,19 +303,16 @@
         <div class="PanelDescripcion" ID="Panel_Comentarios" style="background-color:#ffffff;color:black;">
             <div>
                <asp:Label runat="server" Text="Comentarios de otros usuarios:" style="font-size:20px;font-weight:bold;text-align:center" Width="100%"></asp:Label>
-                <asp:UpdatePanel runat="server" ID="UpdatePanel_Comentario" UpdateMode="Conditional">
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="PublicarComentario" EventName="Click" />
-                    </Triggers>
+                <asp:UpdatePanel runat="server" ID="UpdatePanel_Comentario" UpdateMode="Always">
+
                     <ContentTemplate>
-                        <div class="Comentario">
+                        <asp:Panel runat="server" CssClass="Comentario" id="PanelComentarioUsuario" Visible="false">
                             <asp:TextBox runat="server" ID="ComentarioUsuario" style="width:100%;height:100px" placeholder="Escribe tu comentario aqui..." textmode="MultiLine"></asp:TextBox>
                             <br />
                             <asp:Button runat="server" ID="PublicarComentario" Text="Publicar comentario" OnClick="Comentar" />
-                        </div>
+                        </asp:Panel>
                         
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                
                     
                 <div>
                     <asp:ListView runat="server" ID="ListaComentarios" DataSourceID="Database" >
@@ -353,6 +350,8 @@
                         </SelectParameters>
                     </asp:SqlDataSource>
                 </div>
+                 </ContentTemplate>
+                    </asp:UpdatePanel>
             </div>
 
             <br />
@@ -393,7 +392,7 @@
                     </GroupTemplate>
                    
                     <ItemTemplate>
-                        <td runat="server" style="background-color:#DCDCDC;color: #000000;">
+                        <td runat="server" style="background-color:#DCDCDC;color: #000000;border:ridge;border-color:black">
                             <asp:ImageButton ID="FOTObtn" runat="server" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' Width="300px" Height="200px"
                                   OnClick="AnuncioSimilar" CommandArgument='<%# Eval("id") %>' />
                             <br />
@@ -425,11 +424,12 @@
                     </LayoutTemplate>
                     
                 </asp:ListView>
-                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id))) AND (Anuncio.id &lt;&gt; @id) AND (Anuncio.categoria = @categoria) AND (Anuncio.tipo = @tipo)">
+                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id))) AND (Anuncio.id &lt;&gt; @id) AND (Anuncio.categoria = @categoria) AND (Anuncio.tipo = @tipo) AND (Anuncio.localidad = @localidad)">
                     <SelectParameters>
                         <asp:QueryStringParameter Name="id" QueryStringField="anuncio_id" />
                         <asp:ControlParameter ControlID="CATEGORIA" Name="categoria" PropertyName="Value" />
                         <asp:ControlParameter ControlID="TIPO_ANUNCIO" Name="tipo" PropertyName="Value" />
+                        <asp:ControlParameter ControlID="LOCALIDADH" Name="localidad" PropertyName="Value" />
                     </SelectParameters>
                 </asp:SqlDataSource>
                 
@@ -446,5 +446,6 @@
     </div>
      <asp:HiddenField ID="CATEGORIA" runat="server"/>
      <asp:HiddenField ID="TIPO_ANUNCIO" runat="server"/>
+     <asp:HiddenField ID="LOCALIDADH" runat="server"/>
 
 </asp:Content>
