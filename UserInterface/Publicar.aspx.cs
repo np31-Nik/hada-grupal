@@ -15,6 +15,7 @@ namespace UserInterface
         {
             mensaje.Text = "";
             vehiculo.Visible = true;
+            Page.Form.Attributes.Add("enctype", "multipart/form-data");
             /*if (Session["nif"] == null)
             {
                 Response.Redirect("~/Registros.aspx");
@@ -109,14 +110,14 @@ namespace UserInterface
                         ENUsuario user = new ENUsuario();
                         ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precioVehiculo.Text),tipoAnun,user,car);
                         anuncio.categoria = "coche";
-                        anuncio.usuario.Nif = "uno1";//Session["nif"].ToString();
+                        anuncio.usuario.Nif = "11";//Session["nif"].ToString();
 
 
                         anuncio.EsCoche = true;
                         
 
                         if (anuncio.createAnuncio()) {
-                            if (cargarimg1.HasFiles)
+                            if (cargarimg1.HasFile || cargarimg1.HasFiles)
                             {
                                 if (true/*cargarimg1.PostedFiles*/)
                                 {
