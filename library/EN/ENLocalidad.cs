@@ -42,9 +42,9 @@ namespace library
         {
             bool leer = false;
             CADLocalidad cad = new CADLocalidad();
-            if (!(cad.createLocalidad(this)))
+            if (cad.createLocalidad(this))
             {
-                leer = cad.createLocalidad(this);
+                leer = true;
             }
             return leer;
         }
@@ -63,6 +63,7 @@ namespace library
         public bool updateLocalidad(string apariencia)
         {
             bool editar = false;
+            newLocalidad = apariencia;
             CADLocalidad aux = new CADLocalidad();
             if ((aux.readLocalidad(this)))
             {
