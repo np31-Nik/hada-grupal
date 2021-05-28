@@ -33,10 +33,10 @@ namespace UserInterface
             }
         }
 
-        protected void clickLupa(object sender, System.Web.UI.WebControls.ImageButton e)
+        protected void clickLupa(System.Web.UI.ImageClickEventArgs e)
         {
             string direccion = "";
-
+            
             if (Page.IsValid == true) 
             {
                 if (@ref.Text != null) 
