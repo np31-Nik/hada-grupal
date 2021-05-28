@@ -122,30 +122,17 @@ namespace UserInterface
                             {
                                 try
                                 {
-                                    /*
-                                     <asp:RegularExpressionValidator 
-            ID="RegularExpressionValidator7"
-            EnableClientScript="false"
-            runat="server" ControlToValidate="cargarimg1"
-            ErrorMessage="Only .png, .jpeg, .jpg Images formats are allowed." ForeColor="Red"
-            ValidationExpression="(([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.jpeg)($|[\s]))+"
-            ValidationGroup="cargarimg"
-            SetFocusOnError="true"></asp:RegularExpressionValidator>
-                                     */
                                     bool formatoCorrercto = true;
-                                    foreach(HttpPostedFile file in cargarimg1.PostedFiles)
+                                    foreach (HttpPostedFile file in cargarimg1.PostedFiles)
                                     {
-                                        if(file.ContentType!="image/jpg" &&
+                                        if (file.ContentType != "image/jpg" &&
                                             file.ContentType != "image/jpeg" &&
                                             file.ContentType != "image/png" &&
                                             file.ContentType != "image/JPG" &&
                                             file.ContentType != "image/JPEG" &&
                                             file.ContentType != "image/PNG")
+
                                             formatoCorrercto = false;
-                                        /*string format = System.IO.Path.GetExtension(cargarimg1.FileName);
-                                        if (format != ".jpg" && format != ".jpeg" && format != ".png" &&
-                                            format != ".JPG" && format != ".JPEG" && format != ".PNG")
-                                            formatoCorrercto = false;*/
                                     }
                                     if (formatoCorrercto)
                                     {
