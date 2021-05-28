@@ -3,6 +3,8 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Numerics;
+using System.Collections.Generic;
 
 namespace library
 {
@@ -224,15 +226,50 @@ namespace library
                 SqlConnection connection = null;
                 connection = new SqlConnection(constring);
                 connection.Open();
-                string query = "select * from [dbo].[Anuncio], [dbo].[Foto], [dbo].[" + tabla +"] " +
-                    "WHERE [dbo].[Anuncio].id=[dbo].[" + tabla + "].anuncio " +
-                    "AND [dbo].[Anuncio].id IN (select id from [dbo].[Anuncio] " + cmd_a + ")" +
-                    " AND [dbo].[" + tabla + "].anuncio IN (select anuncio from [dbo].[" + tabla + "] " + cmd_b + ")"+
-                    " AND [dbo].[Foto].anuncio = [dbo].[Anuncio].id";
 
-                SqlDataAdapter adp = new SqlDataAdapter(query, constring);
+                string query1 = "select * from [dbo].[Anuncio] AS a, [dbo].[Foto] AS f, [dbo].[" + tabla + "] " +
+                    "WHERE a.id=[dbo].[" + tabla + "].anuncio " +
+                    "AND a.id IN (select id from [dbo].[Anuncio] " + cmd_a + ")" +
+                    " AND [dbo].[" + tabla + "].anuncio IN (select anuncio from [dbo].[" + tabla + "] " + cmd_b + ")" +
+                    " AND f.anuncio = a.id";
+
+                SqlDataAdapter adp = new SqlDataAdapter(query1,constring);
 
                 adp.Fill(ds);
+
+                List<int> anuncios = new List<int>();
+                List<int> toDelete = new List<int>();
+
+                int tables = 0;
+
+                foreach (DataTable dt in ds.Tables)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        int index = dt.Rows.IndexOf(dr);
+
+                        if (anuncios.Contains(int.Parse(dr["id"].ToString())))
+                        {
+                            toDelete.Add(index);
+                        }
+                        else
+                        {
+                            anuncios.Add(int.Parse(dr["id"].ToString()));
+                        }
+                    }
+                    tables++;
+                }
+                for (int t = 0; t < tables; t++)
+                {
+                    foreach (int i in toDelete)
+                    {
+                        ds.Tables[t].Rows[i].Delete();
+                    }
+                }
+                
+                ds.AcceptChanges();
+
+
 
                 connection.Close();
                 success = true;

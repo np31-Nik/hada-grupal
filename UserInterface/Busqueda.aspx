@@ -109,17 +109,13 @@
 
     <div class="PanelBusqueda" style="background-color:#ffffff;color:black;">
         <div class="ResultadosBusqueda">
+                                        <asp:Label runat="server" Text="Resultados de busqueda" Width="100%" style="text-align:center;font-weight:bold;"></asp:Label>
+
          
-                    <table width="100%">
-   <tr>
-     <td align="center">
-       <table>
-         <tr>
-            <td>
+                    
             
             <asp:UpdatePanel runat="server" UpdateMode="Always">
                 <ContentTemplate>
-                            <asp:Label runat="server" Text="Resultados de busqueda" Width="100%" style="text-align:center;font-weight:bold;"></asp:Label>
 
                                     <asp:ListView ID="ListView1" runat="server" DataSourceID="DatosBusqueda" GroupItemCount="4">
                    
@@ -153,36 +149,16 @@
                             </td>
                     </ItemTemplate>
                     <LayoutTemplate>
-                        <table runat="server">
-                            <tr runat="server">
-                                <td runat="server">
-                                    <table id="groupPlaceholderContainer" runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                        <tr id="groupPlaceholder" runat="server">
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr runat="server">
-                                <td runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
-                                    <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
-                                        <Fields>
-                                            <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
-                                        </Fields>
-                                    </asp:DataPager>
-                                </td>
-                            </tr>
-                        </table>
-                    </LayoutTemplate>
-                   
-                </asp:ListView>
+                        <table width="100%">
+   <tr>
+     <td align="center">
+       <table>
+         <tr>
+            <td>
+                        <div id="groupPlaceholderContainer" runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;" >
+                                <span runat="server" id="groupPlaceholder" />
+                            </div>
                 
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
-                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
-            
-            
-                </ContentTemplate>
-            </asp:UpdatePanel>
-
                 </td>
          </tr>
        </table>
@@ -190,9 +166,30 @@
    </tr>
 </table>
 
+                    </LayoutTemplate>
+                   
+                </asp:ListView>
+                
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+            <br />
+                                            
+            
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
+
             
         </div>
     </div>
+        <br />
+        <div style="text-align: center;background-color: #f2f2f2; font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
+                                <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1">
+                                    <Fields>
+                                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                                    </Fields>
+                                </asp:DataPager>
+                            </div>
         <br />
         <br />
     </div>
