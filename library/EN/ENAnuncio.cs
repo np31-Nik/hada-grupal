@@ -144,11 +144,8 @@ namespace library
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool deleted = false;
-            if (anuncio.readAnuncio(this))
-            {
                 if (anuncio.deleteAnuncio(this))
                     deleted = true;
-            }
             return deleted;
         }
 
