@@ -8,59 +8,63 @@ using System.Web.UI.WebControls;
 
 namespace UserInterface
 {
-	/*
-	 * <asp:Table ID="Table1" runat="server" CellPadding="6">
-									<asp:TableRow>
-
-									</asp:TableRow>
-									<asp:TableRow>
-
-									</asp:TableRow>
-									<asp:TableRow>
-
-									</asp:TableRow>
-								</asp:Table>
-	*/
 	public partial class Perfil_Propiedad_Admin : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (!IsPostBack)
+			{
 
+			}
 		}
 
 		protected void InsertarTipo_Click(object sender, EventArgs e)
 		{
-			if(TipoValidE.IsValid && TipoValidR.IsValid)
+			try
 			{
-				ENTipoPropiedad en = new ENTipoPropiedad();
-				en.tipo = Tipo.Text;
-				if (en.createTipoPropiedad())
+				if (TipoValidE.IsValid && TipoValidR.IsValid)
 				{
-					Label_Estado.Text = "Success";
-					GridViewTipoPropiedad.DataBind();
+					ENTipoPropiedad en = new ENTipoPropiedad();
+					en.tipo = Tipo.Text;
+					if (en.createTipoPropiedad())
+					{
+						Label_Estado.Text = "Success";
+						GridViewTipoPropiedad.DataBind();
+					}
+					else
+					{
+						Label_Estado.Text = "Error ";
+					}
 				}
-				else
-				{
-					Label_Estado.Text = "Error ";
-				}
+			}
+			catch (Exception)
+			{
+				Label_Estado.Text = "Error en ejecucion INESPERADO";
 			}
 		}
 
 		protected void BorrarTipo_Click(object sender, EventArgs e)
 		{
-			if (TipoValidE.IsValid && TipoValidR.IsValid)
-			{
-				ENTipoPropiedad en = new ENTipoPropiedad();
-				en.tipo = Tipo.Text;
-				if (en.deleteTipoPropiedad())
+            try
+            {
+				if (TipoValidE.IsValid && TipoValidR.IsValid)
 				{
-					Label_Estado.Text = "Success";
-					GridViewTipoPropiedad.DataBind();
+					ENTipoPropiedad en = new ENTipoPropiedad();
+					en.tipo = Tipo.Text;
+					if (en.deleteTipoPropiedad())
+					{
+						Label_Estado.Text = "Success";
+						GridViewTipoPropiedad.DataBind();
+					}
+					else
+					{
+						Label_Estado.Text = "Error ";
+					}
 				}
-				else
-				{
-					Label_Estado.Text = "Error ";
-				}
+			}
+            catch (Exception)
+            {
+				Label_Estado.Text = "Error en ejecucion INESPERADO";
 			}
 		}
 
@@ -79,24 +83,31 @@ namespace UserInterface
 		}
 		protected void UpdateModTipo_Click(object sender, EventArgs e)
 		{
-			if (TipoValidE.IsValid && TipoValidR.IsValid &&
+            try
+            {
+				if (TipoValidE.IsValid && TipoValidR.IsValid &&
 				newTipoValid1.IsValid && newTipoValid2.IsValid)
-			{
-				ENTipoPropiedad en = new ENTipoPropiedad();
-				en.tipo = Tipo.Text;
-				if (en.updateTipoPropiedad(TextBoxNewTipo.Text))
 				{
-					Label_Estado.Text = "Success";
-					GridViewTipoPropiedad.DataBind();
-					modTipoRow.Visible = false;
-					newTipo.Visible = false;
-					optionRow.Visible = true;
-					TextBoxNewTipo.Text = "";
+					ENTipoPropiedad en = new ENTipoPropiedad();
+					en.tipo = Tipo.Text;
+					if (en.updateTipoPropiedad(TextBoxNewTipo.Text))
+					{
+						Label_Estado.Text = "Success";
+						GridViewTipoPropiedad.DataBind();
+						modTipoRow.Visible = false;
+						newTipo.Visible = false;
+						optionRow.Visible = true;
+						TextBoxNewTipo.Text = "";
+					}
+					else
+					{
+						Label_Estado.Text = "Error ";
+					}
 				}
-				else
-				{
-					Label_Estado.Text = "Error ";
-				}
+			}
+            catch (Exception)
+            {
+				Label_Estado.Text = "Error en ejecucion INESPERADO";
 			}
 		}
 

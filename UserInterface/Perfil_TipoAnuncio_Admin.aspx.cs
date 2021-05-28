@@ -19,7 +19,10 @@ namespace UserInterface
 		DataSet d_Localidad = new DataSet();*/
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (!IsPostBack)
+			{
 
+			}
 		}
 
 		protected void GridViewTipoAnuncio_SelectedIndexChanged(object sender, EventArgs e)
@@ -31,10 +34,10 @@ namespace UserInterface
 		{
 			if(TipoValid1.IsValid && TipoValid2.IsValid)
 			{
-				ENTipoAnuncio en = new ENTipoAnuncio();
-				en.Tipo = Tipo.Text;
 				try
 				{
+					ENTipoAnuncio en = new ENTipoAnuncio();
+					en.Tipo = Tipo.Text;
 					if (en.createTipoAnuncio())
 					{
 						Label_Estado.Text = "Success";
@@ -45,10 +48,9 @@ namespace UserInterface
 						Label_Estado.Text = "Error ";
 					}
 				}
-				catch (Exception ex)
+				catch (Exception)
 				{
-					Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-					Label_Estado.Text = ex.Message;
+					Label_Estado.Text = "Error en ejecucion INESPERADO";
 				}
 			}
 		}
@@ -57,10 +59,10 @@ namespace UserInterface
 		{
 			if (TipoValid1.IsValid && TipoValid2.IsValid)
 			{
-				ENTipoAnuncio en = new ENTipoAnuncio();
-				en.Tipo = Tipo.Text;
 				try
 				{
+					ENTipoAnuncio en = new ENTipoAnuncio();
+					en.Tipo = Tipo.Text;
 					if (en.deleteTipoAnuncio())
 					{
 						Label_Estado.Text = "Success";
@@ -71,10 +73,9 @@ namespace UserInterface
 						Label_Estado.Text = "Error ";
 					}
 				}
-				catch (Exception ex)
+				catch (Exception)
 				{
-					Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-					Label_Estado.Text = ex.Message;
+					Label_Estado.Text = "Error en ejecucion INESPERADO";
 				}
 			}
 		}
@@ -95,36 +96,43 @@ namespace UserInterface
 		}
 		protected void UpdateModTipo_Click(object sender, EventArgs e)
 		{
-			if (TipoValid1.IsValid && TipoValid2.IsValid &&
+            try
+            {
+				if (TipoValid1.IsValid && TipoValid2.IsValid &&
 				newTipoValid1.IsValid && newTipoValid2.IsValid)
-			{
-				ENTipoAnuncio en = new ENTipoAnuncio();
-				en.Tipo = Tipo.Text;
-				en.NewTipo = TextBoxNewTipo.Text;
-				if (en.updateTipoAnuncio())
 				{
-					Label_Estado.Text = "Success";
-					GridViewTipoAnuncio.DataBind();
-					HidenRow.Visible = false;
-					modRow1.Visible = false;
-					optionRow1.Visible = true;
-					TextBoxNewTipo.Text = "";
+					ENTipoAnuncio en = new ENTipoAnuncio();
+					en.Tipo = Tipo.Text;
+					en.NewTipo = TextBoxNewTipo.Text;
+					if (en.updateTipoAnuncio())
+					{
+						Label_Estado.Text = "Success";
+						GridViewTipoAnuncio.DataBind();
+						HidenRow.Visible = false;
+						modRow1.Visible = false;
+						optionRow1.Visible = true;
+						TextBoxNewTipo.Text = "";
+					}
+					else
+					{
+						Label_Estado.Text = "Error ";
+					}
 				}
-				else
-				{
-					Label_Estado.Text = "Error ";
-				}
+			}
+            catch (Exception)
+            {
+				Label_Estado.Text = "Error en ejecucion INESPERADO";
 			}
 		}
 		protected void InsertarLocalidad_Click(object sender, EventArgs e)
 		{
 			if(LocalidadValid1.IsValid && LocalidadValid2.IsValid)
 			{
-				 ENLocalidad en = new ENLocalidad();
-				 en.localidad = Localidad.Text;
 				 try
 				 {
-					 if (en.createLocalidad())
+					ENLocalidad en = new ENLocalidad();
+					en.localidad = Localidad.Text;
+					if (en.createLocalidad())
 					 {
 						 Label_Estado2.Text = "Success";
 						 GridViewLocalidad.DataBind();
@@ -134,11 +142,11 @@ namespace UserInterface
 						 Label_Estado2.Text = "Error ";
 					 }
 				 }
-				 catch (Exception ex)
+				 catch (Exception)
 				 {
-					 Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-					 Label_Estado2.Text = ex.Message;
-				 }
+					Label_Estado2.Text = "Error en ejecucion INESPERADO";
+
+				}
 			}
 		}
 
@@ -146,10 +154,10 @@ namespace UserInterface
 		{
 			if (LocalidadValid1.IsValid && LocalidadValid2.IsValid)
 			{
-				ENLocalidad en = new ENLocalidad();
-				en.localidad = Localidad.Text;
 				try
 				{
+					ENLocalidad en = new ENLocalidad();
+					en.localidad = Localidad.Text;
 					if (en.deleteLocalidad())
 					{
 						Label_Estado2.Text = "Success";
@@ -160,10 +168,9 @@ namespace UserInterface
 						Label_Estado2.Text = "Error ";
 					}
 				}
-				catch (Exception ex)
+				catch (Exception)
 				{
-					Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
-					Label_Estado2.Text = ex.Message;
+					Label_Estado2.Text = "Error en ejecucion INESPERADO";
 				}
 			}
 		}
@@ -184,25 +191,32 @@ namespace UserInterface
 		}
 		protected void UpdateModLocalidad_Click(object sender, EventArgs e)
 		{
-			if (LocalidadValid1.IsValid && LocalidadValid2.IsValid &&
+            try
+            {
+				if (LocalidadValid1.IsValid && LocalidadValid2.IsValid &&
 				newLocalidadValid1.IsValid && newLocalidadValid2.IsValid)
-			{
-				ENLocalidad en = new ENLocalidad();
-				en.localidad = Localidad.Text;
-				en.newLocalidad = newLocalidad.Text;
-				if (en.updateLocalidad())
 				{
-					Label_Estado2.Text = "Success";
-					GridViewLocalidad.DataBind();
-					HidenRow2.Visible = false;
-					modRow2.Visible = false;
-					optionRow2.Visible = true;
-					newLocalidad.Text = "";
+					ENLocalidad en = new ENLocalidad();
+					en.localidad = Localidad.Text;
+					en.newLocalidad = newLocalidad.Text;
+					if (en.updateLocalidad())
+					{
+						Label_Estado2.Text = "Success";
+						GridViewLocalidad.DataBind();
+						HidenRow2.Visible = false;
+						modRow2.Visible = false;
+						optionRow2.Visible = true;
+						newLocalidad.Text = "";
+					}
+					else
+					{
+						Label_Estado2.Text = "Error ";
+					}
 				}
-				else
-				{
-					Label_Estado2.Text = "Error ";
-				}
+			}
+            catch (Exception)
+            {
+				Label_Estado2.Text = "Error en ejecucion INESPERADO";
 			}
 		}
 		protected void GridViewLocalidad_SelectedIndexChanged(object sender, EventArgs e)
