@@ -15,11 +15,11 @@ namespace UserInterface
 		{
             if (!IsPostBack)
             {
-				if(Session["nif"] != null)
-                {
-					
+				if (Session["nif"] == null)
+				{
+					Response.Redirect("~/Inicio.aspx");
 				}
-            }
+			}
 		}
 		
 		private void offCoche()
@@ -59,26 +59,146 @@ namespace UserInterface
 			PrecioAnuncio.Enabled = false;
 			PrecioAnuncio.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "None");
 		}
+		protected void ModFoto_Click(object sender, EventArgs e)
+		{
+			NoModFoto.Visible = true;
+			YesModFoto.Visible = true;
+			BorrarFoto.Visible = false;
+			UploadFoto.Visible = false;
+		}
+		protected void NoModFoto_Click(object sender, EventArgs e)
+		{
+			NoModFoto.Visible = false;
+			YesModFoto.Visible = false;
+			BorrarFoto.Visible = true;
+			UploadFoto.Visible = true;
+		}
+		protected void YesModFoto_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if (ImageValid.IsValid)
+				{
+					if (ImageUpload.HasFile)
+					{
+						ListViewItem item = ListView1.Items[ListView1.SelectedIndex];
+						HiddenField idList = (HiddenField)item.FindControl("HFcari");
+						int fotoId = int.Parse(idList.Value.ToString());
+						ENFoto en = new ENFoto(ImageUpload.PostedFile, aEng);
+						en.ID = fotoId;
+						if (en.updateFoto())
+						{
+							NoModFoto.Visible = false;
+							YesModFoto.Visible = false;
+							BorrarFoto.Visible = true;
+							UploadFoto.Visible = true;
+							ListView1.DataBind();
+							Label_Estado2.Text = "Success";
+						}
+						else
+						{
+							Label_Estado2.Text = "Error";
+						}
+					}
+					else
+					{
+						Label_Estado2.Text = "No hay imagenes a subir";
+					}
+				}
+			}
+			catch (Exception)
+			{
+				Label_Estado2.Text = "Error INESPERADO: T_T";
+			}
+		}
+		protected void UploadFoto_Click(object sender, EventArgs e)
+		{
+			NoUploadFoto.Visible = true;
+			YesUploadFoto.Visible = true;
+			BorrarFoto.Visible = false;
+			ModFoto.Visible = false;
+		}
+		protected void NoUploadFoto_Click(object sender, EventArgs e)
+		{
+			NoUploadFoto.Visible = false;
+			YesUploadFoto.Visible = false;
+			BorrarFoto.Visible = true;
+			ModFoto.Visible = true;
+		}
+		protected void YesUploadFoto_Click(object sender, EventArgs e)
+		{
+			try
+			{
+                if (ImageValid.IsValid)
+                {
+                    if (ImageUpload.HasFile) {
+						ENFoto en = new ENFoto(ImageUpload.PostedFile, aEng);
+						if (en.createFoto())
+						{
+							NoUploadFoto.Visible = false;
+							YesUploadFoto.Visible = false;
+							BorrarFoto.Visible = true;
+							ModFoto.Visible = true;
+							ListView1.DataBind();
+							Label_Estado2.Text = "Success";
+						}
+						else
+						{
+							Label_Estado2.Text = "Error";
+						}
+					}
+                    else
+                    {
+						Label_Estado2.Text = "No hay imagenes a subir";
+					}
+                }
+			}
+			catch (Exception)
+			{
+				Label_Estado2.Text = "Error INESPERADO: T_T";
+			}
+		}
 		protected void BorrarFoto_Click(object sender, EventArgs e)
 		{
 			NoBorrarFoto.Visible = true;
 			YesBorrarFoto.Visible = true;
+			ModFoto.Visible = false;
+			UploadFoto.Visible = false;
 		}
 		protected void NoBorrarFoto_Click(object sender, EventArgs e)
 		{
 			NoBorrarFoto.Visible = false;
 			YesBorrarFoto.Visible = false;
+			ModFoto.Visible = true;
+			UploadFoto.Visible = true;
 		}
 		protected void YesBorrarFoto_Click(object sender, EventArgs e)
 		{
             try
             {
-
-            }
+				ListViewItem item = ListView1.Items[ListView1.SelectedIndex];
+				HiddenField idList = (HiddenField)item.FindControl("HFcari");
+				int fotoId = int.Parse(idList.Value.ToString());
+				ENFoto en = new ENFoto();
+				en.ID = fotoId;
+                if (en.deleteFoto())
+                {
+					NoBorrarFoto.Visible = false;
+					YesBorrarFoto.Visible = false;
+					ModFoto.Visible = true;
+					UploadFoto.Visible = true;
+					ListView1.DataBind();
+					Label_Estado2.Text = "Success";
+				}
+                else
+                {
+					Label_Estado2.Text = "Error";
+				}
+			}
             catch (Exception)
             {
-
-            }
+				Label_Estado2.Text = "Error INESPERADO: T_T";
+			}
 		}
 		protected void BorrarAnuncio_Click(object sender, EventArgs e)
 		{
@@ -101,7 +221,9 @@ namespace UserInterface
 					UpdatePanelAnuncio.Visible = false;
 					IdAnuncio.Text = "";
 					Label_Estado.Text = "Success";
-
+					FotoUpdatePanel.Visible = false;
+					UpdatePanelAnuncio.Visible = false;
+					ImageModButtons2.Visible = false;
 				}
 				else
                 {
@@ -305,6 +427,7 @@ namespace UserInterface
 					Descripcion.Text = enA.descripcion;
 					aEng = enA;
 					aEng.id = enA.id;
+					
 					switch (CategoriaAnuncio.Text)
 					{
 						case "Coche":
@@ -328,6 +451,9 @@ namespace UserInterface
 							Label_Estado.Text = "Error INESPERADO: categoria desconocida";
 							break;
 					}
+					FotoUpdatePanel.Visible = true;
+					UpdatePanelAnuncio.Visible = true;
+					ImageModButtons2.Visible = true;
 				}
                 else
                 {
