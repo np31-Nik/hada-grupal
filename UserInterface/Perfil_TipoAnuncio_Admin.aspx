@@ -155,27 +155,27 @@
 							</td>
 							<td>
 								<div class="formularioTable">
-						<asp:GridView ID="GridViewLocalidad" runat="server" EmptyDataText="La tabla esta vacia" AutoGenerateColumns="False" AllowPaging="True" PageSize="4" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="localidad" DataSourceID="sqlLocalidad" OnSelectedIndexChanged="GridViewLocalidad_SelectedIndexChanged">
-							<AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-							<Columns>
-								<asp:CommandField ShowSelectButton="True" />
-								<asp:BoundField DataField="localidad" ItemStyle-CssClass="itemStyle2" HeaderText="localidad" ReadOnly="True" SortExpression="localidad" >
-								<ItemStyle CssClass="itemStyle2" />
-								</asp:BoundField>
-							</Columns>
-							<EditRowStyle BackColor="#999999" />
-							<FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-							<HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-							<PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-							<RowStyle HorizontalAlign="Center" BackColor="#F7F6F3" ForeColor="#333333" />
-							<SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-							<SortedAscendingCellStyle BackColor="#E9E7E2"  />
-							<SortedAscendingHeaderStyle BackColor="#506C8C" />
-							<SortedDescendingCellStyle BackColor="#FFFDF8" />
-							<SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-						</asp:GridView>
-						<asp:SqlDataSource ID="sqlLocalidad" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [localidad] FROM [Localidad]"></asp:SqlDataSource>
-					</div>
+									<asp:GridView ID="GridViewLocalidad" runat="server" EmptyDataText="La tabla esta vacia" AutoGenerateColumns="False" AllowPaging="True" PageSize="4" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="localidad" DataSourceID="sqlLocalidad" OnSelectedIndexChanged="GridViewLocalidad_SelectedIndexChanged">
+										<AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+										<Columns>
+											<asp:CommandField ShowSelectButton="True" />
+											<asp:BoundField DataField="localidad" ItemStyle-CssClass="itemStyle2" HeaderText="localidad" ReadOnly="True" SortExpression="localidad" >
+											<ItemStyle CssClass="itemStyle2" />
+											</asp:BoundField>
+										</Columns>
+										<EditRowStyle BackColor="#999999" />
+										<FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+										<HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+										<PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+										<RowStyle HorizontalAlign="Center" BackColor="#F7F6F3" ForeColor="#333333" />
+										<SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+										<SortedAscendingCellStyle BackColor="#E9E7E2"  />
+										<SortedAscendingHeaderStyle BackColor="#506C8C" />
+										<SortedDescendingCellStyle BackColor="#FFFDF8" />
+										<SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+									</asp:GridView>
+									<asp:SqlDataSource ID="sqlLocalidad" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [localidad] FROM [Localidad]"></asp:SqlDataSource>
+								</div>
 							</td>
 						</tr>
 					</table>
