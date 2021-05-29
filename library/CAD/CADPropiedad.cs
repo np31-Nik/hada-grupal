@@ -15,15 +15,13 @@ namespace library
         public bool createPropiedad(ENPropiedad en)
         {
             bool creado = false;
-            //Falta anyadir mas atibutos a la BD
-            
-
+            SqlConnection conn = null;
             try
             {
                 string comando = "Insert INTO [dbo].[Propiedad] (anuncio, numCatastral, superficie, dorm, bano, tipo)" +
                 "VALUES ('" + en.id + "', '" + en.numCatastral + "', '" + en.superficie + "', '"
                 + en.habitaciones + "', '" + en.banyos + "', '" + en.tipo.tipo + "')";
-                SqlConnection conn = null;
+
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -40,18 +38,21 @@ namespace library
             {
 
             }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
             return creado;
         }
 
         public bool readPropiedad(ENPropiedad en)
         {
             bool read = false;
-            
 
+            SqlConnection conn = null;
             try
             {
                 string comando = "select * From [dbo].[Propiedad] where anuncio='" + en.id + "'";
-                SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -85,13 +86,17 @@ namespace library
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
 
             }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
             return read;
         }
     
         public bool updatePropiedad(ENPropiedad en)
         {
             bool updated = false;
-            
+            SqlConnection conn = null;
             try
             {
                 string comando = "UPDATE [dbo].[Propiedad] SET " +
@@ -101,7 +106,6 @@ namespace library
                "superficie=" + en.superficie + "' ," +
                "bano=" + en.banyos + "' ," +
                "WHERE anuncio = '" + en.id + "'";
-                SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -119,18 +123,21 @@ namespace library
                 updated = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
-
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
 
             return updated;
         }
         public bool deletePropiedad(ENPropiedad en)
         {
             bool borrado = false;
-            
+            SqlConnection conn = null;
             try
             {
                 string comando = "DELETE FROM [dbo].[Propiedad] WHERE anuncio = '" + en.id + "'";
-                SqlConnection conn = null;
+
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -148,7 +155,10 @@ namespace library
                 borrado = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
-
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
             return borrado;
         }
     }
