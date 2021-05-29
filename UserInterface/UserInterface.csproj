@@ -216,12 +216,6 @@
     </None>
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\library\library.csproj">
-      <Project>{f69b0898-6d37-46f8-9512-2e670b0df3df}</Project>
-      <Name>library</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\library\library.csproj">

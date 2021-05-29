@@ -53,7 +53,7 @@
         {
             bool success = false;
             CADTipoPropiedad cad = new CADTipoPropiedad();
-            if (!(cad.readTipoPropiedad(this)))
+            if (cad.readTipoPropiedad(this))
             {
                 success = cad.deleteTipoPropiedad(this);
             }
@@ -66,7 +66,7 @@
             bool success = false;
             NewTipo = T;
             CADTipoPropiedad cad = new CADTipoPropiedad();
-            if (!(cad.readTipoPropiedad(this)))
+            if (cad.readTipoPropiedad(this))
             {
                 success = cad.updateTipoPropiedad(this);
             }
