@@ -202,7 +202,7 @@ namespace UserInterface
 					ENLocalidad en = new ENLocalidad();
 					en.localidad = Localidad.Text;
 					en.newLocalidad = newLocalidad.Text;
-					if (en.updateLocalidad())
+					if (en.updateLocalidad(newLocalidad.Text))
 					{
 						Label_Estado2.Text = "Success";
 						GridViewLocalidad.DataBind();

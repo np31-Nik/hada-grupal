@@ -16,7 +16,7 @@ namespace UserInterface
 			{
 				if (Session["nif"] == null)
 				{
-					Response.Redirect("~/Inicio.aspx");
+					//Response.Redirect("~/Inicio.aspx");
 				}
 			}
 		}
@@ -32,9 +32,11 @@ namespace UserInterface
                 {
 					ENHipoteca en = new ENHipoteca();
 					en.BANCO = TextBoxBancoH.Text;
-					//en.FECHADESDE = int.Parse(TextBoxDesde.Text);
-					//en.FECHAHASTA= int.Parse(TextBoxHasta.Text);
+					en.FECHADESDE = int.Parse(TextBoxDesde.Text);
+					en.FECHAHASTA= int.Parse(TextBoxHasta.Text);
 					en.INTERESES = int.Parse(TextBoxInteres.Text);
+
+					en.NUMSOLICITUDES = 0;
 					if (en.createHipoteca())
 					{
 						Label_Estado.Text = "Success";
@@ -107,8 +109,8 @@ namespace UserInterface
 				{
 					ENHipoteca en = new ENHipoteca();
 					en.BANCO = TextBoxBancoH.Text;
-					//en.FECHADESDE = int.Parse(TextBoxDesde.Text);
-					//en.FECHAHASTA= int.Parse(TextBoxHasta.Text);
+					en.FECHADESDE = int.Parse(TextBoxDesde.Text);
+					en.FECHAHASTA= int.Parse(TextBoxHasta.Text);
 					en.INTERESES = int.Parse(TextBoxInteres.Text);
 					if (en.updateHipoteca())
 					{
@@ -140,7 +142,7 @@ namespace UserInterface
 					ENBanco en = new ENBanco();
 					en.BANCO = TextBoxBanco.Text;
 					en.EMAIL = TextBoxEmail.Text;
-					//en.TELEFONO = TextBoxTelefono.Text;
+					en.TELEFONO = TextBoxTelefono.Text;
 					if (en.createBanco())
 					{
 						Label_Estado.Text = "Success";
@@ -212,21 +214,26 @@ namespace UserInterface
 		{
 			try
 			{
-				ENBanco en = new ENBanco();
-				en.BANCO = TextBoxBanco.Text;
-				en.EMAIL = TextBoxEmail.Text;
-				//en.TELEFONO = TextBoxTelefono.Text;
-				if (en.updateBanco())
+				if (BancoValid.IsValid && BancoValid1.IsValid &&
+					EmailValid1.IsValid && EmailValid2.IsValid &&
+					TelefonoValid1.IsValid && TelefonoValid2.IsValid)
 				{
-					Label_Estado.Text = "Success";
-					GridViewBanco.DataBind();
-					optionRow1.Visible = true;
-					TextBoxBanco.Enabled = true;
-					modRow1.Visible = false;
-				}
-				else
-				{
-					Label_Estado.Text = "Error";
+					ENBanco en = new ENBanco();
+					en.BANCO = TextBoxBanco.Text;
+					en.EMAIL = TextBoxEmail.Text;
+					en.TELEFONO = TextBoxTelefono.Text;
+					if (en.updateBanco())
+					{
+						Label_Estado.Text = "Success";
+						GridViewBanco.DataBind();
+						optionRow1.Visible = true;
+						TextBoxBanco.Enabled = true;
+						modRow1.Visible = false;
+					}
+					else
+					{
+						Label_Estado.Text = "Error";
+					}
 				}
 			}
 			catch (Exception)
@@ -245,18 +252,18 @@ namespace UserInterface
 		}
 		protected void GridViewBanco_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			TextBoxBanco.Text = GridViewBanco.SelectedRow.Cells[0].Text;
-			TextBoxHasta.Text = GridViewBanco.SelectedRow.Cells[1].Text;
+			TextBoxBanco.Text = GridViewBanco.SelectedRow.Cells[1].Text;
 			TextBoxTelefono.Text = GridViewBanco.SelectedRow.Cells[2].Text;
+			TextBoxEmail.Text = GridViewBanco.SelectedRow.Cells[3].Text;
 		}
 
 		protected void GridViewHipoteca_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			TextBoxId.Text = GridViewHipoteca.SelectedRow.Cells[0].Text;
-			TextBoxBancoH.Text = GridViewHipoteca.SelectedRow.Cells[1].Text;
-			TextBoxDesde.Text = GridViewHipoteca.SelectedRow.Cells[2].Text;
-			TextBoxHasta.Text = GridViewHipoteca.SelectedRow.Cells[3].Text;
-			TextBoxInteres.Text = GridViewHipoteca.SelectedRow.Cells[4].Text;
+			TextBoxId.Text = GridViewHipoteca.SelectedRow.Cells[1].Text;
+			TextBoxBancoH.Text = GridViewHipoteca.SelectedRow.Cells[2].Text;
+			TextBoxDesde.Text = GridViewHipoteca.SelectedRow.Cells[3].Text;
+			TextBoxHasta.Text = GridViewHipoteca.SelectedRow.Cells[4].Text;
+			TextBoxInteres.Text = GridViewHipoteca.SelectedRow.Cells[5].Text;
 		}
 	}
 }
