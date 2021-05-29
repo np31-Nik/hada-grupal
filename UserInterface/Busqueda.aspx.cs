@@ -101,7 +101,7 @@ namespace UserInterface
 
             and = false;
 
-            if (RB_Coche_Propiedad.SelectedItem.Text == "Coche")
+            if (string.Compare(RB_Coche_Propiedad.SelectedItem.Text, "Coche") == 0)
             {
                 if(TIPO_COCHE.SelectedItem.Text != "Elige...")
                 {
@@ -124,8 +124,9 @@ namespace UserInterface
                 ds = en.BusquedaAnuncios(comandoAnuncio, comandoPropiedad, ref success);
 
             }
-            else if (RB_Coche_Propiedad.SelectedItem.Text == "Propiedad")
+            else if (string.Compare(RB_Coche_Propiedad.SelectedItem.Text, "Propiedad")==0)
             {
+                Response.Redirect("~/Principal.aspx");
                 if(TIPO_PROPIEDAD.SelectedItem.Text != "Elige...")
                 {
                     comandoPropiedad += "tipo = '" + TIPO_PROPIEDAD.SelectedItem.Text + "'";
@@ -155,17 +156,8 @@ namespace UserInterface
 
             }
 
-            if (success)
-            {
-                ListView1.DataSource = ds;
-                ListView1.DataBind();
-            }
-            else
-            {
-                ListView1.DataSource = null;
-                ListView1.DataBind();
-            }
-
+            ListView1.DataSource = ds;
+            ListView1.DataBind();
 
         }
 
@@ -176,6 +168,11 @@ namespace UserInterface
                 cmd+= " AND ";
                 add = false;
             }
+        }
+
+        protected void AbrirAnuncio(object sender, EventArgs e)
+        {
+
         }
     }
 }

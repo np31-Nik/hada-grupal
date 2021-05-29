@@ -95,7 +95,7 @@
         <br />
         <div class="BotonBusqueda" style="text-align:center">
             <asp:Button runat="server" ID="BUSCAR" Text="Buscar" style="background-color:white;font-size:20px" Height="50px" Width="110px"
-                causesValidation="true" ValidationGroup="Buscar" OnClick="BuscarAnuncios"/>
+                causesValidation="true" ValidationGroup="Buscar" OnClientClick="if(Page_ClientValidate()) return BuscarAnuncios();"/>
         </div>
         <br />
         <asp:ValidationSummary runat="server" DisplayMode="BulletList" EnableClientScript="false" ID="ValidationSummary_Buscar" ValidationGroup="Buscar"
@@ -115,77 +115,114 @@
        <table>
          <tr>
             <td>
-            <asp:ListView ID="ListView1" runat="server" DataSourceID="Database" GroupItemCount="4">
-                <EmptyDataTemplate>
-                    <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;
-                        border-color: #999999;border-style:none;border-width:1px;">
-                        <tr>
-                            <td>No hay ningún artículo que cumpla con los requisitos de búsqueda.</td>
+            
+            
+                <asp:ListView ID="ListView1" runat="server" DataSourceID="DatosBusqueda" GroupItemCount="3">
+                    <AlternatingItemTemplate>
+                        <td runat="server" style="background-color:#FFF8DC;">precio:
+                            <asp:Label ID="precioLabel" runat="server" Text='<%# Eval("precio") %>' />
+                            <br />tipo:
+                            <asp:Label ID="tipoLabel" runat="server" Text='<%# Eval("tipo") %>' />
+                            <br />localidad:
+                            <asp:Label ID="localidadLabel" runat="server" Text='<%# Eval("localidad") %>' />
+                            <br />foto:
+                            <asp:Label ID="fotoLabel" runat="server" Text='<%# Eval("foto") %>' />
+                            <br /></td>
+                    </AlternatingItemTemplate>
+                    <EditItemTemplate>
+                        <td runat="server" style="background-color:#008A8C;color: #FFFFFF;">precio:
+                            <asp:TextBox ID="precioTextBox" runat="server" Text='<%# Bind("precio") %>' />
+                            <br />tipo:
+                            <asp:TextBox ID="tipoTextBox" runat="server" Text='<%# Bind("tipo") %>' />
+                            <br />localidad:
+                            <asp:TextBox ID="localidadTextBox" runat="server" Text='<%# Bind("localidad") %>' />
+                            <br />foto:
+                            <asp:TextBox ID="fotoTextBox" runat="server" Text='<%# Bind("foto") %>' />
+                            <br />
+                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                            <br />
+                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                            <br /></td>
+                    </EditItemTemplate>
+                    <EmptyDataTemplate>
+                        <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
+                            <tr>
+                                <td>No data was returned.</td>
+                            </tr>
+                        </table>
+                    </EmptyDataTemplate>
+                    <EmptyItemTemplate>
+<td runat="server" />
+                    </EmptyItemTemplate>
+                    <GroupTemplate>
+                        <tr id="itemPlaceholderContainer" runat="server">
+                            <td id="itemPlaceholder" runat="server"></td>
                         </tr>
-                    </table>
-                </EmptyDataTemplate>
-                <EmptyItemTemplate>
-                <td runat="server" />
-                </EmptyItemTemplate>
-                <GroupTemplate>
-                    <tr id="itemPlaceholderContainer" runat="server" style="position:center">
-                        <td id="itemPlaceholder" runat="server"></td>
-                    </tr>
-                </GroupTemplate>
-                
-                <ItemTemplate>
-                    
-                    <td runat="server" style="background-color:#DCDCDC;color: #000000;">
-                        <asp:ImageButton ID="img_anuncio" runat="server"
-                                ImageUrl="~\imagenes\image0.jpg"
-                                Height="200px" Width="300px" />
-                        <br />
-                        precio:
-                        <asp:DynamicControl runat="server" DataField="precio" Mode="ReadOnly" />
-                        <br />tipo:
-                        <asp:DynamicControl runat="server" DataField="tipo" Mode="ReadOnly" />
-                        <br />localidad:
-                        <asp:DynamicControl runat="server" DataField="localidad" Mode="ReadOnly" />
-                        <br /></td>
-                </ItemTemplate>
-                <LayoutTemplate>            
-                    <div style="width:100%;position:center;text-align:center;">
+                    </GroupTemplate>
+                    <InsertItemTemplate>
+                        <td runat="server" style="">precio:
+                            <asp:TextBox ID="precioTextBox" runat="server" Text='<%# Bind("precio") %>' />
+                            <br />tipo:
+                            <asp:TextBox ID="tipoTextBox" runat="server" Text='<%# Bind("tipo") %>' />
+                            <br />localidad:
+                            <asp:TextBox ID="localidadTextBox" runat="server" Text='<%# Bind("localidad") %>' />
+                            <br />foto:
+                            <asp:TextBox ID="fotoTextBox" runat="server" Text='<%# Bind("foto") %>' />
+                            <br />
+                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                            <br />
+                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                            <br /></td>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <td runat="server" style="background-color:#DCDCDC;color: #000000;">
+                            <asp:ImageButton ID="FOTO" runat="server" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' Width="300px" Height="200px" />
+                            <br />
+                            <asp:Label ID="tipoLabel" runat="server" style="float:left" Text='<%# Eval("tipo") %>' />
+                            <asp:Label runat="server" Text="€" style="float:right"></asp:Label>
+                            <asp:Label ID="precioLabel" runat="server" style="float:right" Text='<%# Eval("precio") %>' />
+                            <br />
+                            <asp:Label ID="localidadLabel" runat="server" style="float:right" Text='<%# Eval("localidad") %>' />
+                            </td>
+                    </ItemTemplate>
+                    <LayoutTemplate>
                         <table runat="server">
-                        <tr runat="server">
-                            <td runat="server">
-                                <table id="groupPlaceholderContainer" runat="server" border="1" 
-                                    style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;
-                                            border-style:none;border-width:1px;">
-                                    <tr id="groupPlaceholder" runat="server">
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr runat="server">
-                            <td runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
-                                <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
-                                    <Fields>
-                                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                        <asp:NumericPagerField />
-                                        <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                    </Fields>
-                                </asp:DataPager>
-                            </td>
-                        </tr>
-                    </table>
-                    </div>
-                                    </LayoutTemplate>
-
-              
-            </asp:ListView>
-            <asp:SqlDataSource ID="Database" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [precio], [tipo], [localidad] FROM [Anuncio]">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="LOCALIDAD" Name="localidad" PropertyName="SelectedValue" Type="String" />
-                    <asp:ControlParameter ControlID="PRECIO_HASTA" Name="precio" PropertyName="Text" Type="Int32" />
-                    <asp:ControlParameter ControlID="PRECIO_DESDE" Name="precio2" PropertyName="Text" Type="Int32" />
-                    <asp:ControlParameter ControlID="TIPO_OPERACION" Name="tipo" PropertyName="SelectedValue" Type="String" />
-                </SelectParameters>
-            </asp:SqlDataSource>
+                            <tr runat="server">
+                                <td runat="server">
+                                    <table id="groupPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                        <tr id="groupPlaceholder" runat="server">
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr runat="server">
+                                <td runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
+                                    <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
+                                        <Fields>
+                                            <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                                        </Fields>
+                                    </asp:DataPager>
+                                </td>
+                            </tr>
+                        </table>
+                    </LayoutTemplate>
+                    <SelectedItemTemplate>
+                        <td runat="server" style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">precio:
+                            <asp:Label ID="precioLabel" runat="server" Text='<%# Eval("precio") %>' />
+                            <br />tipo:
+                            <asp:Label ID="tipoLabel" runat="server" Text='<%# Eval("tipo") %>' />
+                            <br />localidad:
+                            <asp:Label ID="localidadLabel" runat="server" Text='<%# Eval("localidad") %>' />
+                            <br />foto:
+                            <asp:Label ID="fotoLabel" runat="server" Text='<%# Eval("foto") %>' />
+                            <br /></td>
+                    </SelectedItemTemplate>
+                </asp:ListView>
+                
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+            
+            
                 </td>
          </tr>
        </table>
