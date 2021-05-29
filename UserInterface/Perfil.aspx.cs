@@ -12,7 +12,7 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (!IsPostBack)
+            if (!IsPostBack)
             {
                 if (Session["nif"] != null)
                 {
@@ -27,24 +27,68 @@ namespace UserInterface
                 {
                     Response.Redirect("~/Inicio.aspx");
                 }
-            }*/
+            }
+        }
+        protected void OffSession_Click(object sender, EventArgs e)
+        {
+            BorrarUser.Visible = false;
+            ModPassword.Visible = false;
+            ModPerfil.Visible = false;
+            CancelarOff.Visible = true;
+            SerrarOff.Visible = true;
+
+        }
+        protected void NoToOffSession_Click(object sender, EventArgs e)
+        {
+            BorrarUser.Visible = true;
+            ModPassword.Visible = true;
+            ModPerfil.Visible = true;
+            CancelarOff.Visible = false;
+            SerrarOff.Visible = false;
+        }
+        protected void YesToOffSession_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("~/Principal.aspx");
         }
         protected void DeleteUser_Click(object sender, EventArgs e)
         {
+            SessionOff.Visible = false;
             PasswordPanel.Visible = true;
             ModPassword.Visible = false;
             ModPerfil.Visible = false;
+            CancelarDelete.Visible = true;
+            Delete.Visible = true;
         }
         protected void YesToDeleteUser_Click(object sender, EventArgs e)
         {
-            
-
+            try
+            {
+                ENUsuario en = new ENUsuario();
+                en.Nif = Nif.Text;
+                if (en.deleteUsuario())
+                {
+                    Session.Clear();
+                    Response.Redirect("~/Principal.aspx");
+                }
+                else
+                {
+                    LabelEstado.Text = "ERROR inesperado";
+                }
+            }
+            catch (Exception)
+            {
+                LabelEstado.Text = "ERROR en ejecucion inesperado";
+            }
         }
         protected void NoToDeleteUser_Click(object sender, EventArgs e)
         {
             PasswordPanel.Visible = false;
             ModPassword.Visible = true;
             ModPerfil.Visible = true;
+            CancelarDelete.Visible = false;
+            Delete.Visible = false;
+            SessionOff.Visible = true;
         }
 
         protected void ModPassword_Click(object sender, EventArgs e)
@@ -55,6 +99,8 @@ namespace UserInterface
             PasswordPanel.Visible = true;
             newPasswordPanel.Visible = true;
             ModPerfil.Visible = false;
+            BorrarUser.Visible = false;
+            SessionOff.Visible = false;
         }
         protected void CncelarPassword_Click(object sender, EventArgs e)
         {
@@ -65,6 +111,8 @@ namespace UserInterface
             PasswordPanel.Visible = false;
             newPasswordPanel.Visible = false;
             ModPerfil.Visible = true;
+            BorrarUser.Visible = true;
+            SessionOff.Visible = true;
         }
         protected void UpdatePassword_Click(object sender, EventArgs e)
         {
@@ -127,7 +175,9 @@ namespace UserInterface
             Emali.Enabled = true;
             Telefono.Enabled = true;
             Premium.Enabled = true;
-            
+            BorrarUser.Visible = false;
+            SessionOff.Visible = false;
+
         }
         protected void Cancelar_Click(object sender, EventArgs e)
         {
@@ -145,6 +195,8 @@ namespace UserInterface
             Emali.Enabled = false;
             Telefono.Enabled = false;
             Premium.Enabled = false;
+            SessionOff.Visible = true;
+            BorrarUser.Visible = true;
             LabelEstado.Text = "";
             LabelPassword.Text = "";
         }

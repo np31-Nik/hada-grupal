@@ -99,6 +99,16 @@
                     <asp:TableCell><asp:Button ID="CancelarPassword" runat="server" Text="Cancelar" OnClick="CncelarPassword_Click" Visible="false" /></asp:TableCell>
                     <asp:TableCell><asp:Button ID="UpdatePassword" runat="server" OnClick="UpdatePassword_Click" Text="Update" Visible="false" /></asp:TableCell>
                 </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell Width="200px"><asp:Button ID="BorrarUser" runat="server" OnClick="DeleteUser_Click" Text="Borrar Usuario" /></asp:TableCell>
+                    <asp:TableCell><asp:Button ID="CancelarDelete" runat="server" Text="Cancelar" OnClick="NoToDeleteUser_Click" Visible="false" /></asp:TableCell>
+                    <asp:TableCell><asp:Button ID="Delete" runat="server" OnClick="YesToDeleteUser_Click" Text="Delete" Visible="false" /></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell Width="200px"><asp:Button ID="SessionOff" runat="server" OnClick="OffSession_Click" Text="Serrar Sesion" /></asp:TableCell>
+                    <asp:TableCell><asp:Button ID="CancelarOff" runat="server" Text="Cancelar" OnClick="NoToOffSession_Click" Visible="false" /></asp:TableCell>
+                    <asp:TableCell><asp:Button ID="SerrarOff" runat="server" OnClick="YesToOffSession_Click" Text="Serrar" Visible="false" /></asp:TableCell>
+                </asp:TableRow>
             </asp:Table>
         <p><asp:Label ID="LabelEstado" runat="server" Text="" ForeColor="Red"></asp:Label></p>
     </div>

@@ -14,8 +14,11 @@ namespace UserInterface
 		{
             if (!IsPostBack)
             {
-
-            }
+				if (Session["nif"] == null)
+				{
+					Response.Redirect("~/Inicio.aspx");
+				}
+			}
 		}
 
 		protected void InsertarMarca_Click(object sender, EventArgs e)

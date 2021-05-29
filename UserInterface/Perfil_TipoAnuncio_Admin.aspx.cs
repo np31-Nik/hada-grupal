@@ -21,7 +21,10 @@ namespace UserInterface
 		{
 			if (!IsPostBack)
 			{
-
+				if (Session["nif"] == null)
+				{
+					Response.Redirect("~/Inicio.aspx");
+				}
 			}
 		}
 
