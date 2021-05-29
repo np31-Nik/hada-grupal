@@ -40,19 +40,21 @@
             
         </div>
     </form>
-    <h2 style="background-color: #151719; padding:20px" width: 100%;" align="center">
-        <img src="imagenes/kisspng-computer-icons-house-home-desktop-wallpaper-clip-a-home-icon-5acbedfc7b2e07.3858102315233141725046.jpg" width="30" height="30" />
-        <br/>
-        <font color="white" size=1>
-            <a href="#arriba" style="color:white">Volver Arriba</a>
-            <a name="abajo"></a>
+    <div style="background-color: #151719; padding:20px" width: 100%;" align="center">
+        <footer>
+            <img src="imagenes/kisspng-computer-icons-house-home-desktop-wallpaper-clip-a-home-icon-5acbedfc7b2e07.3858102315233141725046.jpg" width="30" height="30" />
             <br/>
-            Somos una empresa con muchos años de experiencia en el mundo de las propiedades inmobiliarias y vehículos.
-            <br/>
-            contacto: <a href="mailto:deep@gmail.com" style="color:white">deep@gmail.com</a>
-            <br/>
-            telf:999999999
-        </font>
-    </h2>
+            <font color="white" size=1>
+                <a href="#arriba" style="color:white">Volver Arriba</a>
+                <a name="abajo"></a>
+                <br/>
+                Somos una empresa con muchos años de experiencia en el mundo de las propiedades inmbiliarias y vehículos.
+                <br/>
+                contacto: <a href="mailto:deep@gmail.com" style="color:white">deep@gmail.com</a>
+                <br/>
+                telf:999999999
+            </font>
+        </footer>
+    </div>
 </body>
 </html>
