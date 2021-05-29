@@ -20,9 +20,13 @@ namespace UserInterface
 				}
 			}
 		}
-
+		private bool desdeHastaCheck()
+        {
+			return (int.Parse(TextBoxDesde.Text) < int.Parse(TextBoxHasta.Text));
+        }
 		protected void InsertarHipoteca_Click(object sender, EventArgs e)
 		{
+			
 			try
 			{
                 if (BancoHValid1.IsValid && BancoHValid2.IsValid &&
@@ -30,21 +34,28 @@ namespace UserInterface
 					InteresValid1.IsValid && InteresValid2.IsValid &
 					DesdeValid1.IsValid && DesdeValid2.IsValid)
                 {
-					ENHipoteca en = new ENHipoteca();
-					en.BANCO = TextBoxBancoH.Text;
-					en.FECHADESDE = int.Parse(TextBoxDesde.Text);
-					en.FECHAHASTA= int.Parse(TextBoxHasta.Text);
-					en.INTERESES = int.Parse(TextBoxInteres.Text);
+					if (desdeHastaCheck())
+					{
+						ENHipoteca en = new ENHipoteca();
+						en.BANCO = TextBoxBancoH.Text;
+						en.FECHADESDE = int.Parse(TextBoxDesde.Text);
+						en.FECHAHASTA = int.Parse(TextBoxHasta.Text);
+						en.INTERESES = int.Parse(TextBoxInteres.Text);
 
-					en.NUMSOLICITUDES = 0;
-					if (en.createHipoteca())
-					{
-						Label_Estado.Text = "Success";
-						GridViewHipoteca.DataBind();
+						en.NUMSOLICITUDES = 0;
+						if (en.createHipoteca())
+						{
+							Label_Estado.Text = "Success";
+							GridViewHipoteca.DataBind();
+						}
+						else
+						{
+							Label_Estado2.Text = "Error ";
+						}
 					}
-					else
-					{
-						Label_Estado2.Text = "Error ";
+                    else
+                    {
+						Label_Estado2.Text = "Desde tiene que ser menor que Hasta ";
 					}
 				}
 			}
@@ -107,22 +118,29 @@ namespace UserInterface
 					InteresValid1.IsValid && InteresValid2.IsValid &
 					DesdeValid1.IsValid && DesdeValid2.IsValid)
 				{
-					ENHipoteca en = new ENHipoteca();
-					en.ID = int.Parse(TextBoxId.Text);
-					en.BANCO = TextBoxBancoH.Text;
-					en.FECHADESDE = int.Parse(TextBoxDesde.Text);
-					en.FECHAHASTA= int.Parse(TextBoxHasta.Text);
-					en.INTERESES = int.Parse(TextBoxInteres.Text);
-					if (en.updateHipoteca())
+					if (desdeHastaCheck())
 					{
-						modRow2.Visible = false;
-						optionRow2.Visible = true;
-						Label_Estado2.Text = "Success";
-						GridViewHipoteca.DataBind();
+						ENHipoteca en = new ENHipoteca();
+						en.ID = int.Parse(TextBoxId.Text);
+						en.BANCO = TextBoxBancoH.Text;
+						en.FECHADESDE = int.Parse(TextBoxDesde.Text);
+						en.FECHAHASTA = int.Parse(TextBoxHasta.Text);
+						en.INTERESES = int.Parse(TextBoxInteres.Text);
+						if (en.updateHipoteca())
+						{
+							modRow2.Visible = false;
+							optionRow2.Visible = true;
+							Label_Estado2.Text = "Success";
+							GridViewHipoteca.DataBind();
+						}
+						else
+						{
+							Label_Estado2.Text = "Error ";
+						}
 					}
 					else
 					{
-						Label_Estado2.Text = "Error ";
+						Label_Estado2.Text = "Desde tiene que ser menor que Hasta ";
 					}
 				}
             }
