@@ -102,10 +102,8 @@
             <br />
 
             <div class="PanelHipoteca" style="background-color:#ffffff;color:black;">
-            <asp:UpdatePanel runat="server" ID="UpdatePanel_Hipoteca" UpdateMode="Conditional">
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="H_CALCULAR" EventName="Click" />
-                </Triggers>
+            <asp:UpdatePanel runat="server" ID="UpdatePanel_Hipoteca" UpdateMode="Always">
+
                 <ContentTemplate>
                      <asp:Label runat="server" Text="Calculador de hipoteca" style="font-size:25px;font-weight:bold;text-align:center;" Width="100%"></asp:Label>
                 <br />
@@ -167,40 +165,46 @@
                     <br />
                     <asp:ValidationSummary runat="server" DisplayMode="BulletList" EnableClientScript="false" ID="ValidationSummary_Hipoteca" ValidationGroup="Hipoteca"
                         Forecolor="red"/>
-                    <br />
+                    <asp:Label runat="server" ID="MensajeH" Visible="false" ForeColor="Red" Text="No se ha encontrado ninguna hipoteca disponible con este banco."></asp:Label>
 
-                <asp:Panel runat="server" id="H_RESULTADOS" visible="false" style="margin-bottom: 1px">
+                <div runat="server" id="H_RESULTADO" visible="false">
                     <br />
                     <asp:Label runat="server" Text="Resultados" style="font-size:20px;font-weight:bold;text-align:center;" Width="100%"></asp:Label>
-                    <div style="float:left;width:50%;">
-                        <asp:Label runat="server" Text="Interés anual (%):"></asp:Label>
+                    <div style="float:left;">
+                        <asp:Label runat="server" Text="Interés anual:"></asp:Label>
                     </div>
 
                     <div style="float:right;">
                         <asp:Label id="H_INTERES" runat="server"></asp:Label>
                     </div>
-
                     <br />
                     <br />
-
-                    <div style="float:left;width:50%;">
-                        <asp:Label runat="server" Text="Importe a financiar:"></asp:Label>
-                    </div>
-
-                    <div style="float:right;">
-                        <asp:Label runat="server" id="H_FINANCIAR"></asp:Label>
-                    </div>
-
-                    <br />
-
-                    <div style="float:left;width:50%;">
+                    <div style="float:left">
                         <asp:Label runat="server" Text="Cuota mensual:"></asp:Label>
                     </div>
 
                     <div style="float:right;">
                         <asp:Label runat="server" id="H_CUOTAM"></asp:Label>
                     </div>
-                </asp:Panel>
+                    <br />
+                    <div style="float:left;">
+                        <asp:Label runat="server" Text="Tel. del banco:"></asp:Label>
+                    </div>
+
+                    <div style="float:right;">
+                        <asp:Label id="TEL_BANCO" runat="server"></asp:Label>
+                    </div>
+                    <br />
+                    <div style="float:left;">
+                        <asp:Label runat="server" Text="Email del banco:"></asp:Label>
+                    </div>
+
+                    <div style="float:right;">
+                        <asp:Label id="EMAIL_BANCO" runat="server"></asp:Label>
+                    </div>
+                    
+                    <br />
+                </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
             </div>
@@ -451,7 +455,9 @@
             </asp:UpdatePanel>
         </div>
     </div>
-     <asp:HiddenField ID="CATEGORIA" runat="server"/>
+     <asp:HiddenField ID="CATEGORIAH" runat="server"/>
+         <asp:HiddenField ID="CATEGORIA" runat="server"/>
+
      <asp:HiddenField ID="TIPO_ANUNCIO" runat="server"/>
      <asp:HiddenField ID="LOCALIDADH" runat="server"/>
 

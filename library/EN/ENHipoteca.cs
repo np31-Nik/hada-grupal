@@ -120,5 +120,12 @@ namespace library
             bool leido = cadh.readPrevHipoteca(this);
             return leido;
         }
+
+        public bool BuscarHipoteca()
+        {
+            CADHipoteca cad = new CADHipoteca();
+            bool buscar = cad.BuscarHipoteca(this);
+            return buscar;
+        }
     }
 }

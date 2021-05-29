@@ -43,7 +43,7 @@ namespace UserInterface
                         LOCALIDAD.Text = en.localidad.localidad;
                         LOCALIDADH.Value = en.localidad.localidad;
                         DESCRIPCION.Text = en.descripcion;
-                        CATEGORIA.Value = en.categoria;
+                        CATEGORIAH.Value = en.categoria;
                         TIPO_ANUNCIO.Value = en.tipo.Tipo;
                         switch (en.categoria)
                         {
@@ -90,12 +90,36 @@ namespace UserInterface
             Page.Validate("Hipoteca");
             if (Page.IsValid)
             {
-                ENBanco en = new ENBanco();
+                ENHipoteca en = new ENHipoteca();
                 en.BANCO = BANCO.SelectedItem.Text;
-                en.readBanco();
+                en.FECHADESDE = int.Parse(H_ANYOS.Text);
+                en.FECHAHASTA = int.Parse(H_ANYOS.Text);
 
-                H_RESULTADOS.Visible = true;
-                H_INTERES.Text = en.
+                ENBanco banco = new ENBanco();
+                banco.BANCO = BANCO.SelectedItem.Text;
+                banco.readBanco();
+
+                if (en.BuscarHipoteca())
+                {
+                    MensajeH.Visible = false;
+                    H_RESULTADO.Visible = true;
+                    H_INTERES.Text = en.INTERESES.ToString() + "%";
+
+                    int precio = int.Parse(PRECIO.Text.TrimEnd('€'));
+                    int anyos = int.Parse(H_ANYOS.Text);
+                    int cuotam = ((precio / anyos) * en.INTERESES / 100 + (precio / anyos)) / 12;
+                    H_CUOTAM.Text = cuotam.ToString() + " €";
+
+                    TEL_BANCO.Text = banco.TELEFONO;
+                    EMAIL_BANCO.Text = banco.EMAIL;
+                }
+                else
+                {
+                    H_RESULTADO.Visible = false;
+                    MensajeH.Visible = true;
+                }
+
+
             }
         }
 
