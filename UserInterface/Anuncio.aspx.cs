@@ -13,7 +13,6 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["nif"] = "Y4441167L";
             if (!this.IsPostBack)
             {
                 if (Request.QueryString["anuncio_id"] == null)
@@ -75,8 +74,13 @@ namespace UserInterface
                         if (Session["nif"] != null)
                         {
                             PanelComentarioUsuario.Visible = true;
+                            Mensaje_comentario.Visible = false;
                         }
-                        //Similares(en);
+                        else
+                        {
+                            Mensaje_comentario.Visible = true;
+                            PanelComentarioUsuario.Visible = false;
+                        }
                     }
                 }
             }

@@ -306,6 +306,7 @@
                 <asp:UpdatePanel runat="server" ID="UpdatePanel_Comentario" UpdateMode="Always">
 
                     <ContentTemplate>
+                        <asp:Label runat="server" ID="Mensaje_comentario" Visible="false" Text="Debes iniciar sesión para poder escribir comentarios." style="text-align:center" Width="100%"></asp:Label>
                         <asp:Panel runat="server" CssClass="Comentario" id="PanelComentarioUsuario" Visible="false">
                             <asp:TextBox runat="server" ID="ComentarioUsuario" style="width:100%;height:100px" placeholder="Escribe tu comentario aqui..." textmode="MultiLine"></asp:TextBox>
                             <br />

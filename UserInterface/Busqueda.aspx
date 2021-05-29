@@ -121,9 +121,9 @@
                    
                   
                     <EmptyDataTemplate>
-                        <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
+                        <table runat="server"  style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;text-align:center;width:100%">
                             <tr>
-                                <td>No data was returned.</td>
+                                <td>No se ha encontrado ningún anuncio con esas características.</td>
                             </tr>
                         </table>
                     </EmptyDataTemplate>

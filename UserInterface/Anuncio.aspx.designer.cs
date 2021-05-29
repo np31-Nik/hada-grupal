@@ -483,6 +483,15 @@ namespace UserInterface
         protected global::System.Web.UI.UpdatePanel UpdatePanel_Comentario;
 
         /// <summary>
+        /// Mensaje_comentario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Mensaje_comentario;
+
+        /// <summary>
         /// PanelComentarioUsuario control.
         /// </summary>
         /// <remarks>

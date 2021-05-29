@@ -43,6 +43,10 @@ namespace UserInterface
                     TIPO_OPERACION.SelectedValue = tipo_op;
                     TIPO_OPERACION.SelectedItem.Text = tipo_op;
                 }
+                else
+                {
+                    TIPO_OPERACION.SelectedIndex = 2;
+                }
 
 
                 string localidad = Server.UrlDecode(Request.QueryString["localidad"]);
