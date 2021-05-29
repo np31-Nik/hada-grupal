@@ -87,7 +87,16 @@ namespace UserInterface
         }
         protected void CalcularHipoteca(object sender, EventArgs e)
         {
+            Page.Validate("Hipoteca");
+            if (Page.IsValid)
+            {
+                ENBanco en = new ENBanco();
+                en.BANCO = BANCO.SelectedItem.Text;
+                en.readBanco();
 
+                H_RESULTADOS.Visible = true;
+                H_INTERES.Text = en.
+            }
         }
 
         protected void Comentar(object sender, EventArgs e)
