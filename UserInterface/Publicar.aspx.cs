@@ -120,6 +120,11 @@ namespace UserInterface
                         mensaje.Text = "El campo anyo es obligatorio";
 
                     }
+                    else if (int.TryParse(anyo.Text, out aux)) {
+                        if(aux>2021)
+                            mensaje.Text = "El campo anyo no puede tomar valor mas grande que 2021";
+
+                    }
                     else
                     {
                         ENLocalidad loc = new ENLocalidad(localidad.SelectedItem.Text);
@@ -147,7 +152,7 @@ namespace UserInterface
                             {
                                 anuncio.deleteAnuncio();
                             }
-                            
+
                         }
                         else
                         {
