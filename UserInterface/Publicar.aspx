@@ -34,6 +34,9 @@
                         </div>
                         <div>
                             <asp:TextBox ID="titulo" runat="server"> </asp:TextBox>
+                            <asp:RequiredFieldValidator ID="tituloValidator" runat="server" ValidationGroup="main"
+                                ControlToValidate="titulo" ForeColor="Red" ErrorMessage="Campo obligatorio!">
+                            </asp:RequiredFieldValidator>
                         </div>
                         <br />
                         <div>
@@ -54,6 +57,8 @@
 
                         <div>
                             <asp:TextBox ID="descripcion" runat="server" Style="width: 80%; height: 100px" TextMode="MultiLine"> </asp:TextBox>
+                            <asp:RequiredFieldValidator ID="descrValidator" runat="server" ValidationGroup="main"
+                                ControlToValidate="descripcion" ForeColor="Red" ErrorMessage="Campo obligatorio!"></asp:RequiredFieldValidator>
                         </div>
                         <br />
                         <asp:RadioButtonList
@@ -100,14 +105,19 @@
                         </div>
                         <div>
                             <asp:TextBox ID="anyo" runat="server"> </asp:TextBox>
+                            <asp:RequiredFieldValidator ID="anyoValidator" ValidationGroup="vehiculo" runat="server"
+                                ControlToValidate="anyo" ForeColor="Red" ErrorMessage="Campo obligatorio!"></asp:RequiredFieldValidator>
                         </div>
                         <br />
                         <div>
                             <asp:Label runat="server" Text="Precio:"></asp:Label>
+                            
                         </div>
 
                         <div>
                             <asp:TextBox ID="precioVehiculo" runat="server"> </asp:TextBox>
+                            <asp:RequiredFieldValidator ID="precioValidator" ValidationGroup="vehiculo" runat="server"
+                                ControlToValidate="precioVehiculo" ForeColor="Red" ErrorMessage="Campo obligatorio!"></asp:RequiredFieldValidator>
                         </div>
                         <br />
                     </div>
@@ -119,6 +129,8 @@
                         <div>
                             <asp:TextBox ID="precio" runat="server"> </asp:TextBox>
                             €
+                            <asp:RequiredFieldValidator ID="precioValidator2" ValidationGroup="propiedad" runat="server"
+                                ControlToValidate="precio" ForeColor="Red" ErrorMessage="Campo obligatorio!"></asp:RequiredFieldValidator>
                         </div>
                         <br />
 
@@ -151,6 +163,8 @@
                         </div>
                         <div>
                             <asp:TextBox ID="Superficie" runat="server"> </asp:TextBox>
+                            <asp:RequiredFieldValidator ID="superficieValidatro" ValidationGroup="propiedad" runat="server"
+                                ControlToValidate="Superficie" ForeColor="Red" ErrorMessage="Campo obligatorio!"></asp:RequiredFieldValidator>
                         </div>
                         <br />
                         <div>
