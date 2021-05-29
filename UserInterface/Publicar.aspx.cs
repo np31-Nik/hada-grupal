@@ -53,6 +53,7 @@ namespace UserInterface
         protected void PublicarClick(object sender, EventArgs e)
         {
             int aux;
+            bool formatoCorrercto = true;
 
             if (titulo.Text.Length > 55)
             {
@@ -75,6 +76,28 @@ namespace UserInterface
             else if (localidad.Text == "0")
             {
                 mensaje.Text = "Debe elegir una de las localidades";
+            }
+            else if ((cargarimg1.HasFile || cargarimg1.HasFiles) && cargarimg1.PostedFiles.Count < 10)
+            {
+                try
+                {
+                    
+                    foreach (HttpPostedFile file in cargarimg1.PostedFiles)
+                    {
+                        if (file.ContentType != "image/jpg" &&
+                            file.ContentType != "image/jpeg" &&
+                            file.ContentType != "image/png" &&
+                            file.ContentType != "image/JPG" &&
+                            file.ContentType != "image/JPEG" &&
+                            file.ContentType != "image/PNG")
+
+                            formatoCorrercto = false;
+                    }
+                }
+                catch (Exception ex){ }
+            }
+            if (!formatoCorrercto) {
+                mensaje.Text = "Debe cargar al menos una imagen pero no mas de 10. Formato obligatorio: .png o .jpg o .jpeg";
             }
             else
             {
@@ -112,54 +135,23 @@ namespace UserInterface
 
                         anuncio.EsCoche = true;
 
-
-
                         if (anuncio.createAnuncio())
                         {
-                            if ((cargarimg1.HasFile || cargarimg1.HasFiles) && cargarimg1.PostedFiles.Count < 10)
+                            ENFoto img = new ENFoto();
+                            img.Anuncio.id = anuncio.id;
+                            if (img.uploadMultiplImage(cargarimg1.PostedFiles))
                             {
-                                try
-                                {
-                                    bool formatoCorrercto = true;
-                                    foreach (HttpPostedFile file in cargarimg1.PostedFiles)
-                                    {
-                                        if (file.ContentType != "image/jpg" &&
-                                            file.ContentType != "image/jpeg" &&
-                                            file.ContentType != "image/png" &&
-                                            file.ContentType != "image/JPG" &&
-                                            file.ContentType != "image/JPEG" &&
-                                            file.ContentType != "image/PNG")
-
-                                            formatoCorrercto = false;
-                                    }
-                                    if (formatoCorrercto)
-                                    {
-                                        ENFoto img = new ENFoto();
-                                        img.Anuncio.id = anuncio.id;
-                                        if (img.uploadMultiplImage(cargarimg1.PostedFiles))
-                                        {
-                                            Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        mensaje.Text = "El formato de imagenes debe ser: .png o .jpg o .jpeg";
-                                    }
-                                }
-                                catch (Exception ex)
-                                {
-                                    mensaje.Text = "Error " + ex;
-                                }
+                                Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
                             }
                             else
                             {
-                                mensaje.Text = "Debe cargar al menos una imagen (.png o .jpg o . jpeg) pero no mas de 10";
+                                anuncio.deleteAnuncio();
                             }
-                            anuncio.deleteAnuncio();
+                            
                         }
                         else
                         {
-                            mensaje.Text = "El anuncio no se ha creado. Intentelo mas tarde.";
+                            mensaje.Text = "El anuncio no se ha creado. Intentalo mas tarde.";
                         }
                     }
 
@@ -215,56 +207,24 @@ namespace UserInterface
 
                         if (anuncio.createAnuncio())
                         {
-                            if ((cargarimg1.HasFile || cargarimg1.HasFiles) && cargarimg1.PostedFiles.Count < 10)
+                            ENFoto img = new ENFoto();
+                            img.Anuncio.id = anuncio.id;
+                            if (img.uploadMultiplImage(cargarimg1.PostedFiles))
                             {
-                                try
-                                {
-                                    bool formatoCorrercto = true;
-                                    foreach (HttpPostedFile file in cargarimg1.PostedFiles)
-                                    {
-                                        if (file.ContentType != "image/jpg" &&
-                                            file.ContentType != "image/jpeg" &&
-                                            file.ContentType != "image/png" &&
-                                            file.ContentType != "image/JPG" &&
-                                            file.ContentType != "image/JPEG" &&
-                                            file.ContentType != "image/PNG")
-
-                                            formatoCorrercto = false;
-                                    }
-                                    if (formatoCorrercto)
-                                    {
-                                        ENFoto img = new ENFoto();
-                                        img.Anuncio.id = anuncio.id;
-                                        if (img.uploadMultiplImage(cargarimg1.PostedFiles))
-                                        {
-                                            Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        mensaje.Text = "El formato de imagenes debe ser: .png o .jpg o .jpeg";
-                                    }
-                                }
-                                catch (Exception ex)
-                                {
-                                    mensaje.Text = "Error " + ex;
-                                }
+                                Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
                             }
                             else
                             {
-                                mensaje.Text = "Debe cargar al menos una imagen (.png o .jpg o . jpeg) pero no mas de 10";
+                                anuncio.deleteAnuncio();
                             }
-                            anuncio.deleteAnuncio();
+
                         }
                         else
                         {
-                            mensaje.Text = "El anuncio no se ha creado. Intentelo mas tarde.";
+                            mensaje.Text = "El anuncio no se ha creado. Intentalo mas tarde.";
                         }
                     }
                 }
-
-
-
             }
         }
         protected void InicioClick(object sender, EventArgs e)
