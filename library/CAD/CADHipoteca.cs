@@ -30,7 +30,7 @@ namespace library
                 conexion = new SqlConnection(conexstring);
                 conexion.Open();
 
-                string comando = "insert into [dbo].[Hipoteca](id,banco,desde,hasta,interes,numSolicitudes) values " + "('" + en.ID + "','" + en.BANCO + "','" + en.FECHADESDE + "','" + en.FECHAHASTA + "','" + en.INTERESES + "','" + en.NUMSOLICITUDES + "')";
+                string comando = "insert into [dbo].[Hipoteca](banco,desde,hasta,interes,numSolicitudes) values " + "('" + en.BANCO + "','" + en.FECHADESDE + "','" + en.FECHAHASTA + "','" + en.INTERESES + "','" + en.NUMSOLICITUDES + "')";
                 SqlCommand consulta = new SqlCommand(comando, conexion);
                 consulta.ExecuteNonQuery();
                 creado = true;

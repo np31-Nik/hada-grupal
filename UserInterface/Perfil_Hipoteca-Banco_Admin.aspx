@@ -132,13 +132,13 @@
 												<asp:TableCell Width="100px">
 													<asp:TextBox ID="TextBoxDesde" runat="server" Width="40px"></asp:TextBox>
 													<asp:RequiredFieldValidator ID="DesdeValid1" EnableClientScript="false" runat="server" ControlToValidate="TextBoxDesde" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-													<asp:RangeValidator ID="DesdeValid2" runat="server" EnableClientScript="false" ControlToValidate="TextBoxDesde" MinimumValue="1" MaximumValue="49" ErrorMessage="1-49" ForeColor="Red"></asp:RangeValidator>
+													<asp:RangeValidator ID="DesdeValid2" runat="server" EnableClientScript="false" ControlToValidate="TextBoxDesde" Type="Integer" MinimumValue="1" MaximumValue="49" ErrorMessage="1-49" ForeColor="Red"></asp:RangeValidator>
 												</asp:TableCell>
 												<asp:TableCell>Hasta:</asp:TableCell>
 												<asp:TableCell>
 													<asp:TextBox ID="TextBoxHasta" runat="server" Width="40px"></asp:TextBox>
 													<asp:RequiredFieldValidator ID="HastaValid1" EnableClientScript="false" runat="server" ControlToValidate="TextBoxHasta" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-													<asp:RangeValidator ID="HastaValid2" runat="server" EnableClientScript="false" ControlToValidate="TextBoxHasta" MinimumValue="2" MaximumValue="50" ErrorMessage="2-50" ForeColor="Red"></asp:RangeValidator>
+													<asp:RangeValidator ID="HastaValid2" runat="server" EnableClientScript="false" ControlToValidate="TextBoxHasta" Type="Integer" MinimumValue="2" MaximumValue="50" ErrorMessage="2-50" ForeColor="Red"></asp:RangeValidator>
 										
 												</asp:TableCell>
 											</asp:TableRow>
@@ -147,7 +147,7 @@
 												<asp:TableCell>
 													<asp:TextBox ID="TextBoxInteres" runat="server" Width="40px" ></asp:TextBox>
 													<asp:RequiredFieldValidator ID="InteresValid1" EnableClientScript="false" runat="server" ControlToValidate="TextBoxInteres" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-													<asp:RangeValidator ID="InteresValid2" runat="server" EnableClientScript="false" ControlToValidate="TextBoxInteres" MinimumValue="1" MaximumValue="30" ErrorMessage="1-30" ForeColor="Red"></asp:RangeValidator>
+													<asp:RangeValidator ID="InteresValid2" runat="server" EnableClientScript="false" ControlToValidate="TextBoxInteres" Type="Integer" MinimumValue="1" MaximumValue="30" ErrorMessage="1-30" ForeColor="Red"></asp:RangeValidator>
 												</asp:TableCell>
 											</asp:TableRow>
 										</asp:Table>

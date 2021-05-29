@@ -16,7 +16,7 @@ namespace UserInterface
 			{
 				if (Session["nif"] == null)
 				{
-					//Response.Redirect("~/Inicio.aspx");
+					Response.Redirect("~/Inicio.aspx");
 				}
 			}
 		}
@@ -108,6 +108,7 @@ namespace UserInterface
 					DesdeValid1.IsValid && DesdeValid2.IsValid)
 				{
 					ENHipoteca en = new ENHipoteca();
+					en.ID = int.Parse(TextBoxId.Text);
 					en.BANCO = TextBoxBancoH.Text;
 					en.FECHADESDE = int.Parse(TextBoxDesde.Text);
 					en.FECHAHASTA= int.Parse(TextBoxHasta.Text);
@@ -116,7 +117,7 @@ namespace UserInterface
 					{
 						modRow2.Visible = false;
 						optionRow2.Visible = true;
-						Label_Estado.Text = "Success";
+						Label_Estado2.Text = "Success";
 						GridViewHipoteca.DataBind();
 					}
 					else
