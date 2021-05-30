@@ -15,13 +15,13 @@ namespace UserInterface
     {
 
         /// <summary>
-        /// Control DNI.
+        /// Control email.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DNI;
+        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
         /// Control RequiredFieldValidator1.
@@ -33,13 +33,13 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// Control Contraseña.
+        /// Control contrasenya.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Contraseña;
+        protected global::System.Web.UI.WebControls.TextBox contrasenya;
 
         /// <summary>
         /// Control RequiredFieldValidator2.
