@@ -11,6 +11,7 @@
                 <asp:AsyncPostBackTrigger ControlID="BUSCAR" EventName="Click" />
             </Triggers>
             <ContentTemplate>
+                <asp:Panel runat="server" id="panel1" DefaultButton="Buscar">
 <asp:Label runat="server" Text="Tipo de articulo:"></asp:Label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                             ErrorMessage="Elige un tipo de articulo" ControlToValidate="RB_Coche_Propiedad" Style="color:red" ValidationGroup="Buscar"
@@ -34,7 +35,7 @@
         </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" InitialValue="Elige..." 
                             ErrorMessage="Elige un tipo de operacion" ControlToValidate="TIPO_OPERACION" Style="color:red;float:right;" ValidationGroup="Buscar"
-                            EnableClientScript="false" >*</asp:RequiredFieldValidator>
+                            EnableClientScript="false">*</asp:RequiredFieldValidator>
 
                 <asp:SqlDataSource ID="TipoAnuncio_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoAnuncio]"></asp:SqlDataSource>
 
@@ -100,92 +101,64 @@
         <br />
         <asp:ValidationSummary runat="server" DisplayMode="BulletList" EnableClientScript="false" ID="ValidationSummary_Buscar" ValidationGroup="Buscar"
                         Forecolor="red"/>
+                </asp:Panel>
             </ContentTemplate>
         </asp:UpdatePanel>
         
     </div>
 
     <div class="PanelBusqueda" style="background-color:#ffffff;color:black;">
-        <asp:Label runat="server" Text="Resultados de busqueda" Width="100%" style="text-align:center;font-weight:bold;"></asp:Label>
         <div class="ResultadosBusqueda">
+                                        <asp:Label runat="server" Text="Resultados de busqueda" Width="100%" style="text-align:center;font-weight:bold;"></asp:Label>
+
          
-                    <table width="100%">
+                    
+            
+            <asp:UpdatePanel runat="server" UpdateMode="Always">
+                <ContentTemplate>
+
+                                    <asp:ListView ID="ListView1" runat="server" DataSourceID="DatosBusqueda" GroupItemCount="4">
+                   
+                  
+                    <EmptyDataTemplate>
+                        <table runat="server"  style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;text-align:center;width:100%">
+                            <tr>
+                                <td>No se ha encontrado ningún anuncio con esas características.</td>
+                            </tr>
+                        </table>
+                    </EmptyDataTemplate>
+                    <EmptyItemTemplate>
+<td runat="server" />
+                    </EmptyItemTemplate>
+                    <GroupTemplate>
+                        <tr id="itemPlaceholderContainer" runat="server">
+                            <td id="itemPlaceholder" runat="server"></td>
+                        </tr>
+                    </GroupTemplate>
+                   
+                    <ItemTemplate>
+                        <td runat="server" style="background-color:#DCDCDC;color: #000000;border:ridge;border-color:black">
+                            <asp:ImageButton ID="FOTO" runat="server" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' Width="300px" Height="200px"
+                                PostBackUrl='<%#"~/Anuncio.aspx?anuncio_id="+ Eval("id") %>'/>
+                            <br />
+                            <asp:Label ID="tipoLabel" runat="server" style="float:left" Text='<%# Eval("tipo") %>' />
+                            <asp:Label runat="server" Text="€" style="float:right"></asp:Label>
+                            <asp:Label ID="precioLabel" runat="server" style="float:right" Text='<%# Eval("precio") %>' />
+                            <br />
+                            <asp:Label ID="localidadLabel" runat="server" style="float:right" Text='<%# Eval("localidad") %>' />
+                            </td>
+                    </ItemTemplate>
+                    <LayoutTemplate>
+                        <table width="100%">
    <tr>
      <td align="center">
        <table>
          <tr>
             <td>
-            <asp:ListView ID="ListView1" runat="server" DataSourceID="Database" GroupItemCount="4">
-                <EmptyDataTemplate>
-                    <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;
-                        border-color: #999999;border-style:none;border-width:1px;">
-                        <tr>
-                            <td>No hay ningún artículo que cumpla con los requisitos de búsqueda.</td>
-                        </tr>
-                    </table>
-                </EmptyDataTemplate>
-                <EmptyItemTemplate>
-                <td runat="server" />
-                </EmptyItemTemplate>
-                <GroupTemplate>
-                    <tr id="itemPlaceholderContainer" runat="server" style="position:center">
-                        <td id="itemPlaceholder" runat="server"></td>
-                    </tr>
-                </GroupTemplate>
+                        <div id="groupPlaceholderContainer" runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;" >
+                                <span runat="server" id="groupPlaceholder" />
+                            </div>
                 
-                <ItemTemplate>
-                    
-                    <td runat="server" style="background-color:#DCDCDC;color: #000000;">
-                        <asp:ImageButton ID="img_anuncio" runat="server"
-                                ImageUrl="~\imagenes\image0.jpg"
-                                Height="200px" Width="300px" />
-                        <br />
-                        precio:
-                        <asp:DynamicControl runat="server" DataField="precio" Mode="ReadOnly" />
-                        <br />tipo:
-                        <asp:DynamicControl runat="server" DataField="tipo" Mode="ReadOnly" />
-                        <br />localidad:
-                        <asp:DynamicControl runat="server" DataField="localidad" Mode="ReadOnly" />
-                        <br /></td>
-                </ItemTemplate>
-                <LayoutTemplate>            
-                    <div style="width:100%;position:center;text-align:center;">
-                        <table runat="server">
-                        <tr runat="server">
-                            <td runat="server">
-                                <table id="groupPlaceholderContainer" runat="server" border="1" 
-                                    style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;
-                                            border-style:none;border-width:1px;">
-                                    <tr id="groupPlaceholder" runat="server">
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr runat="server">
-                            <td runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
-                                <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
-                                    <Fields>
-                                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                        <asp:NumericPagerField />
-                                        <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                    </Fields>
-                                </asp:DataPager>
-                            </td>
-                        </tr>
-                    </table>
-                    </div>
-                                    </LayoutTemplate>
-
-              
-            </asp:ListView>
-            <asp:SqlDataSource ID="Database" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [precio], [tipo], [localidad] FROM [Anuncio]">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="LOCALIDAD" Name="localidad" PropertyName="SelectedValue" Type="String" />
-                    <asp:ControlParameter ControlID="PRECIO_HASTA" Name="precio" PropertyName="Text" Type="Int32" />
-                    <asp:ControlParameter ControlID="PRECIO_DESDE" Name="precio2" PropertyName="Text" Type="Int32" />
-                    <asp:ControlParameter ControlID="TIPO_OPERACION" Name="tipo" PropertyName="SelectedValue" Type="String" />
-                </SelectParameters>
-            </asp:SqlDataSource>
                 </td>
          </tr>
        </table>
@@ -193,9 +166,30 @@
    </tr>
 </table>
 
+                    </LayoutTemplate>
+                   
+                </asp:ListView>
+                
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+            <br />
+                                            
+            
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
+
             
         </div>
     </div>
+        <br />
+        <div style="text-align: center;background-color: #f2f2f2; font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
+                                <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1">
+                                    <Fields>
+                                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                                    </Fields>
+                                </asp:DataPager>
+                            </div>
         <br />
         <br />
     </div>

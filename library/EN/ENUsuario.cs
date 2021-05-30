@@ -1,4 +1,6 @@
-﻿namespace library
+﻿using System;
+
+namespace library
 {
     public class ENUsuario
     {
@@ -31,6 +33,7 @@
             get { return _email; }
             set { _email = value; }
         }
+
         public string Contrasenya
         {
             get { return _contrasenya; }
@@ -85,7 +88,7 @@
             return db.createUsuario(this);
         }
         /// <summary>
-        /// Recupera el usuario indicado de la BD
+        /// Recupera el usuario indicado de la BD, con el nif y la contrasenya
         /// </summary>
         /// <returns>False si no se ha podido realizar la operación</returns>
         public bool readUsuario()

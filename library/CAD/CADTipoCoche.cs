@@ -11,22 +11,33 @@ namespace library
 
         public CADTipoCoche()
         {
-            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString();
         }
 
         public bool createTipoCoche(ENTipoCoche en)
         {
             bool crear = true;
-            SqlConnection conectado = new SqlConnection(constring);
+
+            SqlConnection conectado = null;
             try
             {
-                conectado.Open();
-                
 
-            }catch(System.Exception e)
+                conectado = new SqlConnection(constring);
+                conectado.Open();
+                string select = "Insert into [dbo].[TipoCoche] (tipo) VALUES ('" + en.categoria + ")";
+                SqlCommand consulta = new SqlCommand(select, conectado);
+                consulta.ExecuteNonQuery();
+                crear = true;
+                conectado.Close();
+
+
+
+            }
+            catch (System.Exception e)
             {
                 crear = false;
-                Console.WriteLine(" Error !!", e.Message);
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
+
 
             }
             finally
@@ -40,159 +51,189 @@ namespace library
 
         public bool readTipoCoche(ENTipoCoche en)
         {
-            bool leer = true;
-            string consulta = "Select * from [dbo].[TipoCoche]  where tipo= "; // falta
-            SqlConnection conexion = new SqlConnection(constring);
+            bool lectura = false;
             try
             {
-                conexion.Open();
-                SqlCommand ejecuta = new SqlCommand(consulta, conexion);
-                SqlDataReader ojear = ejecuta.ExecuteReader();
-                ojear.Read();
-                /*if ()
-                {
 
-                }
-                else
+                SqlConnection conexion = null;
+                conexion = new SqlConnection(constring);
+                conexion.Open();
+                string select = "Select * from [dbo].[TipoCoche] Where categoria = '" + en.categoria + "' ";
+                SqlCommand consulta = new SqlCommand(select, conexion);
+                SqlDataReader buscar = consulta.ExecuteReader();
+                buscar.Read();
+                if (buscar["tipo"].ToString() == en.categoria)
                 {
-                    leer = false;
-                }*/
-                ojear.Close();
-            }
-            catch(SqlException e)
-            {
-                leer = false;
-                Console.WriteLine(" Error", e.Message);
-            }
-            finally
-            {
+                    en.categoria = buscar["tipo"].ToString();
+
+                    lectura = true;
+                }
+                buscar.Close();
                 conexion.Close();
+
             }
-            return leer;
+            catch (SqlException e)
+            {
+                lectura = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
+
+            }
+            catch (Exception e)
+            {
+                lectura = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
+            }
+
+            return lectura;
         }
 
         public bool deleteTipoCoche(ENTipoCoche en)
         {
-            bool borrar = false;
-            SqlConnection conexion = null;
-            string consulta= " DELETE FROM  [dbo].[tipoCoche] where "; // falta
+
+            bool borrado = false;
             try
             {
+                SqlConnection conexion = null;
                 conexion = new SqlConnection(constring);
                 conexion.Open();
-                SqlCommand ejecutar = new SqlCommand(consulta, conexion);
-                ejecutar.ExecuteNonQuery();
-                borrar = true;
+                string select = "Delete from [dbo].[TipoCoche] wHERE categoria = '" + en.categoria + "'";
+                SqlCommand consulta = new SqlCommand(select, conexion);
+                consulta.ExecuteNonQuery();
+                borrado = true;
+                conexion.Close();
             }
             catch (SqlException e)
             {
-                borrar = false;
-                Console.WriteLine("Error", e.Message);
+                borrado = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
-            finally
+            catch (Exception e)
             {
-                conexion.Close();
+                borrado = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
-            return borrar;
+            return borrado;
+
         }
 
         public bool updateTipoCoche(ENTipoCoche en, string apariencia)
         {
-            bool act = false;
-            string actualizar=" ";
-            SqlConnection conexion = null;
+            bool actualizado = false;
             try
             {
+                SqlConnection conexion = null;
                 conexion = new SqlConnection(constring);
                 conexion.Open();
-                act = true;
+                string select = "update [dbo].[TipoCoche] SET nombre= '" + en.categoria + "";
+                SqlCommand consulta = new SqlCommand(select, conexion);
+                consulta.ExecuteNonQuery();
+                actualizado = true;
+                conexion.Close();
             }
             catch (SqlException e)
             {
-                actualizar = e.Message;
-                Console.WriteLine("Error !!", e.Message);
-                act = false;
+                actualizado = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
             catch (Exception e)
             {
-                actualizar = e.Message;
-                Console.WriteLine("Error !!", e.Message);
-                act = false;
+                actualizado = false;
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
-            finally
-            {
-                conexion.Close();
-            }
-        
-            return act;
+            return actualizado;
+
         }
 
         public bool readNextTipoCoche(ENTipoCoche en)
         {
+
+            bool read = false;
+
+            try
+            {
+                SqlConnection conexion = null;
+                conexion = new SqlConnection(constring);
+                conexion.Open();
+
+                string comando = "select * from [dbo].[TipoCoche]";
+                SqlCommand consulta = new SqlCommand(comando, conexion);
+                SqlDataReader lector = consulta.ExecuteReader();
+                string TipoCoche = en.categoria;
+                int cont = 0;
+
+                while (lector.Read())
+                {
+                    en.categoria = lector["TioCoche"].ToString();
+                    if (cont == 1)
+                    {
+                        break;
+                    }
+                    if (lector["TipoCoche"].ToString() == TipoCoche)
+                    {
+                        cont++;
+                    }
+                }
+
+                lector.Close();
+                read = true;
+                conexion.Close();
+            }
+            catch (SqlException ex)
+            {
+                read = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+
+            }
+            catch (Exception ex)
+            {
+                read = false;
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+            }
+
+            return read;
+
+
+        }
+
+        public bool readFirstTipoCoche(ENTipoCoche en)
+        {
+           
             bool leer = false;
             try
             {
                 SqlConnection conexion = null;
                 conexion = new SqlConnection(constring);
                 conexion.Open();
-                string select = "Select * from [dbo].[tipoCoche]";
+                string select = "Select * from [dbo].[TipoCoche]";
                 SqlCommand consulta = new SqlCommand(select, conexion);
                 SqlDataReader buscar = consulta.ExecuteReader();
                 buscar.Read();
-                leer = true;
+                
+                en.categoria = buscar["categoria"].ToString();
+                while (buscar.Read() && !leer)
+                {
+                    if (buscar["TipoCoche"].ToString() == en.categoria)
+                    {
+                        leer = true;
+                    }
+                    en.categoria = buscar["TipoCoche"].ToString();
+
+                }
+               
                 buscar.Close();
                 conexion.Close();
             }
             catch (SqlException e)
             {
                 leer = false;
-                Console.WriteLine("Error !!", e.Message);
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
             catch (Exception e)
             {
                 leer = false;
-                Console.WriteLine("Error!!", e.Message);
+                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
             return leer;
-
         }
-
-        public bool readFirstTipoCoche(ENTipoCoche en)
-        {
-            bool lectura = false;
-            try
-            {
-                SqlConnection conexion = null;
-                conexion = new SqlConnection(constring);
-                conexion.Open();
-                string comando = "select * from [dbo].[marca]";
-                SqlCommand consulta = new SqlCommand(comando, conexion);
-                SqlDataReader lector = consulta.ExecuteReader();
-                int cont = 0;
-                while (lector.Read())
-                {
-                    if (cont == 1)
-                    {
-                        break;
-                    }
-                    else
-                        cont++;
-                }
-                lector.Close();
-                lectura = true;
-                conexion.Close();
-            }
-            catch (SqlException ex)
-            {
-                lectura = false;
-                Console.WriteLine("Error !!", ex.Message);
-            }
-            catch (Exception ex)
-            {
-                lectura = false;
-                Console.WriteLine("Error !!", ex.Message);
-            }
-            return lectura;
-        }
-    }
+    }    
 }

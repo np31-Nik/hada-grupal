@@ -33,7 +33,20 @@ namespace UserInterface
         protected global::System.Web.UI.UpdatePanel UpdatePanel_IZQ;
 
         /// <summary>
+<<<<<<< HEAD
         /// Control RequiredFieldValidator1.
+=======
+        /// panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel1;
+
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+>>>>>>> develop
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -231,12 +244,34 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.ListView ListView1;
 
         /// <summary>
+<<<<<<< HEAD
         /// Control Database.
+=======
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
+        /// <summary>
+        /// DatosBusqueda control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DatosBusqueda;
+
+        /// <summary>
+        /// DataPager1 control.
+>>>>>>> develop
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource Database;
+        protected global::System.Web.UI.WebControls.DataPager DataPager1;
     }
 }

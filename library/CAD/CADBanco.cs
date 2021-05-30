@@ -17,7 +17,7 @@ namespace library
 
         public CADBanco()
         {
-            conexstring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            conexstring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString();
         }
 
         public bool createBanco(ENBanco en)

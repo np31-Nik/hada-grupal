@@ -13,7 +13,7 @@ namespace library
         private string constring;
         public CADLocalidad()
         {
-            constring = ConfigurationManager.ConnectionStrings["Database"].ToString(); ;//Conexion
+            constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString(); ;//Conexion
         }
         public bool createLocalidad(ENLocalidad en)
         {
@@ -22,7 +22,7 @@ namespace library
             try
             {
                 string comando = "Insert INTO [dbo].[Localidad] (Localidad)" +
-                "VALUES ('" + en.localidad + ")";
+                "VALUES ('" + en.localidad + "')";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -119,7 +119,7 @@ namespace library
             
             try
             {
-                string comando = "DELETE FROM [dbo].[Localidad] WHERE nif = '" + en.localidad + "'";
+                string comando = "DELETE FROM [dbo].[Localidad] WHERE localidad = '" + en.localidad + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();

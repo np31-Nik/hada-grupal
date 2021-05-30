@@ -17,7 +17,7 @@ namespace library
 
         public CADHipoteca()
         {
-            conexstring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            conexstring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString();
         }
 
         public bool createHipoteca(ENHipoteca en)
@@ -30,7 +30,7 @@ namespace library
                 conexion = new SqlConnection(conexstring);
                 conexion.Open();
 
-                string comando = "insert into [dbo].[Hipoteca](id,banco,desde,hasta,interes,numSolicitudes) values " + "('" + en.ID + "','" + en.BANCO + "','" + en.FECHADESDE + "','" + en.FECHAHASTA + "','" + en.INTERESES + "','" + en.NUMSOLICITUDES + "')";
+                string comando = "insert into [dbo].[Hipoteca](banco,desde,hasta,interes,numSolicitudes) values " + "('" + en.BANCO + "','" + en.FECHADESDE + "','" + en.FECHAHASTA + "','" + en.INTERESES + "','" + en.NUMSOLICITUDES + "')";
                 SqlCommand consulta = new SqlCommand(comando, conexion);
                 consulta.ExecuteNonQuery();
                 creado = true;
@@ -278,6 +278,71 @@ namespace library
             }
 
             return act;
+        }
+
+        public bool BuscarHipoteca(ENHipoteca en)
+        {
+            bool encontrado = false;
+
+
+            try
+            {
+                string comando = "select * From [dbo].[Hipoteca] where banco='" + en.BANCO + "'" +
+                    " AND desde<='" + en.FECHADESDE + "' AND hasta>='" + en.FECHAHASTA + "'";
+                SqlConnection conn = null;
+                conn = new SqlConnection(conexstring);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(comando, conn);
+                SqlDataReader buscar = cmd.ExecuteReader();
+                int min_id=0;
+                int min_interes=0;
+                int interes=0;
+                bool primero = true;
+
+                while (buscar.Read())
+                {
+                    encontrado = true;
+                    if (primero)
+                    {
+                        primero = false;
+                        min_id = int.Parse(buscar["id"].ToString());
+                        min_interes = int.Parse(buscar["interes"].ToString());
+                    }
+                    else
+                    {
+                        interes = int.Parse(buscar["interes"].ToString());
+                        if (interes < min_interes)
+                        {
+                            min_id = int.Parse(buscar["id"].ToString());
+                            min_interes = interes;
+                        }
+                    }
+                    
+                }
+
+                en.ID = min_id;
+                en.readHipoteca();
+                en.NUMSOLICITUDES++;
+                en.updateHipoteca();
+
+                buscar.Close();
+                conn.Close();
+
+            }
+            catch (SqlException ex)
+            {
+                encontrado = false;
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                encontrado = false;
+                Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
+
+            }
+
+
+            return encontrado;
         }
     }
 }

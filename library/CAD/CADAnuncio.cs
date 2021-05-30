@@ -2,6 +2,9 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Numerics;
+using System.Collections.Generic;
 
 namespace library
 {
@@ -16,10 +19,10 @@ namespace library
         public int readUltimoId(ENUsuario en) {
             int auxid = 0;
 
-            
-            try{
+            SqlConnection conn = null;
+            try
+            {
                 string comando = "select id From [dbo].[Anuncio] where usuario = '" + en.Nif + "'";
-                SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -40,6 +43,10 @@ namespace library
             {
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
 
             return auxid;
         }
@@ -47,13 +54,12 @@ namespace library
         public bool createAnuncio(ENAnuncio en)
         {
             bool creado = false;
-            
+            SqlConnection conn = null;
             try
             {
                 string comando = "Insert INTO [dbo].[Anuncio] (titulo, precio, usuario, tipo, localidad, descripcion, categoria) " +
                 "VALUES ('" + en.titulo + "', '" + en.precio + "', '" + en.usuario.Nif + "', '" + en.tipo.Tipo + "', '" + en.localidad.localidad +
                 "', '" + en.descripcion + "', '" + en.categoria + "')";
-                SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -72,17 +78,20 @@ namespace library
                 creado = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
 
             return creado;
         }
         public bool deleteAnuncio(ENAnuncio en)
         {
             bool borrado = false;
-            
+            SqlConnection conn = null;
             try
             {
                 string comando = "DELETE FROM [dbo].[Anuncio] WHERE id = '" + en.id + "'";
-                SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -100,7 +109,10 @@ namespace library
                 borrado = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
-
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
 
 
             return borrado;
@@ -109,12 +121,11 @@ namespace library
         {
 
             bool encontrado = false;
-           
+            SqlConnection conn = null;
 
             try
             {
                 string comando = "select * From [dbo].[Anuncio] where id='" + en.id + "'";
-                SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -123,6 +134,7 @@ namespace library
                 {
 
                         encontrado = true;
+                    en.tipo.Tipo = buscar["tipo"].ToString();
                         en.titulo = buscar["titulo"].ToString();
                         en.usuario.Nif = buscar["usuario"].ToString();
                         en.descripcion = buscar["descripcion"].ToString();
@@ -132,7 +144,7 @@ namespace library
                         if (en.categoria == "coche") {
                             en.coche.id = en.id;
                             en.coche.anyo = int.Parse(buscar["ano"].ToString());
-                            en.coche.marca.tipo = buscar["marca"].ToString();
+                            en.coche.marca.companyia = buscar["marca"].ToString();
                             en.coche.tipo.categoria = buscar["tipo"].ToString();
                         }
                         else if (en.categoria=="propiedad")
@@ -161,28 +173,32 @@ namespace library
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
 
             }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
 
 
             return encontrado;
         }
         public bool readFirstAnuncio(ENAnuncio en)
         {
-            bool updated = false;
+            bool read = false;
 
 
-            return updated;
+            return read;
         }
         public bool readNextAnuncio(ENAnuncio en)
         {
-            bool updated = false;
+            bool read = false;
 
 
-            return updated;
+            return read;
         }
         public bool updateAnuncio(ENAnuncio en)
         {
             bool updated = false;
-            
+            SqlConnection conn = null;
             try
             {
                 string comando = "UPDATE [dbo].[Anuncio] SET " +
@@ -191,7 +207,7 @@ namespace library
                 "localidad= '" + en.localidad.localidad + "' ," +
                 "descripcion= '" + en.descripcion + "' ," +
                 "WHERE id = '" + en.id + "'";
-                SqlConnection conn = null;
+
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -209,27 +225,67 @@ namespace library
                 updated = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
-
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
 
             return updated;
         }
-        public DataSet BusquedaAnuncios(string cmd_a, string cmd_b, ref bool success)
+        public DataSet BusquedaAnuncios(string cmd_a, string cmd_b, string tabla, ref bool success)
         {
             success = false;
             DataSet ds = new DataSet();
+            SqlConnection connection = null;
             try
             {
-                SqlConnection connection = null;
+                
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                SqlDataAdapter adp = new SqlDataAdapter("select * from [dbo].[Anuncio], [dbo].[Coche] " +
-                    "WHERE [dbo].[Anuncio].id = [dbo].[Coche].id " +
-                    "AND [dbo].[Anuncio].id=(select id from [dbo].[Anuncio] " + cmd_a + ")" +
-                    "AND [dbo].[Coche].id=(select id from [dbo].[Coche] " + cmd_b + ")"
-                    , constring);
+                string query1 = "select * from [dbo].[Anuncio] AS a, [dbo].[Foto] AS f, [dbo].[" + tabla + "] " +
+                    "WHERE a.id=[dbo].[" + tabla + "].anuncio " +
+                    "AND a.id IN (select id from [dbo].[Anuncio] " + cmd_a + ")" +
+                    " AND [dbo].[" + tabla + "].anuncio IN (select anuncio from [dbo].[" + tabla + "] " + cmd_b + ")" +
+                    " AND f.anuncio = a.id";
+
+                SqlDataAdapter adp = new SqlDataAdapter(query1,constring);
 
                 adp.Fill(ds);
+
+                List<int> anuncios = new List<int>();
+                List<int> toDelete = new List<int>();
+
+                int tables = 0;
+
+                foreach (DataTable dt in ds.Tables)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        int index = dt.Rows.IndexOf(dr);
+
+                        if (anuncios.Contains(int.Parse(dr["id"].ToString())))
+                        {
+                            toDelete.Add(index);
+                        }
+                        else
+                        {
+                            anuncios.Add(int.Parse(dr["id"].ToString()));
+                        }
+                    }
+                    tables++;
+                }
+                for (int t = 0; t < tables; t++)
+                {
+                    foreach (int i in toDelete)
+                    {
+                        ds.Tables[t].Rows[i].Delete();
+                    }
+                }
+                
+                ds.AcceptChanges();
+
+
 
                 connection.Close();
                 success = true;
@@ -244,6 +300,10 @@ namespace library
             {
                 success = false;
                 Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (connection != null) connection.Close();
             }
             return ds;
         }

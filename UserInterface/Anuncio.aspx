@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Anuncio" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Anuncio.aspx.cs" Inherits="UserInterface.Anuncio" MaintainScrollPositionOnPostback="true" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -102,10 +103,8 @@
             <br />
 
             <div class="PanelHipoteca" style="background-color:#ffffff;color:black;">
-            <asp:UpdatePanel runat="server" ID="UpdatePanel_Hipoteca" UpdateMode="Conditional">
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="H_CALCULAR" EventName="Click" />
-                </Triggers>
+            <asp:UpdatePanel runat="server" ID="UpdatePanel_Hipoteca" UpdateMode="Always">
+
                 <ContentTemplate>
                      <asp:Label runat="server" Text="Calculador de hipoteca" style="font-size:25px;font-weight:bold;text-align:center;" Width="100%"></asp:Label>
                 <br />
@@ -167,40 +166,46 @@
                     <br />
                     <asp:ValidationSummary runat="server" DisplayMode="BulletList" EnableClientScript="false" ID="ValidationSummary_Hipoteca" ValidationGroup="Hipoteca"
                         Forecolor="red"/>
-                    <br />
+                    <asp:Label runat="server" ID="MensajeH" Visible="false" ForeColor="Red" Text="No se ha encontrado ninguna hipoteca disponible con este banco."></asp:Label>
 
-                <asp:Panel runat="server" id="H_RESULTADOS" visible="false" style="margin-bottom: 1px">
+                <div runat="server" id="H_RESULTADO" visible="false">
                     <br />
                     <asp:Label runat="server" Text="Resultados" style="font-size:20px;font-weight:bold;text-align:center;" Width="100%"></asp:Label>
-                    <div style="float:left;width:50%;">
-                        <asp:Label runat="server" Text="Interés anual (%):"></asp:Label>
+                    <div style="float:left;">
+                        <asp:Label runat="server" Text="Interés anual:"></asp:Label>
                     </div>
 
                     <div style="float:right;">
                         <asp:Label id="H_INTERES" runat="server"></asp:Label>
                     </div>
-
                     <br />
                     <br />
-
-                    <div style="float:left;width:50%;">
-                        <asp:Label runat="server" Text="Importe a financiar:"></asp:Label>
-                    </div>
-
-                    <div style="float:right;">
-                        <asp:Label runat="server" id="H_FINANCIAR"></asp:Label>
-                    </div>
-
-                    <br />
-
-                    <div style="float:left;width:50%;">
+                    <div style="float:left">
                         <asp:Label runat="server" Text="Cuota mensual:"></asp:Label>
                     </div>
 
                     <div style="float:right;">
                         <asp:Label runat="server" id="H_CUOTAM"></asp:Label>
                     </div>
-                </asp:Panel>
+                    <br />
+                    <div style="float:left;">
+                        <asp:Label runat="server" Text="Tel. del banco:"></asp:Label>
+                    </div>
+
+                    <div style="float:right;">
+                        <asp:Label id="TEL_BANCO" runat="server"></asp:Label>
+                    </div>
+                    <br />
+                    <div style="float:left;">
+                        <asp:Label runat="server" Text="Email del banco:"></asp:Label>
+                    </div>
+
+                    <div style="float:right;">
+                        <asp:Label id="EMAIL_BANCO" runat="server"></asp:Label>
+                    </div>
+                    
+                    <br />
+                </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
             </div>
@@ -222,18 +227,18 @@
        <table>
          <tr>
             <td>
-                        <asp:ListView ID="ListView1" runat="server" DataSourceID="Imagenes">
+                        <asp:ListView ID="ListView1" runat="server" DataSourceID="Imagenes" OnDataBound="ListView1_DataBound">
                             <EmptyDataTemplate>
-                                <table runat="server" style="">
+                                <table runat="server">
                                     <tr>
-                                        <td><asp:Image ID="IMAGE" runat="server" ImageUrl="~\imagenes\imagen0.jpg"/></td>
+                                        <td><asp:Image ID="IMAGE" runat="server" ImageUrl="~\imagenes\no-image.jpg"/></td>
                                     </tr>
                                 </table>
                             </EmptyDataTemplate>
                             <ItemTemplate>
                                 <tr style="">
                                     <td>
-                                        <asp:Image ID="foto" runat="server" Height="600px" Width="1000px" ImageUrl="~\imagenes\imagen0.jpg" />
+                                        <asp:Image ID="foto" runat="server" Height="600px" Width="1000px" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' />
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -252,10 +257,12 @@
                                         </td>
                                     </tr>
                                     <tr runat="server">
-                                        <td runat="server" style="">
-                                            <asp:DataPager ID="DataPager1" runat="server" PageSize="1" style="width:40px;height:40px;">
+                                        <td runat="server">
+                                            <asp:DataPager ID="DataPager1" runat="server" PageSize="1" >
                                                 <Fields>
-                                                    <asp:NextPreviousPagerField ButtonType="Image" PreviousPageImageUrl="~/imagenes/left-arrow.png" 
+                                                    <asp:NextPreviousPagerField ButtonType="Button" PreviousPageImageUrl="~/imagenes/left-arrow.png"  ShowNextPageButton="false" ShowPreviousPageButton="true"
+                                                        ButtonCssClass="BotonesIMG" ShowFirstPageButton="false" ShowLastPageButton="false" PreviousPageText="<"/>
+                                                    <asp:NextPreviousPagerField ButtonType="Button" ShowPreviousPageButton="false" NextPageText=">" ShowNextPageButton="true"
                                                         NextPageImageUrl="~/imagenes/right-arrow.png" ButtonCssClass="BotonesIMG" ShowFirstPageButton="false" ShowLastPageButton="false" />
                                                 </Fields>
                                             </asp:DataPager>
@@ -264,13 +271,6 @@
                                 </table>
                                     </div>
                             </LayoutTemplate>
-                            <SelectedItemTemplate>
-                                <tr style="">
-                                    <td>
-                                        <asp:Label ID="fotoLabel" runat="server" Text='<%# Eval("foto") %>' />
-                                    </td>
-                                </tr>
-                            </SelectedItemTemplate>
                         </asp:ListView>
                  </td>
          </tr>
@@ -278,9 +278,9 @@
      </td>
    </tr>
 </table>
-                        <asp:SqlDataSource ID="Imagenes" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [foto] FROM [Foto] WHERE ([anuncio] = @anuncio)">
+                        <asp:SqlDataSource ID="Imagenes" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE Foto.anuncio = Anuncio.id AND Anuncio.id = @id">
                             <SelectParameters>
-                                <asp:QueryStringParameter Name="anuncio" QueryStringField="anuncio_id" Type="Int32" />
+                                <asp:QueryStringParameter Name="id" QueryStringField="anuncio_id" />
                             </SelectParameters>
                         </asp:SqlDataSource>
                     </asp:Panel>
@@ -308,84 +308,45 @@
         <div class="PanelDescripcion" ID="Panel_Comentarios" style="background-color:#ffffff;color:black;">
             <div>
                <asp:Label runat="server" Text="Comentarios de otros usuarios:" style="font-size:20px;font-weight:bold;text-align:center" Width="100%"></asp:Label>
-                <asp:UpdatePanel runat="server" ID="UpdatePanel_Comentario" UpdateMode="Conditional">
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="PublicarComentario" EventName="Click" />
-                    </Triggers>
+                <asp:UpdatePanel runat="server" ID="UpdatePanel_Comentario" UpdateMode="Always">
+
                     <ContentTemplate>
-                        <div class="Comentario">
+                        <asp:Label runat="server" ID="Mensaje_comentario" Visible="false" Text="Debes iniciar sesión para poder escribir comentarios." style="text-align:center" Width="100%"></asp:Label>
+                        <asp:Panel runat="server" CssClass="Comentario" id="PanelComentarioUsuario" Visible="false">
                             <asp:TextBox runat="server" ID="ComentarioUsuario" style="width:100%;height:100px" placeholder="Escribe tu comentario aqui..." textmode="MultiLine"></asp:TextBox>
                             <br />
                             <asp:Button runat="server" ID="PublicarComentario" Text="Publicar comentario" OnClick="Comentar" />
-                        </div>
+                        </asp:Panel>
                         
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                
                     
                 <div>
                     <asp:ListView runat="server" ID="ListaComentarios" DataSourceID="Database" >
-                        <AlternatingItemTemplate>
-                            <span style="background-color: #FAFAD2;color: #284775;">coment:
-                            <asp:DynamicControl runat="server" DataField="coment" Mode="ReadOnly" />
-                            <br />
-                            fecha:
-                            <asp:DynamicControl runat="server" DataField="fecha" Mode="ReadOnly" />
-                            <br />
-                            usuario:
-                            <asp:DynamicControl runat="server" DataField="usuario" Mode="ReadOnly" />
-<br />
-                            <br />
-                            </span>
-                        </AlternatingItemTemplate>
-                        <EditItemTemplate>
-                            <span style="background-color: #FFCC66;color: #000080;">coment:
-                            <asp:DynamicControl runat="server" DataField="coment" Mode="Edit" />
-                            <br />
-                            fecha:
-                            <asp:DynamicControl runat="server" DataField="fecha" Mode="Edit" />
-                            <br />
-                            usuario:
-                            <asp:DynamicControl runat="server" DataField="usuario" Mode="Edit" />
-                            <br />
-                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                            <br /><br /></span>
-                        </EditItemTemplate>
+                        
                         <EmptyDataTemplate>
-                            <span>Este anuncio no tiene comentarios.</span>
+                            <span>No hay comentarios.</span>
                         </EmptyDataTemplate>
-                        <InsertItemTemplate>
-                            <span style="">coment:
-                            <asp:DynamicControl runat="server" DataField="coment" Mode="Insert" ValidationGroup="Insert" />
-                            <br />
-                            fecha:
-                            <asp:DynamicControl runat="server" DataField="fecha" Mode="Insert" ValidationGroup="Insert" />
-                            <br />
-                            usuario:
-                            <asp:DynamicControl runat="server" DataField="usuario" Mode="Insert" ValidationGroup="Insert" />
-                            <br />
-                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" ValidationGroup="Insert" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                            <br /><br /></span>
-                        </InsertItemTemplate>
                         <ItemTemplate>
-                            <span style="background-color: #FFFBD6;color: #333333;">coment:
-                            <asp:DynamicControl runat="server" DataField="coment" Mode="ReadOnly" />
+                            <td runat="server" style="background-color:#DCDCDC;color: #000000;border:ridge;border-color:black">
+                            [<asp:Label ID="fechaLabel" runat="server" Text='<%# Eval("fecha","{0:dd/mm/yyyy}") %>' />]
                             <br />
-                            fecha:
-                            <asp:DynamicControl runat="server" DataField="fecha" Mode="ReadOnly" />
+                            [<asp:Label ID="usuarioLabel" runat="server" Text='<%# Eval("nombre") %>' />]
                             <br />
-                            usuario:
-                            <asp:DynamicControl runat="server" DataField="usuario" Mode="ReadOnly" />
-<br />
+                            ><asp:Label ID="comentLabel" runat="server" Text='<%# Eval("coment") %>' />
                             <br />
-                            </span>
+                                </td>
+                            <br />
                         </ItemTemplate>
+                        <GroupTemplate>
+                        <tr id="itemPlaceholderContainer" runat="server">
+                            <td id="itemPlaceholder" runat="server"></td>
+                        </tr>
+                    </GroupTemplate>
                         <LayoutTemplate>
-                            <div id="itemPlaceholderContainer" runat="server" style="font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                <span runat="server" id="itemPlaceholder" />
+                            <div id="groupPlaceholderContainer" runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;" >
+                                <span runat="server" id="groupPlaceholder" />
                             </div>
-                            <div style="text-align: center;background-color: #FFCC66;font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;">
+                            <div style="text-align: center;background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
                                 <asp:DataPager ID="DataPager1" runat="server">
                                     <Fields>
                                         <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
@@ -393,26 +354,16 @@
                                 </asp:DataPager>
                             </div>
                         </LayoutTemplate>
-                        <SelectedItemTemplate>
-                            <span style="background-color: #FFCC66;font-weight: bold;color: #000080;">coment:
-                            <asp:DynamicControl runat="server" DataField="coment" Mode="ReadOnly" />
-                            <br />
-                            fecha:
-                            <asp:DynamicControl runat="server" DataField="fecha" Mode="ReadOnly" />
-                            <br />
-                            usuario:
-                            <asp:DynamicControl runat="server" DataField="usuario" Mode="ReadOnly" />
-<br />
-                            <br />
-                            </span>
-                        </SelectedItemTemplate>
+                       
                     </asp:ListView>
-                    <asp:SqlDataSource ID="Database" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [coment], [fecha], [usuario] FROM [Comentario] WHERE ([anuncio] = @anuncio)">
+                    <asp:SqlDataSource ID="Database" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Comentario.fecha, Comentario.usuario, Comentario.coment, Usuario.nombre FROM [Comentario] ,[Usuario] WHERE ([anuncio] = @anuncio) AND Usuario.nif = Comentario.usuario">
                         <SelectParameters>
                             <asp:QueryStringParameter Name="anuncio" QueryStringField="anuncio_id" Type="Int32" />
                         </SelectParameters>
                     </asp:SqlDataSource>
                 </div>
+                 </ContentTemplate>
+                    </asp:UpdatePanel>
             </div>
 
             <br />
@@ -423,78 +374,92 @@
         <br />
 
         <div class="PanelSimilares" style="background-color:#ffffff;color:black;";height: 332px;">
-
+            <asp:UpdatePanel runat="server" UpdateMode="Always">
+                <ContentTemplate>
             <asp:Label runat="server" Text="Articulos similares:" style="font-size:20px;font-weight:bold;text-align:center" Width="100%"></asp:Label>
              <br /><br />
             <div class="ListaSimilares" style="text-align:center; height: 277px;">
+                                    <table width="100%">
+   <tr>
+     <td align="center">
+       <table>
+         <tr>
+            <td>
+                <asp:ListView ID="ListViewSimilares" runat="server" GroupItemCount="5" DataSourceID="DatosBusqueda">
+                    
+                    <EmptyDataTemplate>
+                        <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
+                            <tr>
+                                <td>No se han encontrado articulos similares.</td>
+                            </tr>
+                        </table>
+                    </EmptyDataTemplate>
+                    <EmptyItemTemplate>
+<td runat="server" />
+                    </EmptyItemTemplate>
+                    <GroupTemplate>
+                        <tr id="itemPlaceholderContainer" runat="server">
+                            <td id="itemPlaceholder" runat="server"></td>
+                        </tr>
+                    </GroupTemplate>
+                   
+                    <ItemTemplate>
+                        <td runat="server" style="background-color:#DCDCDC;color: #000000;border:ridge;border-color:black">
+                            <asp:ImageButton ID="FOTObtn" runat="server" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' Width="300px" Height="200px"
+                                  OnClick="AnuncioSimilar" CommandArgument='<%# Eval("id") %>' />
+                            <br />
+                            <asp:Label ID="tipoLabel" runat="server" style="float:left" Text='<%# Eval("tipo") %>' />
+                            <asp:Label runat="server" Text="€" style="float:right"></asp:Label>
+                            <asp:Label ID="precioLabel" runat="server" style="float:right" Text='<%# Eval("precio") %>' />
+                            <br />
+                            <asp:Label ID="localidadLabel" runat="server" style="float:right" Text='<%# Eval("localidad") %>' />
+                            </td>
+                    </ItemTemplate>
+                    <LayoutTemplate>
+                        <table runat="server">
+                            <tr runat="server">
+                                <td runat="server">
+                                    <table id="groupPlaceholderContainer" runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                        <tr id="groupPlaceholder" runat="server">
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr runat="server">
+                                <td runat="server">
+                                    <asp:DataPager ID="DataPager1" runat="server" PageSize="5">
 
-                <div class="Similar" id="Similar1" style="float:left;">
-                    <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
-                    <br />
-                    <div style="text-align:center;width:80%;margin:auto;">
-                        <div style="float:left;">
-                            <asp:Label ID="Sim1_Localidad" runat="server"></asp:Label>
-                        </div>
-
-                        <div style="float:right">
-                            <asp:Label ID="Sim1_Precio" runat="server"></asp:Label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="Similar" id="Similar2" style="float:left">
-                    <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
-                    <br />
-                    <div style="text-align:center;width:80%;margin:auto;">
-                        <div style="float:left">
-                            <asp:Label ID="Sim2_Localidad" runat="server"></asp:Label>
-                        </div>
-                        <div style="float:right">
-                            <asp:Label ID="Sim2_Precio" runat="server"></asp:Label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="Similar" id="Similar3" style="float:left">
-                    <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
-                    <br />
-                    <div style="text-align:center;width:80%;margin:auto;">
-                        <div style="float:left">
-                            <asp:Label ID="Sim3_Localidad" runat="server"></asp:Label>
-                        </div>
-                        <div style="float:right">
-                            <asp:Label ID="Sim3_Precio" runat="server"></asp:Label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="Similar" id="Similar4" style="float:left">
-                    <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
-                    <br />
-                    <div style="text-align:center;width:80%;margin:auto;">
-                        <div style="float:left">
-                            <asp:Label ID="Sim4_Localidad" runat="server"></asp:Label>
-                        </div>
-                        <div style="float:right">
-                            <asp:Label ID="Sim4_Precio" runat="server"></asp:Label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="Similar" id="Similar5" style="float:left">
-                    <asp:ImageButton ImageUrl="~/imagenes/no-image.jpg" Height="225px" Width="300px" runat="server" />
-                    <br />
-                    <div style="text-align:center;width:80%;margin:auto;">
-                        <div style="float:left">
-                            <asp:Label ID="Sim5_Localidad" runat="server"></asp:Label>
-                        </div>
-                        <div style="float:right">
-                            <asp:Label ID="Sim5_Precio" runat="server"></asp:Label>
-                        </div>
-                    </div>
-                </div>
+                                    </asp:DataPager>
+                                </td>
+                            </tr>
+                        </table>
+                    </LayoutTemplate>
+                    
+                </asp:ListView>
+                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id))) AND (Anuncio.id &lt;&gt; @id) AND (Anuncio.categoria = @categoria) AND (Anuncio.tipo = @tipo) AND (Anuncio.localidad = @localidad)">
+                    <SelectParameters>
+                        <asp:QueryStringParameter Name="id" QueryStringField="anuncio_id" />
+                        <asp:ControlParameter ControlID="CATEGORIA" Name="categoria" PropertyName="Value" />
+                        <asp:ControlParameter ControlID="TIPO_ANUNCIO" Name="tipo" PropertyName="Value" />
+                        <asp:ControlParameter ControlID="LOCALIDADH" Name="localidad" PropertyName="Value" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+                
+                </td>
+         </tr>
+       </table>
+     </td>
+   </tr>
+</table>
             </div>
+            </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
     </div>
+     <asp:HiddenField ID="CATEGORIAH" runat="server"/>
+         <asp:HiddenField ID="CATEGORIA" runat="server"/>
+
+     <asp:HiddenField ID="TIPO_ANUNCIO" runat="server"/>
+     <asp:HiddenField ID="LOCALIDADH" runat="server"/>
 
 </asp:Content>
