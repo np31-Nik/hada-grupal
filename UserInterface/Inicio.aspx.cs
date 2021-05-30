@@ -21,11 +21,11 @@ namespace UserInterface
         }
         protected void EntrarClick(object sender, EventArgs e)
         {
-            string email = nombreUsuario.Text;
+            string email = DNI.Text;
             if (Page.IsValid)
             {
                 ENUsuario usuario = new ENUsuario();
-                usuario.Email = nombreUsuario.Text;
+                usuario.Email = DNI.Text;
                 Session["inicio"] = usuario;
 
 
@@ -39,7 +39,7 @@ namespace UserInterface
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
             ENUsuario usuario = new ENUsuario();
-            string email = nombreUsuario.Text;
+            string email = DNI.Text;
             if (email != "")
             {
                 if (usuario.readUsuario(email))

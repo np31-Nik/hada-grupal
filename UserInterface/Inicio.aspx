@@ -3,9 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel= "Stylesheet" type="text/css" href="css/Inicio.css" />
-       Usuario: 
-        <asp:TextBox CssClass="textBox" ID="nombreUsuario" runat="server"  BorderStyle="Inset" ToolTip="Escriba aquí su nombre de usuario" Width="80%"/>  
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ForeColor="Red"  ErrorMessage="Campo Requerido"  ControlToValidate="nombreUsuario">
+       NIF: 
+        <asp:TextBox CssClass="textBox" ID="DNI" runat="server"  BorderStyle="Inset" ToolTip="Escriba SU DNI" Width="80%"/>  
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ForeColor="Red"  ErrorMessage="Campo Requerido"  ControlToValidate="DNI">
+        
         </asp:RequiredFieldValidator>
         </div>
          <br />
