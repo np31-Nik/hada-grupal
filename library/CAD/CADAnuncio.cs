@@ -55,7 +55,7 @@ namespace library
             try
             {
                 string comando = "Insert INTO [dbo].[Anuncio] (titulo, precio, usuario, tipo, localidad, descripcion, categoria) " +
-                "VALUES ('" + en.titulo + "', '" + en.precio + "', '" + "11"/*en.usuario.Nif*/ + "', '" + en.tipo.Tipo + "', '" + en.localidad.localidad +
+                "VALUES ('" + en.titulo + "', '" + en.precio + "', '" + en.usuario.Nif + "', '" + en.tipo.Tipo + "', '" + en.localidad.localidad +
                 "', '" + en.descripcion + "', '" + en.categoria + "')";
                 conn = new SqlConnection(constring);
                 conn.Open();

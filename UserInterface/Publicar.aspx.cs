@@ -74,9 +74,13 @@ namespace UserInterface
                     mensaje.Text = "El tamaño maximo de la descripcion es de 1000 caracteres. Tamaño actual: " + descripcion.ToString().Length;
 
                 }
-                else if ((cargarimg1.HasFile || cargarimg1.HasFiles) && cargarimg1.PostedFiles.Count < 10)
+                
+                else
                 {
-                    formatoCorrercto = true;
+
+                    if ((cargarimg1.HasFile || cargarimg1.HasFiles) && cargarimg1.PostedFiles.Count < 10)
+                    {
+                        formatoCorrercto = true;
                         foreach (HttpPostedFile file in cargarimg1.PostedFiles)
                         {
                             if (file.ContentType != "image/jpg" &&
@@ -88,14 +92,13 @@ namespace UserInterface
 
                                 formatoCorrercto = false;
                         }
-                }
-                if (!formatoCorrercto)
-                {
-                    mensaje.Text = "Debe cargar al menos una imagen pero no mas de 10. Formato obligatorio: .png o .jpg o .jpeg";
-                }
-                else
-                {
-                    if (RadioButtonList1.SelectedItem.Text == "Vehiculo")
+
+                    }
+                    if (!formatoCorrercto)
+                    {
+                        mensaje.Text = "Debe cargar al menos una imagen pero no mas de 10. Formato obligatorio: .png o .jpg o .jpeg";
+                    }
+                    if (RadioButtonList1.SelectedItem.Text == "Vehiculo" && formatoCorrercto)
                     {
                         vehiculo.Visible = true;
                         propiedad.Visible = false;
@@ -119,7 +122,7 @@ namespace UserInterface
                         else if (int.TryParse(anyo.Text, out aux))
                         {
                             if (aux > 2021)
-                                mensaje.Text = "El campo anyo no puede tomar valor mas grande que 2021";
+                                mensaje.Text = "El campo año no puede tomar valor mas grande que 2021";
 
                         }
                         else
@@ -132,7 +135,7 @@ namespace UserInterface
                             ENUsuario user = new ENUsuario();
                             ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precioVehiculo.Text), tipoAnun, user, car);
                             anuncio.categoria = "coche";
-                            anuncio.usuario.Nif = "11";//Session["nif"].ToString();
+                            anuncio.usuario.Nif = Session["nif"].ToString();
 
 
                             anuncio.EsCoche = true;
@@ -159,7 +162,7 @@ namespace UserInterface
 
                     }
 
-                    else if (RadioButtonList1.SelectedItem.Text == "Propiedad")
+                    else if (RadioButtonList1.SelectedItem.Text == "Propiedad" && formatoCorrercto)
                     {
                         vehiculo.Visible = false;
                         propiedad.Visible = true;
@@ -222,6 +225,7 @@ namespace UserInterface
                 }
             }
         }
+
         protected void InicioClick(object sender, EventArgs e)
         {
             Response.Redirect("~/Principal.aspx");
