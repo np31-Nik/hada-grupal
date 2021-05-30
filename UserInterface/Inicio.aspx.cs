@@ -21,12 +21,22 @@ namespace UserInterface
         }
         protected void EntrarClick(object sender, EventArgs e)
         {
-            string email = nombreUsuario.Text;
+           
             if (Page.IsValid)
             {
                 ENUsuario usuario = new ENUsuario();
-                usuario.Email = nombreUsuario.Text;
+
+                usuario.Email = email.Text;
+                usuario.Contrasenya = contrasenya.Text;
+                usuario.readUsuario();
                 Session["inicio"] = usuario;
+                Session["nif"] =usuario.Nif;
+                Session["nombre"] = usuario.Nombre;
+                Session["apellidos"] = usuario.Apellido;
+                Session["telefono"] = usuario.Telefono;
+                Session["premium"] = usuario.Premium;
+                Session["administrador"] = usuario.Admin;
+
 
 
 
@@ -39,10 +49,10 @@ namespace UserInterface
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
             ENUsuario usuario = new ENUsuario();
-            string email = nombreUsuario.Text;
-            if (email != "")
+            string correo = email.Text;
+            if (correo != "")
             {
-                if (usuario.readUsuario())
+                if (usuario.readUsuario(email.Text))
                 {
                     args.IsValid = false;
                 }
@@ -55,5 +65,25 @@ namespace UserInterface
 
         }
 
-    }
+        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            ENUsuario usuario = new ENUsuario();
+            string password = contrasenya.Text;
+            if (password != "")
+            {
+                if (usuario.readUsuario(contrasenya.Text))
+                {
+                    args.IsValid = false;
+                }
+                else
+                {
+                    args.IsValid = true;
+
+                }
+            }
+        }
+
+
+
+     }
 }

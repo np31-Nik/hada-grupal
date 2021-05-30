@@ -15,13 +15,13 @@ namespace UserInterface
     {
 
         /// <summary>
-        /// nombreUsuario control.
+        /// Control email.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombreUsuario;
+        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -33,13 +33,13 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// Contraseña control.
+        /// Control contrasenya.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Contraseña;
+        protected global::System.Web.UI.WebControls.TextBox contrasenya;
 
         /// <summary>
         /// RequiredFieldValidator2 control.

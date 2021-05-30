@@ -1,4 +1,6 @@
-﻿namespace library
+﻿using System;
+
+namespace library
 {
     public class ENUsuario
     {
@@ -31,6 +33,12 @@
             get { return _email; }
             set { _email = value; }
         }
+
+        public void readUsuario()
+        {
+            throw new NotImplementedException();
+        }
+
         public string Contrasenya
         {
             get { return _contrasenya; }
