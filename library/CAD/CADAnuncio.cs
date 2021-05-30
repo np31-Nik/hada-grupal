@@ -2,6 +2,9 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Numerics;
+using System.Collections.Generic;
 
 namespace library
 {
@@ -131,6 +134,7 @@ namespace library
                 {
 
                         encontrado = true;
+                    en.tipo.Tipo = buscar["tipo"].ToString();
                         en.titulo = buscar["titulo"].ToString();
                         en.usuario.Nif = buscar["usuario"].ToString();
                         en.descripcion = buscar["descripcion"].ToString();
@@ -140,7 +144,7 @@ namespace library
                         if (en.categoria == "coche") {
                             en.coche.id = en.id;
                             en.coche.anyo = int.Parse(buscar["ano"].ToString());
-                            en.coche.marca.tipo = buscar["marca"].ToString();
+                            en.coche.marca.companyia = buscar["marca"].ToString();
                             en.coche.tipo.categoria = buscar["tipo"].ToString();
                         }
                         else if (en.categoria=="propiedad")
@@ -228,7 +232,7 @@ namespace library
 
             return updated;
         }
-        public DataSet BusquedaAnuncios(string cmd_a, string cmd_b, ref bool success)
+        public DataSet BusquedaAnuncios(string cmd_a, string cmd_b, string tabla, ref bool success)
         {
             success = false;
             DataSet ds = new DataSet();
@@ -239,13 +243,49 @@ namespace library
                 connection = new SqlConnection(constring);
                 connection.Open();
 
-                SqlDataAdapter adp = new SqlDataAdapter("select * from [dbo].[Anuncio], [dbo].[Coche] " +
-                    "WHERE [dbo].[Anuncio].id = [dbo].[Coche].id " +
-                    "AND [dbo].[Anuncio].id=(select id from [dbo].[Anuncio] " + cmd_a + ")" +
-                    "AND [dbo].[Coche].id=(select id from [dbo].[Coche] " + cmd_b + ")"
-                    , constring);
+                string query1 = "select * from [dbo].[Anuncio] AS a, [dbo].[Foto] AS f, [dbo].[" + tabla + "] " +
+                    "WHERE a.id=[dbo].[" + tabla + "].anuncio " +
+                    "AND a.id IN (select id from [dbo].[Anuncio] " + cmd_a + ")" +
+                    " AND [dbo].[" + tabla + "].anuncio IN (select anuncio from [dbo].[" + tabla + "] " + cmd_b + ")" +
+                    " AND f.anuncio = a.id";
+
+                SqlDataAdapter adp = new SqlDataAdapter(query1,constring);
 
                 adp.Fill(ds);
+
+                List<int> anuncios = new List<int>();
+                List<int> toDelete = new List<int>();
+
+                int tables = 0;
+
+                foreach (DataTable dt in ds.Tables)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        int index = dt.Rows.IndexOf(dr);
+
+                        if (anuncios.Contains(int.Parse(dr["id"].ToString())))
+                        {
+                            toDelete.Add(index);
+                        }
+                        else
+                        {
+                            anuncios.Add(int.Parse(dr["id"].ToString()));
+                        }
+                    }
+                    tables++;
+                }
+                for (int t = 0; t < tables; t++)
+                {
+                    foreach (int i in toDelete)
+                    {
+                        ds.Tables[t].Rows[i].Delete();
+                    }
+                }
+                
+                ds.AcceptChanges();
+
+
 
                 connection.Close();
                 success = true;

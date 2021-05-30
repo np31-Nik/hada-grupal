@@ -206,11 +206,11 @@ namespace library
 
             return read;
         }
-        public DataSet BusquedaAnuncios(string cmd_a, string cmd_b, ref bool success)
+        public DataSet BusquedaAnuncios(string cmd_a, string cmd_b,string tabla, ref bool success)
         {
             CADAnuncio anuncio = new CADAnuncio();
             success = false;
-            DataSet ds = anuncio.BusquedaAnuncios(cmd_a, cmd_b, ref success);
+            DataSet ds = anuncio.BusquedaAnuncios(cmd_a, cmd_b,tabla, ref success);
             return ds;
         }
 

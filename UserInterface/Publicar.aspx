@@ -202,7 +202,7 @@
         <br />
     </div>
     <div style="text-align: center;">
-        <asp:Button ID="publicar" runat="server" ValidationGroup="cargarimg" Text="Publicar" OnClick="PublicarClick" />
+        <asp:Button ID="publicar" runat="server" ValidationGroup="cargarimg" Text="Publicar" OnClick="PublicarClick" CausesValidation="true" />
         <asp:Button ID="inicio" runat="server" Text="Inicio" OnClick="InicioClick" />
 
     </div>

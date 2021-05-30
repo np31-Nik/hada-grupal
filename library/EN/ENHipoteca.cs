@@ -6,11 +6,11 @@ namespace library
     {
         private int id;
 
-        private DateTime Fechadesde;
+        private int anyodesde;
 
-        private DateTime Fechahasta;
+        private int anyohasta;
 
-        private float intereses;
+        private int intereses;
 
         private int numSolicitudes;
 
@@ -22,19 +22,19 @@ namespace library
             set { id = value; }
         }
 
-        public DateTime FECHADESDE
+        public int FECHADESDE
         {
-            get { return Fechadesde; }
-            set { Fechadesde = value; }
+            get { return anyodesde; }
+            set { anyodesde = value; }
         }
 
-        public DateTime FECHAHASTA
+        public int FECHAHASTA
         {
-            get { return Fechahasta; }
-            set { Fechahasta = value; }
+            get { return anyohasta; }
+            set { anyohasta = value; }
         }
 
-        public float INTERESES
+        public int INTERESES
         {
             get { return intereses; }
             set { intereses = value; }
@@ -55,18 +55,18 @@ namespace library
         public ENHipoteca()
         {
             ID = 0;
-            FECHADESDE = DateTime.MinValue;
-            FECHAHASTA = DateTime.MaxValue;
+            FECHADESDE = 0;
+            FECHAHASTA = 0;
             INTERESES = 0;
             NUMSOLICITUDES = 0;
             BANCO = "";
         }
 
-        public ENHipoteca(int id, DateTime Fechadesde, DateTime Fechahasta, float intereses, int numSolicitudes, string banco)
+        public ENHipoteca(int id, int anyodesde, int anyohasta, int intereses, int numSolicitudes, string banco)
         {
             ID = id;
-            FECHADESDE = Fechadesde;
-            FECHAHASTA = Fechahasta;
+            FECHADESDE = anyodesde;
+            FECHAHASTA = anyohasta;
             INTERESES = intereses;
             NUMSOLICITUDES = numSolicitudes;
             BANCO = banco;
@@ -119,6 +119,13 @@ namespace library
             CADHipoteca cadh = new CADHipoteca();
             bool leido = cadh.readPrevHipoteca(this);
             return leido;
+        }
+
+        public bool BuscarHipoteca()
+        {
+            CADHipoteca cad = new CADHipoteca();
+            bool buscar = cad.BuscarHipoteca(this);
+            return buscar;
         }
     }
 }

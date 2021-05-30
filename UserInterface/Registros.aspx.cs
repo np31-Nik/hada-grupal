@@ -10,7 +10,7 @@ namespace UserInterface
 {
     public partial class Registros : System.Web.UI.Page
     {
-        private object administrador;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,22 +33,34 @@ namespace UserInterface
         {
             if (Page.IsValid)
             {
+                bool administrador = false;
                 ENUsuario usuario = new ENUsuario();
                 usuario.Nif = nif.Text;
                 usuario.Nombre = NombreUsuario.Text;
                 usuario.Apellido = apellidos.Text;
                 usuario.Email = email.Text;
                 usuario.Contrasenya = Contraseña.Text;
-                //usuario.Telefono =  movil.Text;
-                //usuario.Admin = administrador;
+                usuario.Admin = administrador;
                 usuario.createUsuario();
 
+                Session["nif"] = usuario.Nif;
+                Session["nombre"] = usuario.Nombre;
+                Session["apellido"] = usuario.Apellido;
+                Session["email"] = usuario.Email;
+                Session["telefono"] = usuario.Telefono;
+                Session["premium"] = usuario.Premium;
+                Session["admin"] = usuario.Admin;
+            }
+            try
+            {
 
             }
+            catch(Exception )
+            {
+                
+            }
+            Response.Redirect("Principal.aspx");
         }
-
-
-
 
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)

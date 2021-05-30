@@ -2,49 +2,32 @@
 {
     public class ENMarcaCoche
     {
-        private string logo;
-        private string nombre;
-        private string distincion;
+        private string marca;
+        
 
         public string companyia
         {
-            get { return logo; }
-            set { logo = value; }
+            get { return marca; }
+            set { marca = value; }
         }
 
 
-        public string tipo
-        {
-            get { return nombre; }
-            set { nombre = value; }
-        }
+        
 
-        public string matricula
-        {
-            get { return distincion; }
-            set { distincion = value; }
-        }
+      
 
         public ENMarcaCoche()
         {
             CADMarcaCoche cad = new CADMarcaCoche();
             companyia = " ";
-            tipo = " ";
-            matricula = " ";
+           
         }
 
-        public ENMarcaCoche(string company, string tipe, string numero)
+        
+        public ENMarcaCoche(string marca)
         {
-            companyia = company;
-            tipo = tipe;
-            matricula = numero;
-        }
-
-        public ENMarcaCoche(ENMarcaCoche marca)
-        {
-            this.companyia = marca.companyia;
-            this.tipo = marca.tipo;
-            this.matricula = marca.matricula;
+            this.companyia = marca;
+           
         }
 
         public bool readMarcaCoche()

@@ -402,31 +402,31 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary_Hipoteca;
 
         /// <summary>
-        /// Control H_RESULTADOS.
+        /// MensajeH control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel H_RESULTADOS;
+        protected global::System.Web.UI.WebControls.Label MensajeH;
 
         /// <summary>
-        /// Control H_INTERES.
+        /// H_RESULTADO control.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl H_RESULTADO;
+
+        /// <summary>
+        /// H_INTERES control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label H_INTERES;
-
-        /// <summary>
-        /// Control H_FINANCIAR.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label H_FINANCIAR;
 
         /// <summary>
         /// Control H_CUOTAM.
@@ -438,7 +438,25 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.Label H_CUOTAM;
 
         /// <summary>
-        /// Control UpdatePanel_Imagen.
+        /// TEL_BANCO control.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TEL_BANCO;
+
+        /// <summary>
+        /// EMAIL_BANCO control.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EMAIL_BANCO;
+
+        /// <summary>
+        /// UpdatePanel_Imagen control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -447,7 +465,7 @@ namespace UserInterface
         protected global::System.Web.UI.UpdatePanel UpdatePanel_Imagen;
 
         /// <summary>
-        /// Control ListView1.
+        /// ListView1 control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -456,7 +474,7 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.ListView ListView1;
 
         /// <summary>
-        /// Control Imagenes.
+        /// Imagenes control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -465,7 +483,7 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.SqlDataSource Imagenes;
 
         /// <summary>
-        /// Control DESCRIPCION.
+        /// DESCRIPCION control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -474,7 +492,7 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.Label DESCRIPCION;
 
         /// <summary>
-        /// Control UpdatePanel_Comentario.
+        /// UpdatePanel_Comentario control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -483,7 +501,25 @@ namespace UserInterface
         protected global::System.Web.UI.UpdatePanel UpdatePanel_Comentario;
 
         /// <summary>
-        /// Control ComentarioUsuario.
+        /// Mensaje_comentario control.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Mensaje_comentario;
+
+        /// <summary>
+        /// PanelComentarioUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelComentarioUsuario;
+
+        /// <summary>
+        /// ComentarioUsuario control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -492,7 +528,7 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox ComentarioUsuario;
 
         /// <summary>
-        /// Control PublicarComentario.
+        /// PublicarComentario control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -501,7 +537,7 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.Button PublicarComentario;
 
         /// <summary>
-        /// Control ListaComentarios.
+        /// ListaComentarios control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -510,7 +546,7 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.ListView ListaComentarios;
 
         /// <summary>
-        /// Control Database.
+        /// Database control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -519,93 +555,57 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.SqlDataSource Database;
 
         /// <summary>
-        /// Control Sim1_Localidad.
+        /// ListViewSimilares control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim1_Localidad;
+        protected global::System.Web.UI.WebControls.ListView ListViewSimilares;
 
         /// <summary>
-        /// Control Sim1_Precio.
+        /// DatosBusqueda control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim1_Precio;
+        protected global::System.Web.UI.WebControls.SqlDataSource DatosBusqueda;
 
         /// <summary>
-        /// Control Sim2_Localidad.
+        /// CATEGORIAH control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim2_Localidad;
+        protected global::System.Web.UI.WebControls.HiddenField CATEGORIAH;
 
         /// <summary>
-        /// Control Sim2_Precio.
+        /// CATEGORIA control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim2_Precio;
+        protected global::System.Web.UI.WebControls.HiddenField CATEGORIA;
 
         /// <summary>
-        /// Control Sim3_Localidad.
+        /// TIPO_ANUNCIO control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim3_Localidad;
+        protected global::System.Web.UI.WebControls.HiddenField TIPO_ANUNCIO;
 
         /// <summary>
-        /// Control Sim3_Precio.
+        /// LOCALIDADH control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim3_Precio;
-
-        /// <summary>
-        /// Control Sim4_Localidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim4_Localidad;
-
-        /// <summary>
-        /// Control Sim4_Precio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim4_Precio;
-
-        /// <summary>
-        /// Control Sim5_Localidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim5_Localidad;
-
-        /// <summary>
-        /// Control Sim5_Precio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim5_Precio;
+        protected global::System.Web.UI.WebControls.HiddenField LOCALIDADH;
     }
 }

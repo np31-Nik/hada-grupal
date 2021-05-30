@@ -21,39 +21,27 @@ namespace UserInterface
         }
         protected void EntrarClick(object sender, EventArgs e)
         {
-            string email = nombreUsuario.Text;
+           
             if (Page.IsValid)
             {
                 ENUsuario usuario = new ENUsuario();
-                usuario.Email = nombreUsuario.Text;
-                Session["inicio"] = usuario;
+
+                usuario.Email = email.Text;
+                usuario.Contrasenya = contrasenya.Text;
+                usuario.readUsuario();
+                Session["nif"] = usuario.Nif;
+                Session["nombre"] = usuario.Nombre;
+                Session["apellido"] = usuario.Apellido;
+                Session["email"] = usuario.Email;
+                Session["telefono"] = usuario.Telefono;
+                Session["premium"] = usuario.Premium;
+                Session["admin"] = usuario.Admin;
+
 
 
 
                 Response.Redirect("~/Perfil.aspx");
             }
         }
-
-       
-
-        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            ENUsuario usuario = new ENUsuario();
-            string email = nombreUsuario.Text;
-            if (email != "")
-            {
-                if (usuario.readUsuario())
-                {
-                    args.IsValid = false;
-                }
-                else
-                {
-                    args.IsValid = true;
-
-                }
-            }
-
-        }
-
-    }
+     }
 }
