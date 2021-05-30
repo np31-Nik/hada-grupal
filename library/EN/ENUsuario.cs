@@ -93,7 +93,7 @@ namespace library
             return db.createUsuario(this);
         }
         /// <summary>
-        /// Recupera el usuario indicado de la BD
+        /// Recupera el usuario indicado de la BD, con el nif y la contrasenya
         /// </summary>
         /// <returns>False si no se ha podido realizar la operación</returns>
         public bool readUsuario()

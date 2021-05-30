@@ -13,21 +13,57 @@
 					<tr>
 						<td>
 							<div class="formularioContent3">
-								<p style="margin-top:30px">
-									Tipo <asp:TextBox ID="Tipo" runat="server"></asp:TextBox>
-									<asp:RequiredFieldValidator ID="TipoValidE" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-									<asp:RegularExpressionValidator ID="TipoValidR" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
-								</p>
-								<p style="margin-top:40px">
-									<asp:Button ID="InsertarTipo" runat="server" Text="Insertar" OnClick="InsertarTipo_Click" /> 
-									&nbsp;
-									<asp:Button ID="BorrarTipo" runat="server" Text="Borrar" OnClick="BorrarTipo_Click"  />
-									&nbsp;
-									<asp:Button ID="ModificarTipo" runat="server" Text="Modificar" OnClick="ModificarTipo_Click"  />
-								</p>
+								<p style="height:30px;"></p>
+								<asp:Table ID="Table2" runat="server" CellSpacing="10">
+									<asp:TableRow>
+										<asp:TableCell>
+											Tipo:
+										</asp:TableCell>
+										<asp:TableCell>
+											<asp:TextBox ID="Tipo" runat="server"></asp:TextBox>
+											<asp:RequiredFieldValidator ID="TipoValidE" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+											<asp:RegularExpressionValidator ID="TipoValidR" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
+								
+										</asp:TableCell>
+									</asp:TableRow>
+									<asp:TableRow ID="newTipo" Visible="false">
+										<asp:TableCell>
+											New Tipo:
+										</asp:TableCell>
+										<asp:TableCell>
+											<asp:TextBox ID="TextBoxNewTipo" runat="server"></asp:TextBox>
+											<asp:RequiredFieldValidator ID="newTipoValid1" EnableClientScript="false" runat="server" ControlToValidate="TextBoxNewTipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+											<asp:RegularExpressionValidator ID="newTipoValid2" EnableClientScript="false" ControlToValidate="TextBoxNewTipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
+								
+										</asp:TableCell>
+									</asp:TableRow>
+                                </asp:Table>
+								<p style="height:20px;"></p>
+                                <asp:Table ID="Table1" runat="server" CellSpacing="10">
+									<asp:TableRow ID="optionRow">
+										<asp:TableCell>
+											<asp:Button ID="InsertarTipo" runat="server" Text="Insertar" OnClick="InsertarTipo_Click" /> 
+										</asp:TableCell>
+										<asp:TableCell>
+											<asp:Button ID="BorrarTipo" runat="server" Text="Borrar" OnClick="BorrarTipo_Click"  />
+										</asp:TableCell>
+										<asp:TableCell>
+											<asp:Button ID="ModificarTipo" runat="server" Text="Modificar" OnClick="ModificarTipo_Click"  />
+										</asp:TableCell>
+									</asp:TableRow>
+									<asp:TableRow ID="modTipoRow" Visible="false">
+										<asp:TableCell>
+											<asp:Button ID="Cancelar" runat="server" Text="Cancelar" OnClick="CancelarModTipo_Click" />
+										</asp:TableCell>
+										<asp:TableCell>
+											<asp:Button ID="Update" runat="server" Text="Update" OnClick="UpdateModTipo_Click" />
+										</asp:TableCell>
+									</asp:TableRow>
+                                </asp:Table>
 								<p>
 									<asp:Label ID="Label_Estado" runat="server" ForeColor="Red"></asp:Label>
 								</p>
+								
 							</div>
 						</td>
 						<td>

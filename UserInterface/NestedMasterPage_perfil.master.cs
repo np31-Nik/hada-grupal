@@ -11,8 +11,12 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["admin"] != null && bool.Parse(Session["admin"].ToString()))
+            if (!IsPostBack)
             {
+                /*if (Session["admin"] != null && bool.Parse(Session["admin"].ToString()))
+                {
+                    Admin.Visible = true;
+                }*/
                 Admin.Visible = true;
             }
         }
