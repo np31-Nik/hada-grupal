@@ -18,7 +18,7 @@ namespace UserInterface
             Page.Form.Attributes.Add("enctype", "multipart/form-data");
             if (Session["nif"] == null)
             {
-                Response.Redirect("~/Registros.aspx");
+               Response.Redirect("~/Registros.aspx");
             }
         }
 
