@@ -224,7 +224,7 @@
 												</table>
 											</EmptyDataTemplate>
 											<ItemTemplate>
-												<asp:HiddenField ID="HFcari" runat="server" Value='<%# Eval("id") %>' />
+												<asp:HiddenField ID="imgID" runat="server" Value='<%# Eval("id") %>' />
 												<tr style="">
 													<td>
 														<asp:Image ID="foto" runat="server" Height="200px" Width="400px" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' />

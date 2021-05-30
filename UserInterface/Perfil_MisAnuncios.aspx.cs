@@ -82,7 +82,7 @@ namespace UserInterface
 					if (ImageUpload.HasFile)
 					{
 						ListViewItem item = ListView1.Items[ListView1.SelectedIndex];
-						HiddenField idList = (HiddenField)item.FindControl("HFcari");
+						HiddenField idList = (HiddenField)item.FindControl("imgID");
 						int fotoId = int.Parse(idList.Value.ToString());
 						ENFoto en = new ENFoto(ImageUpload.PostedFile, aEng);
 						en.ID = fotoId;
@@ -177,7 +177,7 @@ namespace UserInterface
             try
             {
 				ListViewItem item = ListView1.Items[ListView1.SelectedIndex];
-				HiddenField idList = (HiddenField)item.FindControl("HFcari");
+				HiddenField idList = (HiddenField)item.FindControl("imgID");
 				int fotoId = int.Parse(idList.Value.ToString());
 				ENFoto en = new ENFoto();
 				en.ID = fotoId;
