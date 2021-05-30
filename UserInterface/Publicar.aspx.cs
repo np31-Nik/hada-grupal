@@ -167,7 +167,7 @@ namespace UserInterface
                         vehiculo.Visible = false;
                         propiedad.Visible = true;
 
-                        if (NumHabit.Text != "" && int.TryParse(NumHabit.Text, out aux))
+                        if (NumHabit.Text != "" && !int.TryParse(NumHabit.Text, out aux))
                         {
                             mensaje.Text = "Numero de habitaciones debe ser un numero entero";
                         }
@@ -175,7 +175,7 @@ namespace UserInterface
                         {
                             mensaje.Text = "Superficie debe ser un numero entero";
                         }
-                        else if (NumBanyos.Text != "" && int.TryParse(NumBanyos.Text, out aux))
+                        else if (NumBanyos.Text != "" && !int.TryParse(NumBanyos.Text, out aux))
                         {
                             mensaje.Text = "Numero de baños debe ser un numero entero";
                         }
