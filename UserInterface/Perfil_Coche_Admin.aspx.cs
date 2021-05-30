@@ -14,7 +14,7 @@ namespace UserInterface
 		{
             if (!IsPostBack)
             {
-				if (Session["nif"] == null)
+				if (Session["nif"] == null || !bool.Parse(Session["admin"].ToString()))
 				{
 					Response.Redirect("~/Inicio.aspx");
 				}
@@ -91,10 +91,10 @@ namespace UserInterface
 				if (MarcaValid1.IsValid && MarcaValid2.IsValid &&
 				newMarcaValid1.IsValid && newMarcaValid2.IsValid)
 				{
-					/*
+					
 					ENMarcaCoche en = new ENMarcaCoche();
-					en.Marca = Marca.Text;
-					en.NewMarca = newMarca.Text;
+					en.companyia = Marca.Text;
+					//en.NewMarca = newMarca.Text;
 					if (en.updateMarcaCoche())
 					{
 						Label_Estado.Text = "Success";
@@ -108,7 +108,7 @@ namespace UserInterface
 					{
 						Label_Estado.Text = "Error ";
 					}
-					*/
+					
 				}
 			}
 			catch (Exception)

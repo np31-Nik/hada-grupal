@@ -259,7 +259,7 @@ namespace UserInterface
 							{
 								ENCoche enC = new ENCoche();
 								enC.anyo = int.Parse(AnyoCoche.Text);
-								//enC.marca = MarcaCoche.Text;
+								enC.marca.companyia = MarcaCoche.Text;
 								enC.tipo.categoria = TipoCoche.Text;
 								enA.coche = enC;
                                 if (enA.updateAnuncio())

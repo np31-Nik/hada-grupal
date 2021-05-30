@@ -17,7 +17,6 @@ namespace UserInterface
                 {
                     Admin.Visible = true;
                 }
-                Admin.Visible = true;
             }
         }
     }

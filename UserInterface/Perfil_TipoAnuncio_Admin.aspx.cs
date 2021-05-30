@@ -21,7 +21,7 @@ namespace UserInterface
 		{
 			if (!IsPostBack)
 			{
-				if (Session["nif"] == null)
+				if (Session["nif"] == null || !bool.Parse(Session["admin"].ToString()))
 				{
 					Response.Redirect("~/Inicio.aspx");
 				}
