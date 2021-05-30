@@ -34,11 +34,6 @@ namespace library
             set { _email = value; }
         }
 
-        public void readUsuario()
-        {
-            throw new NotImplementedException();
-        }
-
         public string Contrasenya
         {
             get { return _contrasenya; }

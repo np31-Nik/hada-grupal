@@ -29,13 +29,13 @@ namespace UserInterface
                 usuario.Email = email.Text;
                 usuario.Contrasenya = contrasenya.Text;
                 usuario.readUsuario();
-                Session["inicio"] = usuario;
                 Session["nif"] =usuario.Nif;
                 Session["nombre"] = usuario.Nombre;
-                Session["apellidos"] = usuario.Apellido;
+                Session["apellido"] = usuario.Apellido;
+                Session["email"] = usuario.Email;
                 Session["telefono"] = usuario.Telefono;
                 Session["premium"] = usuario.Premium;
-                Session["administrador"] = usuario.Admin;
+                Session["admin"] = usuario.Admin;
 
 
 
@@ -43,47 +43,5 @@ namespace UserInterface
                 Response.Redirect("~/Perfil.aspx");
             }
         }
-
-       
-
-        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            ENUsuario usuario = new ENUsuario();
-            string correo = email.Text;
-            if (correo != "")
-            {
-                if (usuario.readUsuario(email.Text))
-                {
-                    args.IsValid = false;
-                }
-                else
-                {
-                    args.IsValid = true;
-
-                }
-            }
-
-        }
-
-        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            ENUsuario usuario = new ENUsuario();
-            string password = contrasenya.Text;
-            if (password != "")
-            {
-                if (usuario.readUsuario(contrasenya.Text))
-                {
-                    args.IsValid = false;
-                }
-                else
-                {
-                    args.IsValid = true;
-
-                }
-            }
-        }
-
-
-
      }
 }

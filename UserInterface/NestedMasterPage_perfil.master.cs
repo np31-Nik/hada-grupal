@@ -13,10 +13,10 @@ namespace UserInterface
         {
             if (!IsPostBack)
             {
-                /*if (Session["admin"] != null && bool.Parse(Session["admin"].ToString()))
+                if (Session["admin"] != null && bool.Parse(Session["admin"].ToString()))
                 {
                     Admin.Visible = true;
-                }*/
+                }
                 Admin.Visible = true;
             }
         }

@@ -27,7 +27,7 @@ namespace UserInterface
 				if (MarcaValid1.IsValid && MarcaValid2.IsValid)
 				{
 					ENMarcaCoche en = new ENMarcaCoche();
-					en.tipo = Tipo.Text;
+					en.companyia = Tipo.Text;
 					if (en.createMarcaCoche())
 					{
 						Label_Estado.Text = "Success";
@@ -52,7 +52,7 @@ namespace UserInterface
 				if (MarcaValid1.IsValid && MarcaValid2.IsValid)
 				{
 					ENMarcaCoche en = new ENMarcaCoche();
-					en.tipo = Tipo.Text;
+					en.companyia = Tipo.Text;
 					if (en.deleteMarcaCoche())
 					{
 						Label_Estado.Text = "Success";

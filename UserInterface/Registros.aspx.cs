@@ -42,6 +42,14 @@ namespace UserInterface
                 usuario.Contrasenya = Contraseña.Text;
                 usuario.Admin = administrador;
                 usuario.createUsuario();
+
+                Session["nif"] = usuario.Nif;
+                Session["nombre"] = usuario.Nombre;
+                Session["apellido"] = usuario.Apellido;
+                Session["email"] = usuario.Email;
+                Session["telefono"] = usuario.Telefono;
+                Session["premium"] = usuario.Premium;
+                Session["admin"] = usuario.Admin;
             }
             try
             {

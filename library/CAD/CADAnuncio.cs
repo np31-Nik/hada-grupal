@@ -144,7 +144,7 @@ namespace library
                         if (en.categoria == "coche") {
                             en.coche.id = en.id;
                             en.coche.anyo = int.Parse(buscar["ano"].ToString());
-                            en.coche.marca.tipo = buscar["marca"].ToString();
+                            en.coche.marca.companyia = buscar["marca"].ToString();
                             en.coche.tipo.categoria = buscar["tipo"].ToString();
                         }
                         else if (en.categoria=="propiedad")

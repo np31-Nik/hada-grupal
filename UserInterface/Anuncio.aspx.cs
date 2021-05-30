@@ -54,7 +54,7 @@ namespace UserInterface
                                 coche.id = en.id;
                                 coche.readCoche(coche);
                                 ANYO.Text = coche.anyo.ToString();
-                                MARCA.Text = coche.marca.tipo;
+                                MARCA.Text = coche.marca.companyia;
                                 TIPO_COCHE.Text = coche.tipo.categoria;
                                 break;
                             case "Propiedad":

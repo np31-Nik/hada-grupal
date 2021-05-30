@@ -129,7 +129,7 @@ namespace UserInterface
                         {
                             ENLocalidad loc = new ENLocalidad(localidad.SelectedItem.Text);
                             ENTipoAnuncio tipoAnun = new ENTipoAnuncio(tipoAnuncio.SelectedItem.Text);
-                            ENMarcaCoche marcaC = new ENMarcaCoche("", marca.SelectedItem.Text, "");
+                            ENMarcaCoche marcaC = new ENMarcaCoche(marca.SelectedItem.Text);
                             ENTipoCoche tipoC = new ENTipoCoche(tipoCoche.SelectedItem.Text);
                             ENCoche car = new ENCoche(int.Parse(anyo.Text), tipoC, marcaC);
                             ENUsuario user = new ENUsuario();

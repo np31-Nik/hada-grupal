@@ -15,7 +15,7 @@ namespace UserInterface
     {
 
         /// <summary>
-        /// Control email.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -33,7 +33,7 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// Control contrasenya.
+        /// contrasenya control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

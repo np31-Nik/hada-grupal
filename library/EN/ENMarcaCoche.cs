@@ -24,9 +24,9 @@
         }
 
         
-        public ENMarcaCoche(ENMarcaCoche marca)
+        public ENMarcaCoche(string marca)
         {
-            this.companyia = marca.companyia;
+            this.companyia = marca;
            
         }
 
