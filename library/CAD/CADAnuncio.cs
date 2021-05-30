@@ -19,10 +19,10 @@ namespace library
         public int readUltimoId(ENUsuario en) {
             int auxid = 0;
 
-            
-            try{
+            SqlConnection conn = null;
+            try
+            {
                 string comando = "select id From [dbo].[Anuncio] where usuario = '" + en.Nif + "'";
-                SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -43,6 +43,10 @@ namespace library
             {
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
 
             return auxid;
         }
@@ -50,13 +54,12 @@ namespace library
         public bool createAnuncio(ENAnuncio en)
         {
             bool creado = false;
-            
+            SqlConnection conn = null;
             try
             {
                 string comando = "Insert INTO [dbo].[Anuncio] (titulo, precio, usuario, tipo, localidad, descripcion, categoria) " +
                 "VALUES ('" + en.titulo + "', '" + en.precio + "', '" + en.usuario.Nif + "', '" + en.tipo.Tipo + "', '" + en.localidad.localidad +
                 "', '" + en.descripcion + "', '" + en.categoria + "')";
-                SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -75,17 +78,20 @@ namespace library
                 creado = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
 
             return creado;
         }
         public bool deleteAnuncio(ENAnuncio en)
         {
             bool borrado = false;
-            
+            SqlConnection conn = null;
             try
             {
                 string comando = "DELETE FROM [dbo].[Anuncio] WHERE id = '" + en.id + "'";
-                SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -103,7 +109,10 @@ namespace library
                 borrado = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
-
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
 
 
             return borrado;
@@ -112,12 +121,11 @@ namespace library
         {
 
             bool encontrado = false;
-           
+            SqlConnection conn = null;
 
             try
             {
                 string comando = "select * From [dbo].[Anuncio] where id='" + en.id + "'";
-                SqlConnection conn = null;
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -165,28 +173,32 @@ namespace library
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
 
             }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
 
 
             return encontrado;
         }
         public bool readFirstAnuncio(ENAnuncio en)
         {
-            bool updated = false;
+            bool read = false;
 
 
-            return updated;
+            return read;
         }
         public bool readNextAnuncio(ENAnuncio en)
         {
-            bool updated = false;
+            bool read = false;
 
 
-            return updated;
+            return read;
         }
         public bool updateAnuncio(ENAnuncio en)
         {
             bool updated = false;
-            
+            SqlConnection conn = null;
             try
             {
                 string comando = "UPDATE [dbo].[Anuncio] SET " +
@@ -195,7 +207,7 @@ namespace library
                 "localidad= '" + en.localidad.localidad + "' ," +
                 "descripcion= '" + en.descripcion + "' ," +
                 "WHERE id = '" + en.id + "'";
-                SqlConnection conn = null;
+
                 conn = new SqlConnection(constring);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(comando, conn);
@@ -213,7 +225,10 @@ namespace library
                 updated = false;
                 Console.WriteLine("User operation hasfailed.Error: {0}", ex.Message);
             }
-
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
 
             return updated;
         }
@@ -221,9 +236,10 @@ namespace library
         {
             success = false;
             DataSet ds = new DataSet();
+            SqlConnection connection = null;
             try
             {
-                SqlConnection connection = null;
+                
                 connection = new SqlConnection(constring);
                 connection.Open();
 
@@ -284,6 +300,10 @@ namespace library
             {
                 success = false;
                 Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+            }
+            finally
+            {
+                if (connection != null) connection.Close();
             }
             return ds;
         }

@@ -13,7 +13,7 @@ namespace library
         private string constring;
         public CADLocalidad()
         {
-            constring = ConfigurationManager.ConnectionStrings["Database"].ToString(); ;//Conexion
+            constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString(); ;//Conexion
         }
         public bool createLocalidad(ENLocalidad en)
         {
