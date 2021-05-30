@@ -416,10 +416,10 @@ namespace UserInterface
         {
             try
             {
-				IdAnuncio.Text = AnuncioGridView.SelectedRow.Cells[0].Text;
-				Titulo.Text = AnuncioGridView.SelectedRow.Cells[1].Text;
-				TipoAnuncio.Text = AnuncioGridView.SelectedRow.Cells[2].Text;
-				CategoriaAnuncio.Text = AnuncioGridView.SelectedRow.Cells[3].Text;
+				IdAnuncio.Text = AnuncioGridView.SelectedRow.Cells[1].Text;
+				Titulo.Text = AnuncioGridView.SelectedRow.Cells[2].Text;
+				TipoAnuncio.Text = AnuncioGridView.SelectedRow.Cells[3].Text;
+				CategoriaAnuncio.Text = AnuncioGridView.SelectedRow.Cells[4].Text;
 				ENAnuncio enA = new ENAnuncio();
 				enA.id = int.Parse(IdAnuncio.Text);
 				if (enA.readAnuncio())
