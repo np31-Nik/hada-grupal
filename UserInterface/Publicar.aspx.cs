@@ -16,10 +16,10 @@ namespace UserInterface
             mensaje.Text = "";
             vehiculo.Visible = true;
             Page.Form.Attributes.Add("enctype", "multipart/form-data");
-            /*if (Session["nif"] == null)
+            if (Session["nif"] == null)
             {
                 Response.Redirect("~/Registros.aspx");
-            }*/
+            }
         }
 
 
