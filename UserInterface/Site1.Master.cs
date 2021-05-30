@@ -5,9 +5,11 @@ namespace UserInterface
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
+        static int numUser = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Add("User",numUser);
+            numUser++;
         }
 
         protected void menu_click(object sender, System.Web.UI.WebControls.MenuEventArgs e)

@@ -17,7 +17,7 @@ namespace library
 
         public CADComentario()
         {
-            constring = constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            constring = constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString();
         }
 
         public bool readComentario(ENComentario en)
@@ -233,6 +233,39 @@ namespace library
                 Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
             }
             return success;
+        }
+
+        public DataSet BuscarComentarios(string anuncio, ref bool success)
+        {
+            success = false;
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection connection = null;
+                connection = new SqlConnection(constring);
+                connection.Open();
+                string query = "select * from [dbo].[Comentario] WHERE anuncio='"+anuncio+"'";
+
+                SqlDataAdapter adp = new SqlDataAdapter(query, constring);
+
+                adp.Fill(ds);
+
+                connection.Close();
+                success = true;
+            }
+            catch (SqlException sqlex)
+            {
+                success = false;
+                Console.WriteLine("User operation has failed. Error: {0}", sqlex.Message);
+
+            }
+            catch (Exception ex)
+            {
+                success = false;
+                Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+            }
+            return ds;
+        
         }
     }
 }

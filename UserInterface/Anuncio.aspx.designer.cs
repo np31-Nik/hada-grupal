@@ -402,13 +402,22 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary_Hipoteca;
 
         /// <summary>
-        /// H_RESULTADOS control.
+        /// MensajeH control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel H_RESULTADOS;
+        protected global::System.Web.UI.WebControls.Label MensajeH;
+
+        /// <summary>
+        /// H_RESULTADO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl H_RESULTADO;
 
         /// <summary>
         /// H_INTERES control.
@@ -420,15 +429,6 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.Label H_INTERES;
 
         /// <summary>
-        /// H_FINANCIAR control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label H_FINANCIAR;
-
-        /// <summary>
         /// H_CUOTAM control.
         /// </summary>
         /// <remarks>
@@ -436,6 +436,24 @@ namespace UserInterface
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label H_CUOTAM;
+
+        /// <summary>
+        /// TEL_BANCO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TEL_BANCO;
+
+        /// <summary>
+        /// EMAIL_BANCO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EMAIL_BANCO;
 
         /// <summary>
         /// UpdatePanel_Imagen control.
@@ -483,6 +501,24 @@ namespace UserInterface
         protected global::System.Web.UI.UpdatePanel UpdatePanel_Comentario;
 
         /// <summary>
+        /// Mensaje_comentario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Mensaje_comentario;
+
+        /// <summary>
+        /// PanelComentarioUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelComentarioUsuario;
+
+        /// <summary>
         /// ComentarioUsuario control.
         /// </summary>
         /// <remarks>
@@ -519,93 +555,57 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.SqlDataSource Database;
 
         /// <summary>
-        /// Sim1_Localidad control.
+        /// ListViewSimilares control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim1_Localidad;
+        protected global::System.Web.UI.WebControls.ListView ListViewSimilares;
 
         /// <summary>
-        /// Sim1_Precio control.
+        /// DatosBusqueda control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim1_Precio;
+        protected global::System.Web.UI.WebControls.SqlDataSource DatosBusqueda;
 
         /// <summary>
-        /// Sim2_Localidad control.
+        /// CATEGORIAH control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim2_Localidad;
+        protected global::System.Web.UI.WebControls.HiddenField CATEGORIAH;
 
         /// <summary>
-        /// Sim2_Precio control.
+        /// CATEGORIA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim2_Precio;
+        protected global::System.Web.UI.WebControls.HiddenField CATEGORIA;
 
         /// <summary>
-        /// Sim3_Localidad control.
+        /// TIPO_ANUNCIO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim3_Localidad;
+        protected global::System.Web.UI.WebControls.HiddenField TIPO_ANUNCIO;
 
         /// <summary>
-        /// Sim3_Precio control.
+        /// LOCALIDADH control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim3_Precio;
-
-        /// <summary>
-        /// Sim4_Localidad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim4_Localidad;
-
-        /// <summary>
-        /// Sim4_Precio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim4_Precio;
-
-        /// <summary>
-        /// Sim5_Localidad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim5_Localidad;
-
-        /// <summary>
-        /// Sim5_Precio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sim5_Precio;
+        protected global::System.Web.UI.WebControls.HiddenField LOCALIDADH;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace library
 {
@@ -120,6 +121,14 @@ namespace library
             CADComentario cad = new CADComentario();
             bool success = cad.readFirstComentario(this);
             return success;
+        }
+
+        public DataSet BuscarComentarios(string anuncio,ref bool success)
+        {
+            CADComentario cad = new CADComentario();
+            success = false;
+            DataSet ds = cad.BuscarComentarios(anuncio, ref success);
+            return ds;
         }
     }
 }
