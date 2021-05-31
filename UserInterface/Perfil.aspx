@@ -97,7 +97,7 @@
                  <asp:TableRow>
                     <asp:TableCell Width="200px"><asp:Button ID="ModPassword" runat="server" OnClick="ModPassword_Click" Text="Cambiar Contrasenya" /></asp:TableCell>
                     <asp:TableCell><asp:Button ID="CancelarPassword" runat="server" Text="Cancelar" OnClick="CncelarPassword_Click" Visible="false" /></asp:TableCell>
-                    <asp:TableCell><asp:Button ID="UpdatePassword" runat="server" OnClick="UpdatePassword_Click" Text="Update" Visible="false" /></asp:TableCell>
+                    <asp:TableCell><asp:Button ID="UpdatePassword" runat="server" OnClick="UpdatePassword_Click" Text="Change" Visible="false" /></asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell Width="200px"><asp:Button ID="BorrarUser" runat="server" OnClick="DeleteUser_Click" Text="Borrar Usuario" /></asp:TableCell>
