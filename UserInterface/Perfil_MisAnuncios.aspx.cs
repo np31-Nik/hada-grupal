@@ -15,7 +15,7 @@ namespace UserInterface
 		{
             if (!IsPostBack)
             {
-				Session["nif"] = "P550048833";
+				Session["nif"] = "Y4441167L";
 				if (Session["nif"] == null)
 				{
 					Response.Redirect("~/Inicio.aspx");
@@ -219,7 +219,8 @@ namespace UserInterface
 		{
             try
             {
-				if(aEng.deleteAnuncio())
+				aEng.id=int.Parse(IdAnuncio.Text);
+				if (aEng.deleteAnuncio())
                 {
 					modRow2.Visible = false;
 					optionRow1.Visible = true;
@@ -254,8 +255,19 @@ namespace UserInterface
 					enA.id = int.Parse(IdAnuncio.Text);
 					enA.titulo = Titulo.Text;
 					enA.categoria = CategoriaAnuncio.Text;
+					enA.tipo.Tipo = TipoAnuncio.Text;
+					if(!TipoAnuncio.Text.Equals(TipoAnuncioList.SelectedValue))
+                    {
+						enA.tipo.Tipo = TipoAnuncioList.SelectedValue;
+						TipoAnuncio.Text = TipoAnuncioList.SelectedValue;
+					}
 					enA.descripcion = Descripcion.Text;
 					enA.localidad.localidad = Localidad.Text;
+                    if (!Localidad.Text.Equals(LocalidadList.SelectedValue))
+                    {
+						enA.localidad.localidad = LocalidadList.SelectedValue;
+						Localidad.Text = LocalidadList.SelectedValue;
+					}
 
 					switch (CategoriaAnuncio.Text)
 					{
@@ -266,7 +278,17 @@ namespace UserInterface
 								ENCoche enC = new ENCoche();
 								enC.anyo = int.Parse(AnyoCoche.Text);
 								enC.marca.companyia = MarcaCoche.Text;
+								if (!MarcaCoche.Text.Equals(MarcaCocheList.SelectedValue))
+                                {
+									enC.marca.companyia = MarcaCocheList.SelectedValue;
+									MarcaCoche.Text = MarcaCocheList.SelectedValue;
+								}
 								enC.tipo.categoria = TipoCoche.Text;
+                                if (!TipoCoche.Text.Equals(TipoCocheList.SelectedValue))
+                                {
+									enC.tipo.categoria = MarcaCocheList.SelectedValue;
+									TipoCoche.Text = MarcaCocheList.SelectedValue;
+								}
 								enA.coche = enC;
                                 if (enA.updateAnuncio())
                                 {
@@ -297,6 +319,11 @@ namespace UserInterface
 								enP.habitaciones = int.Parse(Ndorm.Text);
 								enP.numCatastral = Catastral.Text;
 								enP.tipo.tipo = TipoPropiedad.Text;
+                                if (!TipoPropiedad.Text.Equals(TipoPropiedadList.SelectedValue))
+                                {
+									enP.tipo.tipo = TipoPropiedadList.SelectedValue;
+									TipoPropiedad.Text = TipoPropiedadList.SelectedValue;
+								}
                                 if (enA.updateAnuncio())
                                 {
 									AnuncioGridView.DataBind();

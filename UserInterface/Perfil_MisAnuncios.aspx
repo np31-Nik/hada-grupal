@@ -11,11 +11,13 @@
                         <asp:GridView ID="AnuncioGridView" runat="server" CellSpacing="5" PageSize="6" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SQLAnuncio" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="AnuncioGridView_SelectedIndexChanged">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
-                                <asp:CommandField ShowSelectButton="True" />
+                                <asp:CommandField ShowSelectButton="True"></asp:CommandField>
                                 <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                                 <asp:BoundField DataField="titulo" HeaderText="titulo" SortExpression="titulo" />
                                 <asp:BoundField DataField="tipo" HeaderText="tipo" SortExpression="tipo" />
                                 <asp:BoundField DataField="categoria" HeaderText="categoria" SortExpression="categoria" />
+                                <asp:BoundField DataField="precio" HeaderText="precio" SortExpression="precio" />
+                                <asp:BoundField DataField="localidad" HeaderText="localidad" SortExpression="localidad" />
                             </Columns>
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -28,7 +30,11 @@
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SQLAnuncio" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [id], [titulo], [tipo], [categoria] FROM [Anuncio]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SQLAnuncio" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [id], [titulo], [tipo], [categoria], [precio], [localidad] FROM [Anuncio] WHERE ([usuario] = @usuario)">
+                            <SelectParameters>
+                                <asp:SessionParameter Name="usuario" SessionField="nif" Type="String" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                     </div>
                 </div>
                 <div class="formularioHead">
@@ -166,7 +172,7 @@
                                                 Descripcion:
 											<asp:RequiredFieldValidator ID="DescripcionValid" runat="server" EnableClientScript="false" ControlToValidate="Descripcion" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                                 <br />
-                                                <asp:TextBox ID="Descripcion" runat="server" Width="420" Enabled="false" BorderStyle="None"></asp:TextBox>
+                                                <asp:TextBox ID="Descripcion" runat="server" Width="420" Height="80" TextMode="MultiLine" Enabled="false" BorderStyle="None"></asp:TextBox>
                                             </p>
                                             <asp:Table ID="ButtonTable1" runat="server" CellSpacing="10">
                                                 <asp:TableRow ID="optionRow1">
@@ -199,6 +205,10 @@
                                             </p>
                                         
                                     </ContentTemplate>
+                                    <Triggers>
+                                        <asp:PostBackTrigger ControlID="Delete2" />
+                                        <asp:PostBackTrigger ControlID="Update1" />
+                                    </Triggers>
                                 </asp:UpdatePanel>
                             </div>
                         </td>
@@ -211,7 +221,7 @@
                                                 <table runat="server">
                                                     <tr>
                                                         <td>
-                                                            <asp:Image ID="IMAGE" runat="server" ImageUrl="~\imagenes\no-image.jpg" /></td>
+                                                            <asp:Image ID="IMAGE" runat="server" Height="200px" Width="400px" ImageUrl="~\imagenes\no-image.jpg" /></td>
                                                     </tr>
                                                 </table>
                                             </EmptyDataTemplate>
