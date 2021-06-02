@@ -72,31 +72,30 @@ namespace UserInterface
 
                 }
             }
+        }   
 
-        }
+                /*
+                protected void CustomValidator5_ServerValidate(object source, ServerValidateEventArgs args)
 
-
-        protected void CustomValidator5_ServerValidate(object source, ServerValidateEventArgs args)
-
-        {
-            ENUsuario usuario = new ENUsuario();
-            string contrasenya = Contraseña.Text;
-            if (contrasenya != "")
-            {
-                if (usuario.readUsuario(contrasenya))
                 {
-                    args.IsValid = false;
-                }
-                else
-                {
-                    args.IsValid = true;
+                    ENUsuario usuario = new ENUsuario();
+                    string contrasenya = Contraseña.Text;
+                    if (contrasenya != "")
+                    {
+                        if (usuario.readUsuario(contrasenya))
+                        {
+                            args.IsValid = false;
+                        }
+                        else
+                        {
+                            args.IsValid = true;
+
+                        }
+
+                    }
 
                 }
-
-            }
-
-        }
-
+                */
         protected void CustomValidator3_ServerValidate(object source, ServerValidateEventArgs args)
         {
             ENUsuario usuario = new ENUsuario();

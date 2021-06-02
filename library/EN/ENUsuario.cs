@@ -34,7 +34,7 @@ namespace library
             set { _email = value; }
         }
 
-        public void readUsuario()
+        public string readUsuario()
         {
             throw new NotImplementedException();
         }

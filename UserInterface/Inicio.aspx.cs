@@ -26,8 +26,8 @@ namespace UserInterface
             {
                 ENUsuario usuario = new ENUsuario();
 
-                usuario.Email = email.Text;
-                usuario.Contrasenya = contrasenya.Text;
+                usuario.Nif = nif.Text;
+                usuario.Contrasenya = seguridad.Text;
                 usuario.readUsuario();
                 Session["inicio"] = usuario;
                 Session["nif"] =usuario.Nif;
@@ -44,44 +44,34 @@ namespace UserInterface
             }
         }
 
-       
+
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            ENUsuario usuario = new ENUsuario();
-            string correo = email.Text;
-            if (correo != "")
+            
+            if (nif.Text != "" && seguridad.Text != "")
             {
-                if (usuario.readUsuario(email.Text))
-                {
-                    args.IsValid = false;
-                }
-                else
-                {
-                    args.IsValid = true;
+                ENUsuario usuario = new ENUsuario();
+                usuario.Contrasenya= seguridad.Text;
 
-                }
-            }
-
-        }
-
-        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            ENUsuario usuario = new ENUsuario();
-            string password = contrasenya.Text;
-            if (password != "")
-            {
-                if (usuario.readUsuario(contrasenya.Text))
+                if (Convert.ToBoolean(usuario.readUsuario()))
                 {
-                    args.IsValid = false;
-                }
-                else
-                {
-                    args.IsValid = true;
 
+                    if (usuario.Nif != nif.Text)
+                    {
+                        args.IsValid = true;
+                    }
+                    else
+                    {
+                        args.IsValid = false;
+
+                    }
                 }
+
             }
         }
+
+       
 
 
 
