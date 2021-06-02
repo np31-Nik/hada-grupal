@@ -21,8 +21,8 @@
 											</asp:TableCell>
 											<asp:TableCell>
 												<asp:TextBox ID="Tipo" runat="server"></asp:TextBox>
-												<asp:RequiredFieldValidator ID="TipoValid1" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-												<asp:RegularExpressionValidator ID="TipoValid2" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
+												<asp:RequiredFieldValidator ID="TipoValid1" ValidationGroup="TipoA" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+												<asp:RegularExpressionValidator ID="TipoValid2" ValidationGroup="TipoA" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
 											</asp:TableCell>
 										</asp:TableRow>
 										<asp:TableRow ID="HidenRow" Visible="false">
@@ -31,8 +31,8 @@
 											</asp:TableCell>
 											<asp:TableCell>
 												<asp:TextBox ID="TextBoxNewTipo" runat="server"></asp:TextBox>
-												<asp:RequiredFieldValidator ID="newTipoValid1" EnableClientScript="false" runat="server" ControlToValidate="TextBoxNewTipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-												<asp:RegularExpressionValidator ID="newTipoValid2" EnableClientScript="false" ControlToValidate="TextBoxNewTipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>					
+												<asp:RequiredFieldValidator ID="newTipoValid1" ValidationGroup="TipoA" EnableClientScript="false" runat="server" ControlToValidate="TextBoxNewTipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+												<asp:RegularExpressionValidator ID="newTipoValid2" ValidationGroup="TipoA" EnableClientScript="false" ControlToValidate="TextBoxNewTipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>					
 											</asp:TableCell>
 										</asp:TableRow>
 									</asp:Table>
@@ -40,13 +40,13 @@
                                     <asp:Table ID="ButtonTable1" runat="server" CellSpacing="10">
 										<asp:TableRow ID="optionRow1">
 											<asp:TableCell>
-												<asp:Button ID="InsertarTipoA" runat="server" Text="Insertar" OnClick="InsertarTipoA_Click" /> 
+												<asp:Button ID="InsertarTipoA" CausesValidation="true" ValidationGroup="TipoA" runat="server" Text="Insertar" OnClick="InsertarTipoA_Click" /> 
 											</asp:TableCell>
 											<asp:TableCell>
-												<asp:Button ID="BorrarTipoA" runat="server" Text="Borrar" OnClick="BorrarTipoA_Click" />
+												<asp:Button ID="BorrarTipoA" CausesValidation="true" ValidationGroup="TipoA" runat="server" Text="Borrar" OnClick="BorrarTipoA_Click" />
 											</asp:TableCell>
 											<asp:TableCell>
-												<asp:Button ID="ModificarTipoA" runat="server" Text="Modificar" OnClick="ModificarTipoA_Click" />
+												<asp:Button ID="ModificarTipoA" CausesValidation="true" ValidationGroup="TipoA" runat="server" Text="Modificar" OnClick="ModificarTipoA_Click" />
 											</asp:TableCell>
 										</asp:TableRow>
 										<asp:TableRow ID="modRow1" Visible="false">
@@ -54,7 +54,7 @@
 												<asp:Button ID="Cancelar1" runat="server" Text="Cancelar" OnClick="CancelarModTipo_Click" />
 											</asp:TableCell>
 											<asp:TableCell>
-												<asp:Button ID="Update1" runat="server" Text="Update" OnClick="UpdateModTipo_Click" />
+												<asp:Button ID="Update1" CausesValidation="true" ValidationGroup="TipoA" runat="server" Text="Update" OnClick="UpdateModTipo_Click" />
 											</asp:TableCell>
 										</asp:TableRow>
                                     </asp:Table>
