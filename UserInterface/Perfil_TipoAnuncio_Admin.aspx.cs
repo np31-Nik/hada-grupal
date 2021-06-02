@@ -13,19 +13,15 @@ namespace UserInterface
 {
 	public partial class Perfil_TipoAnuncio_Admin : System.Web.UI.Page
 	{
-		/*ENTipoAnuncio enl = new ENTipoAnuncio();
-		//ENLocalidad enl2 = new ENLocalidad();
-		DataSet d_TipoAnuncio = new DataSet();
-		DataSet d_Localidad = new DataSet();*/
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (!IsPostBack)
+			/*if (!IsPostBack)
 			{
 				if (Session["nif"] == null || !bool.Parse(Session["admin"].ToString()))
 				{
 					Response.Redirect("~/Inicio.aspx");
 				}
-			}
+			}*/
 		}
 
 		protected void GridViewTipoAnuncio_SelectedIndexChanged(object sender, EventArgs e)
