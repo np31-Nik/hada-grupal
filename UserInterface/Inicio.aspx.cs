@@ -29,7 +29,7 @@ namespace UserInterface
                 usuario.Email = email.Text;
                 usuario.Contrasenya = contrasenya.Text;
                 usuario.readUsuario();
-                Session["nif"] =usuario.Nif;
+                Session["nif"] = usuario.Nif;
                 Session["nombre"] = usuario.Nombre;
                 Session["apellido"] = usuario.Apellido;
                 Session["email"] = usuario.Email;

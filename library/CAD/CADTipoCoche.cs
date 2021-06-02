@@ -11,7 +11,7 @@ namespace library
 
         public CADTipoCoche()
         {
-            constring = ConfigurationManager.ConnectionStrings["Database"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["DatabaseConexion"].ToString();
         }
 
         public bool createTipoCoche(ENTipoCoche en)
