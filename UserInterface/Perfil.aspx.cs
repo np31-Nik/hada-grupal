@@ -12,7 +12,7 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (!IsPostBack)
+            if (!IsPostBack)
             {
                 if (Session["nif"] != null)
                 {
@@ -27,7 +27,7 @@ namespace UserInterface
                 {
                     Response.Redirect("~/Inicio.aspx");
                 }
-            }*/
+            }
         }
         protected void OffSession_Click(object sender, EventArgs e)
         {

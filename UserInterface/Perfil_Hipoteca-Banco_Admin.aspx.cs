@@ -12,13 +12,13 @@ namespace UserInterface
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			/*if (!IsPostBack)
+			if (!IsPostBack)
 			{
 				if (Session["nif"] == null || !bool.Parse(Session["admin"].ToString()))
 				{
 					Response.Redirect("~/Inicio.aspx");
 				}
-			}*/
+			}
 		}
 		private bool desdeHastaCheck()
         {
