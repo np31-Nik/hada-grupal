@@ -47,7 +47,7 @@ namespace UserInterface
                         TIPO_ANUNCIO.Value = en.tipo.Tipo;
                         switch (en.categoria)
                         {
-                            case "coche":
+                            case "Coche":
                                 INFO_COCHE.Visible = true;
                                 INFO_PROPIEDAD.Visible = false;
                                 ENCoche coche = new ENCoche();
@@ -57,7 +57,7 @@ namespace UserInterface
                                 MARCA.Text = coche.marca.companyia;
                                 TIPO_COCHE.Text = coche.tipo.categoria;
                                 break;
-                            case "propiedad":
+                            case "Propiedad":
                                 INFO_COCHE.Visible = false;
                                 INFO_PROPIEDAD.Visible = true;
                                 ENPropiedad prop = new ENPropiedad();

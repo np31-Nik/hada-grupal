@@ -134,7 +134,7 @@ namespace UserInterface
                             ENCoche car = new ENCoche(int.Parse(anyo.Text), tipoC, marcaC);
                             ENUsuario user = new ENUsuario();
                             ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precioVehiculo.Text), tipoAnun, user, car);
-                            anuncio.categoria = "coche";
+                            anuncio.categoria = "Coche";
                             anuncio.usuario.Nif = Session["nif"].ToString();
 
 
@@ -188,7 +188,7 @@ namespace UserInterface
                             //ENPropiedad propiedadAnuncio = new ENPropiedad();
                             ENUsuario user = new ENUsuario();
                             ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precio.Text), tipoAnun, user, new ENPropiedad());
-                            anuncio.categoria = "propiedad";
+                            anuncio.categoria = "Propiedad";
                             anuncio.usuario.Nif = Session["nif"].ToString();
 
                             anuncio.prop.superficie = int.Parse(Superficie.Text); //Obligatorio
