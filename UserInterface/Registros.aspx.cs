@@ -59,12 +59,13 @@ namespace UserInterface
             {
                 
             }
-            Response.Redirect("Principal.aspx", false);
+            Response.Redirect("Principal.aspx");
         }
 
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
+
             ENUsuario usuario = new ENUsuario();
             string nombre = NombreUsuario.Text;
             if (nombre != "")
@@ -81,45 +82,6 @@ namespace UserInterface
             }
         }   
 
-                /*
-                protected void CustomValidator5_ServerValidate(object source, ServerValidateEventArgs args)
-
-                {
-                    ENUsuario usuario = new ENUsuario();
-                    string contrasenya = Contraseña.Text;
-                    if (contrasenya != "")
-                    {
-                        if (usuario.readUsuario(contrasenya))
-                        {
-                            args.IsValid = false;
-                        }
-                        else
-                        {
-                            args.IsValid = true;
-
-                        }
-
-                    }
-
-                }
-                */
-        protected void CustomValidator3_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            ENUsuario usuario = new ENUsuario();
-            string dniAuxiliar = nif.Text;
-            if (dniAuxiliar != "")
-            {
-                if (usuario.readUsuario())
-                {
-                    args.IsValid = false;
-                }
-                else
-                {
-                    args.IsValid = true;
-
-                }
-            }
-
-        }
+               
      }
 }
