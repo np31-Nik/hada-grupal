@@ -65,10 +65,9 @@ namespace library
             bool editar = false;
             newLocalidad = apariencia;
             CADLocalidad aux = new CADLocalidad();
-            if ((aux.readLocalidad(this)))
-            {
+
                 editar = aux.updateLocalidad(this);
-            }
+            
             return editar;
         }
 

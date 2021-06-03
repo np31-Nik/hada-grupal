@@ -64,10 +64,9 @@
         {
             CADMarcaCoche aux = new CADMarcaCoche();
             bool actualizar = false;
-            if (aux.readMarcaCoche(this))
-            {
+
                 actualizar = aux.updateMarcaCoche(this);
-            }
+            
             return actualizar;
         }
 
