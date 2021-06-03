@@ -57,7 +57,7 @@
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
             <asp:Panel ID="PasswordPanel" runat="server" Visible="false">
-                Contrasenya <asp:TextBox ID="Password" runat="server" EnableTheming="True" TextMode="Password"></asp:TextBox>
+                Contraseña <asp:TextBox ID="Password" runat="server" EnableTheming="True" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="PasswordValid1" EnableClientScript="false" runat="server" ControlToValidate="Password" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 <asp:Label ID="LabelPassword" runat="server" Text="" ForeColor="Red"></asp:Label>
             </asp:Panel>
@@ -65,7 +65,7 @@
                 <asp:Table ID="Table3" runat="server">
                     <asp:TableRow>
                         <asp:TableCell>
-                            Nueva Contrasenya
+                            Nueva Contraseña
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:TextBox ID="newPassword" runat="server" EnableTheming="True" TextMode="Password"></asp:TextBox>
@@ -74,7 +74,7 @@
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
-                            Repite la Contrasenya
+                            Repite la Contraseña
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:TextBox ID="newPassword2" runat="server" EnableTheming="True" TextMode="Password"></asp:TextBox>
@@ -95,7 +95,7 @@
                     <asp:TableCell><asp:Button ID="UpdatePerfil" runat="server" OnClick="UpdatePerfil_Click" Text="Update" Visible="false" /></asp:TableCell>
                 </asp:TableRow>
                  <asp:TableRow>
-                    <asp:TableCell Width="200px"><asp:Button ID="ModPassword" runat="server" OnClick="ModPassword_Click" Text="Cambiar Contrasenya" /></asp:TableCell>
+                    <asp:TableCell Width="200px"><asp:Button ID="ModPassword" runat="server" OnClick="ModPassword_Click" Text="Cambiar Contraseña" /></asp:TableCell>
                     <asp:TableCell><asp:Button ID="CancelarPassword" runat="server" Text="Cancelar" OnClick="CncelarPassword_Click" Visible="false" /></asp:TableCell>
                     <asp:TableCell><asp:Button ID="UpdatePassword" runat="server" OnClick="UpdatePassword_Click" Text="Change" Visible="false" /></asp:TableCell>
                 </asp:TableRow>
@@ -105,9 +105,9 @@
                     <asp:TableCell><asp:Button ID="Delete" runat="server" OnClick="YesToDeleteUser_Click" Text="Delete" Visible="false" /></asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell Width="200px"><asp:Button ID="SessionOff" runat="server" OnClick="OffSession_Click" Text="Serrar Sesion" /></asp:TableCell>
+                    <asp:TableCell Width="200px"><asp:Button ID="SessionOff" runat="server" OnClick="OffSession_Click" Text="Cerrar Sesion" /></asp:TableCell>
                     <asp:TableCell><asp:Button ID="CancelarOff" runat="server" Text="Cancelar" OnClick="NoToOffSession_Click" Visible="false" /></asp:TableCell>
-                    <asp:TableCell><asp:Button ID="SerrarOff" runat="server" OnClick="YesToOffSession_Click" Text="Serrar" Visible="false" /></asp:TableCell>
+                    <asp:TableCell><asp:Button ID="SerrarOff" runat="server" OnClick="YesToOffSession_Click" Text="Cerrar" Visible="false" /></asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
         <p><asp:Label ID="LabelEstado" runat="server" Text="" ForeColor="Red"></asp:Label></p>

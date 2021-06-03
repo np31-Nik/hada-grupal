@@ -19,19 +19,6 @@ namespace UserInterface
                 Response.Redirect("~/Principal.aspx", false);
             }
         }
-
-        protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        protected void RadioButtonList3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void RegistarClick(object sender, EventArgs e)
         {
             if (Page.IsValid)
@@ -43,48 +30,24 @@ namespace UserInterface
                 usuario.Apellido = apellidos.Text;
                 usuario.Email = email.Text;
                 usuario.Contrasenya = Contraseña.Text;
+                usuario.Telefono = movil.Text;
                 usuario.Admin = administrador;
-                usuario.createUsuario();
-
-                Session["nif"] = usuario.Nif;
-                Session["nombre"] = usuario.Nombre;
-                Session["apellido"] = usuario.Apellido;
-                Session["email"] = usuario.Email;
-                Session["telefono"] = usuario.Telefono;
-                Session["premium"] = usuario.Premium;
-                Session["admin"] = usuario.Admin;
-            }
-            try
-            {
-
-            }
-            catch(Exception )
-            {
-                
-            }
-            Response.Redirect("Principal.aspx",false);
-        }
-
-
-        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-
-            ENUsuario usuario = new ENUsuario();
-            string nombre = NombreUsuario.Text;
-            if (nombre != "")
-            {
-                if (usuario.readUsuario())
+                if (usuario.createUsuario())
                 {
-                    args.IsValid = false;
+                    Session["nif"] = usuario.Nif;
+                    Session["nombre"] = usuario.Nombre;
+                    Session["apellido"] = usuario.Apellido;
+                    Session["email"] = usuario.Email;
+                    Session["telefono"] = usuario.Telefono;
+                    Session["premium"] = usuario.Premium;
+                    Session["admin"] = usuario.Admin;
+                    Response.Redirect("Perfil.aspx", false);
                 }
                 else
                 {
-                    args.IsValid = true;
-
+                    mensaje.Visible = true;
                 }
             }
-        }   
-
-               
+        }       
      }
 }

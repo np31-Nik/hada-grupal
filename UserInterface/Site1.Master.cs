@@ -11,7 +11,7 @@ namespace UserInterface
         {
             if (Session["nif"] == null)
             {
-                texto = "Iniciar Sesion";
+                texto = "Registrarse";
                 menu.FindItem("Perfil").Text = texto;
             }
             else

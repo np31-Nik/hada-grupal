@@ -196,8 +196,10 @@
         <br />
     </div>
     <div style="text-align: center;">
-        <asp:Button ID="publicar" runat="server" ValidationGroup="cargarimg" Text="Publicar" OnClick="PublicarClick" CausesValidation="true" />
-        <asp:Button ID="inicio" runat="server" Text="Inicio" OnClick="InicioClick" />
+        <asp:Button ID="publicar" runat="server" ValidationGroup="cargarimg" Text="Publicar" OnClick="PublicarClick" CausesValidation="true" Height="60px" Width="90px" style="font-size:20px" />
+        <asp:Button ID="inicio" runat="server" Text="Volver" OnClick="InicioClick" Height="60px" Width="90px" style="font-size:20px" />
+
+        <br />
 
     </div>
 
