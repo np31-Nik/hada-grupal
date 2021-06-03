@@ -184,6 +184,7 @@ namespace library
             try
             {
                 string comando = "UPDATE [dbo].[Anuncio] SET " +
+                "tipo= '" + en.tipo.Tipo + "' ,"+
                 "titulo= '" + en.titulo + "' ," +
                 "precio= '" + en.precio + "' ," +
                 "localidad= '" + en.localidad.localidad + "' ," +
