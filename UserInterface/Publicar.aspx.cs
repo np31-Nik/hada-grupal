@@ -119,8 +119,9 @@ namespace UserInterface
                             mensaje.Text = "El campo anyo es obligatorio";
 
                         }
-                        else if (int.TryParse(anyo.Text, out aux))
+                        else if (!int.TryParse(anyo.Text, out aux))
                         {
+                            mensaje.Text = "Año debe ser un numero entero";
                             if (aux > 2021)
                                 mensaje.Text = "El campo año no puede tomar valor mas grande que 2021";
 
