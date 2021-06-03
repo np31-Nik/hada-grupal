@@ -54,28 +54,5 @@ namespace library
             CADTipoAnuncio db = new CADTipoAnuncio();
             return db.readTipoAnuncio(this);
         }
-        
-       /* public bool listarTipoAnuncio(DataSet b)
-        {
-            CADTipoAnuncio db = new CADTipoAnuncio();
-            return db.listarTipoAnuncio(b);
-        }*/
-        /*public bool readFirstTipoAnuncio(ENTipoAnuncio en)
-        {
-             CADTipoAnuncio db = new CADTipoAnuncio();
-            return db.readFirstTipoAnuncio(this);
-        }
-
-        public bool readNextTipoAnuncio(ENTipoAnuncio en)
-        {
-             CADTipoAnuncio db = new CADTipoAnuncio();
-            return db.readNextTipoAnuncio(this);
-        }
-
-        public bool readPrevTipoAnuncio()
-        {
-             CADTipoAnuncio db = new CADTipoAnuncio();
-            return db.readPrevTipoAnuncio(this);
-        }*/
     }
 }

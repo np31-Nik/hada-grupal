@@ -132,34 +132,5 @@ namespace library
             CADUsuario db = new CADUsuario();
             return db.deleteUsuario(this);
         }
-        /*
-        /// <summary>
-        /// Recupera todos los usuarios de la BD y devuelve solo el primer usuario
-        /// </summary>
-        /// <returns>False si no se ha podido realizar la operación</returns>
-        public bool readFirstUsuario()
-        {
-            CADUsuario db = new CADUsuario();
-            return db.readFirstUsuario(this);
-        }
-        /// <summary>
-        /// Recupera todos los usuarios de la BD y devuelve solo el usuario siguiente al indicado.
-        /// </summary>
-        /// <returns>False si no se ha podido realizar la operación</returns>
-        public bool readNextUsuario()
-        {
-            CADUsuario db = new CADUsuario();
-            return db.readNextUsuario(this);
-        }
-        /// <summary>
-        /// Recupera todos los usuarios de la BD y devuelve solo el usuario anterior al indicado
-        /// </summary>
-        /// <returns>False si no se ha podido realizar la operación</returns>
-        public bool readPrevUsuario()
-        {
-            CADUsuario db = new CADUsuario();
-            return db.readPrevUsuario(this);
-        }
-        */
     }
 }
