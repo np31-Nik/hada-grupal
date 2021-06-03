@@ -187,7 +187,8 @@ namespace library
                 "titulo= '" + en.titulo + "' ," +
                 "precio= '" + en.precio + "' ," +
                 "localidad= '" + en.localidad.localidad + "' ," +
-                "descripcion= '" + en.descripcion + "'" +
+                "descripcion= '" + en.descripcion + "' ,"+
+                "categoria= '"+en.categoria+"'"+
                 "WHERE id = '" + en.id + "';";
 
                 conn = new SqlConnection(constring);
