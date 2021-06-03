@@ -60,7 +60,16 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox titulo;
 
         /// <summary>
-        /// tituloValidator control.
+        /// Control tituloValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator tituloValidator;
+
+        /// <summary>
+        /// Control localidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -87,16 +96,16 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox descripcion;
 
         /// <summary>
-        /// descrValidator control.
+        /// Control descrValidator.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator descrValidator;
 
         /// <summary>
-        /// tipoAnuncio control.
+        /// Control tipoAnuncio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -159,16 +168,16 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox anyo;
 
         /// <summary>
-        /// anyoValidator control.
+        /// Control anyoValidator.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator anyoValidator;
 
         /// <summary>
-        /// precioVehiculo control.
+        /// Control precioVehiculo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -177,7 +186,16 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox precioVehiculo;
 
         /// <summary>
-        /// precioValidator control.
+        /// Control precioValidator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator precioValidator;
+
+        /// <summary>
+        /// Control propiedad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -204,7 +222,16 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox precio;
 
         /// <summary>
-        /// precioValidator2 control.
+        /// Control precioValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator precioValidator2;
+
+        /// <summary>
+        /// Control numCatastral.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -231,15 +258,6 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.SqlDataSource TipoPropiedadDataSource;
 
         /// <summary>
-        /// Control Direccion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Direccion;
-
-        /// <summary>
         /// Control Superficie.
         /// </summary>
         /// <remarks>
@@ -249,7 +267,16 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.TextBox Superficie;
 
         /// <summary>
-        /// superficieValidatro control.
+        /// Control superficieValidatro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator superficieValidatro;
+
+        /// <summary>
+        /// Control NumBanyos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -276,25 +303,16 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.Label mensaje;
 
         /// <summary>
-        /// Control cargarimg1.
+        /// Control cargarimg.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload cargarimg1;
-
-        /// <summary>
-        /// cargarimg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload cargarimg;
 
         /// <summary>
-        /// publicar control.
+        /// Control publicar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
