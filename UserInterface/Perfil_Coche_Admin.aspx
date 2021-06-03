@@ -22,7 +22,7 @@
 												<asp:TableCell>
 													<asp:TextBox ID="Marca" runat="server"></asp:TextBox>
 													<asp:RequiredFieldValidator ID="MarcaValid1" ValidationGroup="Marca" EnableClientScript="false" runat="server" ControlToValidate="Marca" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-													<asp:RegularExpressionValidator ID="MarcaValid2" EnableClientScript="false" ValidationGroup="Marca" ControlToValidate="Marca" ValidationExpression="(([A-Z]+))|(([A-Z][a-z]+(([\s][A-Z]?[a-z]+))?))" runat="server" ErrorMessage="ej: Marca o Marca marca" ForeColor="Red"></asp:RegularExpressionValidator>                                    
+													<asp:RegularExpressionValidator ID="MarcaValid2" EnableClientScript="false" ValidationGroup="Marca" ControlToValidate="Marca" ValidationExpression="[A-Z](([a-z]+)|([A-Z]+))(([\s][A-Z]?[a-z]+))?" runat="server" ErrorMessage="ej: Marca o Marca marca" ForeColor="Red"></asp:RegularExpressionValidator>                                    
 												</asp:TableCell>
 											</asp:TableRow>
 											<asp:TableRow ID="HidenRow" Visible="false">
@@ -32,7 +32,7 @@
 												<asp:TableCell>
 													<asp:TextBox ID="newMarca" runat="server"></asp:TextBox>
 													<asp:RequiredFieldValidator ID="newMarcaValid1" EnableClientScript="false" runat="server" ValidationGroup="Marca" ControlToValidate="newMarca" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-													<asp:RegularExpressionValidator ID="newMarcaValid2" EnableClientScript="false" ValidationGroup="Marca" ControlToValidate="newMarca" ValidationExpression="(([A-Z]+))|(([A-Z][a-z]+(([\s][A-Z]?[a-z]+))?))" runat="server" ErrorMessage="ej: Marca o Marca marca" ForeColor="Red"></asp:RegularExpressionValidator>                                    
+													<asp:RegularExpressionValidator ID="newMarcaValid2" EnableClientScript="false" ValidationGroup="Marca" ControlToValidate="newMarca" ValidationExpression="[A-Z](([a-z]+)|([A-Z]+))(([\s][A-Z]?[a-z]+))?" runat="server" ErrorMessage="ej: Marca o Marca marca" ForeColor="Red"></asp:RegularExpressionValidator>                                    
 												</asp:TableCell>
 											</asp:TableRow>
 										</asp:Table>
