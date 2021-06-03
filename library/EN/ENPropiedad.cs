@@ -4,7 +4,7 @@
     {
         private string _direccion;
         private int _superficie, _banyos, _habitaciones;
-        private string _numCatastral = "-1";
+        private string _numCatastral = "";
         private int _id;
         ENTipoPropiedad _tipo;
 
@@ -48,7 +48,7 @@
 
         public ENPropiedad() //vacio
         {
-            numCatastral = "-1";
+            numCatastral = "";
             superficie = 0;
             tipo = new ENTipoPropiedad();
             direccion = "";
