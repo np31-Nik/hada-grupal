@@ -12,7 +12,10 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["nif"] != null)
+            {
+                Response.Redirect("~/Principal.aspx", false);
+            }
         }
 
         protected void UserNameReq(object sender, EventArgs e)
@@ -26,8 +29,8 @@ namespace UserInterface
             {
                 ENUsuario usuario = new ENUsuario();
 
-                usuario.Email = email.Text;
-                usuario.Contrasenya = contrasenya.Text;
+                usuario.Nif = nif.Text;
+                usuario.Contrasenya = seguridad.Text;
                 usuario.readUsuario();
                 Session["nif"] = usuario.Nif;
                 Session["nombre"] = usuario.Nombre;
@@ -40,8 +43,40 @@ namespace UserInterface
 
 
 
-                Response.Redirect("~/Perfil.aspx");
+                Response.Redirect("~/Perfil.aspx", false);
             }
         }
+
+
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            
+            if (nif.Text != "" && seguridad.Text != "")
+            {
+                ENUsuario usuario = new ENUsuario();
+                usuario.Contrasenya= seguridad.Text;
+
+                if (Convert.ToBoolean(usuario.readUsuario()))
+                {
+
+                    if (usuario.Nif != nif.Text)
+                    {
+                        args.IsValid = true;
+                    }
+                    else
+                    {
+                        args.IsValid = false;
+
+                    }
+                }
+
+            }
+        }
+
+       
+
+
+
      }
 }

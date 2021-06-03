@@ -17,7 +17,7 @@ namespace UserInterface
             {
                 if (Request.QueryString["anuncio_id"] == null)
                 {
-                    Response.Redirect("~/Busqueda.aspx");
+                    Response.Redirect("~/Busqueda.aspx",false);
                 }
                 else
                 {
@@ -27,7 +27,7 @@ namespace UserInterface
 
                     if (!existe)
                     {
-                        Response.Redirect("~/Busqueda.aspx");
+                       Response.Redirect("~/Busqueda.aspx", false);
                     }
                     else
                     {
@@ -36,7 +36,7 @@ namespace UserInterface
                         PRECIO.Text = en.precio.ToString() + "€";
                         ENUsuario propietario = new ENUsuario();
                         propietario.Nif = en.usuario.Nif;
-                        propietario.readUsuario();
+                        propietario.existeUsuario();
                         PROPIETARIO.Text = propietario.Nombre + " " + propietario.Apellido;
                         TELEFONO.Text = propietario.Telefono;
                         EMAIL.Text = propietario.Email;
@@ -194,7 +194,7 @@ namespace UserInterface
 
             protected void AnuncioSimilar(object sender, EventArgs e)
             {
-                Response.Redirect("~/Anuncio.aspx?anuncio_id=" + ((ImageButton)sender).CommandArgument.ToString());
+                Response.Redirect("~/Anuncio.aspx?anuncio_id=" + ((ImageButton)sender).CommandArgument.ToString(), false);
             }
 
             protected void Similares(ENAnuncio en)
@@ -209,7 +209,7 @@ namespace UserInterface
 
                 switch (en.categoria)
                 {
-                    case "Coche":
+                    case "coche":
                         ENCoche coche = new ENCoche();
                         coche.id = en.id;
                         coche.readCoche(coche);
@@ -234,7 +234,7 @@ namespace UserInterface
                         cmd_B += "precio>='" + precio_min + "' AND precio<='" + precio_max + "' AND tipo='" + coche.tipo.categoria + "'";
                         break;
 
-                    case "Propiedad":
+                    case "propiedad":
                         ENPropiedad prop = new ENPropiedad();
                         prop.id = en.id;
                         prop.readPropiedad(prop);

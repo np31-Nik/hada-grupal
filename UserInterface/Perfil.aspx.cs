@@ -25,7 +25,7 @@ namespace UserInterface
                 }
                 else
                 {
-                    Response.Redirect("~/Inicio.aspx");
+                    Response.Redirect("~/Inicio.aspx", false);
                 }
             }
         }
@@ -50,7 +50,7 @@ namespace UserInterface
         {
             Session.Abandon();
             //Session.Clear();
-            Response.Redirect("~/Principal.aspx");
+            Response.Redirect("~/Principal.aspx", false);
         }
         protected void DeleteUser_Click(object sender, EventArgs e)
         {
@@ -71,7 +71,7 @@ namespace UserInterface
                 {
                     Session.Abandon();
                     //Session.Clear();
-                    Response.Redirect("~/Principal.aspx");
+                    Response.Redirect("~/Principal.aspx", false);
                 }
                 else
                 {

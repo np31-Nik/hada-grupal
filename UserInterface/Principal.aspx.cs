@@ -14,41 +14,43 @@ namespace UserInterface
 
         }
 
-        protected void controlbarra(object sender,ServerValidateEventArgs e)
+        protected void controlbarra(object sender, ServerValidateEventArgs e)
         {
+
             e.IsValid = true;
             int prueba = 0;
 
-            if (ref_id.Text != "" && int.TryParse(ref_id.Text.ToString(), out prueba) == false) 
+            if (ref_id.Text != "" && int.TryParse(ref_id.Text.ToString(), out prueba) == false)
             {
                 e.IsValid = false;
             }
-            if (BoxNumeros2.Text != "" && int.TryParse(BoxNumeros.Text.ToString(), out prueba) == false) 
+            if (BoxNumeros2.Text != "" && int.TryParse(BoxNumeros.Text.ToString(), out prueba) == false)
             {
                 e.IsValid = false;
             }
-            if (BoxNumeros.Text != "" && int.TryParse(BoxNumeros2.Text.ToString(), out prueba) == false) 
+            if (BoxNumeros.Text != "" && int.TryParse(BoxNumeros2.Text.ToString(), out prueba) == false)
             {
                 e.IsValid = false;
             }
+
         }
 
         protected void LupaBuscar_Click(object sender, ImageClickEventArgs e)
         {
             string direccion = "";
-            
-            if (Page.IsValid == true) 
+
+            if (Page.IsValid == true)
             {
-                if (ref_id.Text != "") 
+                if (ref_id.Text != "")
                 {
                     direccion += "~/Anuncio.aspx?anuncio_id=" + ref_id.Text.ToString();
-                    Response.Redirect(direccion);
+                    Response.Redirect(direccion, false);
                 }
-                else 
+                else
                 {
                     direccion += "~/Busqueda.aspx?tipo=" + CasaoCoche.SelectedValue.ToString() + "&tipo_op=" + ALQoVENT.SelectedValue.ToString();
 
-                    if (localidades.SelectedValue != "Localidad") 
+                    if (localidades.SelectedValue != "Localidad")
                     {
                         direccion += "&localidad=" + localidades.SelectedValue.ToString();
                     }
@@ -61,60 +63,9 @@ namespace UserInterface
                         direccion += "&precio_max=" + BoxNumeros2.Text.ToString();
                     }
 
-                    Response.Redirect(direccion);
+                    Response.Redirect(direccion, false);
                 }
             }
-        }
-
-        protected void Oferta1(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Anuncio.aspx");
-
-        }
-        protected void Oferta2(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Anuncio.aspx");
-
-        }
-        protected void Oferta3(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Anuncio.aspx");
-
-        }
-        protected void Oferta4(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Anuncio.aspx");
-
-        }
-        protected void Oferta5(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Anuncio.aspx");
-
-        }
-        protected void Oferta6(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Anuncio.aspx");
-
-        }
-        protected void Oferta7(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Anuncio.aspx");
-
-        }
-        protected void Oferta8(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Anuncio.aspx");
-
-        }
-        protected void Oferta9(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Anuncio.aspx");
-
-        }
-        protected void Oferta10(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Anuncio.aspx");
-
         }
     }
 }

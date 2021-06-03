@@ -312,13 +312,13 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.Label mensaje;
 
         /// <summary>
-        /// cargarimg1 control.
+        /// cargarimg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload cargarimg1;
+        protected global::System.Web.UI.WebControls.FileUpload cargarimg;
 
         /// <summary>
         /// publicar control.

@@ -109,7 +109,7 @@ namespace library
         {
             CADAnuncio anuncio = new CADAnuncio();
             bool creado = false;
-            if (categoria=="coche")
+            if (categoria=="Coche")
             {
                 if (anuncio.createAnuncio(this))
                 {
@@ -120,7 +120,7 @@ namespace library
                     }
                 }
             }
-            else if(categoria == "propiedad")
+            else if(categoria == "Propiedad")
             {
                 if (anuncio.createAnuncio(this))
                 {
@@ -155,11 +155,11 @@ namespace library
             bool updated = false;
             if (anuncio.updateAnuncio(this))
             {
-                if (categoria == "vehiculo")
+                if (categoria == "Coche")
                     coche.id = this.id;
                 if (coche.updateCoche(coche))
                     updated = true;
-                else if (categoria == "propiedad")
+                else if (categoria == "Propiedad")
                     prop.id = this.id;
                     if (prop.updatePropiedad(prop))
                         updated = true;

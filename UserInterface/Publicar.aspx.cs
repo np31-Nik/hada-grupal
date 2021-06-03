@@ -16,10 +16,10 @@ namespace UserInterface
             mensaje.Text = "";
             vehiculo.Visible = true;
             Page.Form.Attributes.Add("enctype", "multipart/form-data");
-            /*if (Session["nif"] == null)
+            if (Session["nif"] == null)
             {
-                Response.Redirect("~/Registros.aspx");
-            }*/
+               Response.Redirect("~/Registros.aspx", false);
+            }
         }
 
 
@@ -78,10 +78,10 @@ namespace UserInterface
                 else
                 {
 
-                    if ((cargarimg1.HasFile || cargarimg1.HasFiles) && cargarimg1.PostedFiles.Count < 10)
+                    if ((cargarimg.HasFile || cargarimg.HasFiles) && cargarimg.PostedFiles.Count < 10)
                     {
                         formatoCorrercto = true;
-                        foreach (HttpPostedFile file in cargarimg1.PostedFiles)
+                        foreach (HttpPostedFile file in cargarimg.PostedFiles)
                         {
                             if (file.ContentType != "image/jpg" &&
                                 file.ContentType != "image/jpeg" &&
@@ -134,7 +134,7 @@ namespace UserInterface
                             ENCoche car = new ENCoche(int.Parse(anyo.Text), tipoC, marcaC);
                             ENUsuario user = new ENUsuario();
                             ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precioVehiculo.Text), tipoAnun, user, car);
-                            anuncio.categoria = "coche";
+                            anuncio.categoria = "Coche";
                             anuncio.usuario.Nif = Session["nif"].ToString();
 
 
@@ -144,9 +144,9 @@ namespace UserInterface
                             {
                                 ENFoto img = new ENFoto();
                                 img.Anuncio.id = anuncio.id;
-                                if (img.uploadMultiplImage(cargarimg1.PostedFiles))
+                                if (img.uploadMultiplImage(cargarimg.PostedFiles))
                                 {
-                                    Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
+                                    Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id, false);
                                 }
                                 else
                                 {
@@ -167,7 +167,7 @@ namespace UserInterface
                         vehiculo.Visible = false;
                         propiedad.Visible = true;
 
-                        if (NumHabit.Text != "" && int.TryParse(NumHabit.Text, out aux))
+                        if (NumHabit.Text != "" && !int.TryParse(NumHabit.Text, out aux))
                         {
                             mensaje.Text = "Numero de habitaciones debe ser un numero entero";
                         }
@@ -175,7 +175,7 @@ namespace UserInterface
                         {
                             mensaje.Text = "Superficie debe ser un numero entero";
                         }
-                        else if (NumBanyos.Text != "" && int.TryParse(NumBanyos.Text, out aux))
+                        else if (NumBanyos.Text != "" && !int.TryParse(NumBanyos.Text, out aux))
                         {
                             mensaje.Text = "Numero de baños debe ser un numero entero";
                         }
@@ -188,7 +188,7 @@ namespace UserInterface
                             //ENPropiedad propiedadAnuncio = new ENPropiedad();
                             ENUsuario user = new ENUsuario();
                             ENAnuncio anuncio = new ENAnuncio(titulo.Text, loc, descripcion.Text, float.Parse(precio.Text), tipoAnun, user, new ENPropiedad());
-                            anuncio.categoria = "propiedad";
+                            anuncio.categoria = "Propiedad";
                             anuncio.usuario.Nif = Session["nif"].ToString();
 
                             anuncio.prop.superficie = int.Parse(Superficie.Text); //Obligatorio
@@ -206,9 +206,9 @@ namespace UserInterface
                             {
                                 ENFoto img = new ENFoto();
                                 img.Anuncio.id = anuncio.id;
-                                if (img.uploadMultiplImage(cargarimg1.PostedFiles))
+                                if (img.uploadMultiplImage(cargarimg.PostedFiles))
                                 {
-                                    Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
+                                    Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id, false);
                                 }
                                 else
                                 {
@@ -228,7 +228,7 @@ namespace UserInterface
 
         protected void InicioClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/Principal.aspx");
+            Response.Redirect("~/Principal.aspx", false);
         }
     }
 }

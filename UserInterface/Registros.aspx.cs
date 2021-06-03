@@ -14,7 +14,10 @@ namespace UserInterface
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["nif"] != null)
+            {
+                Response.Redirect("~/Principal.aspx", false);
+            }
         }
 
         protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,12 +62,13 @@ namespace UserInterface
             {
                 
             }
-            Response.Redirect("Principal.aspx");
+            Response.Redirect("Principal.aspx",false);
         }
 
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
+
             ENUsuario usuario = new ENUsuario();
             string nombre = NombreUsuario.Text;
             if (nombre != "")
@@ -79,7 +83,8 @@ namespace UserInterface
 
                 }
             }
+        }   
 
-        }
+               
      }
 }
