@@ -14,7 +14,10 @@ namespace UserInterface
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["nif"] != null)
+            {
+                Response.Redirect("~/Principal.aspx", false);
+            }
         }
 
         protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,17 +62,18 @@ namespace UserInterface
             {
                 
             }
-            Response.Redirect("Principal.aspx");
+            Response.Redirect("Principal.aspx",false);
         }
 
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
+
             ENUsuario usuario = new ENUsuario();
             string nombre = NombreUsuario.Text;
             if (nombre != "")
             {
-                if (usuario.readUsuario(nombre))
+                if (usuario.readUsuario())
                 {
                     args.IsValid = false;
                 }
@@ -81,45 +85,6 @@ namespace UserInterface
             }
         }   
 
-                /*
-                protected void CustomValidator5_ServerValidate(object source, ServerValidateEventArgs args)
-
-                {
-                    ENUsuario usuario = new ENUsuario();
-                    string contrasenya = Contraseña.Text;
-                    if (contrasenya != "")
-                    {
-                        if (usuario.readUsuario(contrasenya))
-                        {
-                            args.IsValid = false;
-                        }
-                        else
-                        {
-                            args.IsValid = true;
-
-                        }
-
-                    }
-
-                }
-                */
-        protected void CustomValidator3_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            ENUsuario usuario = new ENUsuario();
-            string dniAuxiliar = nif.Text;
-            if (dniAuxiliar != "")
-            {
-                if (usuario.readUsuario(dniAuxiliar))
-                {
-                    args.IsValid = false;
-                }
-                else
-                {
-                    args.IsValid = true;
-
-                }
-            }
-
-        }
+               
      }
 }

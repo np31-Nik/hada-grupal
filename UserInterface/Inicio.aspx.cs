@@ -12,7 +12,10 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["nif"] != null)
+            {
+                Response.Redirect("~/Principal.aspx", false);
+            }
         }
 
         protected void UserNameReq(object sender, EventArgs e)
@@ -40,7 +43,7 @@ namespace UserInterface
 
 
 
-                Response.Redirect("~/Perfil.aspx");
+                Response.Redirect("~/Perfil.aspx", false);
             }
         }
 

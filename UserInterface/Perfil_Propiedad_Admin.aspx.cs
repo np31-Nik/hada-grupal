@@ -16,7 +16,7 @@ namespace UserInterface
 			{
 				if (Session["nif"] == null || !bool.Parse(Session["admin"].ToString()))
 				{
-					Response.Redirect("~/Inicio.aspx");
+					Response.Redirect("~/Inicio.aspx", false);
 				}
 			}
 		}

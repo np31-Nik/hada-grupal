@@ -18,7 +18,7 @@ namespace UserInterface
             Page.Form.Attributes.Add("enctype", "multipart/form-data");
             if (Session["nif"] == null)
             {
-               Response.Redirect("~/Registros.aspx");
+               Response.Redirect("~/Registros.aspx", false);
             }
         }
 
@@ -147,7 +147,7 @@ namespace UserInterface
                                 img.Anuncio.id = anuncio.id;
                                 if (img.uploadMultiplImage(cargarimg.PostedFiles))
                                 {
-                                    Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
+                                    Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id, false);
                                 }
                                 else
                                 {
@@ -209,7 +209,7 @@ namespace UserInterface
                                 img.Anuncio.id = anuncio.id;
                                 if (img.uploadMultiplImage(cargarimg.PostedFiles))
                                 {
-                                    Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
+                                    Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id, false);
                                 }
                                 else
                                 {
@@ -229,7 +229,7 @@ namespace UserInterface
 
         protected void InicioClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/Principal.aspx");
+            Response.Redirect("~/Principal.aspx", false);
         }
     }
 }
