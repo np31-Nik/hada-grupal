@@ -42,7 +42,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:TextBox ID="Emali" runat="server" Enabled="false"></asp:TextBox>
-                        <br /> <asp:RegularExpressionValidator ID="EmailValid2" EnableClientScript="false" ControlToValidate="Emali" ValidationExpression="\w+[@]\w+([.]\w)+" runat="server" ErrorMessage="ej: algo@algo.algo" ForeColor="Red"></asp:RegularExpressionValidator>
+                        <br /> <asp:RegularExpressionValidator ID="EmailValid2" EnableClientScript="false" ControlToValidate="Emali" ValidationExpression="\w+[@]\w+([.]\w+)+" runat="server" ErrorMessage="ej: algo@algo.algo" ForeColor="Red"></asp:RegularExpressionValidator>
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
