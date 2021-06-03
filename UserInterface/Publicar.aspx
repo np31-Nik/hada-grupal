@@ -150,13 +150,7 @@
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="TipoPropiedadDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoPropiedad]"></asp:SqlDataSource>
                         </div>
-                        <br />
-                        <div>
-                            <asp:Label runat="server" Text="Direccion:"></asp:Label>
-                        </div>
-                        <div>
-                            <asp:TextBox ID="Direccion" runat="server"> </asp:TextBox>
-                        </div>
+                        
                         <br />
                         <div>
                             <asp:Label runat="server" Text="Superficie:"></asp:Label>
