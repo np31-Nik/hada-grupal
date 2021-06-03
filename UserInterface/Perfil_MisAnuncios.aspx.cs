@@ -406,7 +406,7 @@ namespace UserInterface
 					switch (aEng.categoria)
 					{
 						case "Coche":
-							MarcaCoche.Text = "?"; //enA.coche.marca.?
+							MarcaCoche.Text = aEng.coche.marca.companyia; //enA.coche.marca.?
 							TipoCoche.Text = aEng.coche.tipo.categoria;
 							AnyoCoche.Text = aEng.coche.anyo.ToString();
 							offCoche();
@@ -472,7 +472,7 @@ namespace UserInterface
 					switch (CategoriaAnuncio.Text)
 					{
 						case "Coche":
-							MarcaCoche.Text = "?"; //enA.coche.marca.?
+							MarcaCoche.Text = enA.coche.marca.companyia; //enA.coche.marca.?
 							TipoCoche.Text = enA.coche.tipo.categoria;
 							AnyoCoche.Text = enA.coche.anyo.ToString();
 							CocheTable.Visible = true;
