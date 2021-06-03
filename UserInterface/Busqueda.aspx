@@ -5,7 +5,7 @@
             <link rel="Stylesheet" type="text/css" href="css/Busqueda.css" />
                         <asp:ScriptManager ID="ScriptManager2" runat="server" />
     <div>
-    <div class="panelIzquierdo" style="float:left;background-color:#ffffff;color:black; width: 291px;">
+    <div class="panelIzquierdo" style="float:left;background-color:#ffffff;color:black; width: 291px;float:left">
         <asp:UpdatePanel ID="UpdatePanel_IZQ" runat="server" UpdateMode="Conditional">
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="BUSCAR" EventName="Click" />
@@ -107,7 +107,7 @@
         
     </div>
 
-    <div class="PanelBusqueda" style="background-color:#ffffff;color:black;">
+    <div class="PanelBusqueda" style="background-color:#ffffff;color:black;float:right">
         <div class="ResultadosBusqueda">
                                         <asp:Label runat="server" Text="Resultados de busqueda" Width="100%" style="text-align:center;font-weight:bold;"></asp:Label>
 
@@ -181,8 +181,6 @@
 
             
         </div>
-    </div>
-        <br />
         <div style="text-align: center;background-color: #f2f2f2; font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
                                 <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1">
                                     <Fields>
@@ -190,6 +188,9 @@
                                     </Fields>
                                 </asp:DataPager>
                             </div>
+    </div>
+        <br />
+        
         <br />
         <br />
     </div>
