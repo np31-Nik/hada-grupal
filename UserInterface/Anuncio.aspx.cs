@@ -17,7 +17,7 @@ namespace UserInterface
             {
                 if (Request.QueryString["anuncio_id"] == null)
                 {
-                    //Response.Redirect("~/Busqueda.aspx",false);
+                    Response.Redirect("~/Busqueda.aspx",false);
                 }
                 else
                 {

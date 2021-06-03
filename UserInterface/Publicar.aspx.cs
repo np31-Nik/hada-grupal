@@ -157,7 +157,7 @@ namespace UserInterface
                             }
                             else
                             {
-                                mensaje.Text = "El anuncio no se ha creado. Intentalo mas tarde.";
+                                mensaje.Text = "Error: El anuncio no se ha podido crear.";
                             }
                         }
 
@@ -219,7 +219,7 @@ namespace UserInterface
                             }
                             else
                             {
-                                mensaje.Text = "El anuncio no se ha creado. Intentalo mas tarde.";
+                                mensaje.Text = "Error: El anuncio no se ha podido crear.";
                             }
                         }
                     }

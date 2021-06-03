@@ -328,7 +328,7 @@
                         </EmptyDataTemplate>
                         <ItemTemplate>
                             <td runat="server" style="background-color:#DCDCDC;color: #000000;border:ridge;border-color:black">
-                            [<asp:Label ID="fechaLabel" runat="server" Text='<%# Eval("fecha","{0:dd/mm/yyyy}") %>' />]
+                            [<asp:Label ID="fechaLabel" runat="server" Text='<%# Eval("fecha","{0:dd/MM/yyyy}") %>' />]
                             <br />
                             [<asp:Label ID="usuarioLabel" runat="server" Text='<%# Eval("nombre") %>' />]
                             <br />
