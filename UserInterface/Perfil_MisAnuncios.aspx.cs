@@ -296,7 +296,7 @@ namespace UserInterface
 									AnuncioGridView.DataBind();
 									offCoche();
 									Label_Estado.Text = "Success";
-
+									offAnuncio();
 								}
 								else
                                 {
@@ -331,13 +331,12 @@ namespace UserInterface
 									AnuncioGridView.DataBind();
 									offPropiedad();
 									Label_Estado.Text = "Success";
-
+									offAnuncio();
 								}
 								else
                                 {
 									Label_Estado.Text = "Error";
 								}
-								offAnuncio();
                             }
 							else
 							{
