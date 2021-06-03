@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <link rel="Stylesheet" type="text/css" href="css/Busqueda.css" />
                         <asp:ScriptManager ID="ScriptManager2" runat="server" />
-    <div>
+    <asp:Panel runat="server">
     <div class="panelIzquierdo" style="float:left;background-color:#ffffff;color:black; width: 291px;float:left">
         <asp:UpdatePanel ID="UpdatePanel_IZQ" runat="server" UpdateMode="Conditional">
             <Triggers>
@@ -107,7 +107,7 @@
         
     </div>
 
-    <div class="PanelBusqueda" style="background-color:#ffffff;color:black;float:right">
+    <div class="PanelBusqueda" style="background-color:#ffffff;color:black;float:right;width:80%">
         <div class="ResultadosBusqueda">
                                         <asp:Label runat="server" Text="Resultados de busqueda" Width="100%" style="text-align:center;font-weight:bold;"></asp:Label>
 
@@ -190,10 +190,28 @@
                             </div>
     </div>
         <br />
-        
         <br />
         <br />
-    </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+                <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </asp:Panel>
     <br />
 
 </asp:Content>
