@@ -5,11 +5,20 @@ namespace UserInterface
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
-        static int numUser = 0;
+        static string texto;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Add("User",numUser);
-            numUser++;
+            if (Session["nif"] == null)
+            {
+                texto = "Iniciar Sesion";
+                menu.FindItem("Perfil").Text = texto;
+            }
+            else
+            {
+                texto = "Perfil";
+                menu.FindItem("Perfil").Text = texto;
+            }
         }
 
         protected void menu_click(object sender, System.Web.UI.WebControls.MenuEventArgs e)
@@ -29,7 +38,15 @@ namespace UserInterface
                     Response.Redirect("~/Publicar.aspx");
                     return;
                 case "Perfil":
-                    Response.Redirect("~/Registros.aspx");
+                    if (texto == "Perfil")
+                    {
+                        Response.Redirect("~/Perfil.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Registros.aspx");
+                    }
+                    
                     return;
             }
         }
