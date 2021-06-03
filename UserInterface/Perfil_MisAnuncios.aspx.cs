@@ -15,7 +15,7 @@ namespace UserInterface
 		{
             if (!IsPostBack)
             {
-				Session["nif"] = "Y4441167L";
+				//Session["nif"] = "Y4441167L";
 				if (Session["nif"] == null)
 				{
 					Response.Redirect("~/Inicio.aspx", false);
@@ -337,6 +337,7 @@ namespace UserInterface
                                 {
 									Label_Estado.Text = "Error";
 								}
+								offAnuncio();
                             }
 							else
 							{

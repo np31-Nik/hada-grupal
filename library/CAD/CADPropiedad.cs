@@ -100,7 +100,7 @@ namespace library
             try
             {
                 string comando = "UPDATE [dbo].[Propiedad] SET " +
-               "tipo= '" + en.tipo + "' ," +
+               "tipo= '" + en.tipo.tipo + "' ," +
                "dorm= '" + en.habitaciones + "' ," +
                "numCatastral='" + en.numCatastral + "' ," +
                "superficie='" + en.superficie + "' ," +
