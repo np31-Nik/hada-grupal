@@ -95,7 +95,7 @@ namespace library
                 string comando = "UPDATE [dbo].[Coche] SET " +
                "tipo= '" + en.tipo.categoria + "' ," +
                "ano= '" + en.anyo + "' ," +
-               "marca=" + en.marca.companyia +
+               "marca='" + en.marca.companyia+"' " +
                "WHERE anuncio = '" + en.id + "'";
 
                 conn = new SqlConnection(constring);
