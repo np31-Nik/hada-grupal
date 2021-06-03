@@ -6,9 +6,9 @@
     <link rel="stylesheet" type="text/css" href="css/StyleSheet1.css">
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel runat="server" ID="UpdatePanelPublicar" UpdateMode="Conditional">
-        <Triggers>
+        <%--<Triggers>
             <asp:AsyncPostBackTrigger ControlID="RadioButtonList1" EventName="SelectedIndexChanged" />
-        </Triggers>
+        </Triggers>--%>
         <ContentTemplate>
             <div class="todoContenido">
 

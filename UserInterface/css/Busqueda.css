@@ -4,14 +4,13 @@
 }
 
 .PanelIzquierdo {
-    width: 40%;
-    margin: auto auto auto 13px;
+
 }
 
 .PanelBusqueda{
 
-    margin:auto 13px auto auto;
-
+    /*margin:auto 13px auto auto;*/
+    
 }
 
 .BotonBusqueda {
@@ -26,5 +25,5 @@
 }
 
 .ListaResultados{
-    margin:0 auto;
+    /*margin:0 auto;*/
 }
