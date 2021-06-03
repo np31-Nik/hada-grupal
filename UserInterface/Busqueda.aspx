@@ -117,7 +117,7 @@
             <asp:UpdatePanel runat="server" UpdateMode="Always">
                 <ContentTemplate>
 
-                                    <asp:ListView ID="ListView1" runat="server" DataSourceID="DatosBusqueda" GroupItemCount="4">
+                                    <asp:ListView ID="ListView1" runat="server" DataSourceID="DatosBusqueda" GroupItemCount="3">
                    
                   
                     <EmptyDataTemplate>
@@ -193,5 +193,6 @@
         <br />
         <br />
     </div>
+    <br />
 
 </asp:Content>

@@ -439,7 +439,7 @@
                 <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id))) AND (Anuncio.id &lt;&gt; @id) AND (Anuncio.categoria = @categoria) AND (Anuncio.tipo = @tipo) AND (Anuncio.localidad = @localidad)">
                     <SelectParameters>
                         <asp:QueryStringParameter Name="id" QueryStringField="anuncio_id" />
-                        <asp:ControlParameter ControlID="CATEGORIA" Name="categoria" PropertyName="Value" />
+                        <asp:ControlParameter ControlID="CATEGORIAH" Name="categoria" PropertyName="Value" />
                         <asp:ControlParameter ControlID="TIPO_ANUNCIO" Name="tipo" PropertyName="Value" />
                         <asp:ControlParameter ControlID="LOCALIDADH" Name="localidad" PropertyName="Value" />
                     </SelectParameters>
