@@ -223,10 +223,7 @@ namespace UserInterface
                     us.Email = Emali.Text;
                     us.Telefono = Telefono.Text;
 
-                    if (Premium.Checked)
-                    {
-                        us.Premium = Premium.Checked;
-                    }
+                    us.Premium = Premium.Checked;
 
                     if (us.updateUsuario())
                     {

@@ -276,6 +276,7 @@ namespace UserInterface
 								MarcaCocheValid.IsValid && TipoCocheValid.IsValid)
 							{
 								ENCoche enC = new ENCoche();
+								enC.id = enA.id;
 								enC.anyo = int.Parse(AnyoCoche.Text);
 								enC.marca.companyia = MarcaCoche.Text;
 								/*if (!MarcaCoche.Text.Equals(MarcaCocheList.SelectedValue))
