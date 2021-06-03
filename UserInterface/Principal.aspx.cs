@@ -11,11 +11,12 @@ namespace UserInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void controlbarra(object sender,ServerValidateEventArgs e)
         {
+            
             e.IsValid = true;
             int prueba = 0;
 
@@ -31,6 +32,7 @@ namespace UserInterface
             {
                 e.IsValid = false;
             }
+            
         }
 
         protected void LupaBuscar_Click(object sender, ImageClickEventArgs e)

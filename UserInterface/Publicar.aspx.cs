@@ -78,10 +78,10 @@ namespace UserInterface
                 else
                 {
 
-                    if ((cargarimg1.HasFile || cargarimg1.HasFiles) && cargarimg1.PostedFiles.Count < 10)
+                    if ((cargarimg.HasFile || cargarimg.HasFiles) && cargarimg.PostedFiles.Count < 10)
                     {
                         formatoCorrercto = true;
-                        foreach (HttpPostedFile file in cargarimg1.PostedFiles)
+                        foreach (HttpPostedFile file in cargarimg.PostedFiles)
                         {
                             if (file.ContentType != "image/jpg" &&
                                 file.ContentType != "image/jpeg" &&
@@ -145,7 +145,7 @@ namespace UserInterface
                             {
                                 ENFoto img = new ENFoto();
                                 img.Anuncio.id = anuncio.id;
-                                if (img.uploadMultiplImage(cargarimg1.PostedFiles))
+                                if (img.uploadMultiplImage(cargarimg.PostedFiles))
                                 {
                                     Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
                                 }
@@ -207,7 +207,7 @@ namespace UserInterface
                             {
                                 ENFoto img = new ENFoto();
                                 img.Anuncio.id = anuncio.id;
-                                if (img.uploadMultiplImage(cargarimg1.PostedFiles))
+                                if (img.uploadMultiplImage(cargarimg.PostedFiles))
                                 {
                                     Response.Redirect("~/Anuncio.aspx?anuncio_id=" + anuncio.id);
                                 }

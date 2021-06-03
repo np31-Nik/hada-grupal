@@ -18,8 +18,8 @@
 												<asp:TableCell>Banco:</asp:TableCell>
 												<asp:TableCell>
 													<asp:TextBox ID="TextBoxBanco" runat="server"></asp:TextBox>
-													<asp:RequiredFieldValidator ID="BancoValid1" EnableClientScript="false" runat="server" ControlToValidate="TextBoxBanco" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-													<asp:RegularExpressionValidator ID="BancoValid" EnableClientScript="false" ControlToValidate="TextBoxBanco" ValidationExpression="[A-Z][a-z]+" runat="server" ErrorMessage="ej:Banco" ForeColor="Red"></asp:RegularExpressionValidator>
+													<asp:RequiredFieldValidator ID="BancoValid1" EnableClientScript="false" ValidationGroup="Banco" runat="server" ControlToValidate="TextBoxBanco" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+													<asp:RegularExpressionValidator ID="BancoValid" EnableClientScript="false" ValidationGroup="Banco" ControlToValidate="TextBoxBanco" ValidationExpression="[A-Z][a-z]+" runat="server" ErrorMessage="ej:Banco" ForeColor="Red"></asp:RegularExpressionValidator>
 
 												</asp:TableCell>
 											</asp:TableRow>
@@ -27,8 +27,8 @@
 												<asp:TableCell>Telefono:</asp:TableCell>
 												<asp:TableCell>
 													<asp:TextBox ID="TextBoxTelefono" runat="server"></asp:TextBox>
-													<asp:RequiredFieldValidator ID="TelefonoValid1" EnableClientScript="false" runat="server" ControlToValidate="TextBoxTelefono" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-													<asp:RegularExpressionValidator ID="TelefonoValid2" EnableClientScript="false" ControlToValidate="TextBoxTelefono" ValidationExpression="([+]|\d)\d+" runat="server" ErrorMessage="ej: 000000 o +00000" ForeColor="Red"></asp:RegularExpressionValidator>
+													<asp:RequiredFieldValidator ID="TelefonoValid1" EnableClientScript="false" ValidationGroup="Banco" runat="server" ControlToValidate="TextBoxTelefono" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+													<asp:RegularExpressionValidator ID="TelefonoValid2" EnableClientScript="false" ValidationGroup="Banco" ControlToValidate="TextBoxTelefono" ValidationExpression="([+]|\d)\d+" runat="server" ErrorMessage="ej: 000000 o +00000" ForeColor="Red"></asp:RegularExpressionValidator>
 
 												</asp:TableCell>
 											</asp:TableRow>
@@ -36,8 +36,8 @@
 												<asp:TableCell>Email:</asp:TableCell>
 												<asp:TableCell>
 													<asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>
-													<asp:RequiredFieldValidator ID="EmailValid1" EnableClientScript="false" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-													<asp:RegularExpressionValidator ID="EmailValid2" EnableClientScript="false" ControlToValidate="TextBoxEmail" ValidationExpression="\w+[@]\w+[.]\w+" runat="server" ErrorMessage="ej: algo@algo.algo" ForeColor="Red"></asp:RegularExpressionValidator>
+													<asp:RequiredFieldValidator ID="EmailValid1" EnableClientScript="false" ValidationGroup="Banco" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+													<asp:RegularExpressionValidator ID="EmailValid2" EnableClientScript="false" ValidationGroup="Banco" ControlToValidate="TextBoxEmail" ValidationExpression="\w+[@]\w+[.]\w+" runat="server" ErrorMessage="ej: algo@algo.algo" ForeColor="Red"></asp:RegularExpressionValidator>
 
 												</asp:TableCell>
 											</asp:TableRow>
@@ -46,13 +46,13 @@
 										<asp:Table ID="ButtonTable1" runat="server" CellSpacing="10">
 											<asp:TableRow ID="optionRow1">
 												<asp:TableCell>
-													<asp:Button ID="InsertarBanco" runat="server" Text="Insertar" OnClick="InsertarBanco_Click" /> 
+													<asp:Button ID="InsertarBanco" CausesValidation="true" ValidationGroup="Banco" runat="server" Text="Insertar" OnClick="InsertarBanco_Click" /> 
 												</asp:TableCell>
 												<asp:TableCell>
-													<asp:Button ID="BorrarBanco" runat="server" Text="Borrar" OnClick="BorrarBanco_Click" />
+													<asp:Button ID="BorrarBanco" CausesValidation="true" ValidationGroup="Banco" runat="server" Text="Borrar" OnClick="BorrarBanco_Click" />
 												</asp:TableCell>
 												<asp:TableCell>
-													<asp:Button ID="ModificarBanco" runat="server" Text="Modificar" OnClick="ModificarBanco_Click"  />
+													<asp:Button ID="ModificarBanco" runat="server" CausesValidation="true" ValidationGroup="BancoM" Text="Modificar" OnClick="ModificarBanco_Click"  />
 												</asp:TableCell>
 											</asp:TableRow>
 											<asp:TableRow ID="modRow1" Visible="false">
@@ -60,7 +60,7 @@
 													<asp:Button ID="Cancelar1" runat="server" Text="Cancelar" OnClick="CancelarModBanco_Click" />
 												</asp:TableCell>
 												<asp:TableCell>
-													<asp:Button ID="Update1" runat="server" Text="Update" OnClick="UpdateModBanco_Click" />
+													<asp:Button ID="Update1" runat="server" CausesValidation="true" ValidationGroup="Banco" Text="Update" OnClick="UpdateModBanco_Click" />
 												</asp:TableCell>
 											</asp:TableRow>
 										</asp:Table>

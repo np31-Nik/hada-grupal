@@ -195,7 +195,7 @@
     </asp:UpdatePanel>
     <div class="bloque">
         <h3>Imagenes de articulo:</h3>
-        <asp:FileUpload ID="cargarimg1" runat="server" Text="Cargar imagenes" AllowMultiple="true" />
+        <asp:FileUpload ID="cargarimg" runat="server" Text="Cargar imagenes" AllowMultiple="true" />
         
 
         <br />

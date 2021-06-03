@@ -48,7 +48,8 @@ namespace UserInterface
         }
         protected void YesToOffSession_Click(object sender, EventArgs e)
         {
-            Session.Clear();
+            Session.Abandon();
+            //Session.Clear();
             Response.Redirect("~/Principal.aspx");
         }
         protected void DeleteUser_Click(object sender, EventArgs e)
@@ -68,7 +69,8 @@ namespace UserInterface
                 en.Nif = Nif.Text;
                 if (en.deleteUsuario())
                 {
-                    Session.Clear();
+                    Session.Abandon();
+                    //Session.Clear();
                     Response.Redirect("~/Principal.aspx");
                 }
                 else

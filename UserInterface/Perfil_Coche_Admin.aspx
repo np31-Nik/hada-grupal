@@ -21,8 +21,8 @@
 												</asp:TableCell>
 												<asp:TableCell>
 													<asp:TextBox ID="Marca" runat="server"></asp:TextBox>
-													<asp:RequiredFieldValidator ID="MarcaValid1" EnableClientScript="false" runat="server" ControlToValidate="Marca" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-													<asp:RegularExpressionValidator ID="MarcaValid2" EnableClientScript="false" ControlToValidate="Marca" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Marca o Marca marca" ForeColor="Red"></asp:RegularExpressionValidator>                                    
+													<asp:RequiredFieldValidator ID="MarcaValid1" ValidationGroup="Marca" EnableClientScript="false" runat="server" ControlToValidate="Marca" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+													<asp:RegularExpressionValidator ID="MarcaValid2" EnableClientScript="false" ValidationGroup="Marca" ControlToValidate="Marca" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Marca o Marca marca" ForeColor="Red"></asp:RegularExpressionValidator>                                    
 												</asp:TableCell>
 											</asp:TableRow>
 											<asp:TableRow ID="HidenRow" Visible="false">
@@ -31,8 +31,8 @@
 												</asp:TableCell>
 												<asp:TableCell>
 													<asp:TextBox ID="newMarca" runat="server"></asp:TextBox>
-													<asp:RequiredFieldValidator ID="newMarcaValid1" EnableClientScript="false" runat="server" ControlToValidate="newMarca" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-													<asp:RegularExpressionValidator ID="newMarcaValid2" EnableClientScript="false" ControlToValidate="newMarca" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Marca o Marca marca" ForeColor="Red"></asp:RegularExpressionValidator>                                    
+													<asp:RequiredFieldValidator ID="newMarcaValid1" EnableClientScript="false" runat="server" ValidationGroup="Marca" ControlToValidate="newMarca" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+													<asp:RegularExpressionValidator ID="newMarcaValid2" EnableClientScript="false" ValidationGroup="Marca" ControlToValidate="newMarca" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Marca o Marca marca" ForeColor="Red"></asp:RegularExpressionValidator>                                    
 												</asp:TableCell>
 											</asp:TableRow>
 										</asp:Table>
@@ -40,13 +40,13 @@
 										<asp:Table ID="ButtonTable1" runat="server" CellSpacing="10">
 											<asp:TableRow ID="optionRow1">
 												<asp:TableCell>
-													<asp:Button ID="InsertarMarca" runat="server" Text="Insertar" OnClick="InsertarMarca_Click" /> 
+													<asp:Button ID="InsertarMarca" CausesValidation="true" ValidationGroup="Marca" runat="server" Text="Insertar" OnClick="InsertarMarca_Click" /> 
 												</asp:TableCell>
 												<asp:TableCell>
-													<asp:Button ID="BorrarMarca" runat="server" Text="Borrar" OnClick="BorrarMarca_Click" />
+													<asp:Button ID="BorrarMarca" CausesValidation="true" ValidationGroup="Marca" runat="server" Text="Borrar" OnClick="BorrarMarca_Click" />
 												</asp:TableCell>
 												<asp:TableCell>
-													<asp:Button ID="ModificarMarca" runat="server" Text="Modificar" OnClick="ModificarMarca_Click" />
+													<asp:Button ID="ModificarMarca" CausesValidation="true" ValidationGroup="Marca" runat="server" Text="Modificar" OnClick="ModificarMarca_Click" />
 												</asp:TableCell>
 											</asp:TableRow>
 											<asp:TableRow ID="modRow1" Visible="false">
@@ -54,7 +54,7 @@
 													<asp:Button ID="Cancelar1" runat="server" Text="Cancelar" OnClick="CancelarModMarca_Click" />
 												</asp:TableCell>
 												<asp:TableCell>
-													<asp:Button ID="Update1" runat="server" Text="Update" OnClick="UpdateModMarca_Click" />
+													<asp:Button ID="Update1" CausesValidation="true" ValidationGroup="Marca" runat="server" Text="Update" OnClick="UpdateModMarca_Click" />
 												</asp:TableCell>
 											</asp:TableRow>
 										</asp:Table>
