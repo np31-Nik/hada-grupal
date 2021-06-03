@@ -76,10 +76,9 @@
         {
             bool siguiente = false;
             CADTipoCoche aux = new CADTipoCoche();
-            if (aux.readTipoCoche(this))
-            {
+
                 siguiente = aux.readNextTipoCoche(this);
-            }
+            
             return siguiente;
         }
 

@@ -255,7 +255,7 @@ namespace UserInterface
 					enA.titulo = Titulo.Text;
 					enA.categoria = CategoriaAnuncio.Text;
 					enA.precio = int.Parse(PrecioAnuncio.Text);
-					enA.tipo.Tipo = TipoAnuncio.Text;
+					enA.tipo.Tipo = TipoAnuncioList.SelectedItem.Text;
 					/*if(!TipoAnuncio.Text.Equals(TipoAnuncioList.SelectedValue))
                     {
 						enA.tipo.Tipo = TipoAnuncioList.SelectedValue;

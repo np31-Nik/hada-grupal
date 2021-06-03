@@ -98,10 +98,8 @@ namespace library
         {
             CADComentario cad = new CADComentario();
             bool success = false;
-            if (cad.readComentario(this))
-            {
                 success = cad.updateComentario(this,text);
-            }
+          
             return success;
         }
 
