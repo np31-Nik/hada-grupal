@@ -14,14 +14,14 @@ namespace UserInterface
         {
             if (!IsPostBack)
             {
-                Session["nif"] = "Y4441167L";
+                //Session["nif"] = "Y4441167L";
                 if (Session["nif"] != null)
                 {
-                    Session["nombre"] = "Nikita";
+                    /*Session["nombre"] = "Nikita";
                     Session["apellido"] = "Polyanskiy";
                     Session["telefono"] = "686219475";
                     Session["email"] = "np31@gcloud.ua.es";
-                    Session["premium"] = true;
+                    Session["premium"] = true;*/
                     Nif.Text = Session["nif"].ToString();
                     Nombre.Text = Session["nombre"].ToString();
                     Apellido.Text = Session["apellido"].ToString();
