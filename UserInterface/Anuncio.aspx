@@ -238,7 +238,7 @@
                             <ItemTemplate>
                                 <tr style="">
                                     <td>
-                                        <asp:Image ID="foto" runat="server" Height="600px" Width="1000px" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' />
+                                        <asp:Image ID="foto" runat="server" Height="500px" Width="800px" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' />
                                     </td>
                                 </tr>
                             </ItemTemplate>
