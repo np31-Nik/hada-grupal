@@ -15,7 +15,7 @@ namespace UserInterface
 		{
             if (!IsPostBack)
             {
-				//Session["nif"] = "Y4441167L";
+				Session["nif"] = "Y4441167L";
 				if (Session["nif"] == null)
 				{
 					Response.Redirect("~/Inicio.aspx", false);
@@ -255,19 +255,20 @@ namespace UserInterface
 					enA.id = int.Parse(IdAnuncio.Text);
 					enA.titulo = Titulo.Text;
 					enA.categoria = CategoriaAnuncio.Text;
+					enA.precio = int.Parse(PrecioAnuncio.Text);
 					enA.tipo.Tipo = TipoAnuncio.Text;
-					if(!TipoAnuncio.Text.Equals(TipoAnuncioList.SelectedValue))
+					/*if(!TipoAnuncio.Text.Equals(TipoAnuncioList.SelectedValue))
                     {
 						enA.tipo.Tipo = TipoAnuncioList.SelectedValue;
 						TipoAnuncio.Text = TipoAnuncioList.SelectedValue;
-					}
+					}*/
 					enA.descripcion = Descripcion.Text;
 					enA.localidad.localidad = Localidad.Text;
-                    if (!Localidad.Text.Equals(LocalidadList.SelectedValue))
+                    /*if (!Localidad.Text.Equals(LocalidadList.SelectedValue))
                     {
 						enA.localidad.localidad = LocalidadList.SelectedValue;
 						Localidad.Text = LocalidadList.SelectedValue;
-					}
+					}*/
 
 					switch (CategoriaAnuncio.Text)
 					{
@@ -278,19 +279,19 @@ namespace UserInterface
 								ENCoche enC = new ENCoche();
 								enC.anyo = int.Parse(AnyoCoche.Text);
 								enC.marca.companyia = MarcaCoche.Text;
-								if (!MarcaCoche.Text.Equals(MarcaCocheList.SelectedValue))
+								/*if (!MarcaCoche.Text.Equals(MarcaCocheList.SelectedValue))
                                 {
 									enC.marca.companyia = MarcaCocheList.SelectedValue;
 									MarcaCoche.Text = MarcaCocheList.SelectedValue;
-								}
+								}*/
 								enC.tipo.categoria = TipoCoche.Text;
-                                if (!TipoCoche.Text.Equals(TipoCocheList.SelectedValue))
+                                /*if (!TipoCoche.Text.Equals(TipoCocheList.SelectedValue))
                                 {
 									enC.tipo.categoria = MarcaCocheList.SelectedValue;
 									TipoCoche.Text = MarcaCocheList.SelectedValue;
-								}
+								}*/
 								enA.coche = enC;
-                                if (enA.updateAnuncio())
+								if (enA.updateAnuncio())
                                 {
 									AnuncioGridView.DataBind();
 									offCoche();
@@ -319,11 +320,12 @@ namespace UserInterface
 								enP.habitaciones = int.Parse(Ndorm.Text);
 								enP.numCatastral = Catastral.Text;
 								enP.tipo.tipo = TipoPropiedad.Text;
-                                if (!TipoPropiedad.Text.Equals(TipoPropiedadList.SelectedValue))
+								/*if (!TipoPropiedad.Text.Equals(TipoPropiedadList.SelectedValue))
                                 {
 									enP.tipo.tipo = TipoPropiedadList.SelectedValue;
 									TipoPropiedad.Text = TipoPropiedadList.SelectedValue;
-								}
+								}*/
+								enA.prop = enP;
                                 if (enA.updateAnuncio())
                                 {
 									AnuncioGridView.DataBind();
