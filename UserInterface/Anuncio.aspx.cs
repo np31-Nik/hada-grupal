@@ -17,7 +17,7 @@ namespace UserInterface
             {
                 if (Request.QueryString["anuncio_id"] == null)
                 {
-                    Response.Redirect("~/Busqueda.aspx",false);
+                    //Response.Redirect("~/Busqueda.aspx",false);
                 }
                 else
                 {
@@ -45,6 +45,7 @@ namespace UserInterface
                         DESCRIPCION.Text = en.descripcion;
                         CATEGORIAH.Value = en.categoria;
                         TIPO_ANUNCIO.Value = en.tipo.Tipo;
+
                         switch (en.categoria)
                         {
                             case "Coche":
