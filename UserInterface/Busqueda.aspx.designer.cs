@@ -33,9 +33,7 @@ namespace UserInterface
         protected global::System.Web.UI.UpdatePanel UpdatePanel_IZQ;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control RequiredFieldValidator1.
-=======
         /// panel1 control.
         /// </summary>
         /// <remarks>
@@ -46,7 +44,6 @@ namespace UserInterface
 
         /// <summary>
         /// RequiredFieldValidator1 control.
->>>>>>> develop
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -244,9 +241,8 @@ namespace UserInterface
         protected global::System.Web.UI.WebControls.ListView ListView1;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control Database.
-=======
+
         /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
@@ -266,7 +262,6 @@ namespace UserInterface
 
         /// <summary>
         /// DataPager1 control.
->>>>>>> develop
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

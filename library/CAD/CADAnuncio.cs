@@ -2,8 +2,6 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Numerics;
 using System.Collections.Generic;
 
 namespace library
