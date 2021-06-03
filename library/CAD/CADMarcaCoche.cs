@@ -28,9 +28,9 @@ namespace library
                 SqlCommand consulta = new SqlCommand(select, conexion);
                 SqlDataReader buscar = consulta.ExecuteReader();
                 buscar.Read();
-                if (buscar["MarcaCoche"].ToString() == en.companyia)
+                if (buscar["marca"].ToString() == en.companyia)
                 {
-                    en.companyia = buscar["MarcaCoche"].ToString();
+                    en.companyia = buscar["marca"].ToString();
                     lectura = true;
                 }
                 buscar.Close();
@@ -61,7 +61,7 @@ namespace library
                 SqlConnection conexion = null;
                 conexion = new SqlConnection(constring);
                 conexion.Open();
-                string select = "Insert into [dbo].[MarcaCoche] (marca) VALUES ('" + en.companyia + ")";
+                string select = "Insert into [dbo].[MarcaCoche] (marca) VALUES ('" + en.companyia + "')";
                 SqlCommand consulta = new SqlCommand(select, conexion);
                 consulta.ExecuteNonQuery();
                 creado = true;
@@ -122,7 +122,7 @@ namespace library
                 SqlConnection conexion = null;
                 conexion = new SqlConnection(constring);
                 conexion.Open();
-                string select = "update [dbo].[MarcaCoche] SET marca= '"  + en.companyia + "'";
+                string select = "update [dbo].[MarcaCoche] SET marca= '"  + en.NewTipo + "' Where marca='"+en.companyia+"'";
                 SqlCommand consulta = new SqlCommand(select, conexion);
                 consulta.ExecuteNonQuery();
                 actualizado = true;
@@ -208,7 +208,7 @@ namespace library
                 SqlConnection conexion = null;
                 conexion = new SqlConnection(constring);
                 conexion.Open();
-                string select = "Select * from [dbo].[MarcaCcohe]";
+                string select = "Select * from [dbo].[MarcaCoche]";
                 SqlCommand consulta = new SqlCommand(select, conexion);
                 SqlDataReader buscar = consulta.ExecuteReader();
                 buscar.Read();

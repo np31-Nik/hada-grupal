@@ -24,7 +24,7 @@ namespace library
 
                 conectado = new SqlConnection(constring);
                 conectado.Open();
-                string select = "Insert into [dbo].[TipoCoche] (tipo) VALUES ('" + en.categoria + ")";
+                string select = "Insert into [dbo].[TipoCoche] (tipo) VALUES ('" + en.categoria + "')";
                 SqlCommand consulta = new SqlCommand(select, conectado);
                 consulta.ExecuteNonQuery();
                 crear = true;
@@ -58,7 +58,7 @@ namespace library
                 SqlConnection conexion = null;
                 conexion = new SqlConnection(constring);
                 conexion.Open();
-                string select = "Select * from [dbo].[TipoCoche] Where categoria = '" + en.categoria + "' ";
+                string select = "Select * from [dbo].[TipoCoche] Where tipo = '" + en.categoria + "' ";
                 SqlCommand consulta = new SqlCommand(select, conexion);
                 SqlDataReader buscar = consulta.ExecuteReader();
                 buscar.Read();
@@ -96,7 +96,7 @@ namespace library
                 SqlConnection conexion = null;
                 conexion = new SqlConnection(constring);
                 conexion.Open();
-                string select = "Delete from [dbo].[TipoCoche] wHERE categoria = '" + en.categoria + "'";
+                string select = "Delete from [dbo].[TipoCoche] wHERE tipo = '" + en.categoria + "'";
                 SqlCommand consulta = new SqlCommand(select, conexion);
                 consulta.ExecuteNonQuery();
                 borrado = true;
@@ -124,7 +124,7 @@ namespace library
                 SqlConnection conexion = null;
                 conexion = new SqlConnection(constring);
                 conexion.Open();
-                string select = "update [dbo].[TipoCoche] SET nombre= '" + en.categoria + "";
+                string select = "update [dbo].[TipoCoche] SET tipo= '" + en.NewTipo + "' WHERE tipo='" + en.categoria + "'";
                 SqlCommand consulta = new SqlCommand(select, conexion);
                 consulta.ExecuteNonQuery();
                 actualizado = true;
@@ -147,50 +147,47 @@ namespace library
         public bool readNextTipoCoche(ENTipoCoche en)
         {
 
-            bool read = false;
-
+            bool success = false;
+            bool located = false;
             try
             {
-                SqlConnection conexion = null;
-                conexion = new SqlConnection(constring);
-                conexion.Open();
+                SqlConnection connection = null;
+                connection = new SqlConnection(constring);
+                connection.Open();
 
-                string comando = "select * from [dbo].[TipoCoche]";
-                SqlCommand consulta = new SqlCommand(comando, conexion);
-                SqlDataReader lector = consulta.ExecuteReader();
-                string TipoCoche = en.categoria;
-                int cont = 0;
+                SqlCommand cmd = new SqlCommand("Select * from [dbo].[TipoPropiedad]", connection);
 
-                while (lector.Read())
+                SqlDataReader read = cmd.ExecuteReader();
+
+                while (read.Read() && !success)
                 {
-                    en.categoria = lector["TioCoche"].ToString();
-                    if (cont == 1)
+                    if (located)
                     {
-                        break;
+                        en.categoria = read["tipo"].ToString();
+                        success = true;
                     }
-                    if (lector["TipoCoche"].ToString() == TipoCoche)
+                    if (read["tipo"].ToString() == en.categoria)
                     {
-                        cont++;
+                        located = true;
                     }
                 }
 
-                lector.Close();
-                read = true;
-                conexion.Close();
+                read.Close();
+                connection.Close();
             }
             catch (SqlException ex)
             {
-                read = false;
+                success = false;
                 Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
 
             }
             catch (Exception ex)
             {
-                read = false;
+                success = false;
                 Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
             }
 
-            return read;
+            return success;
 
 
         }
@@ -209,16 +206,7 @@ namespace library
                 SqlDataReader buscar = consulta.ExecuteReader();
                 buscar.Read();
                 
-                en.categoria = buscar["categoria"].ToString();
-                while (buscar.Read() && !leer)
-                {
-                    if (buscar["TipoCoche"].ToString() == en.categoria)
-                    {
-                        leer = true;
-                    }
-                    en.categoria = buscar["TipoCoche"].ToString();
-
-                }
+                en.categoria = buscar["tipo"].ToString();
                
                 buscar.Close();
                 conexion.Close();

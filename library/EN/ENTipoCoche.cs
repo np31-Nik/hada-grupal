@@ -10,6 +10,13 @@
             set { tipo_vehiculo = value; }
         }
 
+        private string _newTipo;
+        public string NewTipo
+        {
+            get { return _newTipo; }
+            set { _newTipo = value; }
+        }
+
         public ENTipoCoche()
         {
             categoria = "";

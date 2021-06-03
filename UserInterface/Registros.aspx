@@ -24,7 +24,7 @@
             <br /> <br /> 
            <asp:TextBox CssClass="textBox" ID="nif" MaxLength="10" runat="server"  BorderStyle="Inset" ToolTip="Escriba aqui el nif"/>
             <br />
-           <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="nif" ValidationExpression="^([0-9]{8}[A-Z])|[XYZ][0-9]{7}[A-Z]$" runat="server" ErrorMessage="Formato incorrecto nif "></asp:RegularExpressionValidator>
+           <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="nif" ValidationExpression="^([0-9]{8}[A-Z])|[XYZ][0-9]{7}[A-Z]|[0-9]{9}$" runat="server" ForeColor="Red" ErrorMessage="Formato incorrecto nif "></asp:RegularExpressionValidator>
            <br /> 
            Ingrese su nombre:<br />
 &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="NombreUsuario" ForeColor="Red"  ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
