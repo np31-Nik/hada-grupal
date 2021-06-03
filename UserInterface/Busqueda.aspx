@@ -183,7 +183,7 @@
         </div>
         <br />
         <div style="text-align: center; background-color: #f2f2f2; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
-            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1">
+            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1" PageSize="6">
                 <Fields>
                     <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
                 </Fields>
