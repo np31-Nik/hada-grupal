@@ -356,27 +356,38 @@ namespace UserInterface
 		}
 		protected void ModificarAnuncio_Click(object sender, EventArgs e)
 		{
+			LocalidadList.DataBind();
+			TipoAnuncioList.DataBind();
+
 			Titulo.Enabled = true;
 			Titulo.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 			Descripcion.Enabled = true;
 			Descripcion.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 			Localidad.Visible = false;
 			LocalidadList.Visible = true;
+			LocalidadList.Items.FindByValue(Localidad.Text).Selected = true;
 			TipoAnuncio.Visible = false;
 			TipoAnuncioList.Visible = true;
+			TipoAnuncioList.Items.FindByValue(TipoAnuncio.Text).Selected = true;
 			PrecioAnuncio.Enabled = true;
 			PrecioAnuncio.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 			switch (CategoriaAnuncio.Text)
 			{
 				case "Coche":
+					MarcaCocheList.DataBind();
+					TipoCocheList.DataBind();
+
 					TipoCoche.Visible = false;
 					TipoCocheList.Visible = true;
+					TipoCocheList.Items.FindByValue(TipoCoche.Text).Selected = true;
 					MarcaCoche.Visible = false;
 					MarcaCocheList.Visible = true;
+					MarcaCocheList.Items.FindByValue(MarcaCoche.Text).Selected = true;
 					AnyoCoche.Enabled = true;
 					AnyoCoche.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 					break;
 				case "Propiedad":
+					TipoPropiedadList.DataBind();
 					Superficie.Enabled = true;
 					Superficie.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 					Nbanyo.Enabled = true;
@@ -386,6 +397,7 @@ namespace UserInterface
 					Catastral.Enabled = true;
 					Catastral.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 					TipoPropiedadList.Visible = true;
+					TipoPropiedadList.Items.FindByValue(TipoPropiedad.Text).Selected = true;
 					TipoPropiedad.Visible = false;
 					break;
 				default:
