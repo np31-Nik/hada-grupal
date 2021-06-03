@@ -94,7 +94,7 @@ namespace UserInterface
 					
 					ENMarcaCoche en = new ENMarcaCoche();
 					en.companyia = Marca.Text;
-					//en.NewMarca = newMarca.Text;
+					en.NewTipo = newMarca.Text;
 					if (en.updateMarcaCoche())
 					{
 						Label_Estado.Text = "Success";
