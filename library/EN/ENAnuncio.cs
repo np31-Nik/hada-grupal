@@ -156,13 +156,19 @@ namespace library
             if (anuncio.updateAnuncio(this))
             {
                 if (categoria == "Coche")
+                {
                     coche.id = this.id;
-                if (coche.updateCoche(coche))
-                    updated = true;
+                    if (coche.updateCoche(coche))
+                        updated = true;
+                }
+                    
                 else if (categoria == "Propiedad")
+                {
                     prop.id = this.id;
                     if (prop.updatePropiedad(prop))
                         updated = true;
+                }
+                    
             }
 
             return updated;
