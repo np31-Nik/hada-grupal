@@ -277,8 +277,8 @@
                                                     <asp:RegularExpressionValidator ID="ImageValid"
                                                         EnableClientScript="false"
                                                         runat="server" ControlToValidate="ImageUpload"
-                                                        ErrorMessage="Only .png .jpeg .jpg" ForeColor="Red"
-                                                        ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.jpg|.JPG|.GIF|.jpeg|.JPEG|.png|.PNG|.bmp|.BMP)$"
+                                                        ErrorMessage="Only .jpg|.JPG|.jpeg|.JPEG|.png|.PNG" ForeColor="Red"
+                                                        ValidationExpression="([a-zA-Z0-9\s_\\.\-:()])+(.jpg|.JPG|.jpeg|.JPEG|.png|.PNG)$"
                                                         SetFocusOnError="true">
                                                     </asp:RegularExpressionValidator>
                                                 </asp:TableCell>
