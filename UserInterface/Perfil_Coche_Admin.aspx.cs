@@ -12,13 +12,13 @@ namespace UserInterface
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            if (!IsPostBack)
+            /*if (!IsPostBack)
             {
 				if (Session["nif"] == null || !bool.Parse(Session["admin"].ToString()))
 				{
 					Response.Redirect("~/Inicio.aspx");
 				}
-			}
+			}*/
 		}
 
 		protected void InsertarMarca_Click(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace UserInterface
 				if (MarcaValid1.IsValid && MarcaValid2.IsValid)
 				{
 					ENMarcaCoche en = new ENMarcaCoche();
-					en.companyia = Tipo.Text;
+					en.companyia = Marca.Text;
 					if (en.createMarcaCoche())
 					{
 						Label_Estado.Text = "Success";
@@ -52,7 +52,7 @@ namespace UserInterface
 				if (MarcaValid1.IsValid && MarcaValid2.IsValid)
 				{
 					ENMarcaCoche en = new ENMarcaCoche();
-					en.companyia = Tipo.Text;
+					en.companyia = Marca.Text;
 					if (en.deleteMarcaCoche())
 					{
 						Label_Estado.Text = "Success";
