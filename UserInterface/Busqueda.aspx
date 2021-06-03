@@ -4,8 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <link rel="Stylesheet" type="text/css" href="css/Busqueda.css" />
                         <asp:ScriptManager ID="ScriptManager2" runat="server" />
-    <asp:Panel runat="server">
-    <div class="panelIzquierdo" style="float:left;background-color:#ffffff;color:black; width: 291px;float:left">
+    <asp:Panel runat="server" Height="600px">
+    <div class="panelIzquierdo" style="float:left;background-color:#ffffff;color:black; width: 291px;">
         <asp:UpdatePanel ID="UpdatePanel_IZQ" runat="server" UpdateMode="Conditional">
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="BUSCAR" EventName="Click" />
@@ -107,7 +107,7 @@
         
     </div>
 
-    <div class="PanelBusqueda" style="background-color:#ffffff;color:black;float:right;width:80%">
+    <div class="PanelBusqueda" style="background-color:#ffffff;color:black;float:right;width:70%">
         <div class="ResultadosBusqueda">
                                         <asp:Label runat="server" Text="Resultados de busqueda" Width="100%" style="text-align:center;font-weight:bold;"></asp:Label>
 
@@ -117,7 +117,7 @@
             <asp:UpdatePanel runat="server" UpdateMode="Always">
                 <ContentTemplate>
 
-                                    <asp:ListView ID="ListView1" runat="server" DataSourceID="DatosBusqueda" GroupItemCount="3">
+                                    <asp:ListView ID="ListView1" runat="server" DataSourceID="DatosBusqueda" GroupItemCount="4">
                    
                   
                     <EmptyDataTemplate>
@@ -178,8 +178,10 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
 
+                    <br />
+        <br />
+        <br />
 
-            
         </div>
         <div style="text-align: center;background-color: #f2f2f2; font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
                                 <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1">
@@ -191,27 +193,9 @@
     </div>
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-                <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+
     </asp:Panel>
+    <asp:Label runat="server"></asp:Label>
     <br />
 
 </asp:Content>
