@@ -94,39 +94,20 @@ namespace library
             string comando = "Select nif from Usuario where nif='" + en.Nif + "'";
             return obtainComandExec(comando, en);
         }
-        /*
-        /// <summary>
-        /// Devuelve solo el primer usuario de la BD.
-        /// </summary>
-        public bool readFirstUsuario(ENUsuario en)
+
+        internal bool updatePasswordUsuario(ENUsuario en)
         {
-            string comando = "Select __ from  ";
-            return obtainComandExec(comando, en);
+            string comando = "Update Usuario set " +
+                "contrasena='" + en.Contrasenya + "' where nif = '" + en.Nif + "'";
+            return modifComandExec(comando);
         }
-        /// <summary>
-        /// Devuelve solo el usuario siguiente al indicado.
-        /// </summary>
-        public bool readNextUsuario(ENUsuario en)
-        {
-            string comando = "Select __ from  ";
-            return obtainComandExec(comando, en);
-        }
-        /// <summary>
-        /// Devuelve solo el usuario anterior al indicado.
-        /// </summary>
-        public bool readPrevUsuario(ENUsuario en)
-        {
-            string comando = "Select __ from Usuarios where id=max((select id from Usuarios where id>(select id from Usuario where nif=NIF )))";
-            return obtainComandExec(comando, en);
-        }
-        */
         /// <summary>
         /// Actualiza los datos de un usuario en la BD con los datos del usuario representado por el parámetro en.
         /// </summary>
         public bool updateUsuario(ENUsuario en)
         {
             string comando = "Update Usuario set " +
-                "nombre='" + en.Nombre + "'apellido='" + en.Apellido + "'email='" + en.Email + "'premium='" + en.Premium + "'tel='" + en.Telefono + "' where nif = '" + en.Nif+"'";
+                "nombre='" + en.Nombre + "', apellido='" + en.Apellido + "', email='" + en.Email + "', premium='" + en.Premium + "', tel='" + en.Telefono + "' where nif = '" + en.Nif+"'";
             return modifComandExec(comando);
         }
         /// <summary>

@@ -14,8 +14,14 @@ namespace UserInterface
         {
             if (!IsPostBack)
             {
+                Session["nif"] = "Y4441167L";
                 if (Session["nif"] != null)
                 {
+                    Session["nombre"] = "Nikita";
+                    Session["apellido"] = "Polyanskiy";
+                    Session["telefono"] = "686219475";
+                    Session["email"] = "np31@gcloud.ua.es";
+                    Session["premium"] = true;
                     Nif.Text = Session["nif"].ToString();
                     Nombre.Text = Session["nombre"].ToString();
                     Apellido.Text = Session["apellido"].ToString();
@@ -128,7 +134,7 @@ namespace UserInterface
                     if (us.readUsuario())
                     {
                         us.Contrasenya = newPassword.Text;
-                        if (us.updateUsuario())
+                        if (us.updatePasswordUsuario())
                         {
                             Session["nombre"] = us.Nombre;
                             Session["apellido"] = us.Apellido;
@@ -152,6 +158,9 @@ namespace UserInterface
                         UpdatePassword.Visible = false;
                         PasswordPanel.Visible = false;
                         newPasswordPanel.Visible = false;
+
+                        SessionOff.Visible = true;
+                        BorrarUser.Visible = true;
                         ModPerfil.Visible = true;
                     }
                     else
@@ -254,6 +263,8 @@ namespace UserInterface
                     Emali.Enabled = false;
                     Telefono.Enabled = false;
                     Premium.Enabled = false;
+                    SessionOff.Visible = true;
+                    BorrarUser.Visible = true;
                 }
                 else
                 {

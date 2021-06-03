@@ -115,6 +115,15 @@ namespace library
             return db.updateUsuario(this);
         }
         /// <summary>
+        /// Actualiza este usuario en la BD
+        /// </summary>
+        /// <returns>False si no se ha podido realizar la operación</returns>
+        public bool updatePasswordUsuario()
+        {
+            CADUsuario db = new CADUsuario();
+            return db.updatePasswordUsuario(this);
+        }
+        /// <summary>
         /// Borra este usuario de la BD
         /// </summary>
         /// <returns>False si no se ha podido realizar la operación</returns>
