@@ -33,13 +33,6 @@
         
     </div>
     <div style="font-size:15px; text-align:center; font-family:'sans-serif';">
-        <br /><br /><br />
-
-        <p style="font-size:40px; text-align:center; font-family:'sans-serif'; background-color:#151719; color:white;">
-            <b>
-                Portada
-            </b>
-        </p>
 
         <p style="color:white; text-align:center; font-family:'sans-serif'; font-size:30px; background-color:#151719;">
             <b>
@@ -48,6 +41,7 @@
         </p>
 
         </div>
+                <asp:Label runat="server" Text="Propiedades" style="text-align:center;font-size:30px" Width="100%"></asp:Label>
 
         <div style="background-color:#ffffff;color:black;>
             <asp:UpdatePanel runat="server" UpdateMode="Always">
@@ -99,19 +93,20 @@
                 </asp:ListView>
                 
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id))) AND Anuncio.categoria='Propiedad'"></asp:SqlDataSource></asp:SqlDataSource>
             <br />
                                             
             
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-        <br /><br /><br />
+                     <asp:Label runat="server" Text="Coches" style="text-align:center;font-size:30px" Width="100%"></asp:Label>
+
         <div style="background-color:#ffffff;color:black;>
             <asp:UpdatePanel runat="server" UpdateMode="Always">
                 <ContentTemplate>
 
-                    <asp:ListView ID="ListView2" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="4">
+                    <asp:ListView ID="ListView2" runat="server" DataSourceID="SqlDataSource5" GroupItemCount="4">
                    
                     <EmptyItemTemplate>
                 <td runat="server" />
@@ -156,6 +151,8 @@
                    
                 </asp:ListView>
                 
+                <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id))) AND Anuncio.categoria='Coche'"></asp:SqlDataSource>
+                
                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource></asp:SqlDataSource>
             <br />
@@ -165,7 +162,7 @@
             </asp:UpdatePanel>
         </div>
 
-        <br /><br /><br /><br /><br /><br /><br />
+        <br />
         
         <div style="font-size:20px; text-align:left; font-family:sans-serif; background-color:#151719; color:white; padding:20px;">
             
@@ -181,6 +178,4 @@
             de nuestro público y poder satisfacer con efectividad sus demandas. Ya saben, con deepweb, nuestras prioridades son su satisfacción.
             "Discreción, calidad, y precio justo", son los valores de nuestra empresa.
         </div>
-
-        <br /><br /><br /><br /><br />
 </asp:Content>
