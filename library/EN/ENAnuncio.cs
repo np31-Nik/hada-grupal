@@ -155,7 +155,7 @@ namespace library
             bool updated = false;
             if (anuncio.updateAnuncio(this))
             {
-                if (categoria == "vehiculo")
+                if (categoria == "coche")
                     coche.id = this.id;
                 if (coche.updateCoche(coche))
                     updated = true;
@@ -174,13 +174,13 @@ namespace library
             bool read = false;
             if (anuncio.readAnuncio(this))
             {
-                if (categoria == "Coche")
+                if (categoria == "coche")
                 {
                     coche.id = this.id;
                     if (coche.readCoche(coche))
                         read = true;
                 }
-                else if (categoria == "Propiedad") {
+                else if (categoria == "propiedad") {
                     prop.id = this.id;
                     if (prop.readPropiedad(prop))
                         read = true;

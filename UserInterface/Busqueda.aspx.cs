@@ -144,7 +144,7 @@ namespace UserInterface
                         comandoCoche = "";
                     }
 
-                    ds = en.BusquedaAnuncios(comandoAnuncio, comandoCoche,"Coche", ref success);
+                    ds = en.BusquedaAnuncios(comandoAnuncio, comandoCoche,"coche", ref success);
 
                 }
                 else if (string.Compare(RB_Coche_Propiedad.SelectedItem.Text, "Propiedad") == 0)
@@ -174,7 +174,7 @@ namespace UserInterface
                         comandoPropiedad = "";
                     }
 
-                    ds = en.BusquedaAnuncios(comandoAnuncio, comandoPropiedad,"Propiedad", ref success);
+                    ds = en.BusquedaAnuncios(comandoAnuncio, comandoPropiedad,"propiedad", ref success);
 
                 }
 
