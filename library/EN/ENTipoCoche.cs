@@ -54,7 +54,7 @@
         {
             bool borrar = false;
             CADTipoCoche aux = new CADTipoCoche();
-            if (!(aux.readTipoCoche(this)))
+            if (aux.readTipoCoche(this))
             {
                 borrar = aux.deleteTipoCoche(this);
             }
@@ -65,7 +65,7 @@
         {
             bool editar = false;
             CADTipoCoche aux = new CADTipoCoche();
-            if (!(aux.readTipoCoche(this)))
+            if (aux.readTipoCoche(this))
             {
                 editar = aux.updateTipoCoche(this, apariencia);
             }
@@ -76,7 +76,7 @@
         {
             bool siguiente = false;
             CADTipoCoche aux = new CADTipoCoche();
-            if (!(aux.readTipoCoche(this)))
+            if (aux.readTipoCoche(this))
             {
                 siguiente = aux.readNextTipoCoche(this);
             }

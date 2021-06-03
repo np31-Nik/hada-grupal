@@ -91,7 +91,7 @@ namespace library
         /// </summary>
         public bool existeUsuario(ENUsuario en)
         {
-            string comando = "Select nif from Usuario where nif='" + en.Nif + "'";
+            string comando = "Select * from Usuario where nif='" + en.Nif + "'";
             return obtainComandExec(comando, en);
         }
 

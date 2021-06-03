@@ -20,7 +20,7 @@ namespace library
             try
             {
                 string comando = "Insert INTO [dbo].[Coche] (anuncio,ano,marca,tipo) " +
-                "VALUES ('" + en.id + "', '" + en.anyo + "', '" + "BMW"/*en.marca.companyia*/ + "', '" + en.tipo.categoria + "')";
+                "VALUES ('" + en.id + "', '" + en.anyo + "', '" + en.marca.companyia + "', '" + en.tipo.categoria + "')";
 
                 conn = new SqlConnection(constring);
                 conn.Open();
@@ -60,9 +60,9 @@ namespace library
                     {
                         read = true;
                         en.id = int.Parse(buscar["anuncio"].ToString());
-                        en.marca = (ENMarcaCoche)buscar["marca"];
-                        en.tipo = (ENTipoCoche)buscar["tipo"];
-                        en.anyo = (int)buscar["ano"]; /////////REVISAR
+                        en.marca.companyia = buscar["marca"].ToString();
+                        en.tipo.categoria = buscar["tipo"].ToString();
+                        en.anyo = int.Parse(buscar["ano"].ToString()); /////////REVISAR
                     }
                 }
                 buscar.Close();

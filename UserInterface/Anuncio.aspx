@@ -315,7 +315,7 @@
                         <asp:Panel runat="server" CssClass="Comentario" id="PanelComentarioUsuario" Visible="false">
                             <asp:TextBox runat="server" ID="ComentarioUsuario" style="width:100%;height:100px" placeholder="Escribe tu comentario aqui..." textmode="MultiLine"></asp:TextBox>
                             <br />
-                            <asp:Button runat="server" ID="PublicarComentario" Text="Publicar comentario" OnClick="Comentar" />
+                            <asp:Button runat="server" ID="PublicarComentario" Text="Publicar comentario" OnClick="Comentar" UseSubmitBehavior="false"/>
                         </asp:Panel>
                         
                 
@@ -328,7 +328,7 @@
                         </EmptyDataTemplate>
                         <ItemTemplate>
                             <td runat="server" style="background-color:#DCDCDC;color: #000000;border:ridge;border-color:black">
-                            [<asp:Label ID="fechaLabel" runat="server" Text='<%# Eval("fecha","{0:dd/mm/yyyy}") %>' />]
+                            [<asp:Label ID="fechaLabel" runat="server" Text='<%# Eval("fecha","{0:dd/MM/yyyy}") %>' />]
                             <br />
                             [<asp:Label ID="usuarioLabel" runat="server" Text='<%# Eval("nombre") %>' />]
                             <br />

@@ -25,7 +25,7 @@
                     <asp:MenuItem Text="Coches" Value="Coches" ></asp:MenuItem>
                     <asp:MenuItem Text="Propiedades" Value="Propiedades" ></asp:MenuItem>     
                     <asp:MenuItem Text="Publicar" Value="Publicar"></asp:MenuItem>
-                    <asp:MenuItem Text="Iniciar Sesion" Value="Perfil" ></asp:MenuItem>
+                    <asp:MenuItem Text="Registrarse" Value="Perfil" ></asp:MenuItem>
                 </items>
             </asp:menu>
 
@@ -48,7 +48,7 @@
                 <a href="#arriba" style="color:white">Volver Arriba</a>
                 <a name="abajo"></a>
                 <br/>
-                Somos una empresa con muchos años de experiencia en el mundo de las propiedades inmbiliarias y vehículos.
+                Somos una empresa con muchos años de experiencia en el mundo de las propiedades inmobiliarias y vehículos.
                 <br/>
                 contacto: <a href="mailto:deep@gmail.com" style="color:white">deep@gmail.com</a>
                 <br/>

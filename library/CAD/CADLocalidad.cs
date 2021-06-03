@@ -21,7 +21,7 @@ namespace library
            
             try
             {
-                string comando = "Insert INTO [dbo].[Localidad] (Localidad)" +
+                string comando = "Insert INTO [dbo].[Localidad] (localidad)" +
                 "VALUES ('" + en.localidad + "')";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
@@ -89,7 +89,7 @@ namespace library
             try
             {
                 string comando = "UPDATE [dbo].[Localidad] SET " +
-               "localidad= '" + en.newLocalidad + "' ," +
+               "localidad= '" + en.newLocalidad + "' " +
                "WHERE localidad = '" + en.localidad + "'";
                 SqlConnection conn = null;
                 conn = new SqlConnection(constring);
