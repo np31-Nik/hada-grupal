@@ -189,9 +189,10 @@ namespace UserInterface
 				{
 					ENTipoCoche en = new ENTipoCoche();
 					en.categoria = Tipo.Text;
+					en.NewTipo = TextBoxNewTipo.Text;
 					if (en.updateTipoCoche(TextBoxNewTipo.Text))
 					{
-						Label_Estado.Text = "Success";
+						Label_Estado2.Text = "Success";
 						GridViewTipoCoche.DataBind();
 						HidenRow2.Visible = false;
 						modRow2.Visible = false;
