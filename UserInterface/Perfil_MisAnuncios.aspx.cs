@@ -15,6 +15,7 @@ namespace UserInterface
 		{
             if (!IsPostBack)
             {
+				//Session["nif"] = "Y4441167L";
 				if (Session["nif"] == null)
 				{
 					Response.Redirect("~/Inicio.aspx");
@@ -65,6 +66,7 @@ namespace UserInterface
 			YesModFoto.Visible = true;
 			BorrarFoto.Visible = false;
 			UploadFoto.Visible = false;
+			ImageUploadRow.Visible = true;
 		}
 		protected void NoModFoto_Click(object sender, EventArgs e)
 		{
@@ -72,6 +74,7 @@ namespace UserInterface
 			YesModFoto.Visible = false;
 			BorrarFoto.Visible = true;
 			UploadFoto.Visible = true;
+			ImageUploadRow.Visible = false;
 		}
 		protected void YesModFoto_Click(object sender, EventArgs e)
 		{
@@ -81,9 +84,10 @@ namespace UserInterface
 				{
 					if (ImageUpload.HasFile)
 					{
-						ListViewItem item = ListView1.Items[ListView1.SelectedIndex];
+						ListViewItem item = ListView1.Items[0];
 						HiddenField idList = (HiddenField)item.FindControl("imgID");
 						int fotoId = int.Parse(idList.Value.ToString());
+						aEng.id = int.Parse(IdAnuncio.Text);
 						ENFoto en = new ENFoto(ImageUpload.PostedFile, aEng);
 						en.ID = fotoId;
 						if (en.updateFoto())
@@ -92,6 +96,7 @@ namespace UserInterface
 							YesModFoto.Visible = false;
 							BorrarFoto.Visible = true;
 							UploadFoto.Visible = true;
+							ImageUploadRow.Visible = false;
 							ListView1.DataBind();
 							Label_Estado2.Text = "Success";
 						}
@@ -117,6 +122,8 @@ namespace UserInterface
 			YesUploadFoto.Visible = true;
 			BorrarFoto.Visible = false;
 			ModFoto.Visible = false;
+			ImageUploadRow.Visible = true;
+
 		}
 		protected void NoUploadFoto_Click(object sender, EventArgs e)
 		{
@@ -124,6 +131,7 @@ namespace UserInterface
 			YesUploadFoto.Visible = false;
 			BorrarFoto.Visible = true;
 			ModFoto.Visible = true;
+			ImageUploadRow.Visible = false;
 		}
 		protected void YesUploadFoto_Click(object sender, EventArgs e)
 		{
@@ -132,13 +140,10 @@ namespace UserInterface
                 if (ImageValid.IsValid)
                 {
                     if (ImageUpload.HasFile) {
+						aEng.id = int.Parse(IdAnuncio.Text);
 						ENFoto en = new ENFoto(ImageUpload.PostedFile, aEng);
 						if (en.createFoto())
 						{
-							NoUploadFoto.Visible = false;
-							YesUploadFoto.Visible = false;
-							BorrarFoto.Visible = true;
-							ModFoto.Visible = true;
 							ListView1.DataBind();
 							Label_Estado2.Text = "Success";
 						}
@@ -176,7 +181,7 @@ namespace UserInterface
 		{
             try
             {
-				ListViewItem item = ListView1.Items[ListView1.SelectedIndex];
+				ListViewItem item = ListView1.Items[0];
 				HiddenField idList = (HiddenField)item.FindControl("imgID");
 				int fotoId = int.Parse(idList.Value.ToString());
 				ENFoto en = new ENFoto();
@@ -214,16 +219,18 @@ namespace UserInterface
 		{
             try
             {
-				if(aEng.deleteAnuncio())
+				aEng.id=int.Parse(IdAnuncio.Text);
+				if (aEng.deleteAnuncio())
                 {
 					modRow2.Visible = false;
 					optionRow1.Visible = true;
-					UpdatePanelAnuncio.Visible = false;
 					IdAnuncio.Text = "";
 					Label_Estado.Text = "Success";
 					FotoUpdatePanel.Visible = false;
 					UpdatePanelAnuncio.Visible = false;
-					ImageModButtons2.Visible = false;
+					ImageUploadRow.Visible = false;
+					ListView1.DataBind();
+					AnuncioGridView.DataBind();
 				}
 				else
                 {
@@ -248,8 +255,19 @@ namespace UserInterface
 					enA.id = int.Parse(IdAnuncio.Text);
 					enA.titulo = Titulo.Text;
 					enA.categoria = CategoriaAnuncio.Text;
+					enA.tipo.Tipo = TipoAnuncio.Text;
+					if(!TipoAnuncio.Text.Equals(TipoAnuncioList.SelectedValue))
+                    {
+						enA.tipo.Tipo = TipoAnuncioList.SelectedValue;
+						TipoAnuncio.Text = TipoAnuncioList.SelectedValue;
+					}
 					enA.descripcion = Descripcion.Text;
 					enA.localidad.localidad = Localidad.Text;
+                    if (!Localidad.Text.Equals(LocalidadList.SelectedValue))
+                    {
+						enA.localidad.localidad = LocalidadList.SelectedValue;
+						Localidad.Text = LocalidadList.SelectedValue;
+					}
 
 					switch (CategoriaAnuncio.Text)
 					{
@@ -260,7 +278,17 @@ namespace UserInterface
 								ENCoche enC = new ENCoche();
 								enC.anyo = int.Parse(AnyoCoche.Text);
 								enC.marca.companyia = MarcaCoche.Text;
+								if (!MarcaCoche.Text.Equals(MarcaCocheList.SelectedValue))
+                                {
+									enC.marca.companyia = MarcaCocheList.SelectedValue;
+									MarcaCoche.Text = MarcaCocheList.SelectedValue;
+								}
 								enC.tipo.categoria = TipoCoche.Text;
+                                if (!TipoCoche.Text.Equals(TipoCocheList.SelectedValue))
+                                {
+									enC.tipo.categoria = MarcaCocheList.SelectedValue;
+									TipoCoche.Text = MarcaCocheList.SelectedValue;
+								}
 								enA.coche = enC;
                                 if (enA.updateAnuncio())
                                 {
@@ -291,6 +319,11 @@ namespace UserInterface
 								enP.habitaciones = int.Parse(Ndorm.Text);
 								enP.numCatastral = Catastral.Text;
 								enP.tipo.tipo = TipoPropiedad.Text;
+                                if (!TipoPropiedad.Text.Equals(TipoPropiedadList.SelectedValue))
+                                {
+									enP.tipo.tipo = TipoPropiedadList.SelectedValue;
+									TipoPropiedad.Text = TipoPropiedadList.SelectedValue;
+								}
                                 if (enA.updateAnuncio())
                                 {
 									AnuncioGridView.DataBind();
@@ -364,26 +397,31 @@ namespace UserInterface
 		{
 			try
 			{
-				offAnuncio();
-				switch (CategoriaAnuncio.Text)
+				aEng.id = int.Parse(IdAnuncio.Text);
+				if (aEng.readAnuncio())
 				{
-					case "Coche":
-						MarcaCoche.Text = "?"; //enA.coche.marca.?
-						TipoCoche.Text = aEng.coche.tipo.categoria;
-						AnyoCoche.Text = aEng.coche.anyo.ToString();
-						offCoche();
-						break;
-					case "Propiedad":
-						Superficie.Text = aEng.prop.superficie.ToString();
-						Ndorm.Text = aEng.prop.habitaciones.ToString();
-						Nbanyo.Text = aEng.prop.banyos.ToString();
-						Catastral.Text = aEng.prop.numCatastral;
-						TipoPropiedad.Text = aEng.prop.tipo.tipo;
-						offPropiedad();
-						break;
-					default:
-						Label_Estado.Text = "Error INESPERADO: categoria desconocida";
-						break;
+					switch (aEng.categoria)
+					{
+						case "Coche":
+							MarcaCoche.Text = "?"; //enA.coche.marca.?
+							TipoCoche.Text = aEng.coche.tipo.categoria;
+							AnyoCoche.Text = aEng.coche.anyo.ToString();
+							offCoche();
+							offAnuncio();
+							break;
+						case "Propiedad":
+							Superficie.Text = aEng.prop.superficie.ToString();
+							Ndorm.Text = aEng.prop.habitaciones.ToString();
+							Nbanyo.Text = aEng.prop.banyos.ToString();
+							Catastral.Text = aEng.prop.numCatastral;
+							TipoPropiedad.Text = aEng.prop.tipo.tipo;
+							offPropiedad();
+							offAnuncio();
+							break;
+						default:
+							Label_Estado.Text = "Error INESPERADO: categoria desconocida";
+							break;
+					}
 				}
 			}
             catch (Exception)
@@ -425,9 +463,9 @@ namespace UserInterface
 				if (enA.readAnuncio())
 				{
 					Descripcion.Text = enA.descripcion;
-					aEng = enA;
-					aEng.id = enA.id;
-					
+
+					Localidad.Text = enA.localidad.localidad;
+					PrecioAnuncio.Text = enA.precio.ToString();
 					switch (CategoriaAnuncio.Text)
 					{
 						case "Coche":
@@ -453,7 +491,6 @@ namespace UserInterface
 					}
 					FotoUpdatePanel.Visible = true;
 					UpdatePanelAnuncio.Visible = true;
-					ImageModButtons2.Visible = true;
 				}
                 else
                 {
