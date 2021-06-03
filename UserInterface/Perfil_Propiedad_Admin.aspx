@@ -22,7 +22,7 @@
 										<asp:TableCell>
 											<asp:TextBox ID="Tipo" runat="server"></asp:TextBox>
 											<asp:RequiredFieldValidator ID="TipoValidE" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-											<asp:RegularExpressionValidator ID="TipoValidR" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
+											<asp:RegularExpressionValidator ID="TipoValidR" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[A-Z][a-z]+(([\s][A-Z]?[a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
 								
 										</asp:TableCell>
 									</asp:TableRow>
@@ -33,7 +33,7 @@
 										<asp:TableCell>
 											<asp:TextBox ID="TextBoxNewTipo" runat="server"></asp:TextBox>
 											<asp:RequiredFieldValidator ID="newTipoValid1" EnableClientScript="false" runat="server" ControlToValidate="TextBoxNewTipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-											<asp:RegularExpressionValidator ID="newTipoValid2" EnableClientScript="false" ControlToValidate="TextBoxNewTipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
+											<asp:RegularExpressionValidator ID="newTipoValid2" EnableClientScript="false" ControlToValidate="TextBoxNewTipo" ValidationExpression="[A-Z][a-z]+(([\s][A-Z]?[a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
 								
 										</asp:TableCell>
 									</asp:TableRow>
