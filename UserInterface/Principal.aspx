@@ -100,8 +100,14 @@
                    
                 </asp:ListView>
                 
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand=
+                    "SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto 
+                    WHERE (Anuncio.categoria = 'Propiedad') AND ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) 
+                    AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand=
+                    "SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto 
+                    WHERE (Anuncio.categoria = 'Propiedad') AND ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) 
+                    AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource></asp:SqlDataSource>
             <br />
                                             
             
@@ -158,8 +164,14 @@
                    
                 </asp:ListView>
                 
-                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
-                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand=
+                    "SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto 
+                    WHERE (Anuncio.categoria = 'Coche') AND ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) 
+                    AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand=
+                    "SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto 
+                    WHERE (Anuncio.categoria = 'Coche') AND ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) 
+                    AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource></asp:SqlDataSource>
             <br />
                                             
             
