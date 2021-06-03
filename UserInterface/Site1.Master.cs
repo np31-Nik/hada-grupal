@@ -26,25 +26,25 @@ namespace UserInterface
             switch (e.Item.Value) 
             {
                 case "Inicio":
-                    Response.Redirect("~/Principal.aspx");
+                    Response.Redirect("~/Principal.aspx",false);
                     return;
                 case "Coches":
-                    Response.Redirect("~/Busqueda.aspx?tipo=coches");
+                    Response.Redirect("~/Busqueda.aspx?tipo=coches", false);
                     return;
                 case "Propiedades":
-                    Response.Redirect("~/Busqueda.aspx?tipo=propiedades");
+                    Response.Redirect("~/Busqueda.aspx?tipo=propiedades", false);
                     return;
                 case "Publicar":
-                    Response.Redirect("~/Publicar.aspx");
+                    Response.Redirect("~/Publicar.aspx", false);
                     return;
                 case "Perfil":
                     if (texto == "Perfil")
                     {
-                        Response.Redirect("~/Perfil.aspx");
+                        Response.Redirect("~/Perfil.aspx", false);
                     }
                     else
                     {
-                        Response.Redirect("~/Registros.aspx");
+                        Response.Redirect("~/Registros.aspx", false);
                     }
                     
                     return;
@@ -53,7 +53,7 @@ namespace UserInterface
 
         protected void LogoClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/Principal.aspx");
+            Response.Redirect("~/Principal.aspx", false);
         }
     }
 }

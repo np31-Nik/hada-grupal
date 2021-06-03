@@ -59,7 +59,7 @@ namespace UserInterface
             {
                 
             }
-            Response.Redirect("Principal.aspx");
+            Response.Redirect("Principal.aspx", false);
         }
 
 
@@ -69,7 +69,7 @@ namespace UserInterface
             string nombre = NombreUsuario.Text;
             if (nombre != "")
             {
-                if (usuario.readUsuario(nombre))
+                if (usuario.readUsuario())
                 {
                     args.IsValid = false;
                 }
@@ -109,7 +109,7 @@ namespace UserInterface
             string dniAuxiliar = nif.Text;
             if (dniAuxiliar != "")
             {
-                if (usuario.readUsuario(dniAuxiliar))
+                if (usuario.readUsuario())
                 {
                     args.IsValid = false;
                 }
