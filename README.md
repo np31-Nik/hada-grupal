@@ -92,11 +92,12 @@ ENTipoCoche (Juan Ramon): Se almacena el tipo de coche (familiar/furgoneta...).
 
 
 ● Esquema E-R de la BD:
+
 Se encuentra en el directorio raíz con nombre 'EER.png'.
 
 
 
-----Entrega Final----
+--------------------Entrega Final--------------------
 
 
 
@@ -127,4 +128,20 @@ Se encuentra en el directorio raíz con nombre 'EER.png'.
 --(Como usuario premium): NIF: Y1234567A , Contraseña: password123
 
 --(Como usuario normal): NIF: Y4441167L , Contraseña: password123
+
+
+
+● Instrucciones de instalacion:
+
+--Descargar e instalar el AJAX Control Toolkit de esta pagina https://www.devexpress.com/products/ajax-control-toolkit/   (Debes tener instalado Visual Studio 2019 primero)
+
+--Descargar y descomprimir el archivo 'hada-grupal-zip' que se encuentra en la carpeta raiz / EntregaFinal, luego ejecutar la solucion 'hada-grupal.sln' con Visual Studio 2019, y ejecutarlo con IIS.
+
+
+
+● Ubicacion de la presentacion y archivo comprimido:
+
+--Carpeta raiz / EntregaFinal / Presentacion HADA.pptx
+
+--Carpeta raiz / EntregaFinal / hada-grupal.zip
 
