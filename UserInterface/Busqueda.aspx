@@ -43,12 +43,12 @@
                                 <br />
                                 <br />
                                 <asp:Label runat="server" Text="Precio desde: " Style="float: left"></asp:Label>
-                                <asp:TextBox runat="server" ID="PRECIO_DESDE" Style="float: right"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="PRECIO_DESDE" Style="float: right" Width="100px"></asp:TextBox>
                                 <asp:RangeValidator runat="server" ControlToValidate="PRECIO_DESDE" ErrorMessage="'Precio desde' incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" Style="float: right">!</asp:RangeValidator>
                                 <br />
                                 <br />
                                 <asp:Label runat="server" Text="Precio hasta: " Style="float: left"></asp:Label>
-                                <asp:TextBox runat="server" ID="PRECIO_HASTA" Style="float: right"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="PRECIO_HASTA" Style="float: right" Width="100px"></asp:TextBox>
                                 <asp:RangeValidator runat="server" ControlToValidate="PRECIO_HASTA" ErrorMessage="'Precio hasta' incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" Style="float: right">!</asp:RangeValidator>
                                 <br />
                                 <br />
@@ -84,13 +84,13 @@
                                     <br />
                                     <br />
                                     <asp:Label runat="server" Text="Dormitorios: " Style="float: left"></asp:Label>
-                                    <asp:TextBox runat="server" ID="DORMITORIOS" Style="float: right"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="DORMITORIOS" Style="float: right" Width="100px"></asp:TextBox>
                                     <asp:RangeValidator runat="server" ControlToValidate="DORMITORIOS" ErrorMessage="Número de dormitorios incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" Style="float: right">!</asp:RangeValidator>
 
             <br />
             <br />
             <asp:Label runat="server" Text="Baños: " style="float:left"></asp:Label>
-            <asp:TextBox runat="server" ID="BANYOS" style="float:right"></asp:TextBox>
+            <asp:TextBox runat="server" ID="BANYOS" style="float:right" Width="100px"></asp:TextBox>
             <asp:RangeValidator runat="server" ControlToValidate="BANYOS" ErrorMessage="Número de baños incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" style="float:right">!</asp:RangeValidator>
         </div>
         <br />

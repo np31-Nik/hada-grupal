@@ -7,22 +7,28 @@
 
     <link rel="stylesheet" type="text/css" href="css/MargenLupa.css" />
     <div style="background-color: #151719; color:white; padding:10px; text-align:center;">
-        Referencia: <asp:TextBox ID="ref_id" runat="server" Height="25px" Width="200px" />
+        <asp:UpdatePanel runat="server" UpdateMode="Always">
+            <ContentTemplate>
+                Referencia: <asp:TextBox ID="ref_id" runat="server" Height="25px" Width="200px" />
         
         <asp:DropDownList runat="server" ID="CasaoCoche" AutoPostBack="True" Height="25px" Width="175px">
-            <asp:ListItem Selected="True" Value="Propiedad"> Propiedad </asp:ListItem>
-            <asp:ListItem Value="Coche"> Coche </asp:ListItem>
+            <asp:ListItem Selected="True" Value="propiedades"> Propiedades </asp:ListItem>
+            <asp:ListItem Value="coches"> Coches </asp:ListItem>
         </asp:DropDownList>
 
-        <asp:DropDownList runat="server" ID="ALQoVENT" AutoPostBack="True" Height="25px" Width="175px">
+        <asp:DropDownList runat="server" ID="ALQoVENT" AutoPostBack="True" Height="25px" Width="175px" DataSourceID="SqlDataSource7" DataTextField="tipo" DataValueField="tipo">
             <asp:ListItem Selected="True" Value="Alquiler"> Alquiler </asp:ListItem>
             <asp:ListItem Value="Venta"> Venta </asp:ListItem>
         </asp:DropDownList>
         
-        <asp:DropDownList runat="server" ID="localidades" AutoPostBack="True" Height="25px" Width="175px">
+        <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoAnuncio]"></asp:SqlDataSource>
+        
+        <asp:DropDownList runat="server" ID="localidades" AutoPostBack="True" Height="25px" Width="175px" DataSourceID="SqlDataSource6" DataTextField="localidad" DataValueField="localidad">
             <asp:ListItem Selected="True" Value="Localidad"> Localidad </asp:ListItem>
             <asp:ListItem Value="Alicante"> Alicante </asp:ListItem>
         </asp:DropDownList>
+
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [localidad] FROM [Localidad]"></asp:SqlDataSource>
 
         Precio Mínimo: <asp:TextBox ID="BoxNumeros" runat="server" Height="25px" Width="175px" />
            
@@ -30,6 +36,9 @@
 
         <asp:ImageButton ID="LupaBuscar" runat="server" ImageUrl="~/imagenes/455-4559731_icono-de-lupa-para-legal-design-thinking-lupa.png"  
         Width="30px" ImageAlign="Middle" Height="30px" CssClass="MargenLupa" OnClick="LupaBuscar_Click"/>
+        
+            </ContentTemplate>
+        </asp:UpdatePanel>
         
     </div>
     <div style="font-size:15px; text-align:center; font-family:'sans-serif';">
