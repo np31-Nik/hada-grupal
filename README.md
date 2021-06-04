@@ -48,7 +48,7 @@ ENComentario (Nikita): Se almacena y se recogen los comentarios de los anuncios.
 
 ENUsuario (Robert): Se registran los usuarios y se verifican al iniciar sesion, tambien se verifica si es admin.
 
-ENHipoteca (Juan Carlos): Se almacena la informacion sobre la solicitud de hipoteca.
+ENHipoteca (Juan Carlos): Se obtiene la informacion de las hipotecas disponibles.
 
 
 ● Parte privada: 
