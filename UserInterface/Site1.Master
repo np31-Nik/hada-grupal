@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 
 <html>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -13,7 +15,7 @@
     <form id="form1" runat="server">
         <div>
             <p align="center">
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/imagenes/logo.png" ImageAlign="Middle" Height="80px" OnClick="LogoClick"/><br />
+                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/imagenes/logo.png" ImageAlign="Middle" Height="80px" OnClick="LogoClick" CausesValidation="False" /><br />
             </p>
 
             <asp:menu ID="menu" runat="server" Orientation="Horizontal" Width="100%" RenderingMode="Table" style="text-align:center;" OnMenuItemClick="menu_click">
@@ -25,7 +27,7 @@
                     <asp:MenuItem Text="Coches" Value="Coches" ></asp:MenuItem>
                     <asp:MenuItem Text="Propiedades" Value="Propiedades" ></asp:MenuItem>     
                     <asp:MenuItem Text="Publicar" Value="Publicar"></asp:MenuItem>
-                    <asp:MenuItem Text="Iniciar Sesion" Value="Perfil" ></asp:MenuItem>
+                    <asp:MenuItem Text="Registrarse" Value="Perfil" ></asp:MenuItem>
                 </items>
             </asp:menu>
 
@@ -40,6 +42,7 @@
             
         </div>
     </form>
+    <br />
     <div style="background-color: #151719; padding:20px" width: 100%;" align="center">
         <footer>
             <img src="imagenes/kisspng-computer-icons-house-home-desktop-wallpaper-clip-a-home-icon-5acbedfc7b2e07.3858102315233141725046.jpg" width="30" height="30" />
@@ -48,7 +51,7 @@
                 <a href="#arriba" style="color:white">Volver Arriba</a>
                 <a name="abajo"></a>
                 <br/>
-                Somos una empresa con muchos años de experiencia en el mundo de las propiedades inmbiliarias y vehículos.
+                Somos una empresa con muchos años de experiencia en el mundo de las propiedades inmobiliarias y vehículos.
                 <br/>
                 contacto: <a href="mailto:deep@gmail.com" style="color:white">deep@gmail.com</a>
                 <br/>
@@ -56,5 +59,8 @@
             </font>
         </footer>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57B
 </body>
 </html>

@@ -100,11 +100,11 @@ namespace library
             try
             {
                 string comando = "UPDATE [dbo].[Propiedad] SET " +
-               "tipo= '" + en.tipo + "' ," +
+               "tipo= '" + en.tipo.tipo + "' ," +
                "dorm= '" + en.habitaciones + "' ," +
-               "numCatastral=" + en.numCatastral + "' ," +
-               "superficie=" + en.superficie + "' ," +
-               "bano=" + en.banyos + "' ," +
+               "numCatastral='" + en.numCatastral + "' ," +
+               "superficie='" + en.superficie + "' ," +
+               "bano='" + en.banyos + "'" +
                "WHERE anuncio = '" + en.id + "'";
                 conn = new SqlConnection(constring);
                 conn.Open();

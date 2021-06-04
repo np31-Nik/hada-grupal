@@ -12,18 +12,18 @@
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CommandField ShowSelectButton="True"></asp:CommandField>
-                                <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                                <asp:BoundField DataField="titulo" HeaderText="titulo" SortExpression="titulo" />
-                                <asp:BoundField DataField="tipo" HeaderText="tipo" SortExpression="tipo" />
-                                <asp:BoundField DataField="categoria" HeaderText="categoria" SortExpression="categoria" />
-                                <asp:BoundField DataField="precio" HeaderText="precio" SortExpression="precio" />
-                                <asp:BoundField DataField="localidad" HeaderText="localidad" SortExpression="localidad" />
+                                <asp:BoundField DataField="id" ItemStyle-CssClass="itemStyle2" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                                <asp:BoundField DataField="titulo" ItemStyle-CssClass="itemStyle2" HeaderText="titulo" SortExpression="titulo" />
+                                <asp:BoundField DataField="tipo" ItemStyle-CssClass="itemStyle2" HeaderText="tipo" SortExpression="tipo" />
+                                <asp:BoundField DataField="categoria" ItemStyle-CssClass="itemStyle2" HeaderText="categoria" SortExpression="categoria" />
+                                <asp:BoundField DataField="precio" ItemStyle-CssClass="itemStyle2" HeaderText="precio" SortExpression="precio" />
+                                <asp:BoundField DataField="localidad" ItemStyle-CssClass="itemStyle2" HeaderText="localidad" SortExpression="localidad" />
                             </Columns>
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle HorizontalAlign="Center" BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                             <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                            <RowStyle HorizontalAlign="Center" BackColor="#F7F6F3" ForeColor="#333333" />
                             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
                             <SortedAscendingCellStyle BackColor="#E9E7E2" />
                             <SortedAscendingHeaderStyle BackColor="#506C8C" />
@@ -277,8 +277,8 @@
                                                     <asp:RegularExpressionValidator ID="ImageValid"
                                                         EnableClientScript="false"
                                                         runat="server" ControlToValidate="ImageUpload"
-                                                        ErrorMessage="Only .png .jpeg .jpg" ForeColor="Red"
-                                                        ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.jpeg|.JPEG|.png|.PNG|.JPG|.jpg|.bitmap|.BITMAP)$"
+                                                        ErrorMessage="Only .jpg|.JPG|.jpeg|.JPEG|.png|.PNG" ForeColor="Red"
+                                                        ValidationExpression="([a-zA-Z0-9\s_\\.\-:()])+(.jpg|.JPG|.jpeg|.JPEG|.png|.PNG)$"
                                                         SetFocusOnError="true">
                                                     </asp:RegularExpressionValidator>
                                                 </asp:TableCell>

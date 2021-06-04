@@ -22,7 +22,7 @@
 											<asp:TableCell>
 												<asp:TextBox ID="Tipo" runat="server"></asp:TextBox>
 												<asp:RequiredFieldValidator ID="TipoValid1" ValidationGroup="TipoA" EnableClientScript="false" runat="server" ControlToValidate="Tipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-												<asp:RegularExpressionValidator ID="TipoValid2" ValidationGroup="TipoA" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
+												<asp:RegularExpressionValidator ID="TipoValid2" ValidationGroup="TipoA" EnableClientScript="false" ControlToValidate="Tipo" ValidationExpression="[A-Z][a-z]+(([\s][A-Z]?[a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>
 											</asp:TableCell>
 										</asp:TableRow>
 										<asp:TableRow ID="HidenRow" Visible="false">
@@ -32,7 +32,7 @@
 											<asp:TableCell>
 												<asp:TextBox ID="TextBoxNewTipo" runat="server"></asp:TextBox>
 												<asp:RequiredFieldValidator ID="newTipoValid1" ValidationGroup="TipoA" EnableClientScript="false" runat="server" ControlToValidate="TextBoxNewTipo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-												<asp:RegularExpressionValidator ID="newTipoValid2" ValidationGroup="TipoA" EnableClientScript="false" ControlToValidate="TextBoxNewTipo" ValidationExpression="[A-Z][a-z]+(([\s][a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>					
+												<asp:RegularExpressionValidator ID="newTipoValid2" ValidationGroup="TipoA" EnableClientScript="false" ControlToValidate="TextBoxNewTipo" ValidationExpression="[A-Z][a-z]+(([\s][A-Z]?[a-z]+))?" runat="server" ErrorMessage="ej: Tipo o Tipo tipo" ForeColor="Red"></asp:RegularExpressionValidator>					
 											</asp:TableCell>
 										</asp:TableRow>
 									</asp:Table>
@@ -72,7 +72,7 @@
 										</Columns>
 										<EditRowStyle BackColor="#999999" />
 										<FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-										<HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+										<HeaderStyle HorizontalAlign="Center" BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
 										<PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
 										<RowStyle HorizontalAlign="Center" BackColor="#F7F6F3" ForeColor="#333333" />
 										<SelectedRowStyle  BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
@@ -165,7 +165,7 @@
 										</Columns>
 										<EditRowStyle BackColor="#999999" />
 										<FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-										<HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+										<HeaderStyle HorizontalAlign="Center" BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
 										<PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
 										<RowStyle HorizontalAlign="Center" BackColor="#F7F6F3" ForeColor="#333333" />
 										<SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />

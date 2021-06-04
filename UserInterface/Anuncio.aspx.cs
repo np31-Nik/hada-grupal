@@ -17,7 +17,7 @@ namespace UserInterface
             {
                 if (Request.QueryString["anuncio_id"] == null)
                 {
-                    //Response.Redirect("~/Busqueda.aspx",false);
+                    Response.Redirect("~/Busqueda.aspx",false);
                 }
                 else
                 {
@@ -123,7 +123,6 @@ namespace UserInterface
 
             }
         }
-
         protected void Comentar(object sender, EventArgs e)
         {
             if (Session["nif"] != null && ComentarioUsuario.Text != "")
@@ -262,11 +261,13 @@ namespace UserInterface
 
                         break;
                 }
+            
                 DataSet ds = en.BusquedaAnuncios(cmd_A, cmd_B, tabla, ref success);
                 ListViewSimilares.DataSourceID = null;
                 ListViewSimilares.DataSource = ds;
                 ListViewSimilares.DataBind();
                 ListViewSimilares.DataSourceID = null;
+            
             }
         }
     }

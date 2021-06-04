@@ -244,7 +244,7 @@ namespace library
                 SqlConnection connection = null;
                 connection = new SqlConnection(constring);
                 connection.Open();
-                string query = "select * from [dbo].[Comentario] WHERE anuncio='"+anuncio+"'";
+                string query = "select * from [dbo].[Comentario], [dbo].[Usuario] WHERE anuncio='"+anuncio+"' AND Comentario.usuario = Usuario.nif";
 
                 SqlDataAdapter adp = new SqlDataAdapter(query, constring);
 

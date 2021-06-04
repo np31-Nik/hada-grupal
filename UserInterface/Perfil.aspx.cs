@@ -128,7 +128,7 @@ namespace UserInterface
                     if (us.readUsuario())
                     {
                         us.Contrasenya = newPassword.Text;
-                        if (us.updateUsuario())
+                        if (us.updatePasswordUsuario())
                         {
                             Session["nombre"] = us.Nombre;
                             Session["apellido"] = us.Apellido;
@@ -152,6 +152,9 @@ namespace UserInterface
                         UpdatePassword.Visible = false;
                         PasswordPanel.Visible = false;
                         newPasswordPanel.Visible = false;
+
+                        SessionOff.Visible = true;
+                        BorrarUser.Visible = true;
                         ModPerfil.Visible = true;
                     }
                     else
@@ -220,10 +223,7 @@ namespace UserInterface
                     us.Email = Emali.Text;
                     us.Telefono = Telefono.Text;
 
-                    if (Premium.Checked)
-                    {
-                        us.Premium = Premium.Checked;
-                    }
+                    us.Premium = Premium.Checked;
 
                     if (us.updateUsuario())
                     {
@@ -254,6 +254,8 @@ namespace UserInterface
                     Emali.Enabled = false;
                     Telefono.Enabled = false;
                     Premium.Enabled = false;
+                    SessionOff.Visible = true;
+                    BorrarUser.Visible = true;
                 }
                 else
                 {

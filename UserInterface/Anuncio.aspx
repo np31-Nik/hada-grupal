@@ -238,7 +238,7 @@
                             <ItemTemplate>
                                 <tr style="">
                                     <td>
-                                        <asp:Image ID="foto" runat="server" Height="600px" Width="1000px" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' />
+                                        <asp:Image ID="foto" runat="server" Height="500px" Width="800px" ImageUrl='<%#"data:Image/jpb;base64,"+Convert.ToBase64String((byte[])Eval("foto")) %>' />
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -315,7 +315,7 @@
                         <asp:Panel runat="server" CssClass="Comentario" id="PanelComentarioUsuario" Visible="false">
                             <asp:TextBox runat="server" ID="ComentarioUsuario" style="width:100%;height:100px" placeholder="Escribe tu comentario aqui..." textmode="MultiLine"></asp:TextBox>
                             <br />
-                            <asp:Button runat="server" ID="PublicarComentario" Text="Publicar comentario" OnClick="Comentar" />
+                            <asp:Button runat="server" ID="PublicarComentario" Text="Publicar comentario" OnClick="Comentar" UseSubmitBehavior="false"/>
                         </asp:Panel>
                         
                 
@@ -328,7 +328,7 @@
                         </EmptyDataTemplate>
                         <ItemTemplate>
                             <td runat="server" style="background-color:#DCDCDC;color: #000000;border:ridge;border-color:black">
-                            [<asp:Label ID="fechaLabel" runat="server" Text='<%# Eval("fecha","{0:dd/mm/yyyy}") %>' />]
+                            [<asp:Label ID="fechaLabel" runat="server" Text='<%# Eval("fecha","{0:dd/MM/yyyy}") %>' />]
                             <br />
                             [<asp:Label ID="usuarioLabel" runat="server" Text='<%# Eval("nombre") %>' />]
                             <br />
@@ -439,7 +439,7 @@
                 <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id))) AND (Anuncio.id &lt;&gt; @id) AND (Anuncio.categoria = @categoria) AND (Anuncio.tipo = @tipo) AND (Anuncio.localidad = @localidad)">
                     <SelectParameters>
                         <asp:QueryStringParameter Name="id" QueryStringField="anuncio_id" />
-                        <asp:ControlParameter ControlID="CATEGORIA" Name="categoria" PropertyName="Value" />
+                        <asp:ControlParameter ControlID="CATEGORIAH" Name="categoria" PropertyName="Value" />
                         <asp:ControlParameter ControlID="TIPO_ANUNCIO" Name="tipo" PropertyName="Value" />
                         <asp:ControlParameter ControlID="LOCALIDADH" Name="localidad" PropertyName="Value" />
                     </SelectParameters>

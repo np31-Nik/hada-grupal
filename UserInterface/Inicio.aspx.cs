@@ -31,19 +31,25 @@ namespace UserInterface
 
                 usuario.Nif = nif.Text;
                 usuario.Contrasenya = seguridad.Text;
-                usuario.readUsuario();
-                Session["nif"] = usuario.Nif;
-                Session["nombre"] = usuario.Nombre;
-                Session["apellido"] = usuario.Apellido;
-                Session["email"] = usuario.Email;
-                Session["telefono"] = usuario.Telefono;
-                Session["premium"] = usuario.Premium;
-                Session["admin"] = usuario.Admin;
+                if (usuario.readUsuario())
+                {
+                    mensaje.Visible = false;
 
+                    Session["nif"] = usuario.Nif;
+                    Session["nombre"] = usuario.Nombre;
+                    Session["apellido"] = usuario.Apellido;
+                    Session["email"] = usuario.Email;
+                    Session["telefono"] = usuario.Telefono;
+                    Session["premium"] = usuario.Premium;
+                    Session["admin"] = usuario.Admin;
 
-
-
-                Response.Redirect("~/Perfil.aspx", false);
+                    Response.Redirect("~/Perfil.aspx", false);
+                }
+                else
+                {
+                    mensaje.Visible = true;
+                }
+                
             }
         }
 

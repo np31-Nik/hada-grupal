@@ -15,7 +15,6 @@ namespace UserInterface
 		{
             if (!IsPostBack)
             {
-				//Session["nif"] = "Y4441167L";
 				if (Session["nif"] == null)
 				{
 					Response.Redirect("~/Inicio.aspx", false);
@@ -255,19 +254,20 @@ namespace UserInterface
 					enA.id = int.Parse(IdAnuncio.Text);
 					enA.titulo = Titulo.Text;
 					enA.categoria = CategoriaAnuncio.Text;
-					enA.tipo.Tipo = TipoAnuncio.Text;
-					if(!TipoAnuncio.Text.Equals(TipoAnuncioList.SelectedValue))
+					enA.precio = int.Parse(PrecioAnuncio.Text);
+					enA.tipo.Tipo = TipoAnuncioList.SelectedItem.Text;
+					/*if(!TipoAnuncio.Text.Equals(TipoAnuncioList.SelectedValue))
                     {
 						enA.tipo.Tipo = TipoAnuncioList.SelectedValue;
 						TipoAnuncio.Text = TipoAnuncioList.SelectedValue;
-					}
+					}*/
 					enA.descripcion = Descripcion.Text;
 					enA.localidad.localidad = Localidad.Text;
-                    if (!Localidad.Text.Equals(LocalidadList.SelectedValue))
+                    /*if (!Localidad.Text.Equals(LocalidadList.SelectedValue))
                     {
 						enA.localidad.localidad = LocalidadList.SelectedValue;
 						Localidad.Text = LocalidadList.SelectedValue;
-					}
+					}*/
 
 					switch (CategoriaAnuncio.Text)
 					{
@@ -276,26 +276,27 @@ namespace UserInterface
 								MarcaCocheValid.IsValid && TipoCocheValid.IsValid)
 							{
 								ENCoche enC = new ENCoche();
+								enC.id = enA.id;
 								enC.anyo = int.Parse(AnyoCoche.Text);
 								enC.marca.companyia = MarcaCoche.Text;
-								if (!MarcaCoche.Text.Equals(MarcaCocheList.SelectedValue))
+								/*if (!MarcaCoche.Text.Equals(MarcaCocheList.SelectedValue))
                                 {
 									enC.marca.companyia = MarcaCocheList.SelectedValue;
 									MarcaCoche.Text = MarcaCocheList.SelectedValue;
-								}
+								}*/
 								enC.tipo.categoria = TipoCoche.Text;
-                                if (!TipoCoche.Text.Equals(TipoCocheList.SelectedValue))
+                                /*if (!TipoCoche.Text.Equals(TipoCocheList.SelectedValue))
                                 {
 									enC.tipo.categoria = MarcaCocheList.SelectedValue;
 									TipoCoche.Text = MarcaCocheList.SelectedValue;
-								}
+								}*/
 								enA.coche = enC;
-                                if (enA.updateAnuncio())
+								if (enA.updateAnuncio())
                                 {
 									AnuncioGridView.DataBind();
 									offCoche();
 									Label_Estado.Text = "Success";
-
+									offAnuncio();
 								}
 								else
                                 {
@@ -319,17 +320,18 @@ namespace UserInterface
 								enP.habitaciones = int.Parse(Ndorm.Text);
 								enP.numCatastral = Catastral.Text;
 								enP.tipo.tipo = TipoPropiedad.Text;
-                                if (!TipoPropiedad.Text.Equals(TipoPropiedadList.SelectedValue))
+								/*if (!TipoPropiedad.Text.Equals(TipoPropiedadList.SelectedValue))
                                 {
 									enP.tipo.tipo = TipoPropiedadList.SelectedValue;
 									TipoPropiedad.Text = TipoPropiedadList.SelectedValue;
-								}
+								}*/
+								enA.prop = enP;
                                 if (enA.updateAnuncio())
                                 {
 									AnuncioGridView.DataBind();
 									offPropiedad();
 									Label_Estado.Text = "Success";
-
+									offAnuncio();
 								}
 								else
                                 {
@@ -354,27 +356,38 @@ namespace UserInterface
 		}
 		protected void ModificarAnuncio_Click(object sender, EventArgs e)
 		{
+			LocalidadList.DataBind();
+			TipoAnuncioList.DataBind();
+
 			Titulo.Enabled = true;
 			Titulo.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 			Descripcion.Enabled = true;
 			Descripcion.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 			Localidad.Visible = false;
 			LocalidadList.Visible = true;
+			LocalidadList.Items.FindByValue(Localidad.Text).Selected = true;
 			TipoAnuncio.Visible = false;
 			TipoAnuncioList.Visible = true;
+			TipoAnuncioList.Items.FindByValue(TipoAnuncio.Text).Selected = true;
 			PrecioAnuncio.Enabled = true;
 			PrecioAnuncio.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 			switch (CategoriaAnuncio.Text)
 			{
 				case "Coche":
+					MarcaCocheList.DataBind();
+					TipoCocheList.DataBind();
+
 					TipoCoche.Visible = false;
 					TipoCocheList.Visible = true;
+					TipoCocheList.Items.FindByValue(TipoCoche.Text).Selected = true;
 					MarcaCoche.Visible = false;
 					MarcaCocheList.Visible = true;
+					MarcaCocheList.Items.FindByValue(MarcaCoche.Text).Selected = true;
 					AnyoCoche.Enabled = true;
 					AnyoCoche.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 					break;
 				case "Propiedad":
+					TipoPropiedadList.DataBind();
 					Superficie.Enabled = true;
 					Superficie.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 					Nbanyo.Enabled = true;
@@ -384,6 +397,7 @@ namespace UserInterface
 					Catastral.Enabled = true;
 					Catastral.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), "Inset");
 					TipoPropiedadList.Visible = true;
+					TipoPropiedadList.Items.FindByValue(TipoPropiedad.Text).Selected = true;
 					TipoPropiedad.Visible = false;
 					break;
 				default:
@@ -403,7 +417,7 @@ namespace UserInterface
 					switch (aEng.categoria)
 					{
 						case "Coche":
-							MarcaCoche.Text = "?"; //enA.coche.marca.?
+							MarcaCoche.Text = aEng.coche.marca.companyia; //enA.coche.marca.?
 							TipoCoche.Text = aEng.coche.tipo.categoria;
 							AnyoCoche.Text = aEng.coche.anyo.ToString();
 							offCoche();
@@ -469,7 +483,7 @@ namespace UserInterface
 					switch (CategoriaAnuncio.Text)
 					{
 						case "Coche":
-							MarcaCoche.Text = "?"; //enA.coche.marca.?
+							MarcaCoche.Text = enA.coche.marca.companyia; //enA.coche.marca.?
 							TipoCoche.Text = enA.coche.tipo.categoria;
 							AnyoCoche.Text = enA.coche.anyo.ToString();
 							CocheTable.Visible = true;

@@ -12,13 +12,13 @@ namespace UserInterface
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            /*if (!IsPostBack)
+            if (!IsPostBack)
             {
 				if (Session["nif"] == null || !bool.Parse(Session["admin"].ToString()))
 				{
 					Response.Redirect("~/Inicio.aspx");
 				}
-			}*/
+			}
 		}
 
 		protected void InsertarMarca_Click(object sender, EventArgs e)
@@ -94,7 +94,7 @@ namespace UserInterface
 					
 					ENMarcaCoche en = new ENMarcaCoche();
 					en.companyia = Marca.Text;
-					//en.NewMarca = newMarca.Text;
+					en.NewTipo = newMarca.Text;
 					if (en.updateMarcaCoche())
 					{
 						Label_Estado.Text = "Success";
@@ -189,9 +189,10 @@ namespace UserInterface
 				{
 					ENTipoCoche en = new ENTipoCoche();
 					en.categoria = Tipo.Text;
+					en.NewTipo = TextBoxNewTipo.Text;
 					if (en.updateTipoCoche(TextBoxNewTipo.Text))
 					{
-						Label_Estado.Text = "Success";
+						Label_Estado2.Text = "Success";
 						GridViewTipoCoche.DataBind();
 						HidenRow2.Visible = false;
 						modRow2.Visible = false;

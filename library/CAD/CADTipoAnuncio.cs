@@ -81,30 +81,5 @@ namespace library
             string comando = "Select tipo from TipoAnuncio where tipo='" + en.Tipo + "'";
             return obtainComandExec(comando, en);
         }
-       /* public bool listarTipoAnuncio(DataSet d)
-        {
-
-            return d;
-        }*/
-        /*
-        public bool readFirstTipoAnuncio(ENTipoAnuncio en)
-        {
-            string comando = "Select __ from  ";
-            return obtainComandExec(comando, en);
-        }
-
-        public bool readNextTipoAnuncio(ENTipoAnuncio en)
-        {
-            string comando = "Select __ from  ";
-            return obtainComandExec(comando, en);
-        }
-
-        public bool readPrevTipoAnuncio(ENTipoAnuncio en)
-        {
-            string comando = "Select __ from ";
-            return obtainComandExec(comando, en);
-        }*/
-
-
     }
 }

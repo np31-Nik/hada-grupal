@@ -184,11 +184,13 @@ namespace library
             try
             {
                 string comando = "UPDATE [dbo].[Anuncio] SET " +
+                "tipo= '" + en.tipo.Tipo + "' ,"+
                 "titulo= '" + en.titulo + "' ," +
                 "precio= '" + en.precio + "' ," +
                 "localidad= '" + en.localidad.localidad + "' ," +
-                "descripcion= '" + en.descripcion + "' ," +
-                "WHERE id = '" + en.id + "'";
+                "descripcion= '" + en.descripcion + "' ,"+
+                "categoria= '"+en.categoria+"'"+
+                "WHERE id = '" + en.id + "';";
 
                 conn = new SqlConnection(constring);
                 conn.Open();

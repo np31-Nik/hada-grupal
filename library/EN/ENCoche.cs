@@ -72,10 +72,7 @@
         public bool updateCoche(ENCoche en)
         {
             CADCoche coche = new CADCoche();
-            if (readCoche(en)) 
-                return coche.updateCoche(this);
-            return false;
-
+            return coche.updateCoche(this);
         }
 
     }

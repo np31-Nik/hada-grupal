@@ -14,7 +14,17 @@ namespace UserInterface
         protected void Page_Load(object sender, EventArgs e)
         {
             mensaje.Text = "";
-            vehiculo.Visible = true;
+            if (RadioButtonList1.SelectedItem.Text == "Vehiculo")
+            {
+                vehiculo.Visible = true;
+                propiedad.Visible = false;
+            }
+            else if (RadioButtonList1.SelectedItem.Text == "Propiedad")
+            {
+                precioProp.Text = "Precio: ";
+                vehiculo.Visible = false;
+                propiedad.Visible = true;
+            }
             Page.Form.Attributes.Add("enctype", "multipart/form-data");
             if (Session["nif"] == null)
             {
@@ -42,11 +52,11 @@ namespace UserInterface
         {
             if (tipoAnuncio.SelectedItem.Text == "Alquiler")
             {
-                precioProp.Text = "Precio por mes:";
+                precioProp.Text = "Precio:";
             }
             else if (tipoAnuncio.SelectedItem.Text == "Venta")
             {
-                precioProp.Text = "Precio de venta:";
+                precioProp.Text = "Precio:";
             }
         }
 
@@ -157,7 +167,7 @@ namespace UserInterface
                             }
                             else
                             {
-                                mensaje.Text = "El anuncio no se ha creado. Intentalo mas tarde.";
+                                mensaje.Text = "Error: El anuncio no se ha podido crear.";
                             }
                         }
 
@@ -219,7 +229,7 @@ namespace UserInterface
                             }
                             else
                             {
-                                mensaje.Text = "El anuncio no se ha creado. Intentalo mas tarde.";
+                                mensaje.Text = "Error: El anuncio no se ha podido crear.";
                             }
                         }
                     }

@@ -6,7 +6,7 @@
     <div id="contentZone">
         <div  id="sidebar">
              <ul>
-                <li style="background:#F8C274; margin-right:10px; margin-left:10px; color:#151719">
+                <li style="background:#F8C274; margin-right:30px;color:#151719">
                     <h2>MENU</h2>
                 </li>
             </ul>

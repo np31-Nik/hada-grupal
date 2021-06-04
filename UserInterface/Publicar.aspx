@@ -6,9 +6,9 @@
     <link rel="stylesheet" type="text/css" href="css/StyleSheet1.css">
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel runat="server" ID="UpdatePanelPublicar" UpdateMode="Conditional">
-        <Triggers>
+        <%--<Triggers>
             <asp:AsyncPostBackTrigger ControlID="RadioButtonList1" EventName="SelectedIndexChanged" />
-        </Triggers>
+        </Triggers>--%>
         <ContentTemplate>
             <div class="todoContenido">
 
@@ -196,8 +196,10 @@
         <br />
     </div>
     <div style="text-align: center;">
-        <asp:Button ID="publicar" runat="server" ValidationGroup="cargarimg" Text="Publicar" OnClick="PublicarClick" CausesValidation="true" />
-        <asp:Button ID="inicio" runat="server" Text="Inicio" OnClick="InicioClick" />
+        <asp:Button ID="publicar" runat="server" ValidationGroup="cargarimg" Text="Publicar" OnClick="PublicarClick" CausesValidation="true" Height="60px" Width="90px" style="font-size:20px" />
+        <asp:Button ID="inicio" runat="server" Text="Volver" OnClick="InicioClick" Height="60px" Width="90px" style="font-size:20px" />
+
+        <br />
 
     </div>
 

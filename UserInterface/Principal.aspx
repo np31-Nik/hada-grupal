@@ -7,22 +7,28 @@
 
     <link rel="stylesheet" type="text/css" href="css/MargenLupa.css" />
     <div style="background-color: #151719; color:white; padding:10px; text-align:center;">
-        Referencia: <asp:TextBox ID="ref_id" runat="server" Height="25px" Width="200px" />
+        <asp:UpdatePanel runat="server" UpdateMode="Always">
+            <ContentTemplate>
+                Referencia: <asp:TextBox ID="ref_id" runat="server" Height="25px" Width="200px" />
         
         <asp:DropDownList runat="server" ID="CasaoCoche" AutoPostBack="True" Height="25px" Width="175px">
-            <asp:ListItem Selected="True" Value="Propiedad"> Propiedad </asp:ListItem>
-            <asp:ListItem Value="Coche"> Coche </asp:ListItem>
+            <asp:ListItem Selected="True" Value="propiedades"> Propiedades </asp:ListItem>
+            <asp:ListItem Value="coches"> Coches </asp:ListItem>
         </asp:DropDownList>
 
-        <asp:DropDownList runat="server" ID="ALQoVENT" AutoPostBack="True" Height="25px" Width="175px">
+        <asp:DropDownList runat="server" ID="ALQoVENT" AutoPostBack="True" Height="25px" Width="175px" DataSourceID="SqlDataSource7" DataTextField="tipo" DataValueField="tipo">
             <asp:ListItem Selected="True" Value="Alquiler"> Alquiler </asp:ListItem>
             <asp:ListItem Value="Venta"> Venta </asp:ListItem>
         </asp:DropDownList>
         
-        <asp:DropDownList runat="server" ID="localidades" AutoPostBack="True" Height="25px" Width="175px">
+        <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoAnuncio]"></asp:SqlDataSource>
+        
+        <asp:DropDownList runat="server" ID="localidades" AutoPostBack="True" Height="25px" Width="175px" DataSourceID="SqlDataSource6" DataTextField="localidad" DataValueField="localidad">
             <asp:ListItem Selected="True" Value="Localidad"> Localidad </asp:ListItem>
             <asp:ListItem Value="Alicante"> Alicante </asp:ListItem>
         </asp:DropDownList>
+
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [localidad] FROM [Localidad]"></asp:SqlDataSource>
 
         Precio Mínimo: <asp:TextBox ID="BoxNumeros" runat="server" Height="25px" Width="175px" />
            
@@ -31,15 +37,11 @@
         <asp:ImageButton ID="LupaBuscar" runat="server" ImageUrl="~/imagenes/455-4559731_icono-de-lupa-para-legal-design-thinking-lupa.png"  
         Width="30px" ImageAlign="Middle" Height="30px" CssClass="MargenLupa" OnClick="LupaBuscar_Click"/>
         
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        
     </div>
     <div style="font-size:15px; text-align:center; font-family:'sans-serif';">
-        <br /><br /><br />
-
-        <p style="font-size:40px; text-align:center; font-family:'sans-serif'; background-color:#151719; color:white;">
-            <b>
-                Portada
-            </b>
-        </p>
 
         <p style="color:white; text-align:center; font-family:'sans-serif'; font-size:30px; background-color:#151719;">
             <b>
@@ -47,9 +49,8 @@
             </b>
         </p>
 
-        <br /><br /><br /><br /><br />
-    
         </div>
+                <asp:Label runat="server" Text="Propiedades" style="text-align:center;font-size:30px" Width="100%"></asp:Label>
 
         <div style="background-color:#ffffff;color:black;>
             <asp:UpdatePanel runat="server" UpdateMode="Always">
@@ -100,6 +101,7 @@
                    
                 </asp:ListView>
                 
+<<<<<<< HEAD
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand=
                     "SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto 
                     WHERE (Anuncio.categoria = 'Propiedad') AND ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) 
@@ -108,18 +110,23 @@
                     "SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto 
                     WHERE (Anuncio.categoria = 'Propiedad') AND ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) 
                     AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource></asp:SqlDataSource>
+=======
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id))) AND Anuncio.categoria='Propiedad'"></asp:SqlDataSource></asp:SqlDataSource>
+>>>>>>> develop
             <br />
                                             
             
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-        <br /><br /><br />
+                     <asp:Label runat="server" Text="Coches" style="text-align:center;font-size:30px" Width="100%"></asp:Label>
+
         <div style="background-color:#ffffff;color:black;>
             <asp:UpdatePanel runat="server" UpdateMode="Always">
                 <ContentTemplate>
 
-                    <asp:ListView ID="ListView2" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="4">
+                    <asp:ListView ID="ListView2" runat="server" DataSourceID="SqlDataSource5" GroupItemCount="4">
                    
                     <EmptyItemTemplate>
                 <td runat="server" />
@@ -164,6 +171,7 @@
                    
                 </asp:ListView>
                 
+<<<<<<< HEAD
                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand=
                     "SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto 
                     WHERE (Anuncio.categoria = 'Coche') AND ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) 
@@ -172,6 +180,12 @@
                     "SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto 
                     WHERE (Anuncio.categoria = 'Coche') AND ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) 
                     AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource></asp:SqlDataSource>
+=======
+                <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id))) AND Anuncio.categoria='Coche'"></asp:SqlDataSource>
+                
+                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio, Usuario CROSS JOIN Foto WHERE ((Anuncio.usuario = Usuario.nif) AND Usuario.premium = 1) AND (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource></asp:SqlDataSource>
+>>>>>>> develop
             <br />
                                             
             
@@ -179,7 +193,7 @@
             </asp:UpdatePanel>
         </div>
 
-        <br /><br /><br /><br /><br /><br /><br />
+        <br />
         
         <div style="font-size:20px; text-align:left; font-family:sans-serif; background-color:#151719; color:white; padding:20px;">
             
@@ -195,6 +209,4 @@
             de nuestro público y poder satisfacer con efectividad sus demandas. Ya saben, con deepweb, nuestras prioridades son su satisfacción.
             "Discreción, calidad, y precio justo", son los valores de nuestra empresa.
         </div>
-
-        <br /><br /><br /><br /><br />
 </asp:Content>
