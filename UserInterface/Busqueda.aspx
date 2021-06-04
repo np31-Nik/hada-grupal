@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Busqueda" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Busqueda.aspx.cs" Inherits="UserInterface.Busqueda" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -37,54 +38,54 @@
                             ErrorMessage="Elige un tipo de operacion" ControlToValidate="TIPO_OPERACION" Style="color:red;float:right;" ValidationGroup="Buscar"
                             EnableClientScript="false">*</asp:RequiredFieldValidator>
 
-                <asp:SqlDataSource ID="TipoAnuncio_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoAnuncio]"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="TipoAnuncio_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoAnuncio]"></asp:SqlDataSource>
 
-        <br />
-        <br />
-        <asp:Label runat="server" Text="Precio desde: " style="float:left"></asp:Label>
-        <asp:TextBox runat="server" ID="PRECIO_DESDE" style="float:right"></asp:TextBox>
-        <asp:RangeValidator runat="server" ControlToValidate="PRECIO_DESDE" ErrorMessage="'Precio desde' incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" style="float:right">!</asp:RangeValidator>
-        <br />
-        <br />
-        <asp:Label runat="server" Text="Precio hasta: " style="float:left"></asp:Label>
-        <asp:TextBox runat="server" ID="PRECIO_HASTA" style="float:right"></asp:TextBox>
-        <asp:RangeValidator runat="server" ControlToValidate="PRECIO_HASTA" ErrorMessage="'Precio hasta' incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" style="float:right">!</asp:RangeValidator>
-        <br />
-        <br />
-        <asp:Label runat="server" Text="Localidad: "  style="float:left;"></asp:Label>
-        <asp:DropDownList ID="LOCALIDAD" runat="server" style="float:right;" AppendDataBoundItems="True" Height="25px" Width="100px" DataSourceID="Localidad_db" DataTextField="localidad" DataValueField="localidad">
-                <asp:ListItem Text="Elige..." Value="" />   
-        </asp:DropDownList>
-                <asp:SqlDataSource ID="Localidad_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT * FROM [Localidad]"></asp:SqlDataSource>
-        <br />
-        <br />
+                                <br />
+                                <br />
+                                <asp:Label runat="server" Text="Precio desde: " Style="float: left"></asp:Label>
+                                <asp:TextBox runat="server" ID="PRECIO_DESDE" Style="float: right"></asp:TextBox>
+                                <asp:RangeValidator runat="server" ControlToValidate="PRECIO_DESDE" ErrorMessage="'Precio desde' incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" Style="float: right">!</asp:RangeValidator>
+                                <br />
+                                <br />
+                                <asp:Label runat="server" Text="Precio hasta: " Style="float: left"></asp:Label>
+                                <asp:TextBox runat="server" ID="PRECIO_HASTA" Style="float: right"></asp:TextBox>
+                                <asp:RangeValidator runat="server" ControlToValidate="PRECIO_HASTA" ErrorMessage="'Precio hasta' incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" Style="float: right">!</asp:RangeValidator>
+                                <br />
+                                <br />
+                                <asp:Label runat="server" Text="Localidad: " Style="float: left;"></asp:Label>
+                                <asp:DropDownList ID="LOCALIDAD" runat="server" Style="float: right;" AppendDataBoundItems="True" Height="25px" Width="100px" DataSourceID="Localidad_db" DataTextField="localidad" DataValueField="localidad">
+                                    <asp:ListItem Text="Elige..." Value="" />
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="Localidad_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT * FROM [Localidad]"></asp:SqlDataSource>
+                                <br />
+                                <br />
 
-        <div id="IF_COCHE" runat="server" visible="false">
-            <asp:Label runat="server" Text="Marca: "  style="float:left;"></asp:Label>
-            <asp:DropDownList ID="MARCA" runat="server" style="float:right;" AppendDataBoundItems="True" Height="25px" Width="100px" DataSourceID="Marca_db" DataTextField="marca" DataValueField="marca">
-                    <asp:ListItem Text="Elige..." Value="" />   
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="Marca_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [marca] FROM [MarcaCoche]"></asp:SqlDataSource>
-            <br />
-            <br />
-            <asp:Label runat="server" Text="Tipo de coche: "  style="float:left;"></asp:Label>
-            <asp:DropDownList ID="TIPO_COCHE" runat="server" style="float:right;" AppendDataBoundItems="True" Height="25px" Width="100px" DataSourceID="TipoCoche_db" DataTextField="tipo" DataValueField="tipo">
-                    <asp:ListItem Text="Elige..." Value="" />   
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="TipoCoche_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoCoche]"></asp:SqlDataSource>
-        </div>
-        
-        <div id="IF_PROPIEDAD" runat="server" visible="false">
-            <asp:Label runat="server" Text="Tipo de propiedad: "  style="float:left;"></asp:Label>
-            <asp:DropDownList ID="TIPO_PROPIEDAD" runat="server" style="float:right;" AppendDataBoundItems="True" Height="25px" Width="100px" DataSourceID="TipoPropiedad_db" DataTextField="tipo" DataValueField="tipo">
-                    <asp:ListItem Text="Elige..." Value="" />   
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="TipoPropiedad_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoPropiedad]"></asp:SqlDataSource>
-            <br />
-            <br />
-            <asp:Label runat="server" Text="Dormitorios: " style="float:left"></asp:Label>
-            <asp:TextBox runat="server" ID="DORMITORIOS" style="float:right"></asp:TextBox>
-            <asp:RangeValidator runat="server" ControlToValidate="DORMITORIOS" ErrorMessage="Número de dormitorios incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" style="float:right">!</asp:RangeValidator>
+                                <div id="IF_COCHE" runat="server" visible="false">
+                                    <asp:Label runat="server" Text="Marca: " Style="float: left;"></asp:Label>
+                                    <asp:DropDownList ID="MARCA" runat="server" Style="float: right;" AppendDataBoundItems="True" Height="25px" Width="100px" DataSourceID="Marca_db" DataTextField="marca" DataValueField="marca">
+                                        <asp:ListItem Text="Elige..." Value="" />
+                                    </asp:DropDownList>
+                                    <asp:SqlDataSource ID="Marca_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [marca] FROM [MarcaCoche]"></asp:SqlDataSource>
+                                    <br />
+                                    <br />
+                                    <asp:Label runat="server" Text="Tipo de coche: " Style="float: left;"></asp:Label>
+                                    <asp:DropDownList ID="TIPO_COCHE" runat="server" Style="float: right;" AppendDataBoundItems="True" Height="25px" Width="100px" DataSourceID="TipoCoche_db" DataTextField="tipo" DataValueField="tipo">
+                                        <asp:ListItem Text="Elige..." Value="" />
+                                    </asp:DropDownList>
+                                    <asp:SqlDataSource ID="TipoCoche_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoCoche]"></asp:SqlDataSource>
+                                </div>
+
+                                <div id="IF_PROPIEDAD" runat="server" visible="false">
+                                    <asp:Label runat="server" Text="Tipo de propiedad: " Style="float: left;"></asp:Label>
+                                    <asp:DropDownList ID="TIPO_PROPIEDAD" runat="server" Style="float: right;" AppendDataBoundItems="True" Height="25px" Width="100px" DataSourceID="TipoPropiedad_db" DataTextField="tipo" DataValueField="tipo">
+                                        <asp:ListItem Text="Elige..." Value="" />
+                                    </asp:DropDownList>
+                                    <asp:SqlDataSource ID="TipoPropiedad_db" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT [tipo] FROM [TipoPropiedad]"></asp:SqlDataSource>
+                                    <br />
+                                    <br />
+                                    <asp:Label runat="server" Text="Dormitorios: " Style="float: left"></asp:Label>
+                                    <asp:TextBox runat="server" ID="DORMITORIOS" Style="float: right"></asp:TextBox>
+                                    <asp:RangeValidator runat="server" ControlToValidate="DORMITORIOS" ErrorMessage="Número de dormitorios incorrecto." MaximumValue="999999999" MinimumValue="1" EnableClientScript="false" ForeColor="Red" ValidationGroup="Buscar" Style="float: right">!</asp:RangeValidator>
 
             <br />
             <br />
@@ -166,17 +167,17 @@
    </tr>
 </table>
 
-                    </LayoutTemplate>
-                   
-                </asp:ListView>
-                
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
-                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
-            <br />
-                                            
-            
-                </ContentTemplate>
-            </asp:UpdatePanel>
+                                    </LayoutTemplate>
+
+                                </asp:ListView>
+
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="DatosBusqueda" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConexion %>" SelectCommand="SELECT Anuncio.id, Anuncio.precio, Anuncio.tipo, Anuncio.localidad, Foto.foto FROM Anuncio CROSS JOIN Foto WHERE (Foto.id = (SELECT MIN(id) AS Expr1 FROM Foto AS Foto_1 WHERE (anuncio = Anuncio.id)))"></asp:SqlDataSource>
+                                <br />
+
+
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
 
                     <br />
         <br />
