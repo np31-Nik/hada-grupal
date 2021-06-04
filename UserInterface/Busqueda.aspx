@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <link rel="Stylesheet" type="text/css" href="css/Busqueda.css" />
                         <asp:ScriptManager ID="ScriptManager2" runat="server" />
-    <asp:Panel runat="server" Height="600px">
+    <asp:Panel runat="server" Height="900px">
     <div class="panelIzquierdo" style="float:left;background-color:#ffffff;color:black; width: 291px;">
         <asp:UpdatePanel ID="UpdatePanel_IZQ" runat="server" UpdateMode="Conditional">
             <Triggers>
@@ -184,7 +184,8 @@
 
         </div>
         <div style="text-align: center;background-color: #f2f2f2; font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
-                                <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1">
+            <br />
+                                <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1" PageSize="8">
                                     <Fields>
                                         <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
                                     </Fields>
